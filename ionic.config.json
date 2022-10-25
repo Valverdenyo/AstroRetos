@@ -1,0 +1,7 @@
+{
+  "name": "AstroRetos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
