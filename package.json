@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "npx compodoc -p tsconfig.doc.json -d documentacion -n \"Documentación de AstroRetos\" -o -s -w --language es-ES --theme postmark --hideGenerator"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +42,7 @@
     "@angular/compiler-cli": "^14.0.0",
     "@angular/language-service": "^14.0.0",
     "@capacitor/cli": "4.4.0",
+    "@compodoc/compodoc": "^1.1.19",
     "@ionic/angular-toolkit": "^6.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
