@@ -90,8 +90,44 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/HomePageRoutingModule.html" data-type="entity-link" >HomePageRoutingModule</a>
                             </li>
+                            <li class="link">
+                                <a href="modules/RetosPageModule.html" data-type="entity-link" >RetosPageModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-RetosPageModule-66a2c0ab9d01a1d17cdefd71915005a0580a83f15901686c523276055b6556ffaa06170c22790647973a0ed250cb776b9e9aa0d24508ddfeb64e75f72c265988"' : 'data-target="#xs-components-links-module-RetosPageModule-66a2c0ab9d01a1d17cdefd71915005a0580a83f15901686c523276055b6556ffaa06170c22790647973a0ed250cb776b9e9aa0d24508ddfeb64e75f72c265988"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Componentes</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-RetosPageModule-66a2c0ab9d01a1d17cdefd71915005a0580a83f15901686c523276055b6556ffaa06170c22790647973a0ed250cb776b9e9aa0d24508ddfeb64e75f72c265988"' :
+                                            'id="xs-components-links-module-RetosPageModule-66a2c0ab9d01a1d17cdefd71915005a0580a83f15901686c523276055b6556ffaa06170c22790647973a0ed250cb776b9e9aa0d24508ddfeb64e75f72c265988"' }>
+                                            <li class="link">
+                                                <a href="components/RetosPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RetosPage</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/RetosPageRoutingModule.html" data-type="entity-link" >RetosPageRoutingModule</a>
+                            </li>
                 </ul>
                 </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#components-links"' :
+                            'data-target="#xs-components-links"' }>
+                            <span class="icon ion-md-cog"></span>
+                            <span>Componentes</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
+                            <li class="link">
+                                <a href="components/HomePage.html" data-type="entity-link" >HomePage</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/RetosPage.html" data-type="entity-link" >RetosPage</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
                             : 'data-target="#xs-miscellaneous-links"' }>
