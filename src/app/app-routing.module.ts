@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'retos',
     loadChildren: () => import('./pages/retos/retos.module').then( m => m.RetosPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'noticias',
+    loadChildren: () => import('./pages/noticias/noticias.module').then( m => m.NoticiasPageModule)
+  },
 ];
 
 @NgModule({

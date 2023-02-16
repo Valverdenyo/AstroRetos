@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 /**
  * Componente principal de la aplicación.
  * 
@@ -17,5 +18,5 @@ export class AppComponent {
  * 
  * SE RECOMIENDA NO TOCAR 
  */
-  constructor() {}
+  constructor() { }
 }
