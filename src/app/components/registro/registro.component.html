@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form class="form" [formGroup]="registroForm" (ngSubmit)="registro(registroForm.value)">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" formControlName="EMAIL"></ion-input>
+    </ion-item>
+    
+    <ng-container *ngFor="let error of errorMsg">
+      <div *ngIf="registroForm.get('EMAIL').hasError( error.email[0].type) && (registroForm.get('EMAIL').dirty || registroForm.get('EMAIL').touched)">
+        {{  error.email[0].message }}
+      </div>
+    </ng-container>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="PASSWORD" class="form-controll" required></ion-input>
+    </ion-item>
+    
+    <ng-container *ngFor="let error of errorMsg">
+        <div *ngIf="registroForm.get('PASSWORD').hasError(error.password[1].type) && (registroForm.get('PASSWORD').dirty || registroForm.get('PASSWORD').touched)">
+          {{ error.password[1].message }}
+        </div>
+    </ng-container>
+
+    <ion-button type="submit" expand="block" [disabled]="!registroForm.valid">Register</ion-button>
+    
+    <label class="ion-text-center" color="danger">{{errorMsg}}</label>
+    <label class="ion-text-center" color="success">{{successMsg}}</label>
+  </form>
+  
+</ion-content>

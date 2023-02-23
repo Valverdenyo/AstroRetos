@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Error } from 'src/app/interfaces/errores';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { RegistroComponent } from '../registro/registro.component';
+
 
 
 @Component({
@@ -14,17 +17,18 @@ import { Router } from '@angular/router';
 })
 export class FabLoginComponent implements OnInit {
 
-  signInForm: any;
+  loginForm: FormGroup;
   successMsg: string = '';
   errorMsg: Error[] = [];
 
   constructor(private router: Router,
-    private auth: AuthService,
-    private fb: FormBuilder) { }
+    private authSrv: AuthService,
+    private fBuilder: FormBuilder,
+    private modalCtrl: ModalController) { }
 
   ngOnInit() {
 
-    this.signInForm = this.fb.group({
+    this.loginForm = this.fBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
@@ -37,12 +41,12 @@ export class FabLoginComponent implements OnInit {
 
   }
 
-  signIn(value: any) {
-    this.auth.signIn(value)
+  logIn(value: any) {
+    this.authSrv.signIn(value)
       .then((response) => {
         console.log(response)
         this.errorMsg = [];
-        this.router.navigateByUrl('panel');
+        this.router.navigateByUrl('perfil');
       }, error => {
         this.errorMsg = error.message;
         this.successMsg = "";
@@ -50,11 +54,20 @@ export class FabLoginComponent implements OnInit {
   }
 
   goToSignup() {
-    this.router.navigateByUrl('register');
+    this.registroModal();
+    console.log("vamos al registro");
+    
   }
 
   gAuth(){
 
+  }
+
+  async registroModal() {
+    const modal = await this.modalCtrl.create({
+      component: RegistroComponent
+    });
+    return await modal.present();
   }
 
 

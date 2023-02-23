@@ -9,7 +9,7 @@ export interface Error {
           message: 'Email no es valido'
         }
       ],
-      password: [
+      'password': [
         {
           type: 'required',
           message: 'Pon una contraseña.'

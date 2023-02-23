@@ -5,18 +5,27 @@ import { IonicModule } from '@ionic/angular';
 //imports de Componentes personalizados
 import { FabLoginComponent } from './fab-login/fab-login.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistroComponent } from './registro/registro.component';
+
+
+
 
 
 
 
 @NgModule({
-  declarations: [FabLoginComponent,
+  declarations: [FabLoginComponent, RegistroComponent
     ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    FormsModule,
+    ReactiveFormsModule
   ], exports: [
     FabLoginComponent,
+    RegistroComponent
+    
     
   ]
 

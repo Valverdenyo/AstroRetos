@@ -9,41 +9,44 @@
       <ion-toolbar>
         <ion-title>Login</ion-title>
         <ion-buttons slot="end">
-          <ion-button color="light" (click)="modal.dismiss()">Cancelar</ion-button>
+          <ion-button color="tertiary" (click)="modal.dismiss()">Cancelar</ion-button>
         </ion-buttons>
       </ion-toolbar>
-      <form class="form" [formGroup]="signInForm" (ngSubmit)="signIn(signInForm.value)">
+
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="logIn(loginForm.value)">
         <ion-item>
           <ion-label position="floating">Email</ion-label>
           <ion-input type="text" formControlName="email"></ion-input>
         </ion-item>
-        
+
         <ng-container *ngFor="let error of errorMsg">
-          <div *ngIf="signInForm.get('email').hasError(error.type) && (signInForm.get('email').dirty || signInForm.get('email').touched)">
-            {{ error.message }}
+          <div
+            *ngIf="loginForm.get('email').hasError( error.email[0].type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            {{ error.email[0].message }}
           </div>
         </ng-container>
-    
+
         <ion-item>
           <ion-label position="floating" color="primary">Password</ion-label>
           <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
         </ion-item>
-        
-        <ng-container *ngFor="let error of errorMsg.password">
-            <div *ngIf="signInForm.get('password').hasError(error.type) && (signInForm.get('password').dirty || signInForm.get('password').touched)">
-              {{ error.message }}
-            </div>
+
+        <ng-container *ngFor="let error of errorMsg">
+          <div
+            *ngIf="loginForm.get('password').hasError( error.password[1].type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.password[1].message }}
+          </div>
         </ng-container>
-    
-        <ion-button type="submit" expand="block" [disabled]="!signInForm.valid">Sign in</ion-button>
-    
+
+        <ion-button type="submit" expand="block" [disabled]="!loginForm.valid">Sign in</ion-button>
+
         <ion-button (click)="gAuth()" expand="block" fill="clear" shape="round" disabled="true">
           Login con Google
         </ion-button>
-        
+
         <label class="ion-text-center" color="danger">{{errorMsg}}</label>
       </form>
-      <p class="ion-text-center">Aun no registrado? <a (click)="goToSignup()">Registrar</a></p>
+      <p class="ion-text-center">Aun no registrado?<a (click)="modal.dismiss(); goToSignup()">Registrar</a></p>
     </ion-content>
   </ng-template>
 </ion-modal>
