@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore/';
-import { AngularFireModule } from '@angular/fire/compat';
+
 import { Usuario } from '../interfaces/interfaces';
 
 
@@ -10,6 +10,9 @@ import { Usuario } from '../interfaces/interfaces';
   providedIn: 'root'
 })
 export class AuthService {
+
+  usuario: Usuario;
+  
 
   constructor(private angularFireAuth: AngularFireAuth, 
     private firestore: AngularFirestore, 
@@ -19,6 +22,7 @@ export class AuthService {
 
       this.firestore.collection('usuarios').add({
         EMAIL: usuario.EMAIL,
+        NOMBRE: usuario.NOMBRE,
         ROL: "Retador",
         AVATAR: "",
         ID: ""
@@ -29,11 +33,10 @@ export class AuthService {
           this.firestore.doc(docRef).update({
             ID: docRef.id
           })
-          console.log('Documento agregado con ID: ', docRef.id);
-  
+        
         })
         .catch((error: any) => {
-          console.error('Error al agregar documento: ', error);
+          console.error('Error al agregar usuario: ', error);
         });
   
       return new Promise<any>((resolve, reject) => {
@@ -50,7 +53,11 @@ export class AuthService {
           .then(
             res => resolve(res),
             err => reject(err))
+            
       })
+      
+      //busqueda por email y carga de objeto Usuario
+      
     }
   
     signOut() {

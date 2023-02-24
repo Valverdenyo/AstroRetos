@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 
 import { AuthService } from 'src/app/services/auth.service';
@@ -7,6 +7,7 @@ import { Error } from 'src/app/interfaces/errores';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { RegistroComponent } from '../registro/registro.component';
+import { Usuario } from 'src/app/interfaces/interfaces';
 
 
 
@@ -17,9 +18,12 @@ import { RegistroComponent } from '../registro/registro.component';
 })
 export class FabLoginComponent implements OnInit {
 
+  
+
   loginForm: FormGroup;
   successMsg: string = '';
   errorMsg: Error[] = [];
+
 
   constructor(private router: Router,
     private authSrv: AuthService,
@@ -44,21 +48,16 @@ export class FabLoginComponent implements OnInit {
   logIn(value: any) {
     this.authSrv.signIn(value)
       .then((response) => {
-        console.log(response)
+        console.log(value)
         this.errorMsg = [];
         this.router.navigateByUrl('perfil');
+       
       }, error => {
         this.errorMsg = error.message;
         this.successMsg = "";
       })
   }
-
-  goToSignup() {
-    this.registroModal();
-    console.log("vamos al registro");
-    
-  }
-
+ 
   gAuth(){
 
   }
