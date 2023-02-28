@@ -1,0 +1,40 @@
+<ion-content clas="ion-padding">
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="logIn(loginForm.value); closeModal()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ng-container *ngFor="let error of errorMsg">
+      <div
+        *ngIf="loginForm.get('email').hasError( error.email[0].type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+        {{ error.email[0].message }}
+      </div>
+    </ng-container>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+
+    <ng-container *ngFor="let error of errorMsg">
+      <div
+        *ngIf="loginForm.get('password').hasError( error.password[1].type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+        {{ error.password[1].message }}
+      </div>
+    </ng-container>
+
+    <ion-button type="submit" expand="block" [disabled]="!loginForm.valid">Log in</ion-button>
+
+    <ion-button (click)="gAuth()" expand="block" fill="clear" shape="round" disabled="true">
+      Login con Google
+    </ion-button>
+
+    <label class="ion-text-center" color="danger">{{errorMsg}}</label>
+  </form>
+  <p class="ion-text-center">Aun no registrado?<a (click)="registroModal(); closeModal()">Registrar</a></p>
+</ion-content>

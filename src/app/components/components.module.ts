@@ -7,6 +7,8 @@ import { FabLoginComponent } from './fab-login/fab-login.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
+import { LoginComponent } from './login/login.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -15,16 +17,19 @@ import { RegistroComponent } from './registro/registro.component';
 
 
 @NgModule({
-  declarations: [FabLoginComponent, RegistroComponent
+  declarations: [FabLoginComponent, RegistroComponent, LoginComponent, PerfilComponent
     ],
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+  
   ], exports: [
     FabLoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    LoginComponent,
+    PerfilComponent
     
     
   ]

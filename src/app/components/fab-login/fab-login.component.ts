@@ -1,13 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
 
-
-import { AuthService } from 'src/app/services/auth.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Error } from 'src/app/interfaces/errores';
-import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { RegistroComponent } from '../registro/registro.component';
-import { Usuario } from 'src/app/interfaces/interfaces';
+import { LoginComponent } from '../login/login.component';
+
 
 
 
@@ -18,53 +13,19 @@ import { Usuario } from 'src/app/interfaces/interfaces';
 })
 export class FabLoginComponent implements OnInit {
 
-  
+ 
 
-  loginForm: FormGroup;
-  successMsg: string = '';
-  errorMsg: Error[] = [];
-
-
-  constructor(private router: Router,
-    private authSrv: AuthService,
-    private fBuilder: FormBuilder,
-    private modalCtrl: ModalController) { }
+  constructor( private modalCtrl: ModalController ) { }
 
   ngOnInit() {
 
-    this.loginForm = this.fBuilder.group({
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      password: new FormControl('', Validators.compose([
-        Validators.minLength(6),
-        Validators.required
-      ])),
-    });
-
+   
   }
 
-  logIn(value: any) {
-    this.authSrv.signIn(value)
-      .then((response) => {
-        console.log(value)
-        this.errorMsg = [];
-        this.router.navigateByUrl('perfil');
-       
-      }, error => {
-        this.errorMsg = error.message;
-        this.successMsg = "";
-      })
-  }
- 
-  gAuth(){
-
-  }
-
-  async registroModal() {
+  async loginModal() {
     const modal = await this.modalCtrl.create({
-      component: RegistroComponent
+      component: LoginComponent,
+      cssClass: 'loginRegisterModal'
     });
     return await modal.present();
   }
