@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore/';
 
 import { Usuario } from '../interfaces/interfaces';
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -11,12 +12,16 @@ import { Usuario } from '../interfaces/interfaces';
 })
 export class AuthService {
 
-  usuario: Usuario;
+  usuarioLogado: Usuario;
+  
   
 
   constructor(private angularFireAuth: AngularFireAuth, 
+    private userSvc: UserService,
     private firestore: AngularFirestore, 
-    private router: Router) { }
+    private router: Router) { 
+            
+    }
 
     signUp(usuario: Usuario) {
 
@@ -25,7 +30,8 @@ export class AuthService {
         NOMBRE: usuario.NOMBRE,
         ROL: "Retador",
         AVATAR: "",
-        ID: ""
+        ID: "",
+        PASSWORD: ""
   
       })
         .then((docRef: any) => {
@@ -48,16 +54,21 @@ export class AuthService {
     }
 
     signIn(value: any) {
-      return new Promise<any>((resolve, reject) => {
-        this.angularFireAuth.signInWithEmailAndPassword(value.email, value.password)
-          .then(
-            res => resolve(res),
-            err => reject(err))
-            
-      })
+
+      this.userSvc.getUserByEmail(value.email).subscribe(resultado => {
+    
+   
+        this.usuarioLogado = resultado;
+        
+        console.log(this.usuarioLogado);
+        
+         // Como ejemplo, mostrar el título de la tarea en consola
+         
+       
+     });
       
-      //busqueda por email y carga de objeto Usuario
-      
+      return this.angularFireAuth.signInWithEmailAndPassword(value.email, value.password);
+             
     }
   
     signOut() {
@@ -68,7 +79,8 @@ export class AuthService {
     }
   
     userDetails() {
-      return this.angularFireAuth.user
+            
+      return this.angularFireAuth.user;
     }
   
   

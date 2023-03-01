@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+
+import { ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegistroComponent } from '../registro/registro.component';
 import { Error } from 'src/app/interfaces/errores';
 import { PerfilComponent } from '../perfil/perfil.component';
+import { UserService } from '../../services/user.service';
+import { Usuario } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +20,15 @@ export class LoginComponent implements OnInit {
   successMsg: string = '';
   errorMsg: Error[] = [];
 
+ usuario: Usuario;
 
-  constructor(private router: Router,
-    private authSrv: AuthService,
-    private fBuilder: FormBuilder,
-    private modalCtrl: ModalController) { }
+  constructor(private authSrv: AuthService,
+      private fBuilder: FormBuilder,
+    private modalCtrl: ModalController,
+    private navCtrl: NavController) {
+
+     
+     }
 
   ngOnInit() {
 
@@ -39,17 +45,15 @@ export class LoginComponent implements OnInit {
 
   }
 
-  logIn(value: any) {
-    this.authSrv.signIn(value)
-      .then((response) => {
-        console.log(value)
-        this.errorMsg = [];
-        this.abrirPerfil(value.email);
-
-      }, error => {
-        this.errorMsg = error.message;
-        this.successMsg = "";
-      })
+  async logIn(value: any) {
+    try {
+      await this.authSrv.signIn(value);
+      this.navCtrl.navigateRoot('/perfil');
+      console.log('email ', value.email);
+      
+    } catch (error) {
+      console.log('Error al iniciar sesión:', error);
+    }
   }
 
   gAuth() {
@@ -68,14 +72,18 @@ export class LoginComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  async abrirPerfil(email: string) {
-    const modal = await this.modalCtrl.create({
+  async abrirPerfil() {
+
+  const modal = await this.modalCtrl.create({
       component: PerfilComponent,
       componentProps: {
-        email
+       
       }
     });
-    return await modal.present();
+    this.loginForm.reset()
+    this.closeModal();
+    return await modal.present(); 
+    
   }
 
 

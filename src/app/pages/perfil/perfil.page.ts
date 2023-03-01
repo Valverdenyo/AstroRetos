@@ -1,17 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { ModalController } from '@ionic/angular';
-import { UserService } from '../../services/user.service';
-
 import { Usuario } from 'src/app/interfaces/interfaces';
-
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.scss'],
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
 })
-export class PerfilComponent implements OnInit {
+export class PerfilPage implements OnInit {
 
   @Input() email: string;
   usuario: Usuario;
@@ -53,7 +51,4 @@ export class PerfilComponent implements OnInit {
     this.modalCtrl.dismiss();
 
   }
-
 }
-
-

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { Error } from 'src/app/interfaces/errores';
 
@@ -15,9 +15,8 @@ export class RegistroComponent implements OnInit {
   successMsg: string = '';
   errorMsg: Error[] = [];
 
-  constructor(private router: Router,
-    private authSrv: AuthService,
-    private fBuilder: FormBuilder) { }
+  constructor(private authSrv: AuthService,
+              private fBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.registroForm = this.fBuilder.group({

@@ -9,24 +9,24 @@
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
 
-    <ng-container *ngFor="let error of errorMsg">
+ <!--    <ng-container *ngFor="let error of errorMsg">
       <div
         *ngIf="loginForm.get('email').hasError( error.email[0].type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
         {{ error.email[0].message }}
       </div>
-    </ng-container>
+    </ng-container> -->
 
     <ion-item>
       <ion-label position="floating" color="primary">Password</ion-label>
       <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
     </ion-item>
 
-    <ng-container *ngFor="let error of errorMsg">
+  <!--   <ng-container *ngFor="let error of errorMsg">
       <div
         *ngIf="loginForm.get('password').hasError( error.password[1].type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
         {{ error.password[1].message }}
       </div>
-    </ng-container>
+    </ng-container> -->
 
     <ion-button type="submit" expand="block" [disabled]="!loginForm.valid">Log in</ion-button>
 

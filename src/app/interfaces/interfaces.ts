@@ -3,6 +3,6 @@ export interface Usuario {
     NOMBRE: string,
     EMAIL: string,
     PASSWORD: string,
-    ROL: string
+    ROL: string,
     AVATAR: string
 }
