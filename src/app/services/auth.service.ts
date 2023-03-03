@@ -62,9 +62,7 @@ export class AuthService {
         
         console.log(this.usuarioLogado);
         
-         // Como ejemplo, mostrar el título de la tarea en consola
-         
-       
+           
      });
       
       return this.angularFireAuth.signInWithEmailAndPassword(value.email, value.password);

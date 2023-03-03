@@ -8,16 +8,13 @@ import { FabLoginComponent } from './fab-login/fab-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
-import { PerfilComponent } from './perfil/perfil.component';
-
-
-
-
+import { NoticiaComponent } from './noticia/noticia.component';
+import { NoticiasComponent } from './noticias/noticias.component';
 
 
 
 @NgModule({
-  declarations: [FabLoginComponent, RegistroComponent, LoginComponent, PerfilComponent
+  declarations: [FabLoginComponent, RegistroComponent, LoginComponent, NoticiaComponent, NoticiasComponent
     ],
   imports: [
     CommonModule,
@@ -28,8 +25,9 @@ import { PerfilComponent } from './perfil/perfil.component';
   ], exports: [
     FabLoginComponent,
     RegistroComponent,
-    LoginComponent,
-    PerfilComponent
+    LoginComponent, 
+    NoticiasComponent
+    
     
     
   ]

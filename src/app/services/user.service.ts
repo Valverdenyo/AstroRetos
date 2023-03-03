@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore/';
+import { doc, deleteDoc } from "firebase/firestore";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -16,6 +17,7 @@ export class UserService {
  
 
   usuariosCollection: AngularFirestoreCollection<Usuario>;
+
 
   
   constructor(private firestore: AngularFirestore) { }
@@ -33,7 +35,14 @@ export class UserService {
 
   }
 
-  deleteUser() {
-
+ async deleteUser(id: string) {
+  this.firestore.collection('usuarios').doc(id).delete()
+  .then(() => {
+    console.log('Documento eliminado correctamente');
+  })
+  .catch((error) => {
+    console.error('Error al eliminar documento: ', error);
+  });
   }
+
 }

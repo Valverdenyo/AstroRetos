@@ -1,8 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ActionSheetController, AlertController, ModalController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { Observable } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-perfil',
@@ -11,34 +15,24 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PerfilPage implements OnInit {
 
-  @Input() email: string;
-  usuario: Usuario;
-
-  
+  usuarioLogado: Usuario;
+  result: string;
+  actionSheet: HTMLIonActionSheetElement;
 
   constructor(private authSrv: AuthService,
-              private modalCtrl: ModalController,
-              private userSvc: UserService
-              ) { 
-                  
-               
-              }
+    private modalCtrl: ModalController,
+    private actionSheetCtrl: ActionSheetController,
+    private alertCtrl: AlertController,
+    private userSvc: UserService,
+    private router: Router
+  ) {
+
+
+  }
 
   ngOnInit() {
 
-  
-       // Como ejemplo, mostrar el título de la tarea en consola
-       
-     
-   
-  
-
-          
-      /*   this.usuario.NOMBRE = this.usuarios.data.NOMBRE;
-        this.usuario.AVATAR = this.usuarios.data.AVATAR; */
-     
-      
-  
+    this.usuarioLogado = this.authSrv.usuarioLogado;
 
   }
 
@@ -50,5 +44,66 @@ export class PerfilPage implements OnInit {
     this.authSrv.signOut();
     this.modalCtrl.dismiss();
 
+  }
+
+
+  async avatarActionSheet() {
+    this.actionSheet = await this.actionSheetCtrl.create({
+      cssClass: 'multimedia-class',
+      buttons: [
+        {
+          icon: 'camera-outline',
+          handler: () => {
+            console.log('Button 1 clicked');
+          }
+        },
+        {
+          icon: 'image-outline',
+          handler: () => {
+            console.log('Button 2 clicked');
+          }
+        },
+        {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel'
+        }
+      ],
+      // Template personalizado para mostrar los botones a la izquierda y derecha
+      // Los botones se ajustarán a los lados opuestos de la hoja de acción
+      // utilizando la clase CSS "ion-action-sheet-buttons-start" e "ion-action-sheet-buttons-end"
+      // y se alinearán al centro de la hoja de acción utilizando la clase CSS "ion-justify-content-center"
+      backdropDismiss: true,
+      animated: true,
+      keyboardClose: true,
+      mode: 'ios',
+     
+      translucent: true,
+      id: 'my-action-sheet'
+    });
+
+    await this.actionSheet.present();
+  }
+
+  async alertDelete(documentId: string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Eliminar usuario',
+      message: '¿Estás seguro de que quieres eliminar este usuario?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        }, {
+          text: 'Eliminar',
+          handler: () => {
+            this.userSvc.deleteUser(this.usuarioLogado.ID);
+            this.router.navigateByUrl('/home');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

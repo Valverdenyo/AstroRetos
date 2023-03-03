@@ -1,0 +1,37 @@
+[
+    {
+        "icon": "bonfire-outline",
+        "name": "Inicio",
+        "redirectTo": "/home"
+    },
+    {
+        "icon": "newspaper-sharp",
+        "name": "Noticias",
+        "redirectTo": "/noticias"
+    },
+    {
+        "icon": "heart-circle-sharp",
+        "name": "Mis Favoritos",
+        "redirectTo": "/favoritos"
+    },
+    {
+        "icon": "bonfire-sharp",
+        "name": "Mis Retos",
+        "redirectTo": "/mis-retos"
+    }, 
+    {
+        "icon": "trending-up-sharp",
+        "name": "Top",
+        "redirectTo": "/ranking"
+    }, 
+    {
+        "icon": "settings-sharp",
+        "name": "Administración",
+        "redirectTo": "/admin"
+    },  
+    {
+        "icon": "help-circle-sharp",
+        "name": "Ayuda",
+        "redirectTo": "/about"
+    }
+]

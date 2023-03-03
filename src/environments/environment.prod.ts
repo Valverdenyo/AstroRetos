@@ -9,5 +9,9 @@ export const environment = {
   storageBucket: "astroretos-db.appspot.com",
   messagingSenderId: "49988289409",
   appId: "1:49988289409:web:134b5a76a7893164751e80",
-  measurementId: "G-QCJVPE1F4N"}
+  measurementId: "G-QCJVPE1F4N"},
+  news: {
+    apiKey:"5bfc28bcc8f9833472ef411ce5430f50",
+    apiUrl:"http://api.mediastack.com/v1/"
+  }
 };

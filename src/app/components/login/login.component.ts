@@ -5,8 +5,8 @@ import { ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegistroComponent } from '../registro/registro.component';
 import { Error } from 'src/app/interfaces/errores';
-import { PerfilComponent } from '../perfil/perfil.component';
-import { UserService } from '../../services/user.service';
+
+
 import { Usuario } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -71,20 +71,5 @@ export class LoginComponent implements OnInit {
   closeModal() {
     this.modalCtrl.dismiss();
   }
-
-  async abrirPerfil() {
-
-  const modal = await this.modalCtrl.create({
-      component: PerfilComponent,
-      componentProps: {
-       
-      }
-    });
-    this.loginForm.reset()
-    this.closeModal();
-    return await modal.present(); 
-    
-  }
-
-
+ 
 }

@@ -38,6 +38,64 @@
 }
 
 .loginRegisterModal ion-toolbar {
-  
+
   --color: white;
+}
+
+.imagenAvatar {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  // top:20%;
+  // transform:translateY(-50%);
+}
+
+.avatar {
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+}
+
+.multimedia-class {
+  .action-sheet-group {
+
+    // Estilo para alinear el botón 1 a la izquierda
+    .ion-action-sheet-buttons-start {
+      ion-button {
+        margin-right: auto;
+      }
+    }
+
+    // Estilo para alinear el botón 2 a la derecha
+    .ion-action-sheet-buttons-end {
+      ion-button {
+        margin-left: auto;
+      }
+    }
+
+    // Estilo para centrar los botones en el centro de la hoja de acción
+    .ion-justify-content-center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+ /*  .action-sheet-button:nth-child(1) {
+    background-image: url('ruta/a/la/imagen1.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+  }
+
+  .action-sheet-button:nth-child(2) {
+    background-image: url('ruta/a/la/imagen2.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+  } */
 }
