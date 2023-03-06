@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore/';
-import { doc, deleteDoc } from "firebase/firestore";
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
-import { Usuario } from '../interfaces/interfaces';
+import { MenuOpts, Usuario } from '../interfaces/interfaces';
 
 
 
@@ -20,7 +21,7 @@ export class UserService {
 
 
   
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private http:HttpClient) { }
 
   public getUserByEmail(email: string): Observable<Usuario> {
     return this.firestore.collection<Usuario>('usuarios', ref => ref.where('EMAIL', '==', email).limit(1))
@@ -42,6 +43,11 @@ export class UserService {
   .catch((error) => {
     console.error('Error al eliminar documento: ', error);
   });
+  }
+
+  getMenuOpts() {
+    return this.http.get<MenuOpts[]>('/assets/data/menu-opts.json');
+
   }
 
 }

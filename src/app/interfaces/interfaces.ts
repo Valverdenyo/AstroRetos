@@ -7,7 +7,7 @@ export interface Usuario {
     AVATAR: string
 }
 
-export interface menuOpts {
+export interface MenuOpts {
     icon: string;
     name: string;
     redirectTo: string;

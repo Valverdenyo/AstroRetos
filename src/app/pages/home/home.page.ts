@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
  */
@@ -13,6 +14,7 @@ declare var RSSParser;
 export class HomePage implements OnInit {
 
   ionFabVisible = true;
+ 
   /**
    * Constructor del componente.
    */
@@ -20,8 +22,10 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     const usuarioLogado = localStorage.getItem('usuarioLogado');
+
     if (usuarioLogado === 'true') {
       this.ionFabVisible = false;
+
     } else {
       this.ionFabVisible = true;
     }

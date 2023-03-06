@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { MenuOpts } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MenuComponent implements OnInit {
 
+  menuOpts: MenuOpts;
   mostrarMenuAnonimo = true;
   mostrarMenuRegistrado = false;
   mostrarMenuAdmin = false;
