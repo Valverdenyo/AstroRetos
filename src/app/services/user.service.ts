@@ -29,8 +29,7 @@ export class UserService {
         map(usuarios => usuarios[0])
       );
   }
-
- 
+  
   updateUser() {
 
   }

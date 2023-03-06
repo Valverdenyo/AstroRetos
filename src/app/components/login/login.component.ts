@@ -3,11 +3,13 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+
 import { RegistroComponent } from '../registro/registro.component';
 import { Error } from 'src/app/interfaces/errores';
 
 
 import { Usuario } from 'src/app/interfaces/interfaces';
+
 
 @Component({
   selector: 'app-login',
@@ -20,15 +22,15 @@ export class LoginComponent implements OnInit {
   successMsg: string = '';
   errorMsg: Error[] = [];
 
- usuario: Usuario;
+  usuario: Usuario;
 
   constructor(private authSrv: AuthService,
-      private fBuilder: FormBuilder,
+    private fBuilder: FormBuilder,
     private modalCtrl: ModalController,
     private navCtrl: NavController) {
 
-     
-     }
+
+  }
 
   ngOnInit() {
 
@@ -49,8 +51,12 @@ export class LoginComponent implements OnInit {
     try {
       await this.authSrv.signIn(value);
       this.navCtrl.navigateRoot('/perfil');
-      console.log('email ', value.email);
-      
+     
+      this.usuario = this.authSrv.usuarioLogado;
+      localStorage.setItem('rol', this.usuario.ROL);
+      localStorage.setItem('usuarioLogado', 'true');
+      console.log(localStorage);
+
     } catch (error) {
       console.log('Error al iniciar sesión:', error);
     }
@@ -71,5 +77,5 @@ export class LoginComponent implements OnInit {
   closeModal() {
     this.modalCtrl.dismiss();
   }
- 
+
 }

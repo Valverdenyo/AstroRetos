@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore/';
 
+import { AngularFirestore } from '@angular/fire/compat/firestore/';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { take, map, tap } from 'rxjs/operators';
 import { Usuario } from '../interfaces/interfaces';
 import { UserService } from './user.service';
 
@@ -60,7 +62,6 @@ export class AuthService {
    
         this.usuarioLogado = resultado;
         
-        console.log(this.usuarioLogado);
         
            
      });
@@ -79,6 +80,20 @@ export class AuthService {
     userDetails() {
             
       return this.angularFireAuth.user;
+    }
+
+    canActivate(
+      next: ActivatedRouteSnapshot,
+      state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+        return this.angularFireAuth.authState.pipe(
+          take(1),
+          map(user => !!user),
+          tap(loggedIn => {
+            if (!loggedIn) {
+              this.router.navigate(['/login']);
+            }
+          })
+        );
     }
   
   

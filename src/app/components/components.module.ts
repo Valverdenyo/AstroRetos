@@ -10,11 +10,14 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { NoticiasComponent } from './noticias/noticias.component';
+import { MenuComponent } from './menu/menu.component';
+
+
 
 
 
 @NgModule({
-  declarations: [FabLoginComponent, RegistroComponent, LoginComponent, NoticiaComponent, NoticiasComponent
+  declarations: [FabLoginComponent, RegistroComponent, LoginComponent, NoticiaComponent, NoticiasComponent, MenuComponent
     ],
   imports: [
     CommonModule,
@@ -26,9 +29,10 @@ import { NoticiasComponent } from './noticias/noticias.component';
     FabLoginComponent,
     RegistroComponent,
     LoginComponent, 
-    NoticiasComponent
+    NoticiasComponent, 
+    MenuComponent
     
-    
+       
     
   ]
 

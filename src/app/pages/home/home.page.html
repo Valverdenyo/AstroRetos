@@ -1,12 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      AstroRetos
-    </ion-title>
-  </ion-toolbar>
+  <app-menu></app-menu>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-   <app-fab-login></app-fab-login>
+
+  <app-fab-login *ngIf="ionFabVisible"></app-fab-login>
 </ion-content>

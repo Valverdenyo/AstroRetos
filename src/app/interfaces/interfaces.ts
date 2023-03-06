@@ -6,3 +6,9 @@ export interface Usuario {
     ROL: string,
     AVATAR: string
 }
+
+export interface menuOpts {
+    icon: string;
+    name: string;
+    redirectTo: string;
+}

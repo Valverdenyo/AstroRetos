@@ -13,13 +13,15 @@ import { LoginComponent } from '../login/login.component';
 })
 export class FabLoginComponent implements OnInit {
 
- 
+  
 
   constructor( private modalCtrl: ModalController ) { }
 
+  
+
   ngOnInit() {
 
-   
+     
   }
 
   async loginModal() {

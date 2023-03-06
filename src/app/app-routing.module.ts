@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {
@@ -18,9 +19,10 @@ const routes: Routes = [
   {
     path: 'noticias',
     loadChildren: () => import('./pages/noticias/noticias.module').then(m => m.NoticiasPageModule)
-  },  {
+  },
+  {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AuthService]
   },
   {
     path: 'about',
@@ -28,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./pages/admin/admin.module').then( m => m.AdminPageModule)
+    loadChildren: () => import('./pages/admin/admin.module').then( m => m.AdminPageModule), canActivate: [AuthService]
   },
   {
     path: 'ranking',
@@ -36,11 +38,11 @@ const routes: Routes = [
   },
   {
     path: 'mis-retos',
-    loadChildren: () => import('./pages/mis-retos/mis-retos.module').then( m => m.MisRetosPageModule)
+    loadChildren: () => import('./pages/mis-retos/mis-retos.module').then( m => m.MisRetosPageModule), canActivate: [AuthService]
   },
   {
     path: 'favoritos',
-    loadChildren: () => import('./pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+    loadChildren: () => import('./pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule), canActivate: [AuthService]
   }
 
 
