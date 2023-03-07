@@ -17,10 +17,11 @@ export class MenuComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
     const rol = localStorage.getItem('rol');
     console.log(rol);
 
-    if (!rol || rol === '' || rol === 'all') {
+    if (usuarioLogado === 'false' || !usuarioLogado) {
       this.userSvc.getMenuOpts(['all'])
         .subscribe((menuOpts: MenuOpts[]) => {
           console.log(menuOpts);

@@ -12,6 +12,7 @@ import { NoticiaComponent } from './noticia/noticia.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
+import { RetoComponent } from './reto/reto.component';
 
 
 
@@ -24,7 +25,8 @@ import { HeaderComponent } from './header/header.component';
     NoticiaComponent, 
     NoticiasComponent, 
     MenuComponent, 
-    HeaderComponent
+    HeaderComponent,
+    RetoComponent
     ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent, 
     NoticiasComponent, 
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    RetoComponent
     
        
     

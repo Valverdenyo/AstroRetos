@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
     const usuarioLogado = localStorage.getItem('usuarioLogado');
 
     if (usuarioLogado === 'true') {
-   //   this.ionFabVisible = false;
+      this.ionFabVisible = false;
 
     } else {
       this.ionFabVisible = true;

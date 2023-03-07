@@ -17,6 +17,7 @@ import { NavController } from '@ionic/angular';
 export class PerfilPage implements OnInit {
 
   usuarioLogado: Usuario;
+
   result: string;
   actionSheet: HTMLIonActionSheetElement;
 
@@ -28,35 +29,28 @@ export class PerfilPage implements OnInit {
     private router: Router,
     private navCtrl: NavController
   ) {
+    this.result = localStorage.getItem('email');
 
-  }
-
-  ionViewWillEnter() {
-    localStorage.get('email').then((token) => {
-      if (!token) {
-        // Si el usuario no está logado, navega a la página de inicio de sesión
-        this.navCtrl.navigateRoot('/home');
-      } else {
-        
-      }
+    this.userSvc.getUserByEmail(this.result).subscribe(usuario => {
+      this.usuarioLogado = usuario;
     });
   }
 
   ngOnInit() {
 
-    this.usuarioLogado = this.authSrv.usuarioLogado;
 
-    console.log(this.usuarioLogado);
 
   }
-  
+
   passChange() {
 
   }
 
   logOut() {
     this.authSrv.signOut();
-    this.modalCtrl.dismiss();
+    localStorage.removeItem('usuarioLogado');
+    localStorage.removeItem('rol');
+    this.navCtrl.navigateRoot('/home');
 
   }
 
@@ -91,7 +85,7 @@ export class PerfilPage implements OnInit {
       animated: true,
       keyboardClose: true,
       mode: 'ios',
-     
+
       translucent: true,
       id: 'my-action-sheet'
     });
