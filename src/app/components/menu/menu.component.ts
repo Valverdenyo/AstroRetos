@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 import { MenuOpts } from '../../interfaces/interfaces';
 
 @Component({
@@ -10,24 +11,39 @@ import { MenuOpts } from '../../interfaces/interfaces';
 })
 export class MenuComponent implements OnInit {
 
-  menuOpts: MenuOpts;
-  mostrarMenuAnonimo = true;
-  mostrarMenuRegistrado = false;
-  mostrarMenuAdmin = false;
+  menuOpts: MenuOpts[];
 
-  constructor(
-    private authSvc: AuthService) { }
+  constructor(private userSvc: UserService,
+    private router: Router) { }
 
   ngOnInit() {
     const rol = localStorage.getItem('rol');
+    console.log(rol);
 
-    if (rol === 'unregistered') {
-      this.mostrarMenuAnonimo = true;
-    } else if (rol === 'registered') {
-      this.mostrarMenuRegistrado = true;
-    } else if (rol === 'admin') {
-      this.mostrarMenuAdmin = true;
+    if (!rol || rol === '' || rol === 'all') {
+      this.userSvc.getMenuOpts(['all'])
+        .subscribe((menuOpts: MenuOpts[]) => {
+          console.log(menuOpts);
+          this.menuOpts = menuOpts;
+        });
+    } else if (rol === 'Retador') {
+      this.userSvc.getMenuOpts(['all', 'retador'])
+        .subscribe((menuOpts: MenuOpts[]) => {
+          console.log(menuOpts);
+          this.menuOpts = menuOpts;
+        });
+    } else if (rol === 'Admin') {
+      this.userSvc.getMenuOpts(['all', 'retador', 'admin'])
+        .subscribe((menuOpts: MenuOpts[]) => {
+          console.log(menuOpts);
+          this.menuOpts = menuOpts;
+        });
     }
+
+  }
+
+  navigateToPage(url: string) {
+    this.router.navigate([url]);
   }
 
 }

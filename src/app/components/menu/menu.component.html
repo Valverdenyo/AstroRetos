@@ -1,12 +1,10 @@
-<ion-fab vertical="top" horizontal="start" slot="fixed">
-  <ion-fab-button><ion-icon name="home"></ion-icon></ion-fab-button>
-  <ion-fab-list side="bottom" *ngFor="let opt for menuOpts">
-    <ion-fab-button><ion-icon name="{{opt.icon}}"></ion-icon></ion-fab-button>
-    <ion-fab-button><ion-icon name="logo-angular"></ion-icon></ion-fab-button>
-    <ion-fab-button><ion-icon name="logo-angular"></ion-icon></ion-fab-button>
-    <ion-fab-button><ion-icon name="logo-angular"></ion-icon></ion-fab-button>
-    <ion-fab-button><ion-icon name="logo-angular"></ion-icon></ion-fab-button>
-    <ion-fab-button><ion-icon name="settings-sharp"></ion-icon></ion-fab-button>
-    <ion-fab-button><ion-icon name="help-circle-sharp"></ion-icon></ion-fab-button>
+<ion-fab vertical="bottom" horizontal="start" slot="fixed" class="ion-margin">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button *ngFor="let opt of menuOpts; let i = index" color="primary-shade">
+      <ion-icon [name]="opt.icon" (click)="navigateToPage(opt.redirectTo)"></ion-icon>     
+    </ion-fab-button>
   </ion-fab-list>
 </ion-fab>

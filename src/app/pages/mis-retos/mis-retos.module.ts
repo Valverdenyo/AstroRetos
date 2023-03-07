@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { MisRetosPageRoutingModule } from './mis-retos-routing.module';
 
 import { MisRetosPage } from './mis-retos.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MisRetosPageRoutingModule
+    MisRetosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [MisRetosPage]
 })

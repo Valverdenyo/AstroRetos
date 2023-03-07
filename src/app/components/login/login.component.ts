@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+    localStorage.setItem('rol', 'all');
+
     this.loginForm = this.fBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -50,11 +52,12 @@ export class LoginComponent implements OnInit {
   async logIn(value: any) {
     try {
       await this.authSrv.signIn(value);
-      this.navCtrl.navigateRoot('/perfil');
+      this.navCtrl.navigateRoot('/home');
      
       this.usuario = this.authSrv.usuarioLogado;
       localStorage.setItem('rol', this.usuario.ROL);
       localStorage.setItem('usuarioLogado', 'true');
+      localStorage.setItem('email', this.usuario.EMAIL);
       console.log(localStorage);
 
     } catch (error) {

@@ -59,11 +59,8 @@ export class AuthService {
 
       this.userSvc.getUserByEmail(value.email).subscribe(resultado => {
     
-   
         this.usuarioLogado = resultado;
-        
-        
-           
+               
      });
       
       return this.angularFireAuth.signInWithEmailAndPassword(value.email, value.password);

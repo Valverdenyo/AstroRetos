@@ -11,13 +11,20 @@ import { LoginComponent } from './login/login.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { MenuComponent } from './menu/menu.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
 
 
 @NgModule({
-  declarations: [FabLoginComponent, RegistroComponent, LoginComponent, NoticiaComponent, NoticiasComponent, MenuComponent
+  declarations: [FabLoginComponent, 
+    RegistroComponent, 
+    LoginComponent, 
+    NoticiaComponent, 
+    NoticiasComponent, 
+    MenuComponent, 
+    HeaderComponent
     ],
   imports: [
     CommonModule,
@@ -30,7 +37,8 @@ import { MenuComponent } from './menu/menu.component';
     RegistroComponent,
     LoginComponent, 
     NoticiasComponent, 
-    MenuComponent
+    MenuComponent,
+    HeaderComponent
     
        
     

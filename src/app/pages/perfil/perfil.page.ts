@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController, AlertController, ModalController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
-import { Observable } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+
+import { NavController } from '@ionic/angular';
 
 
 
@@ -24,18 +25,31 @@ export class PerfilPage implements OnInit {
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
     private userSvc: UserService,
-    private router: Router
+    private router: Router,
+    private navCtrl: NavController
   ) {
 
+  }
 
+  ionViewWillEnter() {
+    localStorage.get('email').then((token) => {
+      if (!token) {
+        // Si el usuario no está logado, navega a la página de inicio de sesión
+        this.navCtrl.navigateRoot('/home');
+      } else {
+        
+      }
+    });
   }
 
   ngOnInit() {
 
     this.usuarioLogado = this.authSrv.usuarioLogado;
 
-  }
+    console.log(this.usuarioLogado);
 
+  }
+  
   passChange() {
 
   }

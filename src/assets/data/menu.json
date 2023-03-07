@@ -2,36 +2,49 @@
     {
         "icon": "bonfire-outline",
         "name": "Inicio",
-        "redirectTo": "/home"
+        "redirectTo": "/home",
+        "rol": "all"
+    },
+    {
+        "icon": "person-circle-sharp",
+        "name": "Perfil",
+        "redirectTo": "/perfil",
+        "rol": "retador"
     },
     {
         "icon": "newspaper-sharp",
         "name": "Noticias",
-        "redirectTo": "/noticias"
+        "redirectTo": "/noticias",
+        "rol": "all"
     },
     {
         "icon": "heart-circle-sharp",
         "name": "Mis Favoritos",
-        "redirectTo": "/favoritos"
+        "redirectTo": "/favoritos",
+        "rol": "retador"
     },
     {
         "icon": "bonfire-sharp",
         "name": "Mis Retos",
-        "redirectTo": "/mis-retos"
+        "redirectTo": "/mis-retos",
+        "rol": "retador"
     }, 
     {
         "icon": "trending-up-sharp",
         "name": "Top",
-        "redirectTo": "/ranking"
+        "redirectTo": "/ranking",
+        "rol": "all"
     }, 
     {
         "icon": "settings-sharp",
         "name": "Administración",
-        "redirectTo": "/admin"
+        "redirectTo": "/admin",
+        "rol": "admin"
     },  
     {
         "icon": "help-circle-sharp",
         "name": "Ayuda",
-        "redirectTo": "/about"
+        "redirectTo": "/about",
+        "rol": "all"
     }
 ]

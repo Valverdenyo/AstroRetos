@@ -15,13 +15,13 @@ import { MenuOpts, Usuario } from '../interfaces/interfaces';
 })
 export class UserService {
 
- 
+
 
   usuariosCollection: AngularFirestoreCollection<Usuario>;
 
 
-  
-  constructor(private firestore: AngularFirestore, private http:HttpClient) { }
+
+  constructor(private firestore: AngularFirestore, private http: HttpClient) { }
 
   public getUserByEmail(email: string): Observable<Usuario> {
     return this.firestore.collection<Usuario>('usuarios', ref => ref.where('EMAIL', '==', email).limit(1))
@@ -30,24 +30,30 @@ export class UserService {
         map(usuarios => usuarios[0])
       );
   }
-  
+
   updateUser() {
 
   }
 
- async deleteUser(id: string) {
-  this.firestore.collection('usuarios').doc(id).delete()
-  .then(() => {
-    console.log('Documento eliminado correctamente');
-  })
-  .catch((error) => {
-    console.error('Error al eliminar documento: ', error);
-  });
+  async deleteUser(id: string) {
+    this.firestore.collection('usuarios').doc(id).delete()
+      .then(() => {
+        console.log('Documento eliminado correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar documento: ', error);
+      });
   }
 
-  getMenuOpts() {
-    return this.http.get<MenuOpts[]>('/assets/data/menu-opts.json');
-
+  getMenuOpts(roles: string[]) {
+    return this.http.get<MenuOpts[]>('/assets/data/menu.json')
+      .pipe(
+        map((menuOpts: MenuOpts[]) => {
+          return menuOpts.filter((menuOpt: MenuOpts) => {
+            return roles.includes(menuOpt.rol);
+          });
+        })
+      );
   }
 
 }

@@ -15,8 +15,10 @@ export class NoticiasPage implements OnInit {
 
   ngOnInit() {
 
-this.usuarioLogado = this.authSvc.usuarioLogado;
+   
 
+this.usuarioLogado = this.authSvc.usuarioLogado;
+console.log(this.usuarioLogado);
    
   }
 
