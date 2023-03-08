@@ -62,10 +62,19 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#apiKey" title="src/app/services/news.service.ts" ><b>apiKey</b>&nbsp;&nbsp;&nbsp;(src/.../news.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#apiUrl" title="src/app/services/news.service.ts" ><b>apiUrl</b>&nbsp;&nbsp;&nbsp;(src/.../news.service.ts)</a>
+                        </li>
+                        <li>
                             <a href="#environment" title="src/environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RSSParser" title="src/app/pages/home/home.page.ts" ><b>RSSParser</b>&nbsp;&nbsp;&nbsp;(src/.../home.page.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -74,6 +83,49 @@
     </table>
 </section>
 
+    <h3>src/app/services/news.service.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiKey"></a>
+                    <span class="name">
+                        <span ><b>apiKey</b></span>
+                        <a href="#apiKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>environment.news.apiKey</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiUrl"></a>
+                    <span class="name">
+                        <span ><b>apiUrl</b></span>
+                        <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>environment.news.apiUrl</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/environments/environment.prod.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -96,7 +148,18 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Valor por defecto : </i><code>{
-  production: true
+  production: true,
+  firebase: {apiKey: &quot;AIzaSyATL9Wb8BZ5htLOS4Vy_eEIEvXJ5DlrCI4&quot;,
+  authDomain: &quot;astroretos-db.firebaseapp.com&quot;,
+  projectId: &quot;astroretos-db&quot;,
+  storageBucket: &quot;astroretos-db.appspot.com&quot;,
+  messagingSenderId: &quot;49988289409&quot;,
+  appId: &quot;1:49988289409:web:134b5a76a7893164751e80&quot;,
+  measurementId: &quot;G-QCJVPE1F4N&quot;},
+  news: {
+    apiKey:&quot;5bfc28bcc8f9833472ef411ce5430f50&quot;,
+    apiUrl:&quot;http://api.mediastack.com/v1/&quot;
+  }
 }</code>
                     </td>
                 </tr>
@@ -133,7 +196,16 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Valor por defecto : </i><code>{
-  production: false
+  production: false,
+  firebase: {apiKey: &quot;AIzaSyATL9Wb8BZ5htLOS4Vy_eEIEvXJ5DlrCI4&quot;,
+  authDomain: &quot;astroretos-db.firebaseapp.com&quot;,
+  projectId: &quot;astroretos-db&quot;,
+  storageBucket: &quot;astroretos-db.appspot.com&quot;,
+  messagingSenderId: &quot;49988289409&quot;,
+  appId: &quot;1:49988289409:web:134b5a76a7893164751e80&quot;,
+  measurementId: &quot;G-QCJVPE1F4N&quot;},
+  news: {apiKey:&quot;5bfc28bcc8f9833472ef411ce5430f50&quot;,
+    apiUrl:&quot;http://api.mediastack.com/v1/&quot;}
 }</code>
                     </td>
                 </tr>
@@ -143,6 +215,31 @@
                     <div class="io-description"><p>This file can be replaced during build by using the <code>fileReplacements</code> array.
 <code>ng build --prod</code> replaces <code>environment.ts</code> with <code>environment.prod.ts</code>.
 The list of file replacements can be found in <code>angular.json</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/home/home.page.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RSSParser"></a>
+                    <span class="name">
+                        <span ><b>RSSParser</b></span>
+                        <a href="#RSSParser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Componente Home. Indica la plantilla HTML que usa y su CSS.
+Página de inicio que muestra los retos activos.</p>
 </div>
                 </td>
             </tr>

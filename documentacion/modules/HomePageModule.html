@@ -168,13 +168,17 @@ import { HomePage } from &#x27;./home.page&#x27;;
 
 import { HomePageRoutingModule } from &#x27;./home-routing.module&#x27;;
 
+//import del módulo de Componentes personalizados
+import { ComponentsModule } from &#x27;src/app/components/components.module&#x27;;
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule, 
+    ComponentsModule
   ],
   declarations: [HomePage]
 })

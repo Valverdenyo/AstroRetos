@@ -7,6 +7,18 @@ export interface Usuario {
     AVATAR: string
 }
 
+export interface Reto {
+    ID: string,
+    TITULO: string,
+    DESCRIPCION: string,
+    TIPO: string,
+    NIVEL: string,
+    ACTIVO: boolean,
+    DESTACADO: boolean,
+    RETADOR: string,
+    IMAGEN: string,
+}
+
 export interface MenuOpts {
     icon: string;
     name: string;

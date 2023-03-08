@@ -69,15 +69,14 @@
 </p>
 
 
+
+
     <p class="comment">
-        <h3>Descripción</h3>
+        <h3>Implementa</h3>
     </p>
     <p class="comment">
-        <p>Componente Home. Indica la plantilla HTML que usa y su CSS.</p>
-
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
-
-
 
 
 <section>
@@ -123,6 +122,47 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ionFabVisible" >ionFabVisible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -135,7 +175,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="10" class="link-to-prism">src/app/pages/home/home.page.ts:10</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/pages/home/home.page.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -153,26 +193,142 @@
 
 
 
+    <section>
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="37"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método de inicio.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionFabVisible"></a>
+                    <span class="name">
+                        <span ><b>ionFabVisible</b></span>
+                        <a href="#ionFabVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/pages/home/home.page.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Booleano para mostrar u ocultar el fab de Login</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
+ * Página de inicio que muestra los retos activos.
  */
+
+declare var RSSParser;
 @Component({
   selector: &#x27;app-home&#x27;,
   templateUrl: &#x27;home.page.html&#x27;,
   styleUrls: [&#x27;home.page.scss&#x27;],
 })
-export class HomePage {
-/**
- * Constructor del componente.
- */
-  constructor() {}
+export class HomePage implements OnInit {
+
+  /**
+   * Booleano para mostrar u ocultar el fab de Login
+   */
+
+  ionFabVisible &#x3D; true;
+
+  /**
+   * Constructor del componente.
+   */
+  constructor() { }
+
+  /**
+   * Método de inicio.
+   * 
+   *
+   */
+
+  ngOnInit() {
+
+    /**
+     * Constante que almacena si hemos iniciado sesión en la aplicación
+     */
+    const usuarioLogado &#x3D; localStorage.getItem(&#x27;usuarioLogado&#x27;);
+    /**
+     * Comprobamos si estamos logados. Si lo estamos, no mostramos el fab de login.
+     * Si no estamos logados lo muestra para poder iniciar sesión. 
+     */
+    if (usuarioLogado &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
+      this.ionFabVisible &#x3D; false;
+
+    } else {
+      this.ionFabVisible &#x3D; true;
+    }
+  }
 
 }
 </code></pre>
@@ -180,26 +336,16 @@ export class HomePage {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
-  &lt;ion-toolbar&gt;
-    &lt;ion-title&gt;
-      AstroRetos
-    &lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
+  
+
 &lt;/ion-header&gt;
 
 &lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
-  &lt;ion-header collapse&#x3D;&quot;condense&quot;&gt;
-    &lt;ion-toolbar&gt;
-      &lt;ion-title size&#x3D;&quot;large&quot;&gt;AstroRetos&lt;/ion-title&gt;
-    &lt;/ion-toolbar&gt;
-  &lt;/ion-header&gt;
+&lt;app-reto&gt;&lt;/app-reto&gt;
 
-  &lt;div id&#x3D;&quot;container&quot;&gt;
-    &lt;strong&gt;Aplicacion de Retos de Astronomía&lt;/strong&gt;
-    &lt;p&gt;By: Juanma Pérez &lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot; href&#x3D;&quot;https://ionicframework.com/docs/components&quot;&gt;en Ionic&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/ion-content&gt;
-</code></pre>
+  &lt;app-menu&gt;&lt;/app-menu&gt;
+  &lt;app-fab-login *ngIf&#x3D;&quot;ionFabVisible&quot;&gt;&lt;/app-fab-login&gt;
+&lt;/ion-content&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -260,8 +406,8 @@ export class HomePage {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  <ion-toolbar>    <ion-title>      AstroRetos    </ion-title>  </ion-toolbar></ion-header><ion-content [fullscreen]="true">  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large">AstroRetos</ion-title>    </ion-toolbar>  </ion-header>  <div id="container">    <strong>Aplicacion de Retos de Astronomía</strong>    <p>By: Juanma Pérez <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">en Ionic</a></p>  </div></ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'RetosPage', 'selector': 'app-retos'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  </ion-header><ion-content [fullscreen]="true"><app-reto></app-reto>  <app-menu></app-menu>  <app-fab-login *ngIf="ionFabVisible"></app-fab-login></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'NoticiasPage', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>

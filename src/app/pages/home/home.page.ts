@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+/**
+ * Imports usados en el componente
+ */
 
+import { Component, OnInit } from '@angular/core';
 
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
+ * Página de inicio que muestra los retos activos.
  */
 
 declare var RSSParser;
@@ -13,16 +17,33 @@ declare var RSSParser;
 })
 export class HomePage implements OnInit {
 
+  /**
+   * Booleano para mostrar u ocultar el fab de Login
+   */
+
   ionFabVisible = true;
- 
+
   /**
    * Constructor del componente.
    */
   constructor() { }
 
-  ngOnInit() {
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
+  /**
+   * Método de inicio.
+   * 
+   *
+   */
 
+  ngOnInit() {
+
+    /**
+     * Constante que almacena si hemos iniciado sesión en la aplicación
+     */
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    /**
+     * Comprobamos si estamos logados. Si lo estamos, no mostramos el fab de login.
+     * Si no estamos logados lo muestra para poder iniciar sesión. 
+     */
     if (usuarioLogado === 'true') {
       this.ionFabVisible = false;
 

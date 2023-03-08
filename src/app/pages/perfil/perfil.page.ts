@@ -4,7 +4,6 @@ import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
-
 import { NavController } from '@ionic/angular';
 
 
@@ -27,7 +26,8 @@ export class PerfilPage implements OnInit {
     private alertCtrl: AlertController,
     private userSvc: UserService,
     private router: Router,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    
   ) {
     this.result = localStorage.getItem('email');
 
@@ -68,7 +68,7 @@ export class PerfilPage implements OnInit {
         {
           icon: 'image-outline',
           handler: () => {
-            console.log('Button 2 clicked');
+            
           }
         },
         {
@@ -114,4 +114,5 @@ export class PerfilPage implements OnInit {
 
     await alert.present();
   }
-}
+
+ }

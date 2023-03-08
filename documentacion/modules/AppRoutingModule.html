@@ -75,11 +75,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { PreloadAllModules, RouterModule, Routes } from &#x27;@angular/router&#x27;;
+import { AuthService } from &#x27;./services/auth.service&#x27;;
 
 const routes: Routes &#x3D; [
   {
     path: &#x27;home&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/home/home.module&#x27;).then( m &#x3D;&gt; m.HomePageModule)&quot;
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/home/home.module&#x27;).then(m &#x3D;&gt; m.HomePageModule)&quot;
   },
   {
     path: &#x27;&#x27;,
@@ -87,9 +88,39 @@ const routes: Routes &#x3D; [
     pathMatch: &#x27;full&#x27;
   },
   {
-    path: &#x27;retos&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/retos/retos.module&#x27;).then( m &#x3D;&gt; m.RetosPageModule)&quot;
+    path: &#x27;home&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/home/home.module&#x27;).then(m &#x3D;&gt; m.HomePageModule)&quot;
   },
+  {
+    path: &#x27;noticias&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/noticias/noticias.module&#x27;).then(m &#x3D;&gt; m.NoticiasPageModule)&quot;
+  },
+  {
+    path: &#x27;perfil&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/perfil/perfil.module&#x27;).then( m &#x3D;&gt; m.PerfilPageModule)&quot;, canActivate: [AuthService]
+  },
+  {
+    path: &#x27;about&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/about/about.module&#x27;).then( m &#x3D;&gt; m.AboutPageModule)&quot;
+  },
+  {
+    path: &#x27;admin&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/admin/admin.module&#x27;).then( m &#x3D;&gt; m.AdminPageModule)&quot;, canActivate: [AuthService]
+  },
+  {
+    path: &#x27;ranking&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/ranking/ranking.module&#x27;).then( m &#x3D;&gt; m.RankingPageModule)&quot;
+  },
+  {
+    path: &#x27;mis-retos&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/mis-retos/mis-retos.module&#x27;).then( m &#x3D;&gt; m.MisRetosPageModule)&quot;, canActivate: [AuthService]
+  },
+  {
+    path: &#x27;favoritos&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./pages/favoritos/favoritos.module&#x27;).then( m &#x3D;&gt; m.FavoritosPageModule)&quot;, canActivate: [AuthService]
+  }
+
+
 ];
 
 @NgModule({

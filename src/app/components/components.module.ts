@@ -13,6 +13,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RetoComponent } from './reto/reto.component';
+import { InfoRetoComponent } from './info-reto/info-reto.component';
 
 
 
@@ -26,14 +27,16 @@ import { RetoComponent } from './reto/reto.component';
     NoticiasComponent, 
     MenuComponent, 
     HeaderComponent,
-    RetoComponent
+    RetoComponent,
+    InfoRetoComponent
     ],
+
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
     ReactiveFormsModule, 
-  
+    
   ], exports: [
     FabLoginComponent,
     RegistroComponent,
@@ -41,9 +44,8 @@ import { RetoComponent } from './reto/reto.component';
     NoticiasComponent, 
     MenuComponent,
     HeaderComponent,
-    RetoComponent
-    
-       
+    RetoComponent,
+    InfoRetoComponent        
     
   ]
 
