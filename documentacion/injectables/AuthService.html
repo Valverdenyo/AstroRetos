@@ -97,6 +97,10 @@
                                 <a href="#canActivate" >canActivate</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#passChange" >passChange</a>
+                            </li>
+                            <li>
                                 <a href="#signIn" >signIn</a>
                             </li>
                             <li>
@@ -282,6 +286,77 @@
                     </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Observable | Promise | boolean | UrlTree</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passChange"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>passChange</b></span>
+                        <a href="#passChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passChange(nuevaContraseña: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="96"
+                            class="link-to-prism">src/app/services/auth.service.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nuevaContraseña</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -634,6 +709,11 @@ export class AuthService {
             }
           })
         );
+    }
+
+    async passChange(nuevaContraseña: string) {
+      const user &#x3D; await this.angularFireAuth.currentUser;
+      await user.updatePassword(nuevaContraseña);
     }
   
   

@@ -69,6 +69,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Descripción</h3>
+    </p>
+    <p class="comment">
+        <p>Componente tipo Fab.
+Se encarga de dar acceso al formulario de Login.
+Solo se muestra en las páginas de acceso anónimo y cuando no se estgá logado.</p>
+
+    </p>
 
 
     <p class="comment">
@@ -165,12 +174,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/components/fab-login/fab-login.component.ts:14</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/components/fab-login/fab-login.component.ts:18</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de la clase
+Controlador de Modal de Ionic</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -179,6 +191,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -193,6 +206,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador de Modal de Ionic</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -234,18 +251,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="27"
-                            class="link-to-prism">src/app/components/fab-login/fab-login.component.ts:27</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="40"
+                            class="link-to-prism">src/app/components/fab-login/fab-login.component.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Abre la ventana de Login como un Modal</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>unknown</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -271,14 +295,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="22"
-                            class="link-to-prism">src/app/components/fab-login/fab-login.component.ts:22</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="31"
+                            class="link-to-prism">src/app/components/fab-login/fab-login.component.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método de inicio</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -294,14 +320,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
 import { ModalController } from &#x27;@ionic/angular&#x27;;
 import { LoginComponent } from &#x27;../login/login.component&#x27;;
 
 
 
-
+/**
+ * Componente tipo Fab.
+ * Se encarga de dar acceso al formulario de Login.
+ * Solo se muestra en las páginas de acceso anónimo y cuando no se estgá logado.
+ */
 @Component({
   selector: &#x27;app-fab-login&#x27;,
   templateUrl: &#x27;./fab-login.component.html&#x27;,
@@ -309,17 +339,26 @@ import { LoginComponent } from &#x27;../login/login.component&#x27;;
 })
 export class FabLoginComponent implements OnInit {
 
-  
+  /**
+   * Constructor de la clase
+   * @param modalCtrl 
+   * Controlador de Modal de Ionic
+   */
+  constructor(private modalCtrl: ModalController) { }
 
-  constructor( private modalCtrl: ModalController ) { }
 
-  
-
+  /**
+   * Método de inicio
+   */
   ngOnInit() {
 
-     
-  }
 
+  }
+  /**
+   * Abre la ventana de Login como un Modal
+   * @returns 
+   * 
+   */
   async loginModal() {
     const modal &#x3D; await this.modalCtrl.create({
       component: LoginComponent,
@@ -327,8 +366,6 @@ export class FabLoginComponent implements OnInit {
     });
     return await modal.present();
   }
-
-
 
 }
 </code></pre>

@@ -92,6 +92,11 @@ export class AuthService {
           })
         );
     }
+
+    async passChange(nuevaContraseña: string) {
+      const user = await this.angularFireAuth.currentUser;
+      await user.updatePassword(nuevaContraseña);
+    }
   
   
 }

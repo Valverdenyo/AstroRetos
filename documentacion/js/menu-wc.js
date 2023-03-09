@@ -233,6 +233,20 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/PerfilPageModule.html" data-type="entity-link" >PerfilPageModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-PerfilPageModule-1512e9017761befe89ca4b309bfb005aa1912e26e47a0951c37e3b0770d4952193506c841c47cfe99ca9c2d50e0b3e33d6f5fb96c8b2db0b0253888b6b933e5e"' : 'data-target="#xs-components-links-module-PerfilPageModule-1512e9017761befe89ca4b309bfb005aa1912e26e47a0951c37e3b0770d4952193506c841c47cfe99ca9c2d50e0b3e33d6f5fb96c8b2db0b0253888b6b933e5e"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Componentes</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-PerfilPageModule-1512e9017761befe89ca4b309bfb005aa1912e26e47a0951c37e3b0770d4952193506c841c47cfe99ca9c2d50e0b3e33d6f5fb96c8b2db0b0253888b6b933e5e"' :
+                                            'id="xs-components-links-module-PerfilPageModule-1512e9017761befe89ca4b309bfb005aa1912e26e47a0951c37e3b0770d4952193506c841c47cfe99ca9c2d50e0b3e33d6f5fb96c8b2db0b0253888b6b933e5e"' }>
+                                            <li class="link">
+                                                <a href="components/PerfilPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PerfilPage</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                             </li>
                             <li class="link">
                                 <a href="modules/PerfilPageRoutingModule.html" data-type="entity-link" >PerfilPageRoutingModule</a>
@@ -268,10 +282,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
                             <li class="link">
-                                <a href="components/AppComponent.html" data-type="entity-link" >AppComponent</a>
+                                <a href="components/FabLoginComponent.html" data-type="entity-link" >FabLoginComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/PerfilPage.html" data-type="entity-link" >PerfilPage</a>
+                                <a href="components/HeaderComponent.html" data-type="entity-link" >HeaderComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/HomePage.html" data-type="entity-link" >HomePage</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/InfoRetoComponent.html" data-type="entity-link" >InfoRetoComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/RetosComponent.html" data-type="entity-link" >RetosComponent</a>
@@ -288,6 +308,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
                                     <a href="injectables/AuthService.html" data-type="entity-link" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/AvisosService.html" data-type="entity-link" >AvisosService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/MultimediaService.html" data-type="entity-link" >MultimediaService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/NewsService.html" data-type="entity-link" >NewsService</a>

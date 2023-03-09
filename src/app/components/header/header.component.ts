@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+/**
+ * Componente que standariza las cabeceras de todas las páginas del proyecto
+ */
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,10 +10,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  /**
+   * Recibe el título como parámetro para personalizar el título.
+   */
   @Input() titulo: string = '';
 
+  /**
+   * Constructor de la clase
+   */
   constructor() { }
 
-  ngOnInit() {}
+  /**
+   * Método de inicio
+   */
+  ngOnInit() { }
 
 }

@@ -1,15 +1,9 @@
-/**
- * Imports usados en el componente
- */
-
 import { Component, OnInit } from '@angular/core';
 
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
  * Página de inicio que muestra los retos activos.
  */
-
-declare var RSSParser;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -33,7 +27,6 @@ export class HomePage implements OnInit {
    * 
    *
    */
-
   ngOnInit() {
 
     /**

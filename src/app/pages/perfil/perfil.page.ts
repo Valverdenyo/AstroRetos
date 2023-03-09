@@ -3,9 +3,9 @@ import { ActionSheetController, AlertController, ModalController } from '@ionic/
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from '../../services/user.service';
+import { AvisosService } from 'src/app/services/avisos.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-
 
 
 @Component({
@@ -27,7 +27,8 @@ export class PerfilPage implements OnInit {
     private userSvc: UserService,
     private router: Router,
     private navCtrl: NavController,
-    
+    private avisosSvc: AvisosService
+
   ) {
     this.result = localStorage.getItem('email');
 
@@ -39,10 +40,6 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
 
 
-
-  }
-
-  passChange() {
 
   }
 
@@ -68,7 +65,7 @@ export class PerfilPage implements OnInit {
         {
           icon: 'image-outline',
           handler: () => {
-            
+            //   this.selectImage()
           }
         },
         {
@@ -81,13 +78,13 @@ export class PerfilPage implements OnInit {
       // Los botones se ajustarán a los lados opuestos de la hoja de acción
       // utilizando la clase CSS "ion-action-sheet-buttons-start" e "ion-action-sheet-buttons-end"
       // y se alinearán al centro de la hoja de acción utilizando la clase CSS "ion-justify-content-center"
-      backdropDismiss: true,
-      animated: true,
-      keyboardClose: true,
-      mode: 'ios',
-
-      translucent: true,
-      id: 'my-action-sheet'
+      /*   backdropDismiss: true,
+        animated: true,
+        keyboardClose: true,
+        mode: 'ios',
+  
+        translucent: true,
+        id: 'my-action-sheet' */
     });
 
     await this.actionSheet.present();
@@ -115,4 +112,59 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
- }
+  async alertPassChange() {
+    const alert = await this.alertCtrl.create({
+      header: 'Pon tu nueva contraseña',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+
+          }
+        },
+        {
+          text: 'Aceptar',
+          handler: (data) => {
+            // Obtener los valores de los campos de texto
+            const password1 = data.password1;
+            const password2 = data.password2;
+
+            // Comparar los valores de las contraseñas y mostrar un mensaje de error si no coinciden
+            if (password1 !== password2) {
+              this.avisosSvc.presentToast('Las contraseñas no coinciden', 'danger');
+            } else {
+              // Las contraseñas coinciden, realizar la acción deseada
+              this.authSrv.passChange(password1);
+              this.avisosSvc.presentToast('Contraseña cambiada correctamente', 'success');
+            }
+          }
+        }
+      ],
+
+      inputs: [
+
+        {
+          name: 'password1',
+          type: 'password',
+          placeholder: 'Pon tu nueva contraseña',
+          attributes: {
+            minlength: 6,
+          },
+        },
+        {
+          name: 'password1',
+          type: 'password',
+          placeholder: 'Repite la contraseña',
+          attributes: {
+            minlength: 6,
+          },
+        }
+      ],
+    });
+
+    await alert.present();
+  }
+
+
+}

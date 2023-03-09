@@ -102,7 +102,7 @@
 
   @font-face {
     font-family: 'Nasa'; /* Reemplaza 'NombreFuente' con el nombre que quieras darle a tu fuente. */
-    src: url('../assets/fonts/Nasa.ttf'); /* Reemplaza 'NombreFuente' con el nombre de la fuente TrueType que descargaste. */
+    src: url('/assets/fonts/Nasa.ttf'); /* Reemplaza 'NombreFuente' con el nombre de la fuente TrueType que descargaste. */
   }
   
   /* Aplica la fuente personalizada al body */

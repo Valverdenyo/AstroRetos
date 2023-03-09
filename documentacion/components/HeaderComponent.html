@@ -69,6 +69,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Descripción</h3>
+    </p>
+    <p class="comment">
+        <p>Componente que standariza las cabeceras de todas las páginas del proyecto</p>
+
+    </p>
 
 
     <p class="comment">
@@ -175,10 +182,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="10" class="link-to-prism">src/app/components/header/header.component.ts:10</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/components/header/header.component.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de la clase</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -206,9 +219,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Definido en <a href="" data-line="10" class="link-to-prism">src/app/components/header/header.component.ts:10</a></div>
+                                    <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/components/header/header.component.ts:16</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Recibe el título como parámetro para personalizar el título.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -240,14 +259,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="14"
-                            class="link-to-prism">src/app/components/header/header.component.ts:14</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="26"
+                            class="link-to-prism">src/app/components/header/header.component.ts:26</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método de inicio</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -265,6 +286,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 
+/**
+ * Componente que standariza las cabeceras de todas las páginas del proyecto
+ */
 @Component({
   selector: &#x27;app-header&#x27;,
   templateUrl: &#x27;./header.component.html&#x27;,
@@ -272,11 +296,20 @@
 })
 export class HeaderComponent implements OnInit {
 
+  /**
+   * Recibe el título como parámetro para personalizar el título.
+   */
   @Input() titulo: string &#x3D; &#x27;&#x27;;
 
+  /**
+   * Constructor de la clase
+   */
   constructor() { }
 
-  ngOnInit() {}
+  /**
+   * Método de inicio
+   */
+  ngOnInit() { }
 
 }
 </code></pre>
