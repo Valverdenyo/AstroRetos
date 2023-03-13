@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
@@ -20,29 +21,26 @@ export class HomePage implements OnInit {
   /**
    * Constructor del componente.
    */
-  constructor() { }
+  constructor(private authSvc: AuthService) { }
 
   /**
    * Método de inicio.
+   * Comprobamos si estamos logados. Si lo estamos, no mostramos el fab de login.
+   * Si no estamos logados lo muestra para poder iniciar sesión. 
    * 
-   *
    */
   ngOnInit() {
-
-    /**
-     * Constante que almacena si hemos iniciado sesión en la aplicación
-     */
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    /**
-     * Comprobamos si estamos logados. Si lo estamos, no mostramos el fab de login.
-     * Si no estamos logados lo muestra para poder iniciar sesión. 
-     */
-    if (usuarioLogado === 'true') {
+ 
+    this.authSvc.checkLogin();
+   
+    if (this.authSvc.checkLogin()) {
+      console.log("SI logado");
       this.ionFabVisible = false;
-
     } else {
+      console.log("NO logado");
       this.ionFabVisible = true;
     }
+
   }
 
 }

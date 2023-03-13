@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, AlertController, ModalController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from '../../services/user.service';
@@ -20,8 +20,8 @@ export class PerfilPage implements OnInit {
   result: string;
   actionSheet: HTMLIonActionSheetElement;
 
-  constructor(private authSrv: AuthService,
-    private modalCtrl: ModalController,
+  constructor(private authSvc: AuthService,
+    
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
     private userSvc: UserService,
@@ -30,8 +30,7 @@ export class PerfilPage implements OnInit {
     private avisosSvc: AvisosService
 
   ) {
-    this.result = localStorage.getItem('email');
-
+    
     this.userSvc.getUserByEmail(this.result).subscribe(usuario => {
       this.usuarioLogado = usuario;
     });
@@ -44,9 +43,7 @@ export class PerfilPage implements OnInit {
   }
 
   logOut() {
-    this.authSrv.signOut();
-    localStorage.removeItem('usuarioLogado');
-    localStorage.removeItem('rol');
+    this.authSvc.signOut();
     this.navCtrl.navigateRoot('/home');
 
   }
@@ -78,13 +75,13 @@ export class PerfilPage implements OnInit {
       // Los botones se ajustarán a los lados opuestos de la hoja de acción
       // utilizando la clase CSS "ion-action-sheet-buttons-start" e "ion-action-sheet-buttons-end"
       // y se alinearán al centro de la hoja de acción utilizando la clase CSS "ion-justify-content-center"
-      /*   backdropDismiss: true,
-        animated: true,
-        keyboardClose: true,
-        mode: 'ios',
-  
-        translucent: true,
-        id: 'my-action-sheet' */
+      backdropDismiss: true,
+      animated: true,
+      keyboardClose: true,
+      mode: 'ios',
+
+      translucent: true,
+      id: 'my-action-sheet'
     });
 
     await this.actionSheet.present();
@@ -129,14 +126,18 @@ export class PerfilPage implements OnInit {
             // Obtener los valores de los campos de texto
             const password1 = data.password1;
             const password2 = data.password2;
+            console.log(password1, password2);
 
             // Comparar los valores de las contraseñas y mostrar un mensaje de error si no coinciden
-            if (password1 !== password2) {
+            if (password1 != password2) {
               this.avisosSvc.presentToast('Las contraseñas no coinciden', 'danger');
             } else {
               // Las contraseñas coinciden, realizar la acción deseada
-              this.authSrv.passChange(password1);
+              this.authSvc.passChange(password1);
+              this.logOut();
+
               this.avisosSvc.presentToast('Contraseña cambiada correctamente', 'success');
+
             }
           }
         }
@@ -153,7 +154,7 @@ export class PerfilPage implements OnInit {
           },
         },
         {
-          name: 'password1',
+          name: 'password2',
           type: 'password',
           placeholder: 'Repite la contraseña',
           attributes: {

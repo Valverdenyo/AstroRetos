@@ -99,14 +99,24 @@
     background-position: center;
     color: transparent;
   } */
+ 
+}
 
-  @font-face {
-    font-family: 'Nasa'; /* Reemplaza 'NombreFuente' con el nombre que quieras darle a tu fuente. */
-    src: url('/assets/fonts/Nasa.ttf'); /* Reemplaza 'NombreFuente' con el nombre de la fuente TrueType que descargaste. */
-  }
-  
-  /* Aplica la fuente personalizada al body */
-  body {
-    font-family: 'Nasa'; /* Reemplaza 'NombreFuente' con el nombre que le diste a tu fuente. */
-  }
+.modalInfo {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto; /* centrar horizontalmente */
+  margin-top: 10%; /* agregar un margen superior */
+  border: 2px solid #FCA311;
+}
+
+
+@font-face {
+  font-family: 'Nasa'; 
+  src: url('/assets/fonts/Nasa.ttf'); 
+}
+
+
+ion-title {
+  font-family: 'Nasa'; 
 }

@@ -14,6 +14,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+
 
 
 
@@ -30,7 +32,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     HttpClientModule,
     
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SocialSharing],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

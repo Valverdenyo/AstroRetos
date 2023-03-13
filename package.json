@@ -23,6 +23,7 @@
     "@angular/router": "^14.0.0",
     "@awesome-cordova-plugins/http": "^6.3.0",
     "@awesome-cordova-plugins/in-app-browser": "^6.3.0",
+    "@awesome-cordova-plugins/social-sharing": "^6.3.0",
     "@awesome-cordova-plugins/splash-screen": "^6.3.0",
     "@capacitor/app": "4.1.0",
     "@capacitor/camera": "^4.1.4",

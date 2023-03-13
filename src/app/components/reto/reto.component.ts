@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 import { InfoRetoComponent } from '../info-reto/info-reto.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+
 
 
 @Component({
@@ -13,12 +15,15 @@ import { ModalController } from '@ionic/angular';
 export class RetoComponent implements OnInit {
 
   retos: Reto[] = [];
-   iconTipo: string;
+  iconTipo: string;
+  mensaje: string = 'Te reto!';
 
-  constructor(private retoSvc: RetoService, 
-    private modalCtrl: ModalController) {
-     
-     }
+  constructor(private retoSvc: RetoService,
+    private modalCtrl: ModalController,
+    private socialSharing: SocialSharing,
+    private platform: Platform) {
+
+  }
 
   ngOnInit() {
     this.retoSvc.getRetosActivos().subscribe(retos => {
@@ -26,12 +31,13 @@ export class RetoComponent implements OnInit {
     });
   }
 
-  async verDetalle( id: string ) {
-    const modal= await this.modalCtrl.create({
+  async verDetalle(id: string) {
+    const modal = await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
         id
       },
+      cssClass: 'modalInfo'
     });
 
     modal.present();
@@ -63,5 +69,24 @@ export class RetoComponent implements OnInit {
     }
   }
 
- 
+  /**
+   * Método para compartir el reto en las aplicaciones disponibles en el terminal (Mail o RRSS)
+   */
+  compartirReto() {
+
+    if (this.platform.is('cordova')) {
+      this.socialSharing.share(this.mensaje);
+    } else {
+      if (navigator.share) {
+        navigator.share({
+          text: this.mensaje,
+          url: ''
+        })
+          .then(() => console.log('Compartido!'))
+          .catch((error) => console.log('Error compartiendo', error));
+      }
+    }
+  }
+
+
 }

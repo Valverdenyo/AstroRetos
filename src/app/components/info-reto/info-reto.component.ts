@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Reto } from 'src/app/interfaces/interfaces';
+import { Reto, Usuario } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
-import { RetoComponent } from '../reto/reto.component';
+
+import { ModalController, Platform } from '@ionic/angular';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 
 /**
@@ -21,6 +23,7 @@ export class InfoRetoComponent implements OnInit {
   reto: Reto;
   oculto = 150;
   iconTipo: string;
+  mensaje: string = 'Te reto!';
 
   /**
    * 
@@ -28,7 +31,10 @@ export class InfoRetoComponent implements OnInit {
    * @param retoComponent Carga del Componente Reto
    */
   constructor(private retoSvc: RetoService,
-    private retoComponent: RetoComponent) { }
+    private modalCtrl: ModalController,
+    private socialSharing: SocialSharing,
+    private platform: Platform
+  ) { }
 
   /**
    * Método de inicio.
@@ -80,4 +86,29 @@ export class InfoRetoComponent implements OnInit {
     }
   }
 
+
+  /**
+   * Método para compartir el reto en las aplicaciones disponibles en el terminal (Mail o RRSS)
+   */
+  compartirReto() {
+    if (this.platform.is('cordova')) {
+      this.socialSharing.share(this.mensaje);
+    } else {
+      if (navigator.share) {
+        navigator.share({
+          text: this.mensaje,
+          url: ''
+        })
+          .then(() => console.log('Compartido!'))
+          .catch((error) => console.log('Error compartiendo', error));
+      }
+    }
+  }
+
+  /**
+   * Método que cierra el modal para volver al listado
+   */
+  cierreModal() {
+    this.modalCtrl.dismiss();
+  }
 }
