@@ -16,9 +16,6 @@ import { UserService } from './user.service';
 export class AuthService {
 
   usuarioLogado: Usuario;
-  
-
-
 
   constructor(private angularFireAuth: AngularFireAuth,
     private userSvc: UserService,
@@ -34,8 +31,7 @@ export class AuthService {
       NOMBRE: usuario.NOMBRE,
       ROL: "Retador",
       AVATAR: "",
-      ID: "",
-      PASSWORD: ""
+      ID: ""
 
     })
       .then((docRef: any) => {
@@ -81,7 +77,7 @@ export class AuthService {
     return this.angularFireAuth.user;
   }
 
-/*   canActivate(
+   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.angularFireAuth.authState.pipe(
@@ -93,7 +89,7 @@ export class AuthService {
         }
       })
     );
-  } */
+  } 
 
   checkLogin(): boolean {
     return !!this.angularFireAuth.currentUser;

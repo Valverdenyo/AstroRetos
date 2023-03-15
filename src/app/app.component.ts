@@ -27,7 +27,7 @@ export class AppComponent {
     ) {
 
        // Configuramos el observador de autenticación
-    this.afAuth.onAuthStateChanged(user => {
+ /*    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         // El usuario ha iniciado sesión, permitimos el acceso a todas las páginas
         this.router.navigate(['/home']);
@@ -35,6 +35,6 @@ export class AppComponent {
         // El usuario no ha iniciado sesión, redirigimos a la página de inicio de sesión
         this.router.navigate(['/home']);
       }
-    });
+    }); */
      }
 }

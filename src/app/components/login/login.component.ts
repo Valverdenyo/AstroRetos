@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ModalController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
+
 import { RegistroComponent } from '../registro/registro.component';
 import { Error } from 'src/app/interfaces/errores';
 
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
     private modalCtrl: ModalController,
     private navCtrl: NavController) {
 
+     
 
   }
 
@@ -54,11 +56,11 @@ export class LoginComponent implements OnInit {
       await this.authSrv.signIn(value);
       this.navCtrl.navigateRoot('/home');
      
-      this.usuario = this.authSrv.usuarioLogado;
+/*       this.usuario = this.authSrv.usuarioLogado;
       localStorage.setItem('rol', this.usuario.ROL);
       localStorage.setItem('usuarioLogado', 'true');
       localStorage.setItem('email', this.usuario.EMAIL);
-      console.log(localStorage);
+      console.log(localStorage); */
 
     } catch (error) {
       console.log('Error al iniciar sesión:', error);
