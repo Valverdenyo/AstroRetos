@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
@@ -14,14 +14,11 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-
+  userEmail: string;
   usuarioLogado: Usuario;
-
-  result: string;
   actionSheet: HTMLIonActionSheetElement;
 
   constructor(private authSvc: AuthService,
-    
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
     private userSvc: UserService,
@@ -30,15 +27,17 @@ export class PerfilPage implements OnInit {
     private avisosSvc: AvisosService
 
   ) {
+
     
-    this.userSvc.getUserByEmail(this.result).subscribe(usuario => {
+
+    this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario => {
       this.usuarioLogado = usuario;
     });
   }
 
   ngOnInit() {
 
-
+    console.log(this.userEmail);
 
   }
 
@@ -47,7 +46,6 @@ export class PerfilPage implements OnInit {
     this.navCtrl.navigateRoot('/home');
 
   }
-
 
   async avatarActionSheet() {
     this.actionSheet = await this.actionSheetCtrl.create({
