@@ -6,6 +6,8 @@ import { UserService } from '../../services/user.service';
 import { AvisosService } from 'src/app/services/avisos.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+//import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -30,16 +32,16 @@ export class PerfilPage implements OnInit {
     private avisosSvc: AvisosService
 
   ) {
-    
     this.userSvc.getUserByEmail(this.result).subscribe(usuario => {
       this.usuarioLogado = usuario;
     });
+
+ 
   }
 
   ngOnInit() {
 
-
-
+ 
   }
 
   logOut() {
@@ -165,6 +167,10 @@ export class PerfilPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async prepararFoto(source: string) {
+    
   }
 
 
