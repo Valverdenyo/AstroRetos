@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Reto } from '../interfaces/interfaces';
+import { Favorito, Reto } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
@@ -11,6 +11,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class RetoService {
 
+  retosFavoritos: Observable<any[]>;
   private retosCollection: AngularFirestoreCollection<Reto>;
   retos: Observable<Reto[]>;
   constructor(private firestore: AngularFirestore,
@@ -44,6 +45,15 @@ export class RetoService {
     const ref = this.storage.ref(token);
     return ref.getDownloadURL();
   } */
+
+  findFavoritosByUsuario(usuario: string) {
+    this.retosFavoritos = this.firestore.collection<Favorito>('favoritos', ref => ref.where('ID_USUARIO', '==', usuario)).get()
+    .pipe(
+      map(querySnapshot => {
+        return querySnapshot.docs.map(doc => doc.data());
+      })
+    );
+  }
 
  
 }

@@ -20,6 +20,11 @@ export interface Reto {
     IMAGEN: string,
 }
 
+export interface Favorito {
+    ID_RETO: string;
+    ID_USUARIO: string;
+  }
+
 export interface MenuOpts {
     icon: string;
     name: string;

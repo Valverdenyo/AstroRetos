@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Reto, Usuario } from 'src/app/interfaces/interfaces';
+import { Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 
 import { ModalController, Platform } from '@ionic/angular';
@@ -22,7 +22,6 @@ export class InfoRetoComponent implements OnInit {
   @Input() id: string;
   reto: Reto;
   oculto = 150;
-  iconTipo: string;
   mensaje: string = 'Te reto!';
 
   /**
@@ -42,7 +41,7 @@ export class InfoRetoComponent implements OnInit {
    */
   ngOnInit() {
 
-    this.retoSvc.getRetosActivos().subscribe(retos => {
+    this.retoSvc.getRetosporId(this.id).subscribe(retos => {
       this.reto = retos[0];
     });
 
@@ -55,6 +54,7 @@ export class InfoRetoComponent implements OnInit {
    * Retorna el nombre del incono de ionicons.io
    */
   getIconTipo(tipo: string): string {
+    
     switch (tipo) {
       case 'telescopio':
         return 'telescope-outline';

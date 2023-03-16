@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   ionFabVisible = true;
   userEmail: string | null = null;
   menuOpts: MenuOpts[];
+  enableFav = false;
 
   /**
    * Constructor del componente.
@@ -41,6 +42,7 @@ export class HomePage implements OnInit {
                 console.log(menuOpts);
                 this.menuOpts = menuOpts;
               });
+              this.enableFav = true;
           } else {
             this.userSvc.getMenuOpts(['all', 'retador'])
               .subscribe((menuOpts: MenuOpts[]) => {
