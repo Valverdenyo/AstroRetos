@@ -17,6 +17,7 @@ import { NavController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
   userEmail: string;
+  result: any;
   usuarioLogado: Usuario;
   actionSheet: HTMLIonActionSheetElement;
 

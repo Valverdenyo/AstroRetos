@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { MenuOpts, Usuario } from '../interfaces/interfaces';
+import { AuthService } from './auth.service';
 
 
 
@@ -21,8 +22,16 @@ export class UserService {
 
 
 
-  constructor(private firestore: AngularFirestore, private http: HttpClient) { }
+  constructor(private firestore: AngularFirestore, 
+    private http: HttpClient,
+    private authSvc: AuthService) { }
 
+  
+    getUsers(): Observable<any[]> {
+      return this.firestore.collection('usuarios').valueChanges({ idField: 'id' });
+    }
+  
+ 
   public getUserByEmail(email: string): Observable<Usuario> {
     return this.firestore.collection<Usuario>('usuarios', ref => ref.where('EMAIL', '==', email).limit(1))
       .valueChanges({ idField: 'id' })
@@ -36,6 +45,7 @@ export class UserService {
   }
 
   async deleteUser(id: string) {
+    this.authSvc.deleteUser();
     this.firestore.collection('usuarios').doc(id).delete()
       .then(() => {
         console.log('Documento eliminado correctamente');

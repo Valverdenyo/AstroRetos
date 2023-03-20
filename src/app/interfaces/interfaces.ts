@@ -4,8 +4,7 @@ export interface Usuario {
     EMAIL: string,
     PASSWORD: string,
     ROL: string,
-    AVATAR: string,
-    LOGADO: boolean
+    AVATAR: string
 }
 
 export interface Reto {
