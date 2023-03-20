@@ -72,7 +72,7 @@ export class AuthService {
     })
   }
 
-  async deleteUser() {
+ /*  async deleteUser() {
     const user = this.angularFireAuth.currentUser; // Obtiene el usuario actual
     try {
       await (await user).delete(); // Elimina el usuario actual
@@ -84,7 +84,7 @@ export class AuthService {
 
   async eliminarUsuarioPorId(userId: string) {
    
-  }
+  } */
 
   userDetails() {
 

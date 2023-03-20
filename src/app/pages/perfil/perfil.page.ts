@@ -107,7 +107,7 @@ export class PerfilPage implements OnInit {
         }, {
           text: 'Eliminar',
           handler: () => {
-            this.userSvc.deleteUser(this.usuarioLogado.ID);
+          //  this.userSvc.deleteUser(this.usuarioLogado.ID);
             this.router.navigateByUrl('/home');
           }
         }

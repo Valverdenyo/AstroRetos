@@ -20,33 +20,33 @@ import { InfoRetoComponent } from './info-reto/info-reto.component';
 
 
 @NgModule({
-  declarations: [FabLoginComponent, 
-    RegistroComponent, 
-    LoginComponent, 
-    NoticiaComponent, 
-    NoticiasComponent, 
-    MenuComponent, 
+  declarations: [FabLoginComponent,
+    RegistroComponent,
+    LoginComponent,
+    NoticiaComponent,
+    NoticiasComponent,
+    MenuComponent,
     HeaderComponent,
     RetoComponent,
     InfoRetoComponent
-    ],
+  ],
 
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule, 
-    
+    ReactiveFormsModule,
+
   ], exports: [
     FabLoginComponent,
     RegistroComponent,
-    LoginComponent, 
-    NoticiasComponent, 
+    LoginComponent,
+    NoticiasComponent,
     MenuComponent,
     HeaderComponent,
     RetoComponent,
-    InfoRetoComponent        
-    
+    InfoRetoComponent
+
   ]
 
 })

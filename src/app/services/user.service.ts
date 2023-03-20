@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { MenuOpts, Usuario } from '../interfaces/interfaces';
-import { AuthService } from './auth.service';
+//import { AuthService } from './auth.service';
 
 
 
@@ -23,8 +23,8 @@ export class UserService {
 
 
   constructor(private firestore: AngularFirestore, 
-    private http: HttpClient,
-    private authSvc: AuthService) { }
+    private http: HttpClient
+   ) { }
 
   
     getUsers(): Observable<any[]> {
@@ -44,7 +44,7 @@ export class UserService {
 
   }
 
-  async deleteUser(id: string) {
+/*   async deleteUser(id: string) {
     this.authSvc.deleteUser();
     this.firestore.collection('usuarios').doc(id).delete()
       .then(() => {
@@ -54,7 +54,7 @@ export class UserService {
         console.error('Error al eliminar documento: ', error);
       });
   }
-
+ */
   getMenuOpts(roles: string[]) {
     return this.http.get<MenuOpts[]>('/assets/data/menu.json')
       .pipe(
