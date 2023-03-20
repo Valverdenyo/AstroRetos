@@ -29,17 +29,24 @@ export class PerfilPage implements OnInit {
     private avisosSvc: AvisosService
 
   ) {
-    
-    this.userSvc.getUserByEmail(this.result).subscribe(usuario => {
+
+    this.authSvc.getUserEmail().then(email => {
+      this.userEmail == email;
+      console.log('email: ',this.userEmail);
+    });
+    console.log('email: ',this.userEmail);
+    this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario => {
       this.usuarioLogado = usuario;
+      console.log(this.usuarioLogado.EMAIL);
     });
 
+    
+   
  
   }
 
   ngOnInit() {
-
-
+   
 
   }
 
