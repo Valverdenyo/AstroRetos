@@ -17,7 +17,11 @@ export class RetoService {
   constructor(private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
 
-  getRetosActivos(){
+    getRetoss(): Observable<any[]>{
+      return this.firestore.collection('retos').valueChanges({ idField: 'id' });
+    }
+  
+    getRetosActivos(){
     this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ACTIVO', '==', true));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-segment value="retos">
+    <ion-segment value="retos" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="retos">
         <ion-label>Retos</ion-label>
       </ion-segment-button>
@@ -11,8 +11,59 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div *ngIf="segmento == 'retos'">
+    <ion-list>
+
+      <ion-item-sliding *ngFor="let reto of retos">
+        <ion-item >
+          <ion-avatar>
+            <img [src]="reto.IMAGEN" />
+          </ion-avatar>
+          <ion-label>
+            <h3>{{ reto.TITULO }} </h3>
+            
+          </ion-label>
+          <ion-badge slot="end">0</ion-badge>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="success">   
+            <ion-icon slot="icon-only" name="arrow-up-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger">   
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
+  <div *ngIf="segmento == 'users'">
+    <ion-list>
+
+      <ion-item-sliding *ngFor="let usuario of usuarios">
+        <ion-item >
+          <ion-avatar>
+            <img [src]="usuario.AVATAR" />
+          </ion-avatar>
+          <ion-label>
+            <h3>{{ usuario.NOMBRE }} </h3>
+            <p><small>{{ usuario.EMAIL }}</small></p>
+          </ion-label>
+          <ion-badge slot="end">0</ion-badge>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="setAdministrator(usuario.ID)" color="success">   
+            <ion-icon slot="icon-only" name="chevron-up-circle-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option (click)="deleteUser(usuario.ID)" color="danger">   
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
 
   <app-menu></app-menu>
-
 </ion-content>

@@ -4,7 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore/';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { User } from 'firebase/auth';
+
 import { take, map, tap } from 'rxjs/operators';
 import { Usuario } from '../interfaces/interfaces';
 import { UserService } from './user.service';
@@ -70,6 +70,20 @@ export class AuthService {
       this.angularFireAuth.signOut();
       this.router.navigateByUrl('home');
     })
+  }
+
+  async deleteUser() {
+    const user = this.angularFireAuth.currentUser; // Obtiene el usuario actual
+    try {
+      await (await user).delete(); // Elimina el usuario actual
+      console.log('Usuario eliminado exitosamente.');
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async eliminarUsuarioPorId(userId: string) {
+   
   }
 
   userDetails() {
