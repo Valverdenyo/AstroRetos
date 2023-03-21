@@ -53,7 +53,7 @@ export class AuthService {
     })
   }
 
-  signIn(value: any) {
+  async signIn(value: any) {
 
     this.userSvc.getUserByEmail(value.email).subscribe(resultado => {
 
@@ -71,20 +71,6 @@ export class AuthService {
       this.router.navigateByUrl('home');
     })
   }
-
- /*  async deleteUser() {
-    const user = this.angularFireAuth.currentUser; // Obtiene el usuario actual
-    try {
-      await (await user).delete(); // Elimina el usuario actual
-      console.log('Usuario eliminado exitosamente.');
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async eliminarUsuarioPorId(userId: string) {
-   
-  } */
 
   userDetails() {
 
@@ -106,7 +92,9 @@ export class AuthService {
   } 
 
   checkLogin(): boolean {
+    
     return !!this.angularFireAuth.currentUser;
+    
   }
 
   async getUserEmail(): Promise<string | null> {

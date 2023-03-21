@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 
 import { AuthService } from 'src/app/services/auth.service';
 import { Error } from 'src/app/interfaces/errores';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -16,7 +17,8 @@ export class RegistroComponent implements OnInit {
   errorMsg: Error[] = [];
 
   constructor(private authSrv: AuthService,
-              private fBuilder: FormBuilder) { }
+              private fBuilder: FormBuilder,
+              private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.registroForm = this.fBuilder.group({
@@ -39,6 +41,7 @@ export class RegistroComponent implements OnInit {
       .then((response) => {
         this.errorMsg = [];
         this.successMsg = "Usuario Creado.";
+        this.modalCtrl.dismiss();
       }, error => {
         this.errorMsg = error.message;
         this.successMsg = "";

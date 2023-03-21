@@ -17,7 +17,7 @@ export class RetoService {
   constructor(private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
 
-    getRetoss(): Observable<any[]>{
+    getRetos(): Observable<any[]>{
       return this.firestore.collection('retos').valueChanges({ idField: 'id' });
     }
   
@@ -57,6 +57,12 @@ export class RetoService {
         return querySnapshot.docs.map(doc => doc.data());
       })
     );
+  }
+
+  async checkRetoActivo(id: string): Promise<boolean> {
+    console.log('check', id);
+    const doc = await this.firestore.collection('retos').doc(id).get().toPromise();
+    return doc.exists && (doc.data() as Reto).ACTIVO;
   }
 
  

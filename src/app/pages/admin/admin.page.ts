@@ -14,6 +14,7 @@ export class AdminPage implements OnInit {
   usuarios: Usuario[] = [];
   retos: Reto[] = [];
   segmento: string;
+  retoActivo: string;
 
   constructor(private userSvc: UserService,
     private avisosSvc: AvisosService,
@@ -25,7 +26,7 @@ export class AdminPage implements OnInit {
       this.usuarios = usuarios;
     });
 
-    this.retoSvc.getRetosActivos().subscribe(retos => {
+    this.retoSvc.getRetos().subscribe(retos => {
       this.retos = retos;
     });
   }
@@ -41,15 +42,23 @@ export class AdminPage implements OnInit {
   deleteUser(id: string) {
 
     try {
-   //   this.userSvc.deleteUser(id);
+      //   this.userSvc.deleteUser(id);
       this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el uusuario', 'danger');
-
     }
 
+  }
 
-
+  iconoActivo(id: string) {
+    console.log('reto', id);
+    if (this.retoSvc.checkRetoActivo(id)) {
+      this.retoActivo = 'arrow-down-outline';
+      console.log('reto activo');
+    } else {
+      this.retoActivo = 'arrow-up-outline';
+      console.log('reto inactivo');
+    }
   }
 
 }

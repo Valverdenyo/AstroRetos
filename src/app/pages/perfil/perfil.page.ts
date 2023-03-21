@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { AvisosService } from 'src/app/services/avisos.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 //import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 
@@ -16,6 +17,8 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+
+  
   userEmail: string;
   result: any;
   usuarioLogado: Usuario;
@@ -27,28 +30,34 @@ export class PerfilPage implements OnInit {
     private userSvc: UserService,
     private router: Router,
     private navCtrl: NavController,
-    private avisosSvc: AvisosService
+    private avisosSvc: AvisosService,
+    private angularFireAuth: AngularFireAuth
 
   ) {
 
-    this.authSvc.getUserEmail().then(email => {
-      this.userEmail == email;
-      console.log('email: ',this.userEmail);
-    });
-    console.log('email: ',this.userEmail);
-    this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario => {
-      this.usuarioLogado = usuario;
-      console.log(this.usuarioLogado.EMAIL);
-    });
+    this.angularFireAuth.onAuthStateChanged(user => {
+      if (user) {
+        // El usuario está logueado
+        
+        this.authSvc.getUserEmail().then(email => {
+          this.userEmail = email;
+          console.log('El usuario está logueado con ', this.userEmail);
+          this.userSvc.getUserByEmail(email).subscribe(usuario => {
+            this.usuarioLogado = usuario;
+            console.log(this.usuarioLogado.NOMBRE);
+          });        
 
-    
-   
+        });
+      } else {
+        // El usuario no está logueado
+       console.log('no deberias estar aqui');
+      }
+    });
  
   }
 
   ngOnInit() {
    
-
   }
 
   logOut() {
