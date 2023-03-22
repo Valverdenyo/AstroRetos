@@ -73,13 +73,13 @@ export class PerfilPage implements OnInit {
         {
           icon: 'camera-outline',
           handler: () => {
-            console.log('Button 1 clicked');
+            console.log('Abrir camara');
           }
         },
         {
           icon: 'image-outline',
           handler: () => {
-            //   this.selectImage()
+            console.log('Abrir galeria');
           }
         },
         {

@@ -45,13 +45,13 @@
             <img [src]="usuario.AVATAR" />
           </ion-avatar>
           <ion-label>
-            <h3>{{ usuario.NOMBRE }} </h3>
+            <h3>{{ usuario.NOMBRE }}  ({{usuario.ROL}}) </h3>
             <p><small>{{ usuario.EMAIL }}</small></p>
           </ion-label>
           <ion-badge slot="end">0</ion-badge>
         </ion-item>
         <ion-item-options side="end">
-          <ion-item-option (click)="setAdministrator(usuario.ID)" color="success">
+          <ion-item-option (click)="cambiarRol(usuario.ID)" color="success">
             <ion-icon slot="icon-only" name="chevron-up-circle-outline"></ion-icon>
           </ion-item-option>
           <ion-item-option (click)="deleteUser(usuario.ID)" color="danger">

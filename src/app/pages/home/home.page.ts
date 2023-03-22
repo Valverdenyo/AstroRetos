@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { MenuOpts } from 'src/app/interfaces/interfaces';
+import { MenuOpts, Usuario } from 'src/app/interfaces/interfaces';
 
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
 
   ionFabVisible = true;
   userEmail: string | null = null;
+  usuarioLogado: Usuario;
   menuOpts: MenuOpts[];
   enableFav = false;
 
@@ -34,22 +35,26 @@ export class HomePage implements OnInit {
         this.ionFabVisible = false;
         this.authSvc.getUserEmail().then(email => {
           this.userEmail = email;
-          console.log('El usuario está logueado con ', this.userEmail);
-          if (this.userEmail === 'elwe.isilra@gmail.com') {
-            console.log(this.userEmail);
-            this.userSvc.getMenuOpts(['all', 'retador', 'admin'])
-              .subscribe((menuOpts: MenuOpts[]) => {
-                console.log(menuOpts);
-                this.menuOpts = menuOpts;
-              });
+          this.userSvc.getUserByEmail(email).subscribe(usuario => {
+            this.usuarioLogado = usuario;
+            console.log('El usuario está logueado con ', this.usuarioLogado.EMAIL);
+            if (this.usuarioLogado.ROL === 'admin') {
+              console.log(this.usuarioLogado.ROL);
+              this.userSvc.getMenuOpts(['all', 'retador', 'admin'])
+                .subscribe((menuOpts: MenuOpts[]) => {
+                  console.log(menuOpts);
+                  this.menuOpts = menuOpts;
+                });
               this.enableFav = true;
-          } else {
-            this.userSvc.getMenuOpts(['all', 'retador'])
-              .subscribe((menuOpts: MenuOpts[]) => {
-                console.log(menuOpts);
-                this.menuOpts = menuOpts;
-              });
-          }
+            } else {
+              this.userSvc.getMenuOpts(['all', 'retador'])
+                .subscribe((menuOpts: MenuOpts[]) => {
+                  console.log(menuOpts);
+                  this.menuOpts = menuOpts;
+                });
+            }
+          });
+
 
         });
       } else {

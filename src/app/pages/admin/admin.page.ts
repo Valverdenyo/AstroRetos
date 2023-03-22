@@ -35,8 +35,14 @@ export class AdminPage implements OnInit {
     this.segmento = event.detail.value;
   }
 
-  setAdministrator(id: string) {
-
+  cambiarRol(id: string) {
+    console.log('cambio rol', id);
+    try {
+     this.userSvc.updateUserRol(id);
+      this.avisosSvc.presentToast('Cambio de Rol Correcto', 'success');
+    } catch (error) {
+      this.avisosSvc.presentToast('Error en el cambio de Rol', 'danger');
+    }
   }
 
   deleteUser(id: string) {
@@ -45,7 +51,7 @@ export class AdminPage implements OnInit {
       //   this.userSvc.deleteUser(id);
       this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
     } catch (error) {
-      this.avisosSvc.presentToast('Error al eliminar el uusuario', 'danger');
+      this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
     }
 
   }
