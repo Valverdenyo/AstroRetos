@@ -17,19 +17,20 @@
 
       <ion-item-sliding *ngFor="let reto of retos">
         <ion-item>
-          <ion-avatar>
+          <ion-avatar slot="start">
             <img [src]="reto.IMAGEN" />
           </ion-avatar>
           <ion-label>
-            <h3>{{ reto.TITULO }} </h3>
+            <h3>{{ reto.TITULO }} ({{reto.ACTIVO}})</h3>
+           
           </ion-label>
         </ion-item>
         <ion-item-options side="end">
-          <ion-item-option color="success">
-           <!--  <ion-icon slot="icon-only" [name]="iconoActivo(reto.ID)"></ion-icon> -->
+          <ion-item-option color="success" (click)="cambiarEstado(reto.ID)">
+           <ion-icon slot="icon-only" name="sync-circle-outline"></ion-icon>
           </ion-item-option>
           <ion-item-option color="danger">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
+            <ion-icon slot="icon-only" name="trash" (click)="deleteReto(reto.ID)"></ion-icon>
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
@@ -41,7 +42,7 @@
 
       <ion-item-sliding *ngFor="let usuario of usuarios">
         <ion-item>
-          <ion-avatar>
+          <ion-avatar slot="start">
             <img [src]="usuario.AVATAR" />
           </ion-avatar>
           <ion-label>
@@ -52,7 +53,7 @@
         </ion-item>
         <ion-item-options side="end">
           <ion-item-option (click)="cambiarRol(usuario.ID)" color="success">
-            <ion-icon slot="icon-only" name="chevron-up-circle-outline"></ion-icon>
+            <ion-icon slot="icon-only" name="sync-circle-outline"></ion-icon>
           </ion-item-option>
           <ion-item-option (click)="deleteUser(usuario.ID)" color="danger">
             <ion-icon slot="icon-only" name="trash"></ion-icon>

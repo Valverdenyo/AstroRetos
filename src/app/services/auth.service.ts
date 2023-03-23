@@ -113,5 +113,16 @@ export class AuthService {
     await user.updatePassword(nuevaContraseña);
   }
 
+  deleteUser(id: string) {
+    
+    this.firestore.collection('usuarios').doc(id).delete()
+      .then(() => {
+        console.log('Documento eliminado correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar documento: ', error);
+      });
+  }
+
 
 }

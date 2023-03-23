@@ -14,6 +14,8 @@ export class RetoService {
   retosFavoritos: Observable<any[]>;
   private retosCollection: AngularFirestoreCollection<Reto>;
   retos: Observable<Reto[]>;
+  reto: Reto;
+
   constructor(private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
 
@@ -33,7 +35,7 @@ export class RetoService {
     return this.retos;
   }
 
-  getRetosporId(id: string){
+  getRetosById(id: string){
     this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ID', '==', id));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -43,6 +45,24 @@ export class RetoService {
       }))
     );
     return this.retos;
+  }
+
+  updateEstadoReto(id: string) {
+    this.getRetosById(id).subscribe(reto => {
+      this.reto = reto[0];
+    });
+
+    if (this.reto.ACTIVO == true) {
+      this.reto.ACTIVO = false;
+     
+    } else {
+      this.reto.ACTIVO = true;
+     
+    }
+
+    return this.firestore.collection('retos').doc(id).update({
+      ACTIVO: this.reto.ACTIVO
+    });
   }
 
 /*   getImagenUrl(token: string) {
@@ -65,5 +85,14 @@ export class RetoService {
     return doc.exists && (doc.data() as Reto).ACTIVO;
   }
 
+  async deleteReto(id: string) {
+    this.firestore.collection('retos').doc(id).delete()
+      .then(() => {
+        console.log('Reto eliminado correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar Reto: ', error);
+      });
+  }
  
 }

@@ -15,6 +15,7 @@ export class AdminPage implements OnInit {
   retos: Reto[] = [];
   segmento: string;
   retoActivo: string;
+  color: string;
 
   constructor(private userSvc: UserService,
     private avisosSvc: AvisosService,
@@ -45,6 +46,17 @@ export class AdminPage implements OnInit {
     }
   }
 
+  cambiarEstado(id: string) {
+    console.log('cambio Estado', id);
+    try {
+     this.retoSvc.updateEstadoReto(id);
+     
+      this.avisosSvc.presentToast('Cambio de Estado Correcto', 'success');
+    } catch (error) {
+      this.avisosSvc.presentToast('Error en el cambio de Estado', 'danger');
+    }
+  }
+
   deleteUser(id: string) {
 
     try {
@@ -65,6 +77,16 @@ export class AdminPage implements OnInit {
       this.retoActivo = 'arrow-up-outline';
       console.log('reto inactivo');
     }
+  }
+
+  deleteReto(id: string) {
+    try {
+         this.retoSvc.deleteReto(id);
+      this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
+    }
+
   }
 
 }

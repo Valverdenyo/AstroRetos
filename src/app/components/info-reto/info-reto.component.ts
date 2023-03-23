@@ -41,7 +41,7 @@ export class InfoRetoComponent implements OnInit {
    */
   ngOnInit() {
 
-    this.retoSvc.getRetosporId(this.id).subscribe(retos => {
+    this.retoSvc.getRetosById(this.id).subscribe(retos => {
       this.reto = retos[0];
     });
 
