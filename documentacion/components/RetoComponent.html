@@ -138,7 +138,13 @@
                                 <a href="#iconTipo" >iconTipo</a>
                             </li>
                             <li>
+                                <a href="#mensaje" >mensaje</a>
+                            </li>
+                            <li>
                                 <a href="#retos" >retos</a>
+                            </li>
+                            <li>
+                                <a href="#usuarioLogado" >usuarioLogado</a>
                             </li>
                         </ul>
                     </td>
@@ -152,6 +158,12 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#compartirReto" >compartirReto</a>
+                            </li>
+                            <li>
+                                <a href="#gestionFavorito" >gestionFavorito</a>
+                            </li>
                             <li>
                                 <a href="#getColorNivel" >getColorNivel</a>
                             </li>
@@ -183,12 +195,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(retoSvc: <a href="../injectables/RetoService.html" target="_self">RetoService</a>, modalCtrl: ModalController)</code>
+<code>constructor(retoSvc: <a href="../injectables/RetoService.html" target="_self">RetoService</a>, modalCtrl: ModalController, socialSharing: SocialSharing, platform: Platform, auth: AngularFireAuth)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/components/reto/reto.component.ts:16</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/components/reto/reto.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -202,6 +214,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -216,6 +229,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de manejo de Los Retos</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>modalCtrl</td>
@@ -228,6 +245,58 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador de Modar para mostrar la info detallada como modal</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>socialSharing</td>
+                                                  
+                                                        <td>
+                                                                    <code>SocialSharing</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>PlugIn para compartir por RRSS</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>platform</td>
+                                                  
+                                                        <td>
+                                                                    <code>Platform</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controla la plataforma dónde se usa la app, movil o web</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFireAuth</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de Firebase Auth</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -251,6 +320,84 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="compartirReto"></a>
+                    <span class="name">
+                        <span ><b>compartirReto</b></span>
+                        <a href="#compartirReto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>compartirReto()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="124"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Método para compartir el reto en las aplicaciones disponibles en el terminal (Mail o RRSS)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gestionFavorito"></a>
+                    <span class="name">
+                        <span ><b>gestionFavorito</b></span>
+                        <a href="#gestionFavorito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gestionFavorito()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="143"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getColorNivel"></a>
                     <span class="name">
                         <span ><b>getColorNivel</b></span>
@@ -267,14 +414,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="53"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:53</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="108"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:108</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Cambia el color del icono segun el nivel de dificultad del Reto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -285,6 +434,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -299,6 +449,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Nivel del Reto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -310,7 +464,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>El color del icono (verde, amarillo, rojo)</p>
+
                     </div>
                 </td>
             </tr>
@@ -336,14 +491,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="40"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:40</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="90"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:90</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>CAmbia el Icono del reto según el tipo (ocular, telescopio, prismaticos)</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -354,6 +511,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -368,6 +526,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Tipo de Reto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -379,7 +541,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>el nombre del icono de ionicons.io</p>
+
                     </div>
                 </td>
             </tr>
@@ -405,14 +568,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="23"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:23</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="56"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:56</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Carga al inicio solo los retos marcados como Activos
+Tambien revisa si el usuario está logado y busca si el reto ya lo tiene en Favoritos (NO IMPLEMENTADO) o no.</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -444,14 +610,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="29"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:29</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="73"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:73</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Carga un modal para mostar la info detallada de un reto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -462,6 +630,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -476,6 +645,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del Reto a mostrar</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -518,10 +691,53 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/components/reto/reto.component.ts:16</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="30" class="link-to-prism">src/app/components/reto/reto.component.ts:30</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Declara el tipo de icono para cambiarlo segiún el tipo de reto.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensaje"></a>
+                    <span class="name">
+                        <span ><b>mensaje</b></span>
+                        <a href="#mensaje"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>&#x27;Te reto!&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/components/reto/reto.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje para compartir por RRSS.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -549,10 +765,47 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/components/reto/reto.component.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="26" class="link-to-prism">src/app/components/reto/reto.component.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Declaramos Array de Retos para guardar la info para mostrar.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioLogado"></a>
+                    <span class="name">
+                        <span ><b>usuarioLogado</b></span>
+                        <a href="#usuarioLogado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/components/reto/reto.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba si el usuario está logado o no para habilitar el icono de favoritos y de Realizado.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -563,10 +816,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+import { ModalController, Platform } from &#x27;@ionic/angular&#x27;;
+import { SocialSharing } from &#x27;@awesome-cordova-plugins/social-sharing/ngx&#x27;;
+import { AngularFireAuth } from &#x27;@angular/fire/compat/auth&#x27;;
+
 import { Reto } from &#x27;src/app/interfaces/interfaces&#x27;;
 import { RetoService } from &#x27;src/app/services/reto.service&#x27;;
 import { InfoRetoComponent } from &#x27;../info-reto/info-reto.component&#x27;;
-import { ModalController } from &#x27;@ionic/angular&#x27;;
 
 
 @Component({
@@ -576,31 +833,77 @@ import { ModalController } from &#x27;@ionic/angular&#x27;;
 })
 export class RetoComponent implements OnInit {
 
+  /**
+   * Comprueba si el usuario está logado o no para habilitar el icono de favoritos y de Realizado.
+   */
+  usuarioLogado &#x3D; false;
+  /**
+   * Declaramos Array de Retos para guardar la info para mostrar.
+   */
   retos: Reto[] &#x3D; [];
-   iconTipo: string;
+  /**
+   * Declara el tipo de icono para cambiarlo segiún el tipo de reto.
+   */
+  iconTipo: string;
+  /**
+   * Mensaje para compartir por RRSS.
+   */
+  mensaje: string &#x3D; &#x27;Te reto!&#x27;;
 
-  constructor(private retoSvc: RetoService, 
-    private modalCtrl: ModalController) {
-     
-     }
+  /**
+   * 
+   * @param retoSvc Servicio de manejo de Los Retos
+   * @param modalCtrl Controlador de Modar para mostrar la info detallada como modal
+   * @param socialSharing PlugIn para compartir por RRSS
+   * @param platform Controla la plataforma dónde se usa la app, movil o web
+   * @param auth Servicio de Firebase Auth
+   */
+  constructor(private retoSvc: RetoService,
+    private modalCtrl: ModalController,
+    private socialSharing: SocialSharing,
+    private platform: Platform,
+    private auth: AngularFireAuth) {
 
+  }
+
+  /**
+   * Carga al inicio solo los retos marcados como Activos
+   * Tambien revisa si el usuario está logado y busca si el reto ya lo tiene en Favoritos (NO IMPLEMENTADO) o no.
+   */
   ngOnInit() {
     this.retoSvc.getRetosActivos().subscribe(retos &#x3D;&gt; {
       this.retos &#x3D; retos;
     });
+
+    this.auth.user.subscribe(user &#x3D;&gt; {
+      this.usuarioLogado &#x3D; !!user;
+      if (this.usuarioLogado) {
+        // Llamar al método para comprobar si el reto está en favoritos
+      }
+    });
   }
 
-  async verDetalle( id: string ) {
-    const modal&#x3D; await this.modalCtrl.create({
+  /**
+   * Carga un modal para mostar la info detallada de un reto
+   * @param id Id del Reto a mostrar
+   */
+  async verDetalle(id: string) {
+    const modal &#x3D; await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
         id
       },
+      cssClass: &#x27;modalInfo&#x27;
     });
 
     modal.present();
   }
 
+  /**
+   * CAmbia el Icono del reto según el tipo (ocular, telescopio, prismaticos)
+   * @param tipo Tipo de Reto
+   * @returns el nombre del icono de ionicons.io
+   */
   getIconTipo(tipo: string): string {
     switch (tipo) {
       case &#x27;telescopio&#x27;:
@@ -614,6 +917,11 @@ export class RetoComponent implements OnInit {
     }
   }
 
+  /**
+   * Cambia el color del icono segun el nivel de dificultad del Reto
+   * @param nivel Nivel del Reto
+   * @returns El color del icono (verde, amarillo, rojo)
+   */
   getColorNivel(nivel: string): string {
     switch (nivel) {
       case &#x27;facil&#x27;:
@@ -627,7 +935,32 @@ export class RetoComponent implements OnInit {
     }
   }
 
- 
+  /**
+   * Método para compartir el reto en las aplicaciones disponibles en el terminal (Mail o RRSS)
+   */
+  compartirReto() {
+
+    if (this.platform.is(&#x27;cordova&#x27;)) {
+      this.socialSharing.share(this.mensaje);
+    } else {
+      if (navigator.share) {
+        navigator.share({
+          text: this.mensaje,
+          url: &#x27;&#x27;
+        })
+          .then(() &#x3D;&gt; console.log(&#x27;Compartido!&#x27;))
+          .catch((error) &#x3D;&gt; console.log(&#x27;Error compartiendo&#x27;, error));
+      }
+    }
+  }
+
+  /**
+   * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
+   */
+  gestionFavorito() {
+
+  }
+
 }
 </code></pre>
     </div>
@@ -652,7 +985,7 @@ export class RetoComponent implements OnInit {
       &lt;ion-icon name&#x3D;&quot;ellipse-sharp&quot; [color]&#x3D;&quot;getColorNivel(reto.NIVEL)&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
       &lt;ion-icon name&#x3D;&quot;checkmark-circle-outline&quot;&gt;&lt;/ion-icon&gt;
       &lt;ion-icon name&#x3D;&quot;star-outline&quot; color&#x3D;&quot;primary&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
-      &lt;ion-icon name&#x3D;&quot;share-social-outline&quot; color&#x3D;&quot;primary&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
+      &lt;ion-icon name&#x3D;&quot;share-social-outline&quot; color&#x3D;&quot;primary&quot; slot&#x3D;&quot;end&quot; (click)&#x3D;&quot;compartirReto()&quot;&gt;&lt;/ion-icon&gt;
       
     &lt;/ion-item&gt;
   &lt;/ion-card-content&gt;  
@@ -691,7 +1024,7 @@ export class RetoComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-card *ngFor="let reto of retos">  <ion-card-header>        <ion-item>      <ion-card-subtitle color="primary"> {{reto.TITULO}}  </ion-card-subtitle>      <ion-icon name="information-circle-outline" color="primary" slot="end" (click)="verDetalle(reto.ID)"></ion-icon>     </ion-item>     </ion-card-header>  <ion-card-content>    <ion-item>      <ion-img [src]="reto.IMAGEN"></ion-img>    </ion-item>    <ion-item>      <ion-icon [name]="getIconTipo(reto.TIPO)" slot="start"></ion-icon>      <ion-icon name="ellipse-sharp" [color]="getColorNivel(reto.NIVEL)" slot="start"></ion-icon>      <ion-icon name="checkmark-circle-outline"></ion-icon>      <ion-icon name="star-outline" color="primary" slot="end"></ion-icon>      <ion-icon name="share-social-outline" color="primary" slot="end"></ion-icon>          </ion-item>  </ion-card-content>  </ion-card></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-card *ngFor="let reto of retos">  <ion-card-header>        <ion-item>      <ion-card-subtitle color="primary"> {{reto.TITULO}}  </ion-card-subtitle>      <ion-icon name="information-circle-outline" color="primary" slot="end" (click)="verDetalle(reto.ID)"></ion-icon>     </ion-item>     </ion-card-header>  <ion-card-content>    <ion-item>      <ion-img [src]="reto.IMAGEN"></ion-img>    </ion-item>    <ion-item>      <ion-icon [name]="getIconTipo(reto.TIPO)" slot="start"></ion-icon>      <ion-icon name="ellipse-sharp" [color]="getColorNivel(reto.NIVEL)" slot="start"></ion-icon>      <ion-icon name="checkmark-circle-outline"></ion-icon>      <ion-icon name="star-outline" color="primary" slot="end"></ion-icon>      <ion-icon name="share-social-outline" color="primary" slot="end" (click)="compartirReto()"></ion-icon>          </ion-item>  </ion-card-content>  </ion-card></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'NoticiasPage', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RetoComponent'};

@@ -193,12 +193,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authSrv: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, fBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, modalCtrl: ModalController, navCtrl: NavController)</code>
+<code>constructor(authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, fBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, modalCtrl: ModalController, navCtrl: NavController)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/components/login/login.component.ts:25</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/components/login/login.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -212,11 +212,12 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>authSrv</td>
+                                                        <td>authSvc</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
@@ -226,6 +227,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para el manejo de la Autenticacion con Firebase Auth</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>fBuilder</td>
@@ -238,6 +243,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Componente de Formulario cde Login</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>modalCtrl</td>
@@ -250,6 +259,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador del Modal para mostrarlo/cerrarlo</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>navCtrl</td>
@@ -262,6 +275,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador de navegación por la app</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -301,14 +318,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="80"
-                            class="link-to-prism">src/app/components/login/login.component.ts:80</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="105"
+                            class="link-to-prism">src/app/components/login/login.component.ts:105</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Cierra el propio Modal</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -338,14 +357,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="68"
-                            class="link-to-prism">src/app/components/login/login.component.ts:68</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="86"
+                            class="link-to-prism">src/app/components/login/login.component.ts:86</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Autenticacion de Google (NO IMPLEMENTADO)</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -377,14 +398,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="52"
-                            class="link-to-prism">src/app/components/login/login.component.ts:52</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="73"
+                            class="link-to-prism">src/app/components/login/login.component.ts:73</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Realiza el Login apoyandose en el Servicio Auth y redirecciona al Home</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -395,6 +418,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -409,6 +433,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Valores pasados por el Formulario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -446,14 +474,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="35"
-                            class="link-to-prism">src/app/components/login/login.component.ts:35</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="54"
+                            class="link-to-prism">src/app/components/login/login.component.ts:54</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creamos el formulario con los validadores necesarios</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -485,17 +515,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="72"
-                            class="link-to-prism">src/app/components/login/login.component.ts:72</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="94"
+                            class="link-to-prism">src/app/components/login/login.component.ts:94</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Muestra un Modal para el Registro del usuario</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>La vista del Modal</p>
 
                     </div>
                 </td>
@@ -532,10 +570,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/components/login/login.component.ts:23</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="31" class="link-to-prism">src/app/components/login/login.component.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Texto a mostrar si el acceso es erroneo</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -558,10 +602,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="21" class="link-to-prism">src/app/components/login/login.component.ts:21</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/components/login/login.component.ts:23</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Declaración del Formulario de Login</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -589,10 +639,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/components/login/login.component.ts:22</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/components/login/login.component.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Texto a mostrar si el acceso es correcto</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -615,10 +671,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/components/login/login.component.ts:25</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/components/login/login.component.ts:35</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto tipo Usuario para guardar la información que se necesite manejar</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -629,15 +691,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { FormBuilder, FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 
+import { FormBuilder, FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import { ModalController, NavController } from &#x27;@ionic/angular&#x27;;
+
 import { AuthService } from &#x27;src/app/services/auth.service&#x27;;
 
 import { RegistroComponent } from &#x27;../registro/registro.component&#x27;;
 import { Error } from &#x27;src/app/interfaces/errores&#x27;;
-
-
 import { Usuario } from &#x27;src/app/interfaces/interfaces&#x27;;
 
 
@@ -648,23 +709,41 @@ import { Usuario } from &#x27;src/app/interfaces/interfaces&#x27;;
 })
 export class LoginComponent implements OnInit {
 
+  /**
+   * Declaración del Formulario de Login
+   */
   loginForm: FormGroup;
+  /**
+   * Texto a mostrar si el acceso es correcto
+   */
   successMsg: string &#x3D; &#x27;&#x27;;
+  /**
+   * Texto a mostrar si el acceso es erroneo
+   */
   errorMsg: Error[] &#x3D; [];
-
+  /**
+   * Objeto tipo Usuario para guardar la información que se necesite manejar
+   */
   usuario: Usuario;
 
-  constructor(private authSrv: AuthService,
+  /**
+   * 
+   * @param authSvc Servicio para el manejo de la Autenticacion con Firebase Auth
+   * @param fBuilder Componente de Formulario cde Login
+   * @param modalCtrl Controlador del Modal para mostrarlo/cerrarlo
+   * @param navCtrl Controlador de navegación por la app
+   */
+  constructor(private authSvc: AuthService,
     private fBuilder: FormBuilder,
     private modalCtrl: ModalController,
     private navCtrl: NavController) {
 
-
   }
 
+  /**
+   * Creamos el formulario con los validadores necesarios
+   */
   ngOnInit() {
-
-    localStorage.setItem(&#x27;rol&#x27;, &#x27;all&#x27;);
 
     this.loginForm &#x3D; this.fBuilder.group({
       email: new FormControl(&#x27;&#x27;, Validators.compose([
@@ -679,26 +758,31 @@ export class LoginComponent implements OnInit {
 
   }
 
+  /**Realiza el Login apoyandose en el Servicio Auth y redirecciona al Home
+   * 
+   * @param value Valores pasados por el Formulario
+   */
   async logIn(value: any) {
     try {
-      await this.authSrv.signIn(value);
+      await this.authSvc.signIn(value);
       this.navCtrl.navigateRoot(&#x27;/home&#x27;);
-     
-      this.usuario &#x3D; this.authSrv.usuarioLogado;
-      localStorage.setItem(&#x27;rol&#x27;, this.usuario.ROL);
-      localStorage.setItem(&#x27;usuarioLogado&#x27;, &#x27;true&#x27;);
-      localStorage.setItem(&#x27;email&#x27;, this.usuario.EMAIL);
-      console.log(localStorage);
 
     } catch (error) {
       console.log(&#x27;Error al iniciar sesión:&#x27;, error);
     }
   }
 
+  /**
+   * Autenticacion de Google (NO IMPLEMENTADO)
+   */
   gAuth() {
 
   }
 
+/**
+ * Muestra un Modal para el Registro del usuario
+ * @returns La vista del Modal
+ */
   async registroModal() {
     const modal &#x3D; await this.modalCtrl.create({
       component: RegistroComponent,
@@ -707,6 +791,9 @@ export class LoginComponent implements OnInit {
     return await modal.present();
   }
 
+  /**
+   * Cierra el propio Modal
+   */
   closeModal() {
     this.modalCtrl.dismiss();
   }

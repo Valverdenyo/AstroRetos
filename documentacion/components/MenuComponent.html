@@ -126,20 +126,6 @@
     <h3 id="index">Índice</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Propiedades</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#menuOpts" >menuOpts</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -159,6 +145,20 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entradas</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#menuOpts" >menuOpts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -173,12 +173,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/components/menu/menu.component.ts:14</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/components/menu/menu.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -195,18 +195,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                        <td>userSvc</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                                 <tr>
                                                         <td>router</td>
                                                   
@@ -228,7 +216,36 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Entradas</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="menuOpts"></a>
+                        <b>menuOpts</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/MenuOpts.html" target="_self" >MenuOpts[]</a></code>
 
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/components/menu/menu.component.ts:15</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Recibe como parametro de entrada los elementos de menú disponibles según el rol del usuario</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -257,14 +274,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="46"
-                            class="link-to-prism">src/app/components/menu/menu.component.ts:46</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="30"
+                            class="link-to-prism">src/app/components/menu/menu.component.ts:30</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Navega a la página solicitada</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -275,6 +294,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -289,6 +309,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>a la que va navegar</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -326,14 +350,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="19"
-                            class="link-to-prism">src/app/components/menu/menu.component.ts:19</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="22"
+                            class="link-to-prism">src/app/components/menu/menu.component.ts:22</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método de inicio. No hace nada en la carga</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -344,47 +370,13 @@
         </tbody>
     </table>
 </section>
-    <section>
-    
-    <h3 id="inputs">
-        Propiedades
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="menuOpts"></a>
-                    <span class="name">
-                        <span ><b>menuOpts</b></span>
-                        <a href="#menuOpts"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Tipo : </i>        <code><a href="../interfaces/MenuOpts.html" target="_self" >MenuOpts[]</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/components/menu/menu.component.ts:14</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-
-import { UserService } from &#x27;src/app/services/user.service&#x27;;
 import { MenuOpts } from &#x27;../../interfaces/interfaces&#x27;;
 
 @Component({
@@ -394,38 +386,24 @@ import { MenuOpts } from &#x27;../../interfaces/interfaces&#x27;;
 })
 export class MenuComponent implements OnInit {
 
-  menuOpts: MenuOpts[];
+  /**
+   * Recibe como parametro de entrada los elementos de menú disponibles según el rol del usuario
+   */
+  @Input()  menuOpts: MenuOpts[];
 
-  constructor(private userSvc: UserService,
-    private router: Router) { }
+  constructor(private router: Router) { }
 
+  /**
+   * Método de inicio. No hace nada en la carga
+   */
   ngOnInit() {
-    const usuarioLogado &#x3D; localStorage.getItem(&#x27;usuarioLogado&#x27;);
-    const rol &#x3D; localStorage.getItem(&#x27;rol&#x27;);
-    console.log(rol);
-
-    if (usuarioLogado &#x3D;&#x3D;&#x3D; &#x27;false&#x27; || !usuarioLogado) {
-      this.userSvc.getMenuOpts([&#x27;all&#x27;])
-        .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-          console.log(menuOpts);
-          this.menuOpts &#x3D; menuOpts;
-        });
-    } else if (rol &#x3D;&#x3D;&#x3D; &#x27;Retador&#x27;) {
-      this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;])
-        .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-          console.log(menuOpts);
-          this.menuOpts &#x3D; menuOpts;
-        });
-    } else if (rol &#x3D;&#x3D;&#x3D; &#x27;Admin&#x27;) {
-      this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;, &#x27;admin&#x27;])
-        .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-          console.log(menuOpts);
-          this.menuOpts &#x3D; menuOpts;
-        });
-    }
 
   }
 
+/**
+ * Navega a la página solicitada
+ * @param url a la que va navegar
+ */
   navigateToPage(url: string) {
     this.router.navigate([url]);
   }
@@ -441,7 +419,7 @@ export class MenuComponent implements OnInit {
   &lt;/ion-fab-button&gt;
   &lt;ion-fab-list side&#x3D;&quot;top&quot;&gt;
     &lt;ion-fab-button *ngFor&#x3D;&quot;let opt of menuOpts; let i &#x3D; index&quot; color&#x3D;&quot;primary-shade&quot;&gt;
-      &lt;ion-icon [name]&#x3D;&quot;opt.icon&quot; (click)&#x3D;&quot;navigateToPage(opt.redirectTo)&quot;&gt;&lt;/ion-icon&gt;     
+      &lt;ion-icon [name]&#x3D;&quot;opt.icon&quot; (click)&#x3D;&quot;navigateToPage(opt.redirectTo)&quot; color&#x3D;&quot;primary&quot;&gt;&lt;/ion-icon&gt;     
     &lt;/ion-fab-button&gt;
   &lt;/ion-fab-list&gt;
 &lt;/ion-fab&gt;</code></pre>
@@ -484,7 +462,7 @@ export class MenuComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-fab vertical="bottom" horizontal="start" slot="fixed" class="ion-margin">  <ion-fab-button>    <ion-icon name="add"></ion-icon>  </ion-fab-button>  <ion-fab-list side="top">    <ion-fab-button *ngFor="let opt of menuOpts; let i = index" color="primary-shade">      <ion-icon [name]="opt.icon" (click)="navigateToPage(opt.redirectTo)"></ion-icon>         </ion-fab-button>  </ion-fab-list></ion-fab></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-fab vertical="bottom" horizontal="start" slot="fixed" class="ion-margin">  <ion-fab-button>    <ion-icon name="add"></ion-icon>  </ion-fab-button>  <ion-fab-list side="top">    <ion-fab-button *ngFor="let opt of menuOpts; let i = index" color="primary-shade">      <ion-icon [name]="opt.icon" (click)="navigateToPage(opt.redirectTo)" color="primary"></ion-icon>         </ion-fab-button>  </ion-fab-list></ion-fab></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'NoticiasPage', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MenuComponent'};

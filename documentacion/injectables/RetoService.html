@@ -79,11 +79,17 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#reto" >reto</a>
+                            </li>
+                            <li>
                                 <a href="#retos" >retos</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#retosCollection" >retosCollection</a>
+                            </li>
+                            <li>
+                                <a href="#retosFavoritos" >retosFavoritos</a>
                             </li>
                         </ul>
                     </td>
@@ -98,10 +104,30 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#checkRetoActivo" >checkRetoActivo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteReto" >deleteReto</a>
+                            </li>
+                            <li>
+                                <a href="#findFavoritosByUsuario" >findFavoritosByUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#getRetos" >getRetos</a>
+                            </li>
+                            <li>
                                 <a href="#getRetosActivos" >getRetosActivos</a>
                             </li>
                             <li>
-                                <a href="#getRetosporId" >getRetosporId</a>
+                                <a href="#getRetosById" >getRetosById</a>
+                            </li>
+                            <li>
+                                <a href="#getRetosByUser" >getRetosByUser</a>
+                            </li>
+                            <li>
+                                <a href="#updateEstadoReto" >updateEstadoReto</a>
                             </li>
                         </ul>
                     </td>
@@ -126,7 +152,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/services/reto.service.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/services/reto.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -185,6 +211,254 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="checkRetoActivo"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>checkRetoActivo</b></span>
+                        <a href="#checkRetoActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkRetoActivo(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="94"
+                            class="link-to-prism">src/app/services/reto.service.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteReto"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteReto</b></span>
+                        <a href="#deleteReto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteReto(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="100"
+                            class="link-to-prism">src/app/services/reto.service.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findFavoritosByUsuario"></a>
+                    <span class="name">
+                        <span ><b>findFavoritosByUsuario</b></span>
+                        <a href="#findFavoritosByUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findFavoritosByUsuario(usuario: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="85"
+                            class="link-to-prism">src/app/services/reto.service.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>usuario</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRetos"></a>
+                    <span class="name">
+                        <span ><b>getRetos</b></span>
+                        <a href="#getRetos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRetos()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="22"
+                            class="link-to-prism">src/app/services/reto.service.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getRetosActivos"></a>
                     <span class="name">
                         <span ><b>getRetosActivos</b></span>
@@ -201,8 +475,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="19"
-                            class="link-to-prism">src/app/services/reto.service.ts:19</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="26"
+                            class="link-to-prism">src/app/services/reto.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -222,24 +496,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getRetosporId"></a>
+                    <a name="getRetosById"></a>
                     <span class="name">
-                        <span ><b>getRetosporId</b></span>
-                        <a href="#getRetosporId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getRetosById</b></span>
+                        <a href="#getRetosById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getRetosporId(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getRetosById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="31"
-                            class="link-to-prism">src/app/services/reto.service.ts:31</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="38"
+                            class="link-to-prism">src/app/services/reto.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -287,12 +561,176 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRetosByUser"></a>
+                    <span class="name">
+                        <span ><b>getRetosByUser</b></span>
+                        <a href="#getRetosByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRetosByUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="50"
+                            class="link-to-prism">src/app/services/reto.service.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;{}&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateEstadoReto"></a>
+                    <span class="name">
+                        <span ><b>updateEstadoReto</b></span>
+                        <a href="#updateEstadoReto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateEstadoReto(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="62"
+                            class="link-to-prism">src/app/services/reto.service.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
     <h3 id="inputs">
         Propiedades
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reto"></a>
+                    <span class="name">
+                        <span ><b>reto</b></span>
+                        <a href="#reto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Reto.html" target="_self" >Reto</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/services/reto.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -312,7 +750,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/services/reto.service.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/services/reto.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -339,6 +777,32 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/services/reto.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retosFavoritos"></a>
+                    <span class="name">
+                        <span ><b>retosFavoritos</b></span>
+                        <a href="#retosFavoritos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Observable&lt;any[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
                                 <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/services/reto.service.ts:14</a></div>
                         </td>
                     </tr>
@@ -354,7 +818,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { AngularFirestore, AngularFirestoreCollection } from &#x27;@angular/fire/compat/firestore&#x27;;
-import { Reto } from &#x27;../interfaces/interfaces&#x27;;
+import { Favorito, Reto } from &#x27;../interfaces/interfaces&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 import { AngularFireStorage } from &#x27;@angular/fire/compat/storage&#x27;;
@@ -365,12 +829,19 @@ import { AngularFireStorage } from &#x27;@angular/fire/compat/storage&#x27;;
 })
 export class RetoService {
 
+  retosFavoritos: Observable&lt;any[]&gt;;
   private retosCollection: AngularFirestoreCollection&lt;Reto&gt;;
   retos: Observable&lt;Reto[]&gt;;
+  reto: Reto;
+
   constructor(private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
 
-  getRetosActivos(){
+    getRetos(): Observable&lt;any[]&gt;{
+      return this.firestore.collection(&#x27;retos&#x27;).valueChanges({ idField: &#x27;id&#x27; });
+    }
+  
+    getRetosActivos(){
     this.retosCollection &#x3D; this.firestore.collection&lt;Reto&gt;(&#x27;retos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ACTIVO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, true));
     this.retos &#x3D; this.retosCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -382,7 +853,7 @@ export class RetoService {
     return this.retos;
   }
 
-  getRetosporId(id: string){
+  getRetosById(id: string){
     this.retosCollection &#x3D; this.firestore.collection&lt;Reto&gt;(&#x27;retos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id));
     this.retos &#x3D; this.retosCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -394,11 +865,65 @@ export class RetoService {
     return this.retos;
   }
 
+  getRetosByUser(id: string){
+    this.retosCollection &#x3D; this.firestore.collection&lt;Reto&gt;(&#x27;retos&#x27;, ref &#x3D;&gt; ref.where(&#x27;RETADOR&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id));
+    this.retos &#x3D; this.retosCollection.snapshotChanges().pipe(
+      map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
+        const data &#x3D; a.payload.doc.data() as Reto;
+        const id &#x3D; a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retos;
+  }
+
+  updateEstadoReto(id: string) {
+    this.getRetosById(id).subscribe(reto &#x3D;&gt; {
+      this.reto &#x3D; reto[0];
+    });
+
+    if (this.reto.ACTIVO &#x3D;&#x3D; true) {
+      this.reto.ACTIVO &#x3D; false;
+     
+    } else {
+      this.reto.ACTIVO &#x3D; true;
+     
+    }
+
+    return this.firestore.collection(&#x27;retos&#x27;).doc(id).update({
+      ACTIVO: this.reto.ACTIVO
+    });
+  }
+
 /*   getImagenUrl(token: string) {
     const ref &#x3D; this.storage.ref(token);
     return ref.getDownloadURL();
   } */
 
+  findFavoritosByUsuario(usuario: string) {
+    this.retosFavoritos &#x3D; this.firestore.collection&lt;Favorito&gt;(&#x27;favoritos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID_USUARIO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, usuario)).get()
+    .pipe(
+      map(querySnapshot &#x3D;&gt; {
+        return querySnapshot.docs.map(doc &#x3D;&gt; doc.data());
+      })
+    );
+  }
+
+  async checkRetoActivo(id: string): Promise&lt;boolean&gt; {
+    console.log(&#x27;check&#x27;, id);
+    const doc &#x3D; await this.firestore.collection(&#x27;retos&#x27;).doc(id).get().toPromise();
+    return doc.exists &amp;&amp; (doc.data() as Reto).ACTIVO;
+  }
+
+  async deleteReto(id: string) {
+    this.firestore.collection(&#x27;retos&#x27;).doc(id).delete()
+      .then(() &#x3D;&gt; {
+        console.log(&#x27;Reto eliminado correctamente&#x27;);
+      })
+      .catch((error) &#x3D;&gt; {
+        console.error(&#x27;Error al eliminar Reto: &#x27;, error);
+      });
+  }
  
 }
 </code></pre>

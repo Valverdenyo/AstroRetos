@@ -47,6 +47,18 @@ export class RetoService {
     return this.retos;
   }
 
+  getRetosByUser(id: string){
+    this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('RETADOR', '==', id));
+    this.retos = this.retosCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Reto;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retos;
+  }
+
   updateEstadoReto(id: string) {
     this.getRetosById(id).subscribe(reto => {
       this.reto = reto[0];

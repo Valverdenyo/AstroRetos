@@ -1,7 +1,9 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 import { AuthService } from '../../services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MenuOpts, Usuario } from 'src/app/interfaces/interfaces';
 
 /**
@@ -15,14 +17,33 @@ import { MenuOpts, Usuario } from 'src/app/interfaces/interfaces';
 })
 export class HomePage implements OnInit {
 
+/**
+ * Booleano para mostrar/ocultar el FAB de Login
+ */
   ionFabVisible = true;
+  /**
+   * Variable para guardar el mail del usuario logado a traves del Auth
+   */
   userEmail: string | null = null;
+  /**
+   * Variable tipo Usuario para guardar la información del usuario logado
+   */
   usuarioLogado: Usuario;
+  /**
+   * Variable de tipo Array de Opciones de Menu, para almacenar las opciones disponibles según el usuario logado
+   */
   menuOpts: MenuOpts[];
+  /**
+   * Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita
+   */
   enableFav = false;
 
   /**
-   * Constructor del componente.
+   * Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra
+   * 
+   * @param authSvc Servicio para manejar la Autenticacion que conecta con Firebase Auth
+   * @param userSvc Servicio para manejar operaciones con los usuarios
+   * @param angularFireAuth Servicio Firebase auth para comprobar si usuario logado
    */
   constructor(private authSvc: AuthService,
     private userSvc: UserService,
@@ -72,10 +93,7 @@ export class HomePage implements OnInit {
   }
 
   /**
-   * Método de inicio.
-   * Comprobamos si estamos logados. Si lo estamos, no mostramos el fab de login.
-   * Si no estamos logados lo muestra para poder iniciar sesión. 
-   * 
+   * Método de inicio. No hace ninguna carga inicial
    */
   ngOnInit() {
 

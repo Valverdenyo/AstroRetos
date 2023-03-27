@@ -57,13 +57,13 @@
 <title>cluster_ComponentsModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 1287,-230.8 1287,-32.8 8,-32.8"/>
 </g>
-<g id="clust13" class="cluster">
-<title>cluster_ComponentsModule_exports</title>
-<polygon fill="none" stroke="black" points="72,-170.8 72,-222.8 1224,-222.8 1224,-170.8 72,-170.8"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_ComponentsModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 1279,-92.8 1279,-40.8 16,-40.8"/>
+</g>
+<g id="clust13" class="cluster">
+<title>cluster_ComponentsModule_exports</title>
+<polygon fill="none" stroke="black" points="72,-170.8 72,-222.8 1224,-222.8 1224,-170.8 72,-170.8"/>
 </g>
 <!-- FabLoginComponent -->
 <g id="node1" class="node">
@@ -389,10 +389,10 @@
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 
+import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+
 //imports de Componentes personalizados
 import { FabLoginComponent } from &#x27;./fab-login/fab-login.component&#x27;;
-
-import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { RegistroComponent } from &#x27;./registro/registro.component&#x27;;
 import { LoginComponent } from &#x27;./login/login.component&#x27;;
 import { NoticiaComponent } from &#x27;./noticia/noticia.component&#x27;;
@@ -401,39 +401,42 @@ import { MenuComponent } from &#x27;./menu/menu.component&#x27;;
 import { HeaderComponent } from &#x27;./header/header.component&#x27;;
 import { RetoComponent } from &#x27;./reto/reto.component&#x27;;
 import { InfoRetoComponent } from &#x27;./info-reto/info-reto.component&#x27;;
+import { NewRetoComponent } from &#x27;./new-reto/new-reto.component&#x27;;
 
 
 
 
 
 @NgModule({
-  declarations: [FabLoginComponent, 
-    RegistroComponent, 
-    LoginComponent, 
-    NoticiaComponent, 
-    NoticiasComponent, 
-    MenuComponent, 
+  declarations: [FabLoginComponent,
+    RegistroComponent,
+    LoginComponent,
+    NoticiaComponent,
+    NoticiasComponent,
+    MenuComponent,
     HeaderComponent,
     RetoComponent,
-    InfoRetoComponent
-    ],
+    InfoRetoComponent,
+    NewRetoComponent
+  ],
 
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule, 
-    
+    ReactiveFormsModule,
+
   ], exports: [
     FabLoginComponent,
     RegistroComponent,
-    LoginComponent, 
-    NoticiasComponent, 
+    LoginComponent,
+    NoticiasComponent,
     MenuComponent,
     HeaderComponent,
     RetoComponent,
-    InfoRetoComponent        
-    
+    InfoRetoComponent,
+    NewRetoComponent
+
   ]
 
 })

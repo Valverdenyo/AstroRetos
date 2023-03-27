@@ -143,7 +143,19 @@ Página de inicio que muestra los retos activos.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#enableFav" >enableFav</a>
+                            </li>
+                            <li>
                                 <a href="#ionFabVisible" >ionFabVisible</a>
+                            </li>
+                            <li>
+                                <a href="#menuOpts" >menuOpts</a>
+                            </li>
+                            <li>
+                                <a href="#userEmail" >userEmail</a>
+                            </li>
+                            <li>
+                                <a href="#usuarioLogado" >usuarioLogado</a>
                             </li>
                         </ul>
                     </td>
@@ -178,19 +190,82 @@ Página de inicio que muestra los retos activos.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, angularFireAuth: AngularFireAuth)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/home/home.page.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Constructor del componente.</p>
+                            <div class="io-description"><p>Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra</p>
 </div>
+                            <div>
+                                    <b>Parámetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nombre</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                                    <td>Descripción</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para manejar la Autenticacion que conecta con Firebase Auth</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para manejar operaciones con los usuarios</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>angularFireAuth</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFireAuth</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio Firebase auth para comprobar si usuario logado</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -226,15 +301,15 @@ Página de inicio que muestra los retos activos.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="30"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:30</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="98"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:98</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Método de inicio.</p>
+                    <div class="io-description"><p>Método de inicio. No hace ninguna carga inicial</p>
 </div>
 
                     <div class="io-description">
@@ -255,6 +330,37 @@ Página de inicio que muestra los retos activos.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="enableFav"></a>
+                    <span class="name">
+                        <span ><b>enableFav</b></span>
+                        <a href="#enableFav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ionFabVisible"></a>
                     <span class="name">
                         <span ><b>ionFabVisible</b></span>
@@ -269,13 +375,114 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/home/home.page.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Booleano para mostrar u ocultar el fab de Login</p>
+                    <div class="io-description"><p>Booleano para mostrar/ocultar el FAB de Login</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuOpts"></a>
+                    <span class="name">
+                        <span ><b>menuOpts</b></span>
+                        <a href="#menuOpts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/MenuOpts.html" target="_self" >MenuOpts[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/pages/home/home.page.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable de tipo Array de Opciones de Menu, para almacenar las opciones disponibles según el usuario logado</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/home/home.page.ts:27</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable para guardar el mail del usuario logado a traves del Auth</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioLogado"></a>
+                    <span class="name">
+                        <span ><b>usuarioLogado</b></span>
+                        <a href="#usuarioLogado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="31" class="link-to-prism">src/app/pages/home/home.page.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable tipo Usuario para guardar la información del usuario logado</p>
 </div>
                 </td>
             </tr>
@@ -290,6 +497,12 @@ Página de inicio que muestra los retos activos.</p>
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
+import { AngularFireAuth } from &#x27;@angular/fire/compat/auth&#x27;;
+
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { UserService } from &#x27;src/app/services/user.service&#x27;;
+import { MenuOpts, Usuario } from &#x27;src/app/interfaces/interfaces&#x27;;
+
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
  * Página de inicio que muestra los retos activos.
@@ -301,38 +514,86 @@ Página de inicio que muestra los retos activos.</p>
 })
 export class HomePage implements OnInit {
 
-  /**
-   * Booleano para mostrar u ocultar el fab de Login
-   */
-
+/**
+ * Booleano para mostrar/ocultar el FAB de Login
+ */
   ionFabVisible &#x3D; true;
-
   /**
-   * Constructor del componente.
+   * Variable para guardar el mail del usuario logado a traves del Auth
    */
-  constructor() { }
+  userEmail: string | null &#x3D; null;
+  /**
+   * Variable tipo Usuario para guardar la información del usuario logado
+   */
+  usuarioLogado: Usuario;
+  /**
+   * Variable de tipo Array de Opciones de Menu, para almacenar las opciones disponibles según el usuario logado
+   */
+  menuOpts: MenuOpts[];
+  /**
+   * Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita
+   */
+  enableFav &#x3D; false;
 
   /**
-   * Método de inicio.
+   * Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra
    * 
-   *
+   * @param authSvc Servicio para manejar la Autenticacion que conecta con Firebase Auth
+   * @param userSvc Servicio para manejar operaciones con los usuarios
+   * @param angularFireAuth Servicio Firebase auth para comprobar si usuario logado
+   */
+  constructor(private authSvc: AuthService,
+    private userSvc: UserService,
+    private angularFireAuth: AngularFireAuth) {
+
+    this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
+      if (user) {
+        // El usuario está logueado
+
+        this.ionFabVisible &#x3D; false;
+        this.authSvc.getUserEmail().then(email &#x3D;&gt; {
+          this.userEmail &#x3D; email;
+          this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
+            this.usuarioLogado &#x3D; usuario;
+            console.log(&#x27;El usuario está logueado con &#x27;, this.usuarioLogado.EMAIL);
+            if (this.usuarioLogado.ROL &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+              console.log(this.usuarioLogado.ROL);
+              this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;, &#x27;admin&#x27;])
+                .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
+                  console.log(menuOpts);
+                  this.menuOpts &#x3D; menuOpts;
+                });
+              this.enableFav &#x3D; true;
+            } else {
+              this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;])
+                .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
+                  console.log(menuOpts);
+                  this.menuOpts &#x3D; menuOpts;
+                });
+            }
+          });
+
+
+        });
+      } else {
+        // El usuario no está logueado
+        console.log(&#x27;El usuario no está logueado&#x27;);
+        this.ionFabVisible &#x3D; true;
+        this.userSvc.getMenuOpts([&#x27;all&#x27;])
+          .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
+            console.log(menuOpts);
+            this.menuOpts &#x3D; menuOpts;
+          });
+      }
+    });
+
+  }
+
+  /**
+   * Método de inicio. No hace ninguna carga inicial
    */
   ngOnInit() {
 
-    /**
-     * Constante que almacena si hemos iniciado sesión en la aplicación
-     */
-    const usuarioLogado &#x3D; localStorage.getItem(&#x27;usuarioLogado&#x27;);
-    /**
-     * Comprobamos si estamos logados. Si lo estamos, no mostramos el fab de login.
-     * Si no estamos logados lo muestra para poder iniciar sesión. 
-     */
-    if (usuarioLogado &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
-      this.ionFabVisible &#x3D; false;
-
-    } else {
-      this.ionFabVisible &#x3D; true;
-    }
   }
 
 }
@@ -348,7 +609,7 @@ export class HomePage implements OnInit {
 &lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
 &lt;app-reto&gt;&lt;/app-reto&gt;
 
-  &lt;app-menu&gt;&lt;/app-menu&gt;
+  &lt;app-menu [menuOpts]&#x3D;&quot;menuOpts&quot;&gt;&lt;/app-menu&gt;
   &lt;app-fab-login *ngIf&#x3D;&quot;ionFabVisible&quot;&gt;&lt;/app-fab-login&gt;
 &lt;/ion-content&gt;</code></pre>
     </div>
@@ -411,7 +672,7 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  </ion-header><ion-content [fullscreen]="true"><app-reto></app-reto>  <app-menu></app-menu>  <app-fab-login *ngIf="ionFabVisible"></app-fab-login></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  </ion-header><ion-content [fullscreen]="true"><app-reto></app-reto>  <app-menu [menuOpts]="menuOpts"></app-menu>  <app-fab-login *ngIf="ionFabVisible"></app-fab-login></ion-content></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'NoticiasPage', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};

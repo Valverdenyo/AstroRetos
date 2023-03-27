@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
@@ -7,7 +7,10 @@ import { AvisosService } from 'src/app/services/avisos.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-//import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { MultimediaService } from '../../services/multimedia.service';
+
 
 
 
@@ -18,9 +21,11 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class PerfilPage implements OnInit {
 
-  
+
   userEmail: string;
   result: any;
+  image: any;
+  imagenSaneada: any;
   usuarioLogado: Usuario;
   actionSheet: HTMLIonActionSheetElement;
 
@@ -31,33 +36,35 @@ export class PerfilPage implements OnInit {
     private router: Router,
     private navCtrl: NavController,
     private avisosSvc: AvisosService,
-    private angularFireAuth: AngularFireAuth
+    private multimediaSvc: MultimediaService,
+    private angularFireAuth: AngularFireAuth,
+    private sanitizer: DomSanitizer,
+
 
   ) {
 
     this.angularFireAuth.onAuthStateChanged(user => {
       if (user) {
         // El usuario está logueado
-        
+
         this.authSvc.getUserEmail().then(email => {
           this.userEmail = email;
           console.log('El usuario está logueado con ', this.userEmail);
           this.userSvc.getUserByEmail(email).subscribe(usuario => {
             this.usuarioLogado = usuario;
-            console.log(this.usuarioLogado.NOMBRE);
-          });        
+            
+          });
 
         });
       } else {
         // El usuario no está logueado
-       console.log('no deberias estar aqui');
+        console.log('no deberias estar aqui');
       }
     });
- 
+
   }
 
   ngOnInit() {
-   
   }
 
   logOut() {
@@ -73,13 +80,17 @@ export class PerfilPage implements OnInit {
         {
           icon: 'camera-outline',
           handler: () => {
-            console.log('Abrir camara');
+           this.setAvatarCamara();
           }
         },
         {
           icon: 'image-outline',
           handler: () => {
-            console.log('Abrir galeria');
+            this.setAvatarGallery();
+            console.log(this.usuarioLogado.EMAIL);
+            console.log(this.usuarioLogado.NOMBRE);
+            console.log(this.usuarioLogado.ROL);
+            console.log(this.usuarioLogado.AVATAR);
           }
         },
         {
@@ -116,7 +127,7 @@ export class PerfilPage implements OnInit {
         }, {
           text: 'Eliminar',
           handler: () => {
-          //  this.userSvc.deleteUser(this.usuarioLogado.ID);
+            //  this.userSvc.deleteUser(this.usuarioLogado.ID);
             this.router.navigateByUrl('/home');
           }
         }
@@ -184,8 +195,40 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
-  async prepararFoto(source: string) {
-    
+  async setAvatarGallery() {
+    const foto = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Photos,
+    });
+    //hay que sanearla
+    this.image = this.sanitizer.bypassSecurityTrustResourceUrl(foto && (foto.dataUrl));
+    let blob = await fetch(foto.dataUrl).then(r => r.blob());
+    this.imagenSaneada = blob;
+
+    const res = await this.multimediaSvc.subirImagen(this.imagenSaneada, 'avatar', this.usuarioLogado.EMAIL);
+    console.log('ruta', res);
+    console.log('id', this.usuarioLogado.ID);
+    this.userSvc.updateUserAvatar(this.usuarioLogado.ID, res);
+  }
+
+  async setAvatarCamara() {
+    const foto = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera,
+    });
+    //hay que sanearla
+    this.image = this.sanitizer.bypassSecurityTrustResourceUrl(foto && (foto.dataUrl));
+    let blob = await fetch(foto.dataUrl).then(r => r.blob());
+    this.imagenSaneada = blob;
+
+    const res = await this.multimediaSvc.subirImagen(this.imagenSaneada, 'avatar', this.usuarioLogado.EMAIL);
+    console.log('ruta', res);
+    console.log('id', this.usuarioLogado.ID);
+    this.userSvc.updateUserAvatar(this.usuarioLogado.ID, res);
   }
 
 

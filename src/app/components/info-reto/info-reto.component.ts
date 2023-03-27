@@ -1,4 +1,6 @@
+
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 
@@ -14,20 +16,32 @@ import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
   templateUrl: './info-reto.component.html',
   styleUrls: ['./info-reto.component.scss'],
 })
+
 export class InfoRetoComponent implements OnInit {
 
   /**
-   * 
+   * Recibe el id del Reto a través de un Input que se envia desde el Card  * 
    */
   @Input() id: string;
+  /**
+   * Declaramos un objeto Reto para guardar la información a mostrar.
+   */
   reto: Reto;
+  /**
+   * Esta variable sirve para mostrar una descripcion corta de 150 caracteres, y luego la completa si le damos a Mostrar más
+   */
   oculto = 150;
+  /**
+   * Mensaje standard para el botón de compartir en RRSS
+   */
   mensaje: string = 'Te reto!';
 
   /**
-   * 
-   * @param retoSvc Servicio que maneja la colección 'retos' en Firestore
-   * @param retoComponent Carga del Componente Reto
+   *  
+   * @param retoSvc Servicio que maneja la coleccion 'retos' de Firestore
+   * @param modalCtrl Controla el modal
+   * @param socialSharing Componente que comparte Retos por RRSS
+   * @param platform Controla si abrimos la app por Navegador Web o Movil para así usar correctamente el SocialSharing
    */
   constructor(private retoSvc: RetoService,
     private modalCtrl: ModalController,
@@ -37,7 +51,8 @@ export class InfoRetoComponent implements OnInit {
 
   /**
    * Método de inicio.
-   * Carga los retos activos a través del Servicio.
+   * Carga el reto con un Id pasado por parámetro a través del Input. 
+   * Lo guarda en un array de retos, pero solo el de la posición 0.
    */
   ngOnInit() {
 
@@ -49,12 +64,11 @@ export class InfoRetoComponent implements OnInit {
 
   /**
    * Método que asigna un icono dependiendo del tipo de reto pasado por parámetro
-   * @param tipo 
-   * @returns 
-   * Retorna el nombre del incono de ionicons.io
+   * @param tipo Tipo de reto
+   * @returns Retorna el nombre del incono de ionicons.io
    */
   getIconTipo(tipo: string): string {
-    
+
     switch (tipo) {
       case 'telescopio':
         return 'telescope-outline';
@@ -69,11 +83,11 @@ export class InfoRetoComponent implements OnInit {
 
   /**
    * Método que asigna un color al icono dependiendo del nivel de dificultad del reto 
-   * @param nivel 
-   * @returns 
-   * Retorna el color a poner en el icono
+   * @param nivel Nivel de dificultad del Reto
+   * @returns Retorna el color a poner en el icono
    */
   getColorNivel(nivel: string): string {
+
     switch (nivel) {
       case 'facil':
         return 'success';
@@ -85,7 +99,6 @@ export class InfoRetoComponent implements OnInit {
         return 'help';
     }
   }
-
 
   /**
    * Método para compartir el reto en las aplicaciones disponibles en el terminal (Mail o RRSS)

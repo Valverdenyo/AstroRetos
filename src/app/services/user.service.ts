@@ -16,6 +16,7 @@ export class UserService {
 
   usuario: Usuario;
   newRol: string;
+  newAvatar: string = '';
   usuariosCollection: AngularFirestoreCollection<Usuario>;
 
   constructor(private firestore: AngularFirestore,
@@ -63,6 +64,20 @@ export class UserService {
 
     return this.firestore.collection('usuarios').doc(id).update({
       ROL: this.newRol
+    });
+  }
+
+  updateUserAvatar(id: string, avatar: string) {
+    this.getUserById(id).subscribe(usuario => {
+      this.usuario = usuario;
+      this.newAvatar = this.usuario.AVATAR;
+      console.log('avatar viejo',this.newAvatar);
+      this.newAvatar = avatar;
+      console.log('avatar nuevo',this.newAvatar);
+      
+    }); 
+    return this.firestore.collection('usuarios').doc(id).update({
+      AVATAR: avatar
     });
   }
 

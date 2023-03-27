@@ -126,6 +126,32 @@
     <h3 id="index">Índice</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#color" >color</a>
+                            </li>
+                            <li>
+                                <a href="#retoActivo" >retoActivo</a>
+                            </li>
+                            <li>
+                                <a href="#retos" >retos</a>
+                            </li>
+                            <li>
+                                <a href="#segmento" >segmento</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -136,7 +162,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#cambiarEstado" >cambiarEstado</a>
+                            </li>
+                            <li>
+                                <a href="#cambiarRol" >cambiarRol</a>
+                            </li>
+                            <li>
+                                <a href="#deleteReto" >deleteReto</a>
+                            </li>
+                            <li>
+                                <a href="#deleteUser" >deleteUser</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#segmentChanged" >segmentChanged</a>
                             </li>
                         </ul>
                     </td>
@@ -156,15 +197,69 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>, retoSvc: <a href="../injectables/RetoService.html" target="_self">RetoService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="8" class="link-to-prism">src/app/pages/admin/admin.page.ts:8</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/admin/admin.page.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parámetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nombre</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>avisosSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AvisosService.html" target="_self" >AvisosService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>retoSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RetoService.html" target="_self" >RetoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -178,6 +273,282 @@
     <h3 id="methods">
         Métodos
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarEstado"></a>
+                    <span class="name">
+                        <span ><b>cambiarEstado</b></span>
+                        <a href="#cambiarEstado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarEstado(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="49"
+                            class="link-to-prism">src/app/pages/admin/admin.page.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarRol"></a>
+                    <span class="name">
+                        <span ><b>cambiarRol</b></span>
+                        <a href="#cambiarRol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarRol(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="39"
+                            class="link-to-prism">src/app/pages/admin/admin.page.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteReto"></a>
+                    <span class="name">
+                        <span ><b>deleteReto</b></span>
+                        <a href="#deleteReto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteReto(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="71"
+                            class="link-to-prism">src/app/pages/admin/admin.page.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUser"></a>
+                    <span class="name">
+                        <span ><b>deleteUser</b></span>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="60"
+                            class="link-to-prism">src/app/pages/admin/admin.page.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -198,8 +569,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="12"
-                            class="link-to-prism">src/app/pages/admin/admin.page.ts:12</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="24"
+                            class="link-to-prism">src/app/pages/admin/admin.page.ts:24</a></div>
                 </td>
             </tr>
 
@@ -215,6 +586,217 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="segmentChanged"></a>
+                    <span class="name">
+                        <span ><b>segmentChanged</b></span>
+                        <a href="#segmentChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>segmentChanged(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="35"
+                            class="link-to-prism">src/app/pages/admin/admin.page.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="color"></a>
+                    <span class="name">
+                        <span ><b>color</b></span>
+                        <a href="#color"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/admin/admin.page.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retoActivo"></a>
+                    <span class="name">
+                        <span ><b>retoActivo</b></span>
+                        <a href="#retoActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/pages/admin/admin.page.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retos"></a>
+                    <span class="name">
+                        <span ><b>retos</b></span>
+                        <a href="#retos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Reto.html" target="_self" >Reto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/pages/admin/admin.page.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="segmento"></a>
+                    <span class="name">
+                        <span ><b>segmento</b></span>
+                        <a href="#segmento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/pages/admin/admin.page.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/pages/admin/admin.page.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -222,6 +804,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { UserService } from &#x27;../../services/user.service&#x27;;
+import { Reto, Usuario } from &#x27;../../interfaces/interfaces&#x27;;
+import { AvisosService } from &#x27;../../services/avisos.service&#x27;;
+import { RetoService } from &#x27;../../services/reto.service&#x27;;
 
 @Component({
   selector: &#x27;app-admin&#x27;,
@@ -230,9 +816,71 @@
 })
 export class AdminPage implements OnInit {
 
-  constructor() { }
+  usuarios: Usuario[] &#x3D; [];
+  retos: Reto[] &#x3D; [];
+  segmento: string;
+  retoActivo: string;
+  color: string;
+
+  constructor(private userSvc: UserService,
+    private avisosSvc: AvisosService,
+    private retoSvc: RetoService) { }
 
   ngOnInit() {
+
+    this.userSvc.getUsers().subscribe(usuarios &#x3D;&gt; {
+      this.usuarios &#x3D; usuarios;
+    });
+
+    this.retoSvc.getRetos().subscribe(retos &#x3D;&gt; {
+      this.retos &#x3D; retos;
+    });
+  }
+
+  segmentChanged(event) {
+    this.segmento &#x3D; event.detail.value;
+  }
+
+  cambiarRol(id: string) {
+    console.log(&#x27;cambio rol&#x27;, id);
+    try {
+     this.userSvc.updateUserRol(id);
+      this.avisosSvc.presentToast(&#x27;Cambio de Rol Correcto&#x27;, &#x27;success&#x27;);
+    } catch (error) {
+      this.avisosSvc.presentToast(&#x27;Error en el cambio de Rol&#x27;, &#x27;danger&#x27;);
+    }
+  }
+
+  cambiarEstado(id: string) {
+    console.log(&#x27;cambio Estado&#x27;, id);
+    try {
+     this.retoSvc.updateEstadoReto(id);
+     
+      this.avisosSvc.presentToast(&#x27;Cambio de Estado Correcto&#x27;, &#x27;success&#x27;);
+    } catch (error) {
+      this.avisosSvc.presentToast(&#x27;Error en el cambio de Estado&#x27;, &#x27;danger&#x27;);
+    }
+  }
+
+  deleteUser(id: string) {
+
+    try {
+      //   this.userSvc.deleteUser(id);
+      this.avisosSvc.presentToast(&#x27;Usuario eliminado correctamente&#x27;, &#x27;success&#x27;);
+    } catch (error) {
+      this.avisosSvc.presentToast(&#x27;Error al eliminar el usuario&#x27;, &#x27;danger&#x27;);
+    }
+
+  }
+
+  deleteReto(id: string) {
+    try {
+         this.retoSvc.deleteReto(id);
+      this.avisosSvc.presentToast(&#x27;Usuario eliminado correctamente&#x27;, &#x27;success&#x27;);
+    } catch (error) {
+      this.avisosSvc.presentToast(&#x27;Error al eliminar el usuario&#x27;, &#x27;danger&#x27;);
+    }
+
   }
 
 }
@@ -240,14 +888,74 @@ export class AdminPage implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-header titulo &#x3D; &quot;Administración&quot;&gt;&lt;/app-header&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-segment value&#x3D;&quot;retos&quot; (ionChange)&#x3D;&quot;segmentChanged($event)&quot;&gt;
+      &lt;ion-segment-button value&#x3D;&quot;retos&quot;&gt;
+        &lt;ion-label&gt;Retos&lt;/ion-label&gt;
+      &lt;/ion-segment-button&gt;
+      &lt;ion-segment-button value&#x3D;&quot;users&quot;&gt;
+        &lt;ion-label&gt;Usuarios&lt;/ion-label&gt;
+      &lt;/ion-segment-button&gt;
+    &lt;/ion-segment&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
 
-&lt;ion-content&gt;
+&lt;ion-content class&#x3D;&quot;ion-padding&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;segmento &#x3D;&#x3D; &#x27;retos&#x27;&quot;&gt;
+    &lt;ion-list&gt;
+
+      &lt;ion-item-sliding *ngFor&#x3D;&quot;let reto of retos&quot;&gt;
+        &lt;ion-item&gt;
+          &lt;ion-avatar slot&#x3D;&quot;start&quot;&gt;
+            &lt;img [src]&#x3D;&quot;reto.IMAGEN&quot; /&gt;
+          &lt;/ion-avatar&gt;
+          &lt;ion-label&gt;
+            &lt;h3&gt;{{ reto.TITULO }} ({{reto.ACTIVO}})&lt;/h3&gt;
+           
+          &lt;/ion-label&gt;
+        &lt;/ion-item&gt;
+        &lt;ion-item-options side&#x3D;&quot;end&quot;&gt;
+          &lt;ion-item-option color&#x3D;&quot;success&quot; (click)&#x3D;&quot;cambiarEstado(reto.ID)&quot;&gt;
+           &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;sync-circle-outline&quot;&gt;&lt;/ion-icon&gt;
+          &lt;/ion-item-option&gt;
+          &lt;ion-item-option color&#x3D;&quot;danger&quot;&gt;
+            &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;trash&quot; (click)&#x3D;&quot;deleteReto(reto.ID)&quot;&gt;&lt;/ion-icon&gt;
+          &lt;/ion-item-option&gt;
+        &lt;/ion-item-options&gt;
+      &lt;/ion-item-sliding&gt;
+
+    &lt;/ion-list&gt;
+  &lt;/div&gt;
+  &lt;div *ngIf&#x3D;&quot;segmento &#x3D;&#x3D; &#x27;users&#x27;&quot;&gt;
+    &lt;ion-list&gt;
+
+      &lt;ion-item-sliding *ngFor&#x3D;&quot;let usuario of usuarios&quot;&gt;
+        &lt;ion-item&gt;
+          &lt;ion-avatar slot&#x3D;&quot;start&quot;&gt;
+            &lt;img [src]&#x3D;&quot;usuario.AVATAR&quot; /&gt;
+          &lt;/ion-avatar&gt;
+          &lt;ion-label&gt;
+            &lt;h3&gt;{{ usuario.NOMBRE }}  ({{usuario.ROL}}) &lt;/h3&gt;
+            &lt;p&gt;&lt;small&gt;{{ usuario.EMAIL }}&lt;/small&gt;&lt;/p&gt;
+          &lt;/ion-label&gt;
+          &lt;ion-badge slot&#x3D;&quot;end&quot;&gt;0&lt;/ion-badge&gt;
+        &lt;/ion-item&gt;
+        &lt;ion-item-options side&#x3D;&quot;end&quot;&gt;
+          &lt;ion-item-option (click)&#x3D;&quot;cambiarRol(usuario.ID)&quot; color&#x3D;&quot;success&quot;&gt;
+            &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;sync-circle-outline&quot;&gt;&lt;/ion-icon&gt;
+          &lt;/ion-item-option&gt;
+          &lt;ion-item-option (click)&#x3D;&quot;deleteUser(usuario.ID)&quot; color&#x3D;&quot;danger&quot;&gt;
+            &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;trash&quot;&gt;&lt;/ion-icon&gt;
+          &lt;/ion-item-option&gt;
+        &lt;/ion-item-options&gt;
+      &lt;/ion-item-sliding&gt;
+
+    &lt;/ion-list&gt;
+  &lt;/div&gt;
 
   &lt;app-menu&gt;&lt;/app-menu&gt;
-
-&lt;/ion-content&gt;
-</code></pre>
+&lt;/ion-content&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -282,7 +990,7 @@ export class AdminPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header titulo = "Administración"></app-header><ion-content>  <app-menu></app-menu></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-segment value="retos" (ionChange)="segmentChanged($event)">      <ion-segment-button value="retos">        <ion-label>Retos</ion-label>      </ion-segment-button>      <ion-segment-button value="users">        <ion-label>Usuarios</ion-label>      </ion-segment-button>    </ion-segment>  </ion-toolbar></ion-header><ion-content class="ion-padding">  <div *ngIf="segmento == \'retos\'">    <ion-list>      <ion-item-sliding *ngFor="let reto of retos">        <ion-item>          <ion-avatar slot="start">            <img [src]="reto.IMAGEN" />          </ion-avatar>          <ion-label>            <h3>{{ reto.TITULO }} ({{reto.ACTIVO}})</h3>                     </ion-label>        </ion-item>        <ion-item-options side="end">          <ion-item-option color="success" (click)="cambiarEstado(reto.ID)">           <ion-icon slot="icon-only" name="sync-circle-outline"></ion-icon>          </ion-item-option>          <ion-item-option color="danger">            <ion-icon slot="icon-only" name="trash" (click)="deleteReto(reto.ID)"></ion-icon>          </ion-item-option>        </ion-item-options>      </ion-item-sliding>    </ion-list>  </div>  <div *ngIf="segmento == \'users\'">    <ion-list>      <ion-item-sliding *ngFor="let usuario of usuarios">        <ion-item>          <ion-avatar slot="start">            <img [src]="usuario.AVATAR" />          </ion-avatar>          <ion-label>            <h3>{{ usuario.NOMBRE }}  ({{usuario.ROL}}) </h3>            <p><small>{{ usuario.EMAIL }}</small></p>          </ion-label>          <ion-badge slot="end">0</ion-badge>        </ion-item>        <ion-item-options side="end">          <ion-item-option (click)="cambiarRol(usuario.ID)" color="success">            <ion-icon slot="icon-only" name="sync-circle-outline"></ion-icon>          </ion-item-option>          <ion-item-option (click)="deleteUser(usuario.ID)" color="danger">            <ion-icon slot="icon-only" name="trash"></ion-icon>          </ion-item-option>        </ion-item-options>      </ion-item-sliding>    </ion-list>  </div>  <app-menu></app-menu></ion-content></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'NoticiasPage', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminPage'};

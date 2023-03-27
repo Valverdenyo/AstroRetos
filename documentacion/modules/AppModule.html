@@ -201,6 +201,9 @@ import { AngularFireAuthModule } from &#x27;@angular/fire/compat/auth&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
 import { AngularFireStorageModule } from &#x27;@angular/fire/compat/storage&#x27;;
 
+import { SocialSharing } from &#x27;@awesome-cordova-plugins/social-sharing/ngx&#x27;;
+import { InAppBrowser } from &#x27;@awesome-cordova-plugins/in-app-browser/ngx&#x27;;
+
 
 
 
@@ -217,7 +220,7 @@ import { AngularFireStorageModule } from &#x27;@angular/fire/compat/storage&#x27
     HttpClientModule,
     
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SocialSharing, InAppBrowser],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

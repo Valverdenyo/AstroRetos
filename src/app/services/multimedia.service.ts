@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+
 import { finalize } from 'rxjs/operators';
 
 @Injectable({
@@ -7,26 +8,28 @@ import { finalize } from 'rxjs/operators';
 })
 export class MultimediaService {
 
+ 
+
   constructor(private fireStorage: AngularFireStorage) { }
 
-  subirImagen (file: any, path: string, nombre: string): Promise<string> {
+  subirImagen(file: any, path: string, nombre: string): Promise<string> {
     return new Promise(resolve => {
       const filePath = path + '/' + nombre + Date.now();
       const ref = this.fireStorage.ref(filePath);
       const task = ref.put(file);
       task.snapshotChanges().pipe(
-        finalize( () =>{
-          ref.getDownloadURL().subscribe( res => {
+        finalize(() => {
+          ref.getDownloadURL().subscribe(res => {
             const downloadURL = res;
             resolve(downloadURL);
             return;
           });
         })
       )
-      .subscribe()
+        .subscribe()
     });
-    
+
   }
- 
- 
+
+
 }

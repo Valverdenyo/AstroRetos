@@ -13,7 +13,7 @@
 
   <div>
     <ion-avatar class="avatar">
-      <ion-img src="./assets/images/no-avatar.png" class="imagenAvatar"></ion-img>
+      <ion-img [src]="usuarioLogado?.AVATAR" class="imagenAvatar"></ion-img>
     </ion-avatar>
     <div class="image-text" align="center" color="primary" (click)="avatarActionSheet()">Cambiar Avatar</div>
   </div>

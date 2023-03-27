@@ -68,17 +68,6 @@ export class AdminPage implements OnInit {
 
   }
 
-  iconoActivo(id: string) {
-    console.log('reto', id);
-    if (this.retoSvc.checkRetoActivo(id)) {
-      this.retoActivo = 'arrow-down-outline';
-      console.log('reto activo');
-    } else {
-      this.retoActivo = 'arrow-up-outline';
-      console.log('reto inactivo');
-    }
-  }
-
   deleteReto(id: string) {
     try {
          this.retoSvc.deleteReto(id);

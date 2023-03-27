@@ -14,6 +14,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RetoComponent } from './reto/reto.component';
 import { InfoRetoComponent } from './info-reto/info-reto.component';
+import { NewRetoComponent } from './new-reto/new-reto.component';
 
 
 
@@ -28,7 +29,8 @@ import { InfoRetoComponent } from './info-reto/info-reto.component';
     MenuComponent,
     HeaderComponent,
     RetoComponent,
-    InfoRetoComponent
+    InfoRetoComponent,
+    NewRetoComponent
   ],
 
   imports: [
@@ -45,7 +47,8 @@ import { InfoRetoComponent } from './info-reto/info-reto.component';
     MenuComponent,
     HeaderComponent,
     RetoComponent,
-    InfoRetoComponent
+    InfoRetoComponent,
+    NewRetoComponent
 
   ]
 

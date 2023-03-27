@@ -35,11 +35,9 @@ export class AuthService {
 
     })
       .then((docRef: any) => {
-
         this.firestore.doc(docRef).update({
           ID: docRef.id
         })
-
       })
       .catch((error: any) => {
         console.error('Error al agregar usuario: ', error);
