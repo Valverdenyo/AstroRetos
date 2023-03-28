@@ -19,11 +19,11 @@ export class RetoService {
   constructor(private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
 
-    getRetos(): Observable<any[]>{
-      return this.firestore.collection('retos').valueChanges({ idField: 'id' });
-    }
-  
-    getRetosActivos(){
+  getRetos(): Observable<any[]> {
+    return this.firestore.collection('retos').valueChanges({ idField: 'id' });
+  }
+
+  getRetosActivos() {
     this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ACTIVO', '==', true));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -35,7 +35,7 @@ export class RetoService {
     return this.retos;
   }
 
-  getRetosById(id: string){
+  getRetosById(id: string) {
     this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ID', '==', id));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -47,7 +47,7 @@ export class RetoService {
     return this.retos;
   }
 
-  getRetosByUser(id: string){
+  getRetosByUser(id: string) {
     this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('RETADOR', '==', id));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -66,10 +66,10 @@ export class RetoService {
 
     if (this.reto.ACTIVO == true) {
       this.reto.ACTIVO = false;
-     
+
     } else {
       this.reto.ACTIVO = true;
-     
+
     }
 
     return this.firestore.collection('retos').doc(id).update({
@@ -77,18 +77,13 @@ export class RetoService {
     });
   }
 
-/*   getImagenUrl(token: string) {
-    const ref = this.storage.ref(token);
-    return ref.getDownloadURL();
-  } */
-
   findFavoritosByUsuario(usuario: string) {
     this.retosFavoritos = this.firestore.collection<Favorito>('favoritos', ref => ref.where('ID_USUARIO', '==', usuario)).get()
-    .pipe(
-      map(querySnapshot => {
-        return querySnapshot.docs.map(doc => doc.data());
-      })
-    );
+      .pipe(
+        map(querySnapshot => {
+          return querySnapshot.docs.map(doc => doc.data());
+        })
+      );
   }
 
   async checkRetoActivo(id: string): Promise<boolean> {
@@ -97,14 +92,38 @@ export class RetoService {
     return doc.exists && (doc.data() as Reto).ACTIVO;
   }
 
-  async deleteReto(id: string) {
-    this.firestore.collection('retos').doc(id).delete()
-      .then(() => {
-        console.log('Reto eliminado correctamente');
+  setReto(reto: Reto) {
+
+    this.firestore.collection('retos').add({
+      TITULO: reto.TITULO,
+      DESCRIPCION: reto.DESCRIPCION,
+      TIPO: reto.TIPO,
+      NIVEL: reto.NIVEL,
+      ACTIVO: reto.ACTIVO,
+      DESTACADO: reto.DESTACADO,
+      RETADOR: reto.RETADOR,
+      IMAGEN: reto.IMAGEN,
+      ID: ""
+
+    })
+      .then((docRef: any) => {
+        this.firestore.doc(docRef).update({
+          ID: docRef.id
+        })
       })
-      .catch((error) => {
-        console.error('Error al eliminar Reto: ', error);
+      .catch((error: any) => {
+        console.error('Error al crear el reto: ', error);
       });
+    }
+
+  async deleteReto(id: string) {
+      this.firestore.collection('retos').doc(id).delete()
+        .then(() => {
+          console.log('Reto eliminado correctamente');
+        })
+        .catch((error) => {
+          console.error('Error al eliminar Reto: ', error);
+        });
+    }
+
   }
- 
-}
