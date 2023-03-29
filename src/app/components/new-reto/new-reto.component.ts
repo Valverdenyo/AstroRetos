@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Reto } from 'src/app/interfaces/interfaces';
 import { AuthService } from '../../services/auth.service';
@@ -26,7 +26,8 @@ export class NewRetoComponent implements OnInit {
     private authSvc: AuthService,
     private sanitizer: DomSanitizer,
     private multimediaSvc: MultimediaService,
-    private retoSvc: RetoService) { }
+    private retoSvc: RetoService,
+    private alertCtrl: AlertController) { }
 
   ngOnInit() {
 
@@ -35,19 +36,19 @@ export class NewRetoComponent implements OnInit {
     });
 
     this.newRetoForm = this.fBuilder.group({
-      titulo: new FormControl('', Validators.compose([
+      TITULO: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      descripcion: new FormControl('', Validators.compose([
+      DESCRIPCION: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      tipo: new FormControl('', Validators.compose([
+      TIPO: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      nivel: new FormControl('', Validators.compose([
+      NIVEL: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      activo: new FormControl(true, Validators.compose([
+      ACTIVO: new FormControl(true, Validators.compose([
         Validators.required
       ])),
     });
@@ -65,9 +66,8 @@ export class NewRetoComponent implements OnInit {
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(foto && (foto.dataUrl));
     let blob = await fetch(foto.dataUrl).then(r => r.blob());
     this.imagenSaneada = blob;
-
     console.log('tenemos imagen', blob);
-
+    
   }
 
   async crearReto(value: any){
@@ -94,12 +94,16 @@ export class NewRetoComponent implements OnInit {
 
   }
 
-  async setImage(){
-   
+  async presentAlert() {
+
+    console.log(this.newRetoForm.value)
+    
   }
 
   closeModal() {
     this.modalCtrl.dismiss();
   }
+
+
 
 }
