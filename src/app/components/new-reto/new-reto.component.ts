@@ -3,7 +3,7 @@ import { ModalController, AlertController } from '@ionic/angular';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Reto } from 'src/app/interfaces/interfaces';
 import { AuthService } from '../../services/auth.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { MultimediaService } from '../../services/multimedia.service';
 import { RetoService } from '../../services/reto.service';
@@ -17,7 +17,7 @@ export class NewRetoComponent implements OnInit {
 
   newRetoForm: FormGroup;
   reto: Reto;
-  image: any;
+  image: SafeResourceUrl;
   imagenSaneada: any;
   userEmail: string;
 

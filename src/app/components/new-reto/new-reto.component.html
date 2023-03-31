@@ -44,8 +44,8 @@
     <ion-button (click)="selectImage()" expand="block" fill="clear" shape="round" color="primary">
       Seleccionar imagen
     </ion-button>
-    <ion-item>
-      <ion-img [src]=""></ion-img>
+    <ion-item *ngIf="image">
+      <ion-img [src]="image"></ion-img>
     </ion-item>
     <ion-item>
       <ion-checkbox formControlName="ACTIVO" slot="start" checked="true"></ion-checkbox>
