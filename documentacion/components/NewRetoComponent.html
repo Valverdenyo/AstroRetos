@@ -1,0 +1,1096 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentación de AstroRetos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Documentación de AstroRetos</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Escribe para buscar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Componentes</li>
+  <li
+  >
+  NewRetoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>Fichero</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/new-reto/new-reto.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implementa</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Meta datos</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-new-reto</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./new-reto.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./new-reto.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#image" >image</a>
+                            </li>
+                            <li>
+                                <a href="#imagenSaneada" >imagenSaneada</a>
+                            </li>
+                            <li>
+                                <a href="#newRetoForm" >newRetoForm</a>
+                            </li>
+                            <li>
+                                <a href="#reto" >reto</a>
+                            </li>
+                            <li>
+                                <a href="#userEmail" >userEmail</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeModal" >closeModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#crearReto" >crearReto</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentAlert" >presentAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#selectImage" >selectImage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalCtrl: ModalController, fBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>, multimediaSvc: <a href="../injectables/MultimediaService.html" target="_self">MultimediaService</a>, retoSvc: <a href="../injectables/RetoService.html" target="_self">RetoService</a>, alertCtrl: AlertController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="36" class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parámetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nombre</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                                    <td>Descripción</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalCtrl</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controlador del Modal</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>fBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Constructor del Formulario</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>authSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para gestionar los inicios de sesión y su estado</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Saneador para la imagen, prepara una URL segura</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>multimediaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MultimediaService.html" target="_self" >MultimediaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de subida de imagen a Firestorage</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>retoSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RetoService.html" target="_self" >RetoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de manejo de Retos</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>alertCtrl</td>
+                                                  
+                                                        <td>
+                                                                    <code>AlertController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controlador de Alertas</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModal"></a>
+                    <span class="name">
+                        <span ><b>closeModal</b></span>
+                        <a href="#closeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeModal()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="144"
+                            class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cerramos el modal</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crearReto"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>crearReto</b></span>
+                        <a href="#crearReto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>crearReto(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="108"
+                            class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo que recoge los valores del formulario, los asigna al objeto Reto y lo crea en Firestore a través del Servicio de Retos</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Descripción</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Valores recogidos por el Formulario</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="60"
+                            class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>En el inicio cargamos el usuario logado.
+Tambien construimos el formulario con sus validadores</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentAlert"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>presentAlert</b></span>
+                        <a href="#presentAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="135"
+                            class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:135</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Alerta para pedir confirmación</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectImage"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>selectImage</b></span>
+                        <a href="#selectImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectImage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="88"
+                            class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Metodo que selecciona una imagen de la galeria y la sanea para luego subirla a Firestorage a través del Servicio</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="image"></a>
+                    <span class="name">
+                        <span ><b>image</b></span>
+                        <a href="#image"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://angular.io/api/platform-browser/SafeResourceUrl" target="_blank" >SafeResourceUrl</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable que almacena la imagen cogida de la Galeria</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imagenSaneada"></a>
+                    <span class="name">
+                        <span ><b>imagenSaneada</b></span>
+                        <a href="#imagenSaneada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="32" class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Imagen saneada preparada para subir a Firestorage</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newRetoForm"></a>
+                    <span class="name">
+                        <span ><b>newRetoForm</b></span>
+                        <a href="#newRetoForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creamos un nuevo FormGroup para crear los Retos</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reto"></a>
+                    <span class="name">
+                        <span ><b>reto</b></span>
+                        <a href="#reto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Reto.html" target="_self" >Reto</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto donde se guardará la información del Reto</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="36" class="link-to-prism">src/app/components/new-reto/new-reto.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Para almacenar el email del usuario logado</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController, AlertController } from &#x27;@ionic/angular&#x27;;
+import { FormBuilder, FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Reto } from &#x27;src/app/interfaces/interfaces&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { DomSanitizer, SafeResourceUrl } from &#x27;@angular/platform-browser&#x27;;
+import { Camera, CameraResultType, CameraSource } from &#x27;@capacitor/camera&#x27;;
+import { MultimediaService } from &#x27;../../services/multimedia.service&#x27;;
+import { RetoService } from &#x27;../../services/reto.service&#x27;;
+
+@Component({
+  selector: &#x27;app-new-reto&#x27;,
+  templateUrl: &#x27;./new-reto.component.html&#x27;,
+  styleUrls: [&#x27;./new-reto.component.scss&#x27;],
+})
+export class NewRetoComponent implements OnInit {
+  /**
+   * Creamos un nuevo FormGroup para crear los Retos
+   */
+  newRetoForm: FormGroup;
+  /**
+   * Objeto donde se guardará la información del Reto
+   */
+  reto: Reto;
+  /**
+   * Variable que almacena la imagen cogida de la Galeria
+   */
+  image: SafeResourceUrl;
+  /**
+   * Imagen saneada preparada para subir a Firestorage
+   */
+  imagenSaneada: any;
+  /**
+   * Para almacenar el email del usuario logado
+   */
+  userEmail: string;
+
+  /**
+   * 
+   * @param modalCtrl Controlador del Modal
+   * @param fBuilder Constructor del Formulario
+   * @param authSvc Servicio para gestionar los inicios de sesión y su estado
+   * @param sanitizer Saneador para la imagen, prepara una URL segura
+   * @param multimediaSvc Servicio de subida de imagen a Firestorage
+   * @param retoSvc Servicio de manejo de Retos
+   * @param alertCtrl Controlador de Alertas
+   */
+  constructor(private modalCtrl: ModalController,
+    private fBuilder: FormBuilder,
+    private authSvc: AuthService,
+    private sanitizer: DomSanitizer,
+    private multimediaSvc: MultimediaService,
+    private retoSvc: RetoService,
+    private alertCtrl: AlertController) { }
+
+    /**
+     * En el inicio cargamos el usuario logado.
+     * Tambien construimos el formulario con sus validadores
+     */
+  ngOnInit() {
+
+    this.authSvc.getUserEmail().then(email &#x3D;&gt; {
+      this.userEmail &#x3D; email;
+    });
+
+    this.newRetoForm &#x3D; this.fBuilder.group({
+      TITULO: new FormControl(&#x27;&#x27;, Validators.compose([
+        Validators.required
+      ])),
+      DESCRIPCION: new FormControl(&#x27;&#x27;, Validators.compose([
+        Validators.required
+      ])),
+      TIPO: new FormControl(&#x27;&#x27;, Validators.compose([
+        Validators.required
+      ])),
+      NIVEL: new FormControl(&#x27;&#x27;, Validators.compose([
+        Validators.required
+      ])),
+      ACTIVO: new FormControl(true, Validators.compose([
+        Validators.required
+      ])),
+    });
+  }
+
+/**
+ * Metodo que selecciona una imagen de la galeria y la sanea para luego subirla a Firestorage a través del Servicio
+ */
+  async selectImage() {
+
+    const foto &#x3D; await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Photos,
+    });
+    //Hay que sanearla
+    this.image &#x3D; this.sanitizer.bypassSecurityTrustResourceUrl(foto &amp;&amp; (foto.dataUrl));
+    let blob &#x3D; await fetch(foto.dataUrl).then(r &#x3D;&gt; r.blob());
+    this.imagenSaneada &#x3D; blob;
+    console.log(&#x27;tenemos imagen&#x27;, blob);
+
+  }
+
+  /**
+   * Metodo que recoge los valores del formulario, los asigna al objeto Reto y lo crea en Firestore a través del Servicio de Retos
+   * @param value Valores recogidos por el Formulario
+   */
+  async crearReto(value: any) {
+
+    console.log(&#x27;vamos a crear el reto&#x27;);
+
+    try {
+
+      const res &#x3D; await this.multimediaSvc.subirImagen(this.imagenSaneada, &#x27;retos&#x27;, this.userEmail);
+
+      this.reto &#x3D; value;
+      this.reto.DESTACADO &#x3D; true;
+      this.reto.RETADOR &#x3D; this.userEmail;
+      this.reto.IMAGEN &#x3D; res;
+
+      console.log(&#x27;Arriba el reto con&#x27;, this.reto.TITULO, this.reto.DESCRIPCION);
+
+      this.retoSvc.setReto(this.reto);
+
+
+    } catch (error) {
+      console.log(&#x27;Error creando el Reto:&#x27;, error);
+    }
+
+  }
+
+/**
+ * Alerta para pedir confirmación
+ */
+  async presentAlert() {
+
+    console.log(this.newRetoForm.value)
+
+  }
+
+  /**
+   * Cerramos el modal
+   */
+  closeModal() {
+    this.modalCtrl.dismiss();
+  }
+
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title color&#x3D;&quot;primary&quot;&gt;Nuevo Reto&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content&gt;
+
+  &lt;form [formGroup]&#x3D;&quot;newRetoForm&quot; (ngSubmit)&#x3D;&quot;crearReto(newRetoForm.value)&quot;&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Título &lt;ion-text color&#x3D;&quot;danger&quot;&gt;*&lt;/ion-text&gt;&lt;/ion-label&gt;
+      &lt;ion-input formControlName&#x3D;&quot;TITULO&quot; type&#x3D;&quot;text&quot; required&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Descripción &lt;ion-text color&#x3D;&quot;danger&quot;&gt;*&lt;/ion-text&gt;&lt;/ion-label&gt;
+      &lt;ion-textarea formControlName&#x3D;&quot;DESCRIPCION&quot; type&#x3D;&quot;text&quot; autocapitalize&#x3D;&quot;sentences&quot; [autoGrow]&#x3D;&quot;true&quot;
+        required&gt;&lt;/ion-textarea&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-grid fixed&gt;
+      &lt;ion-row&gt;
+        &lt;ion-col size&#x3D;&quot;6&quot;&gt;
+          &lt;ion-item&gt;
+            &lt;ion-label&gt;Tipo&lt;/ion-label&gt;
+            &lt;ion-select formControlName&#x3D;&quot;TIPO&quot; value&#x3D;&quot;ocular&quot; multiple&#x3D;&quot;false&quot; placeholder&#x3D;&quot;Tipo de Reto&quot; required&gt;
+              &lt;ion-select-option value&#x3D;&quot;ocular&quot;&gt;Ocular&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;prismaticos&quot;&gt;Prismaticos&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;telescopio&quot;&gt;Telescopio&lt;/ion-select-option&gt;
+            &lt;/ion-select&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+        &lt;ion-col size&#x3D;&quot;6&quot;&gt;
+          &lt;ion-item&gt;
+            &lt;ion-label&gt;Nivel&lt;/ion-label&gt;
+            &lt;ion-select formControlName&#x3D;&quot;NIVEL&quot; value&#x3D;&quot;facil&quot; multiple&#x3D;&quot;false&quot; placeholder&#x3D;&quot;Nivel de dificultad&quot;
+              required&gt;
+              &lt;ion-select-option value&#x3D;&quot;facil&quot;&gt;Facil&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;intermedio&quot;&gt;Intermedio&lt;/ion-select-option&gt;
+              &lt;ion-select-option value&#x3D;&quot;dificil&quot;&gt;Dificil&lt;/ion-select-option&gt;
+            &lt;/ion-select&gt;
+          &lt;/ion-item&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-grid&gt;
+    &lt;ion-button (click)&#x3D;&quot;selectImage()&quot; expand&#x3D;&quot;block&quot; fill&#x3D;&quot;clear&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;primary&quot;&gt;
+      Seleccionar imagen
+    &lt;/ion-button&gt;
+    &lt;ion-item *ngIf&#x3D;&quot;image&quot;&gt;
+      &lt;ion-img [src]&#x3D;&quot;image&quot;&gt;&lt;/ion-img&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-checkbox formControlName&#x3D;&quot;ACTIVO&quot; slot&#x3D;&quot;start&quot; checked&#x3D;&quot;true&quot;&gt;&lt;/ion-checkbox&gt;
+      &lt;ion-label&gt;Marcar Reto como Activo&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-button type&#x3D;&quot;submit&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;!newRetoForm.valid&quot; color&#x3D;&quot;primary&quot;&gt;Crear Reto&lt;/ion-button&gt;
+  &lt;/form&gt;
+
+&lt;/ion-content&gt;
+
+&lt;ion-footer&gt;
+
+
+  &lt;ion-button (click)&#x3D;&quot;closeModal()&quot; expand&#x3D;&quot;block&quot; fill&#x3D;&quot;clear&quot; shape&#x3D;&quot;round&quot;&gt;Cancelar&lt;/ion-button&gt;
+&lt;/ion-footer&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./new-reto.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Leyenda</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento Html con directiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title color="primary">Nuevo Reto</ion-title>  </ion-toolbar></ion-header><ion-content>  <form [formGroup]="newRetoForm" (ngSubmit)="crearReto(newRetoForm.value)">    <ion-item>      <ion-label position="floating">Título <ion-text color="danger">*</ion-text></ion-label>      <ion-input formControlName="TITULO" type="text" required></ion-input>    </ion-item>    <ion-item>      <ion-label position="floating">Descripción <ion-text color="danger">*</ion-text></ion-label>      <ion-textarea formControlName="DESCRIPCION" type="text" autocapitalize="sentences" [autoGrow]="true"        required></ion-textarea>    </ion-item>    <ion-grid fixed>      <ion-row>        <ion-col size="6">          <ion-item>            <ion-label>Tipo</ion-label>            <ion-select formControlName="TIPO" value="ocular" multiple="false" placeholder="Tipo de Reto" required>              <ion-select-option value="ocular">Ocular</ion-select-option>              <ion-select-option value="prismaticos">Prismaticos</ion-select-option>              <ion-select-option value="telescopio">Telescopio</ion-select-option>            </ion-select>          </ion-item>        </ion-col>        <ion-col size="6">          <ion-item>            <ion-label>Nivel</ion-label>            <ion-select formControlName="NIVEL" value="facil" multiple="false" placeholder="Nivel de dificultad"              required>              <ion-select-option value="facil">Facil</ion-select-option>              <ion-select-option value="intermedio">Intermedio</ion-select-option>              <ion-select-option value="dificil">Dificil</ion-select-option>            </ion-select>          </ion-item>        </ion-col>      </ion-row>    </ion-grid>    <ion-button (click)="selectImage()" expand="block" fill="clear" shape="round" color="primary">      Seleccionar imagen    </ion-button>    <ion-item *ngIf="image">      <ion-img [src]="image"></ion-img>    </ion-item>    <ion-item>      <ion-checkbox formControlName="ACTIVO" slot="start" checked="true"></ion-checkbox>      <ion-label>Marcar Reto como Activo</ion-label>    </ion-item>    <ion-button type="submit" expand="block" [disabled]="!newRetoForm.valid" color="primary">Crear Reto</ion-button>  </form></ion-content><ion-footer>  <ion-button (click)="closeModal()" expand="block" fill="clear" shape="round">Cancelar</ion-button></ion-footer></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NewRetoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> comparación de resultados "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No hay resultados que coincidan "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NewRetoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -6,7 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './services/interceptor.service';
 
 //Imports de Firestore
 import { AngularFireModule } from '@angular/fire/compat';
@@ -33,7 +34,15 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
     HttpClientModule,
     
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SocialSharing, InAppBrowser],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+    SocialSharing, 
+    InAppBrowser,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }],    
+
   bootstrap: [AppComponent],
 })
 export class AppModule { }

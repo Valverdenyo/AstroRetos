@@ -39,10 +39,8 @@ export class NoticiaComponent {
       });
   
       await actionSheet.present();
-    }
-  
-  
-  
+    } 
+    
     openArticle() {
   
       if (this.platform.is('android')) {
@@ -56,9 +54,7 @@ export class NoticiaComponent {
     onShareArticle() {
   
       if (this.platform.is('cordova')) {
-  
-  
-        this.compartirNoticia();
+       
         this.socialSharing.share(
           this.article.title,  
           this.article.url
@@ -75,10 +71,5 @@ export class NoticiaComponent {
         }
       }
     }
-      
-    compartirNoticia() {
-  
-    }
-
 
 }

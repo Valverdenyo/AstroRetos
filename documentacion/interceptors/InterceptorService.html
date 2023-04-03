@@ -29,7 +29,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content interceptor">
                    <div class="content-data">
 
 
@@ -39,9 +39,10 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Inyectables</li>
-  <li >NewsService</li>
+  <li>Interceptores</li>
+  <li >InterceptorService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,9 +60,8 @@
             <h3>Fichero</h3>
         </p>
         <p class="comment">
-            <code>src/app/services/news.service.ts</code>
+            <code>src/app/services/interceptor.service.ts</code>
         </p>
-
 
 
 
@@ -80,11 +80,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#executeQuery" >executeQuery</a>
-                            </li>
-                            <li>
-                                <a href="#getNews" >getNews</a>
+                                <a href="#intercept" >intercept</a>
                             </li>
                         </ul>
                     </td>
@@ -98,54 +94,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/services/news.service.ts:15</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parámetros :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Nombre</td>
-                                                    <td>Tipo</td>
-                                                <td>Opcional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>http</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -156,71 +104,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="executeQuery"></a>
+                    <a name="intercept"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>executeQuery</b></span>
-                        <a href="#executeQuery"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>intercept</b></span>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>executeQuery()</code>
+<code>intercept(req: HttpRequest<any>, next: <a href="https://angular.io/api/common/http/HttpHandler" target="_blank">HttpHandler</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="19"
-                            class="link-to-prism">src/app/services/news.service.ts:19</a></div>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Parámetros de tipo :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getNews"></a>
-                    <span class="name">
-                        <span ><b>getNews</b></span>
-                        <a href="#getNews"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getNews(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="31"
-                            class="link-to-prism">src/app/services/news.service.ts:31</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="9"
+                            class="link-to-prism">src/app/services/interceptor.service.ts:9</a></div>
                 </td>
             </tr>
 
@@ -241,9 +142,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>page</td>
+                                    <td>req</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <code>HttpRequest&lt;any&gt;</code>
                                     </td>
 
                                     <td>
@@ -253,9 +154,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>pageSice</td>
+                                    <td>next</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                <code><a href="https://angular.io/api/common/http/HttpHandler" target="_blank" >HttpHandler</a></code>
                                     </td>
 
                                     <td>
@@ -270,7 +171,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Devuelve : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -286,52 +187,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { environment } from &#x27;src/environments/environment&#x27;;
-import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { NewsResponse, Article } from &#x27;../interfaces/news&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
-
-const apiKey &#x3D; environment.news.apiKey;
-const apiUrl &#x3D; environment.news.apiUrl;
-
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class NewsService {
-
-  constructor(private http: HttpClient) { }
-
-  private executeQuery&lt;T&gt;() {
-    return this.http.get&lt;T&gt;(&#x60;${apiUrl}&#x60;, {
-      params: {
-        access_key: apiKey,
-        languages: &#x27;es,en&#x27;,
-        categories: &#x27;science&#x27;,
-        keywords: &#x27;astronomy&#x27;,
-        
-      }
-    })
+export class InterceptorService implements HttpInterceptor {
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    const httpReq &#x3D; req.clone({
+      url: req.url.replace(&#x27;https://&#x27;, &#x27;http://&#x27;)
+    });
+    return next.handle(httpReq);
   }
-
-  getNews(page: number, pageSice: number) {
-    const params &#x3D; new HttpParams()
-      .set(&#x27;access_key&#x27;, apiKey)
-      .set(&#x27;languages&#x27;, &#x27;es,en&#x27;)
-      .set(&#x27;categories&#x27;, &#x27;science&#x27;)
-      .set(&#x27;keywords&#x27;, &#x27;astronomy&#x27;);
-
-    return this.http.get(&#x60;${apiUrl}/news&#x60;, { params });
-  } 
-
 }
 </code></pre>
     </div>
-
 </div>
-
 
 
 
@@ -369,8 +242,8 @@ export class NewsService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'NewsService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'InterceptorService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

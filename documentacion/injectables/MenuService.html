@@ -29,17 +29,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Componentes</li>
-  <li
-  >
-  HomePage</li>
+  <li>Inyectables</li>
+  <li >MenuService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -49,88 +51,22 @@
         <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
-        </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
-    <h3>Fichero</h3>
-</p>
-<p class="comment">
-    <code>src/app/pages/home/home.page.ts</code>
-</p>
-
-
-    <p class="comment">
-        <h3>Descripción</h3>
-    </p>
-    <p class="comment">
-        <p>Componente Home. Indica la plantilla HTML que usa y su CSS.
-Página de inicio que muestra los retos activos.</p>
-
-    </p>
-
-
-    <p class="comment">
-        <h3>Implementa</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
-
-
-<section>
-    <h3>Meta datos</h3>
-    <table class="table table-sm table-hover metadata">
-        <tbody>
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>Fichero</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/menu.service.ts</code>
+        </p>
 
 
 
 
 
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-home</code></td>
-            </tr>
-
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>home.page.scss</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>home.page.html</code></td>
-            </tr>
-
-
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
+            <section>
     <h3 id="index">Índice</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -170,7 +106,7 @@ Página de inicio que muestra los retos activos.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
+                                <a href="#setMenu" >setMenu</a>
                             </li>
                         </ul>
                     </td>
@@ -184,25 +120,23 @@ Página de inicio que muestra los retos activos.</p>
     </table>
 </section>
 
-    <section>
+            <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, angularFireAuth: AngularFireAuth)</code>
+<code>constructor(angularFireAuth: AngularFireAuth, authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="32" class="link-to-prism">src/app/services/menu.service.ts:32</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra</p>
-</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -216,6 +150,22 @@ Página de inicio que muestra los retos activos.</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
+                                                        <td>angularFireAuth</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFireAuth</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de Angular que gestiona el Auth de Firebase</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
                                                         <td>authSvc</td>
                                                   
                                                         <td>
@@ -227,7 +177,7 @@ Página de inicio que muestra los retos activos.</p>
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Servicio para manejar la Autenticacion que conecta con Firebase Auth</p>
+                                                                <p>Servicio para gestionar los inicios de sesión y su estado</p>
 
                                                         </td>
                                                 </tr>
@@ -243,23 +193,7 @@ Página de inicio que muestra los retos activos.</p>
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Servicio para manejar operaciones con los usuarios</p>
-
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>angularFireAuth</td>
-                                                  
-                                                        <td>
-                                                                    <code>AngularFireAuth</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                                <p>Servicio Firebase auth para comprobar si usuario logado</p>
+                                                                <p>Servicio que gestiona todo lo relacionado con los usuarios</p>
 
                                                         </td>
                                                 </tr>
@@ -272,11 +206,7 @@ Página de inicio que muestra los retos activos.</p>
         </table>
 </section>
 
-
-
-
-
-    <section>
+            <section>
     
     <h3 id="methods">
         Métodos
@@ -285,31 +215,31 @@ Página de inicio que muestra los retos activos.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="setMenu"></a>
                     <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>setMenu</b></span>
+                        <a href="#setMenu"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+<code>setMenu()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="98"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:98</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="47"
+                            class="link-to-prism">src/app/services/menu.service.ts:47</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Método de inicio. No hace ninguna carga inicial</p>
+                    <div class="io-description"><p>Metodo que configura el menú dependiendo de si se está logado o no y el rol del usuario.</p>
 </div>
 
                     <div class="io-description">
@@ -321,7 +251,7 @@ Página de inicio que muestra los retos activos.</p>
         </tbody>
     </table>
 </section>
-    <section>
+            <section>
     
     <h3 id="inputs">
         Propiedades
@@ -344,7 +274,7 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="32" class="link-to-prism">src/app/services/menu.service.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -375,7 +305,7 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/services/menu.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -407,7 +337,7 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/pages/home/home.page.ts:35</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/services/menu.service.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -444,7 +374,7 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/home/home.page.ts:27</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/services/menu.service.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -476,7 +406,7 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="31" class="link-to-prism">src/app/pages/home/home.page.ts:31</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/services/menu.service.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -491,30 +421,23 @@ Página de inicio que muestra los retos activos.</p>
     </table>
 </section>
 
-</div>
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { AngularFireAuth } from &#x27;@angular/fire/compat/auth&#x27;;
 
-import { AuthService } from &#x27;../../services/auth.service&#x27;;
-import { UserService } from &#x27;src/app/services/user.service&#x27;;
-import { MenuOpts, Usuario } from &#x27;src/app/interfaces/interfaces&#x27;;
+import { MenuOpts, Usuario } from &#x27;../interfaces/interfaces&#x27;;
+import { AuthService } from &#x27;./auth.service&#x27;;
+import { UserService } from &#x27;./user.service&#x27;;
 
-/**
- * Componente Home. Indica la plantilla HTML que usa y su CSS.
- * Página de inicio que muestra los retos activos.
- */
-@Component({
-  selector: &#x27;app-home&#x27;,
-  templateUrl: &#x27;home.page.html&#x27;,
-  styleUrls: [&#x27;home.page.scss&#x27;],
+@Injectable({
+  providedIn: &#x27;root&#x27;
 })
-export class HomePage implements OnInit {
-
-/**
+export class MenuService {
+  
+  /**
  * Booleano para mostrar/ocultar el FAB de Login
  */
   ionFabVisible &#x3D; true;
@@ -536,152 +459,66 @@ export class HomePage implements OnInit {
   enableFav &#x3D; false;
 
   /**
-   * Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra
    * 
-   * @param authSvc Servicio para manejar la Autenticacion que conecta con Firebase Auth
-   * @param userSvc Servicio para manejar operaciones con los usuarios
-   * @param angularFireAuth Servicio Firebase auth para comprobar si usuario logado
+   * @param angularFireAuth Servicio de Angular que gestiona el Auth de Firebase
+   * @param authSvc Servicio para gestionar los inicios de sesión y su estado
+   * @param userSvc Servicio que gestiona todo lo relacionado con los usuarios
    */
-  constructor(private authSvc: AuthService,
-    private userSvc: UserService,
-    private angularFireAuth: AngularFireAuth) {
+  constructor(private angularFireAuth: AngularFireAuth,
+    private authSvc: AuthService,
+    private userSvc: UserService) { }
 
-    this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
-      if (user) {
-        // El usuario está logueado
+    /**
+     * Metodo que configura el menú dependiendo de si se está logado o no y el rol del usuario.
+     */
+    setMenu() {
+      this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
+        if (user) {
 
-        this.ionFabVisible &#x3D; false;
-        this.authSvc.getUserEmail().then(email &#x3D;&gt; {
-          this.userEmail &#x3D; email;
-          this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
-            this.usuarioLogado &#x3D; usuario;
-            console.log(&#x27;El usuario está logueado con &#x27;, this.usuarioLogado.EMAIL);
-            if (this.usuarioLogado.ROL &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
-              console.log(this.usuarioLogado.ROL);
-              this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;, &#x27;admin&#x27;])
-                .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-                  console.log(menuOpts);
-                  this.menuOpts &#x3D; menuOpts;
-                });
-              this.enableFav &#x3D; true;
-            } else {
-              this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;])
-                .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-                  console.log(menuOpts);
-                  this.menuOpts &#x3D; menuOpts;
-                });
-            }
+          // El usuario está logueado
+
+            this.ionFabVisible &#x3D; false;
+          this.authSvc.getUserEmail().then(email &#x3D;&gt; {
+            this.userEmail &#x3D; email;
+            this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
+              this.usuarioLogado &#x3D; usuario;
+              console.log(&#x27;El usuario está logueado con &#x27;, this.usuarioLogado.EMAIL);
+              if (this.usuarioLogado.ROL &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+                console.log(this.usuarioLogado.ROL);
+                this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;, &#x27;admin&#x27;])
+                  .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
+                    console.log(menuOpts);
+                    this.menuOpts &#x3D; menuOpts;
+                  });
+                this.enableFav &#x3D; true;
+              } else {
+                this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;])
+                  .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
+                    console.log(menuOpts);
+                    this.menuOpts &#x3D; menuOpts;
+                  });
+              }
+            });  
           });
+        } else {
 
+          // El usuario no está logueado
 
-        });
-      } else {
-        // El usuario no está logueado
-        console.log(&#x27;El usuario no está logueado&#x27;);
-        this.ionFabVisible &#x3D; true;
-        this.userSvc.getMenuOpts([&#x27;all&#x27;])
-          .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-            console.log(menuOpts);
-            this.menuOpts &#x3D; menuOpts;
-          });
-      }
-    });
-
-  }
-
-  /**
-   * Método de inicio. No hace ninguna carga inicial
-   */
-  ngOnInit() {
-
-  }
-
+          console.log(&#x27;El usuario no está logueado&#x27;);
+          this.ionFabVisible &#x3D; true;
+          this.userSvc.getMenuOpts([&#x27;all&#x27;])
+            .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
+              console.log(menuOpts);
+              this.menuOpts &#x3D; menuOpts;
+            });
+        }
+      });
+    }
 }
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
-  
-
-&lt;/ion-header&gt;
-
-&lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
-&lt;app-reto&gt;&lt;/app-reto&gt;
-
-  &lt;app-menu [menuOpts]&#x3D;&quot;menuOpts&quot;&gt;&lt;/app-menu&gt;
-  &lt;app-fab-login *ngIf&#x3D;&quot;ionFabVisible&quot;&gt;&lt;/app-fab-login&gt;
-&lt;/ion-content&gt;</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>home.page.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Leyenda</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Elemento Html</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Componente</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Elemento Html con directiva</span>
-            </div>
-        </div>
-    </div>
-
-    
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  </ion-header><ion-content [fullscreen]="true"><app-reto></app-reto>  <app-menu [menuOpts]="menuOpts"></app-menu>  <app-fab-login *ngIf="ionFabVisible"></app-fab-login></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HomePage'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
-
 
 
 
@@ -720,8 +557,8 @@ export class HomePage implements OnInit {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HomePage.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MenuService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

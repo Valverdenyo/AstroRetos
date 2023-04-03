@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NewsResponse, Article } from '../interfaces/news';
 import { map } from 'rxjs/operators';
@@ -13,9 +13,6 @@ const apiUrl = environment.news.apiUrl;
   providedIn: 'root'
 })
 export class NewsService {
-
-
-
 
   constructor(private http: HttpClient) { }
 
@@ -31,11 +28,14 @@ export class NewsService {
     })
   }
 
-  getNews(): Observable<Article[]> {
-    return this.executeQuery<NewsResponse>()
-      .pipe(
-        map(({ articles }) => articles)
-      );
-  }
+  getNews(page: number, pageSice: number) {
+    const params = new HttpParams()
+      .set('access_key', apiKey)
+      .set('languages', 'es,en')
+      .set('categories', 'science')
+      .set('keywords', 'astronomy');
+
+    return this.http.get(`${apiUrl}/news`, { params });
+  } 
 
 }

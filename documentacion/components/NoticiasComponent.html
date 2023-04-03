@@ -71,12 +71,6 @@
 
 
 
-    <p class="comment">
-        <h3>Implementa</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -126,22 +120,37 @@
     <h3 id="index">Índice</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Métodos</b></h6>
+                        <h6><b>Propiedades</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit" >ngOnInit</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#article" >article</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entradas</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#articles" >articles</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -161,7 +170,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="8" class="link-to-prism">src/app/components/noticias/noticias.component.ts:8</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="13" class="link-to-prism">src/app/components/noticias/noticias.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -169,50 +178,74 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Entradas</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="articles"></a>
+                        <b>articles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Article.html" target="_self" >Article[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido en <a href="" data-line="13" class="link-to-prism">src/app/components/noticias/noticias.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
 
     <section>
     
-    <h3 id="methods">
-        Métodos
+    <h3 id="inputs">
+        Propiedades
     </h3>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="article"></a>
                     <span class="name">
-                        <span ><b>ngOnInit</b></span>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Public</span>
+                        <span ><b>article</b></span>
+                        <a href="#article"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/Article.html" target="_self" >Article[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="11" class="link-to-prism">src/app/components/noticias/noticias.component.ts:11</a></div>
+                        </td>
+                    </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="12"
-                            class="link-to-prism">src/app/components/noticias/noticias.component.ts:12</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
         </tbody>
     </table>
 </section>
@@ -221,28 +254,37 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { Article } from &#x27;src/app/interfaces/news&#x27;;
 
 @Component({
   selector: &#x27;app-noticias&#x27;,
   templateUrl: &#x27;./noticias.component.html&#x27;,
   styleUrls: [&#x27;./noticias.component.scss&#x27;],
 })
-export class NoticiasComponent implements OnInit {
+export class NoticiasComponent {
+
+  public article: Article[] &#x3D; [];
+
+  @Input() articles: Article[] &#x3D; [];
 
   constructor() { }
-
-  ngOnInit() {}
 
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  noticias works!
-&lt;/p&gt;
-</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;ion-grid fixed&gt;
+
+  &lt;ion-row&gt;
+    &lt;ion-col *ngFor&#x3D;&quot;let article of articles; let i &#x3D; index&quot;
+    size&#x3D;&quot;12&quot; size-lg&#x3D;&quot;3&quot; size-md&#x3D;&quot;4&quot; size-sm&#x3D;&quot;6&quot; size-xs&#x3D;&quot;12&quot;&gt;
+     &lt;app-noticia [article]&#x3D;&quot;article&quot; [index]&#x3D;&quot;i&quot;&gt;
+     &lt;/app-noticia&gt;
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+&lt;/ion-grid&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -277,8 +319,8 @@ export class NoticiasComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  noticias works!</p></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'NoticiasPage', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+        var COMPONENT_TEMPLATE = '<div><ion-grid fixed>  <ion-row>    <ion-col *ngFor="let article of articles; let i = index"    size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">     <app-noticia [article]="article" [index]="i">     </app-noticia>    </ion-col>  </ion-row></ion-grid></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NoticiasComponent'};
 </script>

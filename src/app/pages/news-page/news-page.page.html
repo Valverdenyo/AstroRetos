@@ -1,0 +1,13 @@
+<app-header titulo="Noticias"></app-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+
+  <app-noticias [articles]="articles"></app-noticias>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Cargando más noticias..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+

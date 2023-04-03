@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { ModalController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 import { InfoRetoComponent } from '../info-reto/info-reto.component';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 
 @Component({
@@ -20,6 +21,10 @@ export class RetoComponent implements OnInit {
    * Comprueba si el usuario está logado o no para habilitar el icono de favoritos y de Realizado.
    */
   usuarioLogado = false;
+/**
+ * Variable para guardar el email del usuario logado y así personalizar los iconos del reto
+ */
+  email: string;
   /**
    * Declaramos Array de Retos para guardar la info para mostrar.
    */
@@ -32,6 +37,10 @@ export class RetoComponent implements OnInit {
    * Mensaje para compartir por RRSS.
    */
   mensaje: string = 'Te reto!';
+/**
+ * Booleano para marcar si el reto está en favoritos o no.
+ */
+  isFavorito: boolean;
 
   /**
    * 
@@ -45,8 +54,15 @@ export class RetoComponent implements OnInit {
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
     private platform: Platform,
-    private auth: AngularFireAuth) {
+    private authSvc: AuthService) {
 
+  }
+
+  /**
+   * Cuando cargue completamente la página, checkeamos la vista para incluir el icono de Favorito
+   */
+  ionViewDidEnter() {
+    this.checkFavorito();
   }
 
   /**
@@ -54,16 +70,11 @@ export class RetoComponent implements OnInit {
    * Tambien revisa si el usuario está logado y busca si el reto ya lo tiene en Favoritos (NO IMPLEMENTADO) o no.
    */
   ngOnInit() {
+
     this.retoSvc.getRetosActivos().subscribe(retos => {
       this.retos = retos;
     });
-
-    this.auth.user.subscribe(user => {
-      this.usuarioLogado = !!user;
-      if (this.usuarioLogado) {
-        // Llamar al método para comprobar si el reto está en favoritos
-      }
-    });
+  
   }
 
   /**
@@ -140,7 +151,22 @@ export class RetoComponent implements OnInit {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  gestionFavorito() {
+  async checkFavorito() {
+
+    this.authSvc.getUserEmail().then(email => {
+      this.email = email;
+      });
+
+      if (this.usuarioLogado) {
+       
+      }
+     
+    }
+    
+/**
+ * Metodo usado para cambiar un reto entre favorito/no favorito
+ */
+  toggleFavorito() {
 
   }
 

@@ -14,7 +14,7 @@
     {
         "icon": "newspaper-sharp",
         "name": "Noticias",
-        "redirectTo": "/noticias",
+        "redirectTo": "/news-page",
         "rol": "all"
     },
     {

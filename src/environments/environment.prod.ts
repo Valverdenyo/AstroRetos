@@ -12,6 +12,6 @@ export const environment = {
   measurementId: "G-QCJVPE1F4N"},
   news: {
     apiKey:"5bfc28bcc8f9833472ef411ce5430f50",
-    apiUrl:"http://api.mediastack.com/v1/news"
+    apiUrl:"http://api.mediastack.com/v1"
   }
 };

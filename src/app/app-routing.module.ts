@@ -17,10 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'noticias',
-    loadChildren: () => import('./pages/noticias/noticias.module').then(m => m.NoticiasPageModule)
-  },
-  {
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AuthService]
   },
@@ -43,7 +39,12 @@ const routes: Routes = [
   {
     path: 'favoritos',
     loadChildren: () => import('./pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule), canActivate: [AuthService]
+  },
+  {
+    path: 'news-page',
+    loadChildren: () => import('./pages/news-page/news-page.module').then( m => m.NewsPagePageModule)
   }
+
 
 
 ];

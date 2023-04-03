@@ -9,7 +9,6 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class MenuService {
-
   
   /**
  * Booleano para mostrar/ocultar el FAB de Login
@@ -32,16 +31,26 @@ export class MenuService {
    */
   enableFav = false;
 
+  /**
+   * 
+   * @param angularFireAuth Servicio de Angular que gestiona el Auth de Firebase
+   * @param authSvc Servicio para gestionar los inicios de sesión y su estado
+   * @param userSvc Servicio que gestiona todo lo relacionado con los usuarios
+   */
   constructor(private angularFireAuth: AngularFireAuth,
     private authSvc: AuthService,
     private userSvc: UserService) { }
 
+    /**
+     * Metodo que configura el menú dependiendo de si se está logado o no y el rol del usuario.
+     */
     setMenu() {
       this.angularFireAuth.onAuthStateChanged(user => {
         if (user) {
+
           // El usuario está logueado
-  
-          this.ionFabVisible = false;
+
+            this.ionFabVisible = false;
           this.authSvc.getUserEmail().then(email => {
             this.userEmail = email;
             this.userSvc.getUserByEmail(email).subscribe(usuario => {
@@ -62,12 +71,12 @@ export class MenuService {
                     this.menuOpts = menuOpts;
                   });
               }
-            });
-  
-  
+            });  
           });
         } else {
+
           // El usuario no está logueado
+
           console.log('El usuario no está logueado');
           this.ionFabVisible = true;
           this.userSvc.getMenuOpts(['all'])
@@ -78,5 +87,4 @@ export class MenuService {
         }
       });
     }
-
 }

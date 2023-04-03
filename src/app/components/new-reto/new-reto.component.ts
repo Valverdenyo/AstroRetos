@@ -14,13 +14,37 @@ import { RetoService } from '../../services/reto.service';
   styleUrls: ['./new-reto.component.scss'],
 })
 export class NewRetoComponent implements OnInit {
-
+  /**
+   * Creamos un nuevo FormGroup para crear los Retos
+   */
   newRetoForm: FormGroup;
+  /**
+   * Objeto donde se guardará la información del Reto
+   */
   reto: Reto;
+  /**
+   * Variable que almacena la imagen cogida de la Galeria
+   */
   image: SafeResourceUrl;
+  /**
+   * Imagen saneada preparada para subir a Firestorage
+   */
   imagenSaneada: any;
+  /**
+   * Para almacenar el email del usuario logado
+   */
   userEmail: string;
 
+  /**
+   * 
+   * @param modalCtrl Controlador del Modal
+   * @param fBuilder Constructor del Formulario
+   * @param authSvc Servicio para gestionar los inicios de sesión y su estado
+   * @param sanitizer Saneador para la imagen, prepara una URL segura
+   * @param multimediaSvc Servicio de subida de imagen a Firestorage
+   * @param retoSvc Servicio de manejo de Retos
+   * @param alertCtrl Controlador de Alertas
+   */
   constructor(private modalCtrl: ModalController,
     private fBuilder: FormBuilder,
     private authSvc: AuthService,
@@ -29,6 +53,10 @@ export class NewRetoComponent implements OnInit {
     private retoSvc: RetoService,
     private alertCtrl: AlertController) { }
 
+    /**
+     * En el inicio cargamos el usuario logado.
+     * Tambien construimos el formulario con sus validadores
+     */
   ngOnInit() {
 
     this.authSvc.getUserEmail().then(email => {
@@ -54,6 +82,9 @@ export class NewRetoComponent implements OnInit {
     });
   }
 
+/**
+ * Metodo que selecciona una imagen de la galeria y la sanea para luego subirla a Firestorage a través del Servicio
+ */
   async selectImage() {
 
     const foto = await Camera.getPhoto({
@@ -62,15 +93,19 @@ export class NewRetoComponent implements OnInit {
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Photos,
     });
-    //hay que sanearla
+    //Hay que sanearla
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(foto && (foto.dataUrl));
     let blob = await fetch(foto.dataUrl).then(r => r.blob());
     this.imagenSaneada = blob;
     console.log('tenemos imagen', blob);
-    
+
   }
 
-  async crearReto(value: any){
+  /**
+   * Metodo que recoge los valores del formulario, los asigna al objeto Reto y lo crea en Firestore a través del Servicio de Retos
+   * @param value Valores recogidos por el Formulario
+   */
+  async crearReto(value: any) {
 
     console.log('vamos a crear el reto');
 
@@ -86,7 +121,7 @@ export class NewRetoComponent implements OnInit {
       console.log('Arriba el reto con', this.reto.TITULO, this.reto.DESCRIPCION);
 
       this.retoSvc.setReto(this.reto);
-      
+
 
     } catch (error) {
       console.log('Error creando el Reto:', error);
@@ -94,12 +129,18 @@ export class NewRetoComponent implements OnInit {
 
   }
 
+/**
+ * Alerta para pedir confirmación
+ */
   async presentAlert() {
 
     console.log(this.newRetoForm.value)
-    
+
   }
 
+  /**
+   * Cerramos el modal
+   */
   closeModal() {
     this.modalCtrl.dismiss();
   }

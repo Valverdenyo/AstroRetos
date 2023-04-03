@@ -126,4 +126,8 @@ export class RetoService {
         });
     }
 
+    findFavorito(email: string, fav: string) {
+      
+    }
+
   }
