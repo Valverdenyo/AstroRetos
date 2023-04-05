@@ -120,7 +120,7 @@ export class NewRetoComponent implements OnInit {
 
       console.log('Arriba el reto con', this.reto.TITULO, this.reto.DESCRIPCION);
 
-      this.retoSvc.setReto(this.reto);
+      this.retoSvc.addReto(this.reto);
 
 
     } catch (error) {

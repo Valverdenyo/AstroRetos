@@ -38,6 +38,7 @@ export class AuthService {
         this.firestore.doc(docRef).update({
           ID: docRef.id
         })
+        this.firestore.collection('usuarios').doc(docRef.id).collection('favoritos').add({})
       })
       .catch((error: any) => {
         console.error('Error al agregar usuario: ', error);

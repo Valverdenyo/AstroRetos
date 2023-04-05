@@ -1,30 +1,29 @@
-interface RootObject {
-  pagination: Pagination;
-  data: Article[];
-}
-
-export interface Article {
-  author?: string;
-  title: string;
-  description: string;
-  url: string;
-  source: string;
-  image?: string;
-  category: string;
-  language: string;
-  country: string;
-  published_at: string;
-}
-
 export interface NewsResponse {
   status:       string;
   totalResults: number;
   articles:     Article[];
 }
 
-interface Pagination {
-  limit: number;
-  offset: number;
-  count: number;
-  total: number;
+export interface Article {
+  source:       Source;
+  author?:      string;
+  title:        string;
+  description?: string;
+  url:          string;
+  urlToImage?:  string;
+  publishedAt:  string;
+  content?:     string;
+}
+
+export interface Source {
+  id?:  string;
+  name: string;
+}
+
+
+export interface ArticlesByCategoryAndPage {
+  [key: string] : {
+      page: number,
+      articles: Article[]
+  }
 }

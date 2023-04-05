@@ -38,11 +38,8 @@ export class NewsPagePage implements OnInit {
   }
 
   loadNews() {
-    this.newsSvc
-      .getNews(this.page, this.pageSize)
-      .subscribe((data: any) => {
-        this.articles = [...this.articles, ...data.data];
-      });
+    this.newsSvc.getTopHeadLines()
+    .subscribe(articles => this.articles.push(...articles));
   }
 
   loadMore(event) {

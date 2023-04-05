@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Favorito, Reto } from '../interfaces/interfaces';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { Favorito, Reto, Usuario } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
@@ -13,11 +13,13 @@ export class RetoService {
 
   retosFavoritos: Observable<any[]>;
   private retosCollection: AngularFirestoreCollection<Reto>;
+  
   retos: Observable<Reto[]>;
   reto: Reto;
+  favCollection: AngularFirestoreCollection<Favorito>;
+  favoritos$: Observable<Favorito[]>;
 
-  constructor(private firestore: AngularFirestore,
-    private storage: AngularFireStorage) { }
+  constructor(private firestore: AngularFirestore) { }
 
   getRetos(): Observable<any[]> {
     return this.firestore.collection('retos').valueChanges({ idField: 'id' });
@@ -77,13 +79,12 @@ export class RetoService {
     });
   }
 
-  findFavoritosByUsuario(usuario: string) {
-    this.retosFavoritos = this.firestore.collection<Favorito>('favoritos', ref => ref.where('ID_USUARIO', '==', usuario)).get()
-      .pipe(
-        map(querySnapshot => {
-          return querySnapshot.docs.map(doc => doc.data());
-        })
-      );
+  getFavoritosByUser(id: string): Observable<Favorito[]> {
+    return this.firestore
+      .collection('usuarios')
+      .doc(id)
+      .collection<Favorito>('favoritos')
+      .valueChanges();
   }
 
   async checkRetoActivo(id: string): Promise<boolean> {
@@ -92,7 +93,7 @@ export class RetoService {
     return doc.exists && (doc.data() as Reto).ACTIVO;
   }
 
-  setReto(reto: Reto) {
+  addReto(reto: Reto) {
 
     this.firestore.collection('retos').add({
       TITULO: reto.TITULO,
@@ -126,8 +127,16 @@ export class RetoService {
         });
     }
 
-    findFavorito(email: string, fav: string) {
-      
-    }
+  
 
+ /*    addFavorite(reto: any) {
+      const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
+      const id_reto = reto.ID;
+      this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
+    }*/
+
+    removeFavorite(usuario: string, reto: string) {
+     
+    }
+ 
   }

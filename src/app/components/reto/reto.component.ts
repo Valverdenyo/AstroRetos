@@ -3,10 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
-import { Reto } from 'src/app/interfaces/interfaces';
+import { Favorito, Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 import { InfoRetoComponent } from '../info-reto/info-reto.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { map } from 'rxjs/operators';
 
 
 
@@ -41,6 +45,8 @@ export class RetoComponent implements OnInit {
  * Booleano para marcar si el reto está en favoritos o no.
  */
   isFavorito: boolean;
+  favCollection: AngularFirestoreCollection<Favorito>;
+  favoritos$: Observable<Favorito[]>;
 
   /**
    * 
@@ -54,7 +60,13 @@ export class RetoComponent implements OnInit {
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
     private platform: Platform,
-    private authSvc: AuthService) {
+    private authSvc: AuthService,
+    private auth: AngularFireAuth,
+    private firestore: AngularFirestore) {
+
+      this.auth.authState.subscribe((user) => {
+        this.usuarioLogado = !!user;
+      });
 
   }
 
@@ -62,7 +74,7 @@ export class RetoComponent implements OnInit {
    * Cuando cargue completamente la página, checkeamos la vista para incluir el icono de Favorito
    */
   ionViewDidEnter() {
-    this.checkFavorito();
+   // this.isRetoFavorite(reto.id);
   }
 
   /**
@@ -74,8 +86,12 @@ export class RetoComponent implements OnInit {
     this.retoSvc.getRetosActivos().subscribe(retos => {
       this.retos = retos;
     });
-  
+
+ //   this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('EMAIL_USUARIO', '==', 'usuario@example.com'));
+ //   this.favoritos$ = this.favCollection.valueChanges({ idField: 'ID_RETO' });
   }
+  
+  
 
   /**
    * Carga un modal para mostar la info detallada de un reto
@@ -151,23 +167,26 @@ export class RetoComponent implements OnInit {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  async checkFavorito() {
-
-    this.authSvc.getUserEmail().then(email => {
-      this.email = email;
-      });
-
-      if (this.usuarioLogado) {
-       
-      }
-     
-    }
-    
-/**
- * Metodo usado para cambiar un reto entre favorito/no favorito
- */
-  toggleFavorito() {
-
+  isRetoFavorite(retoId: string) {
+    this.favoritos$.pipe(
+      map((favoritos) => {
+        return favoritos.some(favorito => favorito.ID_RETO === retoId);
+      })
+    ).subscribe((isFavorito) => {
+      this.isFavorito = isFavorito;
+    });
   }
+    
+/*     addFavorite(reto: any) {
+      const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
+      const id_reto = reto.ID;
+      this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
+    }
 
+    removeFavorite(reto: any) {
+      const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
+      const id_reto = reto.id;
+      this.favCollection.doc<Favorito>(id_reto).delete();
+    }
+ */
 }

@@ -16,26 +16,20 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  private executeQuery<T>() {
-    return this.http.get<T>(`${apiUrl}`, {
+  private executeQuery<T>(endpoint: string) {
+    return this.http.get<T>(`${apiUrl}${endpoint}`, {
       params: {
-        access_key: apiKey,
-        languages: 'es,en',
-        categories: 'science',
-        keywords: 'astronomy',
-        
+        apiKey,
+        country: 'us',
       }
     })
   }
 
-  getNews(page: number, pageSice: number) {
-    const params = new HttpParams()
-      .set('access_key', apiKey)
-      .set('languages', 'es,en')
-      .set('categories', 'science')
-      .set('keywords', 'astronomy');
-
-    return this.http.get(`${apiUrl}/news`, { params });
-  } 
+  getTopHeadLines(): Observable<Article[]> {
+    return this.executeQuery<NewsResponse>(`/top-headlines?category=science&q=space`)
+      .pipe(
+        map(({ articles }) => articles)
+      );
+  }
 
 }
