@@ -21,6 +21,7 @@ export interface Reto {
 
 export interface Favorito {
     ID_RETO: string;
+    ID_FAV: string;
     
   }
 

@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Favorito, Reto, Usuario } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
+
 
 
 @Injectable({
@@ -11,15 +11,19 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class RetoService {
 
-  retosFavoritos: Observable<any[]>;
+  //retosFavoritos: Observable<any[]>;
   private retosCollection: AngularFirestoreCollection<Reto>;
-  
   retos: Observable<Reto[]>;
   reto: Reto;
-  favCollection: AngularFirestoreCollection<Favorito>;
-  favoritos$: Observable<Favorito[]>;
 
-  constructor(private firestore: AngularFirestore) { }
+  private favCollection: AngularFirestoreCollection<any>;
+  private usuarioDoc: AngularFirestoreDocument<any>;
+  private usuarioFavoritosCollection: AngularFirestoreCollection<any>;
+
+  constructor(private firestore: AngularFirestore) {
+
+    this.favCollection = firestore.collection<any>('favoritos');
+  }
 
   getRetos(): Observable<any[]> {
     return this.firestore.collection('retos').valueChanges({ idField: 'id' });
@@ -79,13 +83,6 @@ export class RetoService {
     });
   }
 
-  getFavoritosByUser(id: string): Observable<Favorito[]> {
-    return this.firestore
-      .collection('usuarios')
-      .doc(id)
-      .collection<Favorito>('favoritos')
-      .valueChanges();
-  }
 
   async checkRetoActivo(id: string): Promise<boolean> {
     console.log('check', id);
@@ -115,28 +112,60 @@ export class RetoService {
       .catch((error: any) => {
         console.error('Error al crear el reto: ', error);
       });
-    }
+  }
 
   async deleteReto(id: string) {
-      this.firestore.collection('retos').doc(id).delete()
-        .then(() => {
-          console.log('Reto eliminado correctamente');
-        })
-        .catch((error) => {
-          console.error('Error al eliminar Reto: ', error);
-        });
-    }
-
-  
-
- /*    addFavorite(reto: any) {
-      const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
-      const id_reto = reto.ID;
-      this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
-    }*/
-
-    removeFavorite(usuario: string, reto: string) {
-     
-    }
- 
+    this.firestore.collection('retos').doc(id).delete()
+      .then(() => {
+        console.log('Reto eliminado correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar Reto: ', error);
+      });
   }
+
+
+
+  /*    addFavorite(reto: any) {
+       const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
+       const id_reto = reto.ID;
+       this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
+     }*/
+
+  removeFavorito(idFavorito: string, idUsuario: string): Promise<void> {
+    // Obtener referencia al documento de usuario que contiene la subcolección de favoritos
+
+    console.log('quitando favorito', idFavorito, 'del usuario', idUsuario);
+    this.usuarioDoc = this.firestore.doc<any>(`usuarios/${idUsuario}`);
+
+    // Obtener referencia al documento de favorito que se desea eliminar dentro de la subcolección
+    this.usuarioFavoritosCollection = this.usuarioDoc.collection<any>('favoritos');
+    const favoritoDoc = this.usuarioFavoritosCollection.doc<any>(idFavorito);
+
+    // Llamar al método delete() en la referencia al documento de favorito
+    return favoritoDoc.delete();
+  }
+
+  getFavoritosByUser(id: string): Observable<Favorito[]> {
+    return this.firestore
+      .collection('usuarios')
+      .doc(id)
+      .collection<Favorito>('favoritos')
+      .valueChanges();
+  }
+
+  /*   getFavoritoByIdReto(idFav: string, idUsuario: string): Observable<any> {
+         const userFavoritosRef = this.firestore.doc(`usuarios/${idUsuario}/favoritos`);
+      return userFavoritosRef.valueChanges().pipe(
+        map(favoritos => {
+          const favoritoEncontrado = favoritos.find(f => f.ID_RETO=== idReto);
+          console.log('Favorito encontrado:', favoritoEncontrado);
+          return favoritoEncontrado;
+        })
+      );
+    }
+   */
+
+}
+
+
