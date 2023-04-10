@@ -14,7 +14,7 @@
     </ion-item>
     <ion-item-options side="end">
       <ion-item-option color="danger">
-        <ion-icon slot="icon-only" name="star-outline" (click)="quitarFavorito(reto.ID)"></ion-icon>
+        <ion-icon slot="icon-only" name="star-outline" (click)="quitarFavorito(reto.ID, this.usuario.ID)"></ion-icon>
       </ion-item-option>
     </ion-item-options>
   </ion-item-sliding>

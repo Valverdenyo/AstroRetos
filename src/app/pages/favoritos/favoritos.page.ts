@@ -19,7 +19,7 @@ export class FavoritosPage implements OnInit {
   usuario: Usuario;
   favoritos: Favorito[] = [];
   retos: Reto[] = [];
-  favorito: string;
+  idFavorito: string;
 
   constructor(public menuSvc: MenuService,
     private retoSvc: RetoService,
@@ -39,7 +39,7 @@ export class FavoritosPage implements OnInit {
     this.authSvc.getUserEmail().then(email => {
       this.email = email;
       this.userSvc.getUserByEmail(email).subscribe(usuario => {
-        this.usuario = usuario;        
+        this.usuario = usuario;
         this.retoSvc.getFavoritosByUser(this.usuario.ID).subscribe(favoritos => {
           this.favoritos = favoritos;
           for (let i = 0; i < favoritos.length; i++) {
@@ -54,23 +54,16 @@ export class FavoritosPage implements OnInit {
 
   }
 
-  quitarFavorito(idFavorito: string) {
+  quitarFavorito(idReto: string, idUsuario: string) {
 
-    /*     const favoritoIdObservable = this.retoSvc.getFavoritoID(idFavorito, this.usuario.ID);
-        favoritoIdObservable.subscribe(favorito => {
-          this.favorito = favorito
-          console.log('id favorito', favorito);
-        });
-        console.log('vamos a eliminar el favorito ', this.favorito, 'del usuario', this.usuario.EMAIL)
+    this.retoSvc.getFavoritoByIdReto(idReto, idUsuario).subscribe(favorito => {
+      this.idFavorito = favorito.ID_FAV;
+      console.log('quitando favorito', this.idFavorito);
+      this.retoSvc.removeFavorito(this.idFavorito, idUsuario);
     
-        try {
-          this.retoSvc.removeFavorito(this.favorito, this.usuario.ID);
-    
-    
-          this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
-        } catch (error) {
-          this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
-        } */
+
+    })
+
 
   }
 

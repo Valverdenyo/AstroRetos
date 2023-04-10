@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Favorito, Reto, Usuario } from '../interfaces/interfaces';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentSnapshot } from '@angular/fire/compat/firestore';
+import { Favorito, Reto } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -132,39 +132,35 @@ export class RetoService {
        this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
      }*/
 
-  removeFavorito(idFavorito: string, idUsuario: string): Promise<void> {
-    // Obtener referencia al documento de usuario que contiene la subcolección de favoritos
+ 
+  getFavoritosByUser(idUser: string): Observable<Favorito[]> {
 
-    console.log('quitando favorito', idFavorito, 'del usuario', idUsuario);
-    this.usuarioDoc = this.firestore.doc<any>(`usuarios/${idUsuario}`);
-
-    // Obtener referencia al documento de favorito que se desea eliminar dentro de la subcolección
-    this.usuarioFavoritosCollection = this.usuarioDoc.collection<any>('favoritos');
-    const favoritoDoc = this.usuarioFavoritosCollection.doc<any>(idFavorito);
-
-    // Llamar al método delete() en la referencia al documento de favorito
-    return favoritoDoc.delete();
-  }
-
-  getFavoritosByUser(id: string): Observable<Favorito[]> {
     return this.firestore
       .collection('usuarios')
-      .doc(id)
+      .doc(idUser)
       .collection<Favorito>('favoritos')
       .valueChanges();
+
   }
 
-  /*   getFavoritoByIdReto(idFav: string, idUsuario: string): Observable<any> {
-         const userFavoritosRef = this.firestore.doc(`usuarios/${idUsuario}/favoritos`);
-      return userFavoritosRef.valueChanges().pipe(
-        map(favoritos => {
-          const favoritoEncontrado = favoritos.find(f => f.ID_RETO=== idReto);
-          console.log('Favorito encontrado:', favoritoEncontrado);
-          return favoritoEncontrado;
-        })
-      );
-    }
-   */
+  getFavoritoByIdReto(idReto: string, idUsuario: string): Observable<Favorito> {
+    return this.firestore.collection('usuarios').doc(idUsuario).collection<Favorito>('favoritos', ref => ref.where('ID_RETO', '==', idReto)).snapshotChanges().pipe(
+      map(actions => {
+        if (actions.length > 0) {
+          const data = actions[0].payload.doc.data() as Favorito;
+          const id = actions[0].payload.doc.id;
+          return { id, ...data };
+        } else {
+          return null;
+        }
+      })
+    );
+  }
+
+  removeFavorito(idFavorito: string, idUsuario: string): Promise<void> {
+    console.log('quitando favorito', idFavorito, 'del usuario', idUsuario);
+    return this.firestore.collection('usuarios').doc(idUsuario).collection('favoritos').doc(idFavorito).delete();
+  }
 
 }
 
