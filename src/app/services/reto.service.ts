@@ -11,8 +11,10 @@ import { map } from 'rxjs/operators';
 })
 export class RetoService {
 
-  //retosFavoritos: Observable<any[]>;
+  retosFavoritos: Observable<Favorito[]>;
+  retoFavorito: Favorito;
   private retosCollection: AngularFirestoreCollection<Reto>;
+
   retos: Observable<Reto[]>;
   reto: Reto;
 
@@ -22,7 +24,7 @@ export class RetoService {
 
   constructor(private firestore: AngularFirestore) {
 
-    this.favCollection = firestore.collection<any>('favoritos');
+    //   this.favCollection = firestore.collection<any>('favoritos');
   }
 
   getRetos(): Observable<any[]> {
@@ -132,8 +134,8 @@ export class RetoService {
        this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
      }*/
 
- 
-  getFavoritosByUser(idUser: string): Observable<Favorito[]> {
+
+  getFavoritosByUserSub(idUser: string): Observable<Favorito[]> {
 
     return this.firestore
       .collection('usuarios')
@@ -143,7 +145,7 @@ export class RetoService {
 
   }
 
-  getFavoritoByIdReto(idReto: string, idUsuario: string): Observable<Favorito> {
+  getFavoritoByIdRetoSub(idReto: string, idUsuario: string): Observable<Favorito> {
     return this.firestore.collection('usuarios').doc(idUsuario).collection<Favorito>('favoritos', ref => ref.where('ID_RETO', '==', idReto)).snapshotChanges().pipe(
       map(actions => {
         if (actions.length > 0) {
@@ -157,9 +159,31 @@ export class RetoService {
     );
   }
 
-  removeFavorito(idFavorito: string, idUsuario: string): Promise<void> {
-    console.log('quitando favorito', idFavorito, 'del usuario', idUsuario);
-    return this.firestore.collection('usuarios').doc(idUsuario).collection('favoritos').doc(idFavorito).delete();
+  removeFavoritoSub(idFavorito: string, idUsuario: string) {
+    console.log(`usuarios/${idUsuario}/favoritos/${idFavorito}`);
+
+    this.firestore.doc(`usuarios/${idUsuario}/favoritos/${idFavorito}`).delete();
+
+    /*  this.firestore.collection('usuarios').doc(idUsuario).collection('favoritos').doc(idFavorito).delete()
+     .then(() => {
+       console.log('Documento', idFavorito, 'eliminado correctamente');
+     })
+     .catch((error) => {
+       console.error('Error al eliminar documento: ', error);
+     }); */
+  }
+
+  getFavoritosByUser(): Observable<Favorito[]> {
+    this.favCollection = this.firestore.collection<Favorito>('favoritos');
+    this.retosFavoritos = this.favCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Favorito;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retosFavoritos;
+
   }
 
 }

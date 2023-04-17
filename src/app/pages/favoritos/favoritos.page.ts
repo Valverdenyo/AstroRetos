@@ -29,8 +29,39 @@ export class FavoritosPage implements OnInit {
 
     this.menuSvc.setMenu();
 
-    this.favoritos = [];
-    this.retos = [];
+  /*   this.favoritos = [];
+    this.retos = []; */
+
+    this.authSvc.getUserEmail().then(email => {
+      this.email = email;
+      this.userSvc.getUserByEmail(email).subscribe(usuario => {
+        this.usuario = usuario;
+        /*  this.retoSvc.getFavoritosByUserSub(this.usuario.ID).subscribe(favoritos => {
+           this.favoritos = favoritos;
+           for (let i = 0; i < favoritos.length; i++) {
+             this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
+               this.retos.push(...retos);
+ 
+             });
+           }
+         }); */
+
+         this.retoSvc.getFavoritosByUser().subscribe(favoritos => {
+          this.favoritos = favoritos;
+        });
+         
+
+         /*  for (let i = 0; i < favoritos.length; i++) {
+            this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
+              this.retos.push(...retos);
+
+            });
+          } */
+        
+              
+      });
+    });
+
 
   }
 
@@ -40,27 +71,42 @@ export class FavoritosPage implements OnInit {
       this.email = email;
       this.userSvc.getUserByEmail(email).subscribe(usuario => {
         this.usuario = usuario;
-        this.retoSvc.getFavoritosByUser(this.usuario.ID).subscribe(favoritos => {
+        /*  this.retoSvc.getFavoritosByUserSub(this.usuario.ID).subscribe(favoritos => {
+           this.favoritos = favoritos;
+           for (let i = 0; i < favoritos.length; i++) {
+             this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
+               this.retos.push(...retos);
+ 
+             });
+           }
+         }); */
+
+        this.retoSvc.getFavoritosByUser().subscribe((favoritos: Favorito[]) => {
           this.favoritos = favoritos;
-          for (let i = 0; i < favoritos.length; i++) {
+          console.log(this.usuario.ID);
+          console.log(this.favoritos.length);
+
+         for (let i = 0; i < favoritos.length; i++) {
             this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
               this.retos.push(...retos);
 
             });
-          }
+          } 
         });
+              
       });
     });
 
+
+
   }
 
-  quitarFavorito(idReto: string, idUsuario: string) {
+  quitarFavoritoSub(idReto: string, idUsuario: string) {
 
-    this.retoSvc.getFavoritoByIdReto(idReto, idUsuario).subscribe(favorito => {
+    this.retoSvc.getFavoritoByIdRetoSub(idReto, idUsuario).subscribe(favorito => {
       this.idFavorito = favorito.ID_FAV;
-      console.log('quitando favorito', this.idFavorito);
-      this.retoSvc.removeFavorito(this.idFavorito, idUsuario);
-    
+      this.retoSvc.removeFavoritoSub(this.idFavorito, idUsuario);
+
 
     })
 
