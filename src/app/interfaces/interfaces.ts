@@ -22,7 +22,7 @@ export interface Reto {
 export interface Favorito {
     ID_RETO: string;
     ID_FAV: string;
-    ID_USER: string;
+    USER: string;
   }
 
 export interface MenuOpts {

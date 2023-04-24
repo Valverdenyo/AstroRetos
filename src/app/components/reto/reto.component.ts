@@ -25,28 +25,31 @@ export class RetoComponent implements OnInit {
    * Comprueba si el usuario está logado o no para habilitar el icono de favoritos y de Realizado.
    */
   usuarioLogado = false;
-/**
- * Variable para guardar el email del usuario logado y así personalizar los iconos del reto
- */
+  /**
+   * Variable para guardar el email del usuario logado y así personalizar los iconos del reto
+   */
   email: string;
   /**
    * Declaramos Array de Retos para guardar la info para mostrar.
    */
   retos: Reto[] = [];
   /**
-   * Declara el tipo de icono para cambiarlo segiún el tipo de reto.
+    * Declaramos Array de Favoritos para guardar la info para mostrar.
+    */
+  favoritos: Favorito[] = [];
+  /**
+   * Declara el tipo de icono para cambiarlo según el tipo de reto.
    */
   iconTipo: string;
   /**
    * Mensaje para compartir por RRSS.
    */
   mensaje: string = 'Te reto!';
-/**
- * Booleano para marcar si el reto está en favoritos o no.
- */
-  isFavorito: boolean;
-  favCollection: AngularFirestoreCollection<Favorito>;
-  favoritos$: Observable<Favorito[]>;
+  /**
+  * Declara el tipo de icono para cambiarlo según esté en Favoritos o no.
+  */
+  iconFav: string;
+  createRemoveFav: string;
 
   /**
    * 
@@ -64,9 +67,12 @@ export class RetoComponent implements OnInit {
     private auth: AngularFireAuth,
     private firestore: AngularFirestore) {
 
-      this.auth.authState.subscribe((user) => {
-        this.usuarioLogado = !!user;
+    this.auth.authState.subscribe((user) => {
+      this.usuarioLogado = !!user;
+      this.authSvc.getUserEmail().then(email => {
+        this.email = email;
       });
+    });
 
   }
 
@@ -74,7 +80,7 @@ export class RetoComponent implements OnInit {
    * Cuando cargue completamente la página, checkeamos la vista para incluir el icono de Favorito
    */
   ionViewDidEnter() {
-   // this.isRetoFavorite(reto.id);
+
   }
 
   /**
@@ -85,13 +91,15 @@ export class RetoComponent implements OnInit {
 
     this.retoSvc.getRetosActivos().subscribe(retos => {
       this.retos = retos;
+
+
+
+
     });
 
- //   this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('EMAIL_USUARIO', '==', 'usuario@example.com'));
- //   this.favoritos$ = this.favCollection.valueChanges({ idField: 'ID_RETO' });
   }
-  
-  
+
+
 
   /**
    * Carga un modal para mostar la info detallada de un reto
@@ -167,26 +175,39 @@ export class RetoComponent implements OnInit {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  isRetoFavorite(retoId: string) {
-    this.favoritos$.pipe(
-      map((favoritos) => {
-        return favoritos.some(favorito => favorito.ID_RETO === retoId);
-      })
-    ).subscribe((isFavorito) => {
-      this.isFavorito = isFavorito;
+  isRetoFavorito(retoId: string, user: string) {
+    this.retoSvc.checkFavorito(retoId, user).subscribe(existe => {
+
+      if (existe) {
+        this.iconFav = 'star-sharp';
+       
+      } else {
+        this.iconFav = 'star-outline';
+      
+      }
     });
   }
-    
-/*     addFavorite(reto: any) {
-      const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
-      const id_reto = reto.ID;
-      this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
-    }
 
-    removeFavorite(reto: any) {
-      const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
-      const id_reto = reto.id;
-      this.favCollection.doc<Favorito>(id_reto).delete();
-    }
- */
+  addFavorite(reto: any) {
+    this.firestore.collection('favoritos').add({
+      USER: this.email,
+      ID_RETO: reto.ID,
+      ID_FAV: ""
+    })
+      .then((docRef: any) => {
+        this.firestore.doc(docRef).update({
+          ID_FAV: docRef.id
+        })
+      })
+      .catch((error: any) => {
+        console.error('Error al agregar usuario: ', error);
+      });
+  }
+
+  /*    removeFavorite(reto: any) {
+       const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
+       const id_reto = reto.id;
+       this.favCollection.doc<Favorito>(id_reto).delete();
+     } */
+  
 }

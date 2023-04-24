@@ -2,6 +2,10 @@
 <ion-content>
   <app-menu></app-menu>
 
+  <ion-list *ngFor="let favorito of favoritos">
+    <ion-label>favorito.USER</ion-label>
+  </ion-list>
+
   <ion-item-sliding *ngFor="let reto of retos">
     <ion-item>
 
@@ -14,7 +18,7 @@
     </ion-item>
     <ion-item-options side="end">
       <ion-item-option color="danger">
-        <ion-icon slot="icon-only" name="star-outline" (click)="quitarFavoritoSub(reto.ID, this.usuario.ID)"></ion-icon>
+        <ion-icon slot="icon-only" name="star-outline"></ion-icon>
       </ion-item-option>
     </ion-item-options>
   </ion-item-sliding>

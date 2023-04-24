@@ -16,10 +16,13 @@ import { UserService } from 'src/app/services/user.service';
 export class FavoritosPage implements OnInit {
 
   email: string;
+  idUser: string;
+  idFavorito: string;
   usuario: Usuario;
   favoritos: Favorito[] = [];
+  
   retos: Reto[] = [];
-  idFavorito: string;
+  
 
   constructor(public menuSvc: MenuService,
     private retoSvc: RetoService,
@@ -27,90 +30,40 @@ export class FavoritosPage implements OnInit {
     private userSvc: UserService,
     private avisosSvc: AvisosService) {
 
-    this.menuSvc.setMenu();
-
-  /*   this.favoritos = [];
-    this.retos = []; */
-
-    this.authSvc.getUserEmail().then(email => {
-      this.email = email;
-      this.userSvc.getUserByEmail(email).subscribe(usuario => {
-        this.usuario = usuario;
-        /*  this.retoSvc.getFavoritosByUserSub(this.usuario.ID).subscribe(favoritos => {
-           this.favoritos = favoritos;
-           for (let i = 0; i < favoritos.length; i++) {
-             this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
-               this.retos.push(...retos);
- 
-             });
-           }
-         }); */
-
-         this.retoSvc.getFavoritosByUser().subscribe(favoritos => {
-          this.favoritos = favoritos;
-        });
-         
-
-         /*  for (let i = 0; i < favoritos.length; i++) {
-            this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
-              this.retos.push(...retos);
-
-            });
-          } */
-        
-              
-      });
-    });
-
-
+    this.menuSvc.setMenu();  
   }
 
   ngOnInit() {
 
+    this.favoritos = [];
+
     this.authSvc.getUserEmail().then(email => {
       this.email = email;
       this.userSvc.getUserByEmail(email).subscribe(usuario => {
         this.usuario = usuario;
-        /*  this.retoSvc.getFavoritosByUserSub(this.usuario.ID).subscribe(favoritos => {
-           this.favoritos = favoritos;
-           for (let i = 0; i < favoritos.length; i++) {
-             this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
-               this.retos.push(...retos);
- 
-             });
-           }
-         }); */
-
-        this.retoSvc.getFavoritosByUser().subscribe((favoritos: Favorito[]) => {
-          this.favoritos = favoritos;
-          console.log(this.usuario.ID);
-          console.log(this.favoritos.length);
-
-         for (let i = 0; i < favoritos.length; i++) {
-            this.retoSvc.getRetosById(favoritos[i].ID_RETO).subscribe(retos => {
-              this.retos.push(...retos);
-
-            });
-          } 
-        });
+        this.idUser = this.usuario.ID;
+        console.log(this.usuario.NOMBRE);
               
       });
+
+      this.retoSvc.getFavoritosByUser(this.email).subscribe(favoritos => {
+        this.favoritos = favoritos;
+
+        for (let index = 0; index < this.favoritos.length; index++) {
+          this.retoSvc.getRetosById(this.favoritos[index].ID_RETO).subscribe(reto => {
+            this.retos = [...this.retos, ...reto];
+          });          
+        }
+        
+        for (let favorito of this.favoritos) {
+          this.retoSvc.getRetosById(favorito.ID_RETO).subscribe(retos => {
+          
+          });
+        
+        }   
+      });
     });
-
-
-
-  }
-
-  quitarFavoritoSub(idReto: string, idUsuario: string) {
-
-    this.retoSvc.getFavoritoByIdRetoSub(idReto, idUsuario).subscribe(favorito => {
-      this.idFavorito = favorito.ID_FAV;
-      this.retoSvc.removeFavoritoSub(this.idFavorito, idUsuario);
-
-
-    })
-
-
-  }
+  
+  }  
 
 }

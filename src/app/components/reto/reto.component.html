@@ -17,8 +17,7 @@
       <ion-icon [name]="getIconTipo(reto.TIPO)" slot="start" color="primary"></ion-icon>
       <ion-icon name="ellipse-sharp" [color]="getColorNivel(reto.NIVEL)" slot="start"></ion-icon>
       <ion-icon name="checkmark-circle-outline" color="success"></ion-icon>
-      <ion-icon *ngIf="usuarioLogado && !isFavorito" name="star-outline" (click)="addFavorite(reto)" slot="end" color="primary"></ion-icon>
-      <ion-icon *ngIf="usuarioLogado && isFavorito" name="star-sharp" (click)="removeFavorite(reto)" slot="end" color="primary"></ion-icon>
+      <ion-icon *ngIf="usuarioLogado" name="{{this.iconFav}}" slot="end" color="primary"></ion-icon>
       <ion-icon name="share-social-outline" color="primary" slot="end" (click)="compartirReto()"></ion-icon>
 
     </ion-item>

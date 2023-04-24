@@ -43,7 +43,7 @@ export class RetoService {
     return this.retos;
   }
 
-  getRetosById(id: string) {
+  getRetosById(id: string): Observable<Reto[]> {
     this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ID', '==', id));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -134,47 +134,12 @@ export class RetoService {
        this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
      }*/
 
+     getFavoritos(): Observable<any[]> {
+      return this.firestore.collection('favoritos').valueChanges({ idField: 'id' });
+    }   
 
-  getFavoritosByUserSub(idUser: string): Observable<Favorito[]> {
-
-    return this.firestore
-      .collection('usuarios')
-      .doc(idUser)
-      .collection<Favorito>('favoritos')
-      .valueChanges();
-
-  }
-
-  getFavoritoByIdRetoSub(idReto: string, idUsuario: string): Observable<Favorito> {
-    return this.firestore.collection('usuarios').doc(idUsuario).collection<Favorito>('favoritos', ref => ref.where('ID_RETO', '==', idReto)).snapshotChanges().pipe(
-      map(actions => {
-        if (actions.length > 0) {
-          const data = actions[0].payload.doc.data() as Favorito;
-          const id = actions[0].payload.doc.id;
-          return { id, ...data };
-        } else {
-          return null;
-        }
-      })
-    );
-  }
-
-  removeFavoritoSub(idFavorito: string, idUsuario: string) {
-    console.log(`usuarios/${idUsuario}/favoritos/${idFavorito}`);
-
-    this.firestore.doc(`usuarios/${idUsuario}/favoritos/${idFavorito}`).delete();
-
-    /*  this.firestore.collection('usuarios').doc(idUsuario).collection('favoritos').doc(idFavorito).delete()
-     .then(() => {
-       console.log('Documento', idFavorito, 'eliminado correctamente');
-     })
-     .catch((error) => {
-       console.error('Error al eliminar documento: ', error);
-     }); */
-  }
-
-  getFavoritosByUser(): Observable<Favorito[]> {
-    this.favCollection = this.firestore.collection<Favorito>('favoritos');
+  getFavoritosByUser(id: string) {
+    this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('USER', '==', id));
     this.retosFavoritos = this.favCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Favorito;
@@ -184,6 +149,14 @@ export class RetoService {
     );
     return this.retosFavoritos;
 
+  }
+
+  checkFavorito(idReto: string, user: string): Observable<boolean> {
+    return this.firestore.collection<Favorito>('favoritos', ref => 
+      ref.where('ID_RETO', '==', idReto).where('USER', '==', user)
+    ).get().pipe(
+      map(querySnapshot => !querySnapshot.empty)
+    );
   }
 
 }

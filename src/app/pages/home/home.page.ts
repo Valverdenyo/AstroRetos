@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
    * Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita
    */
   enableFav = false;
-
+  
   /**
    * Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra
    * 
@@ -58,19 +58,19 @@ export class HomePage implements OnInit {
           this.userEmail = email;
           this.userSvc.getUserByEmail(email).subscribe(usuario => {
             this.usuarioLogado = usuario;
-            console.log('El usuario está logueado con ', this.usuarioLogado.EMAIL);
+            
             if (this.usuarioLogado.ROL === 'admin') {
-              console.log(this.usuarioLogado.ROL);
+              
               this.userSvc.getMenuOpts(['all', 'retador', 'admin'])
                 .subscribe((menuOpts: MenuOpts[]) => {
-                  console.log(menuOpts);
+                  
                   this.menuOpts = menuOpts;
                 });
               this.enableFav = true;
             } else {
               this.userSvc.getMenuOpts(['all', 'retador'])
                 .subscribe((menuOpts: MenuOpts[]) => {
-                  console.log(menuOpts);
+                  
                   this.menuOpts = menuOpts;
                 });
             }
@@ -80,11 +80,11 @@ export class HomePage implements OnInit {
         });
       } else {
         // El usuario no está logueado
-        console.log('El usuario no está logueado');
+        
         this.ionFabVisible = true;
         this.userSvc.getMenuOpts(['all'])
           .subscribe((menuOpts: MenuOpts[]) => {
-            console.log(menuOpts);
+            
             this.menuOpts = menuOpts;
           });
       }
