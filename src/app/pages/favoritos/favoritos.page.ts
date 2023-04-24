@@ -64,6 +64,8 @@ export class FavoritosPage implements OnInit {
       });
     });
   
-  }  
+  } 
+  
+  quitarFavorito
 
 }
