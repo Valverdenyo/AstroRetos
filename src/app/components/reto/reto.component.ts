@@ -187,27 +187,5 @@ export class RetoComponent implements OnInit {
       }
     });
   }
-
-  addFavorite(reto: any) {
-    this.firestore.collection('favoritos').add({
-      USER: this.email,
-      ID_RETO: reto.ID,
-      ID_FAV: ""
-    })
-      .then((docRef: any) => {
-        this.firestore.doc(docRef).update({
-          ID_FAV: docRef.id
-        })
-      })
-      .catch((error: any) => {
-        console.error('Error al agregar usuario: ', error);
-      });
-  }
-
-  /*    removeFavorite(reto: any) {
-       const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
-       const id_reto = reto.id;
-       this.favCollection.doc<Favorito>(id_reto).delete();
-     } */
   
 }

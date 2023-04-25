@@ -49,23 +49,27 @@ export class FavoritosPage implements OnInit {
       this.retoSvc.getFavoritosByUser(this.email).subscribe(favoritos => {
         this.favoritos = favoritos;
 
-        for (let index = 0; index < this.favoritos.length; index++) {
+         for (let index = 0; index < this.favoritos.length; index++) {
           this.retoSvc.getRetosById(this.favoritos[index].ID_RETO).subscribe(reto => {
             this.retos = [...this.retos, ...reto];
+            console.log('reto', index, this.retos[index], this.favoritos[index]);
           });          
-        }
+        } 
         
-        for (let favorito of this.favoritos) {
-          this.retoSvc.getRetosById(favorito.ID_RETO).subscribe(retos => {
-          
-          });
-        
-        }   
+    
       });
     });
   
   } 
   
-  quitarFavorito
+  quitarFavorito(id: string) {
+    try {
+      this.retoSvc.deleteFavorito(id);
+      console.log('eliminando reto', this.idFavorito, id);
+   this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
+ } catch (error) {
+   this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');
+ }
+  }
 
 }

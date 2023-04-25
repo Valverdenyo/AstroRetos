@@ -126,17 +126,9 @@ export class RetoService {
       });
   }
 
-
-
-  /*    addFavorite(reto: any) {
-       const email = 'usuario@example.com'; // Reemplaza esto por el email del usuario logueado
-       const id_reto = reto.ID;
-       this.firestore.collection<Favorito>('favoritos').add({ EMAIL_USUARIO: email, ID_RETO: id_reto });
-     }*/
-
-     getFavoritos(): Observable<any[]> {
-      return this.firestore.collection('favoritos').valueChanges({ idField: 'id' });
-    }   
+  getFavoritos(): Observable<any[]> {
+    return this.firestore.collection('favoritos').valueChanges({ idField: 'id' });
+  }
 
   getFavoritosByUser(id: string) {
     this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('USER', '==', id));
@@ -152,12 +144,41 @@ export class RetoService {
   }
 
   checkFavorito(idReto: string, user: string): Observable<boolean> {
-    return this.firestore.collection<Favorito>('favoritos', ref => 
+    return this.firestore.collection<Favorito>('favoritos', ref =>
       ref.where('ID_RETO', '==', idReto).where('USER', '==', user)
     ).get().pipe(
       map(querySnapshot => !querySnapshot.empty)
     );
   }
+
+  addFavorite(id: string, user: string) {
+    this.firestore.collection('favoritos').add({
+      USER: user,
+      ID_RETO: id,
+      ID_FAV: ""
+    })
+      .then((docRef: any) => {
+        this.firestore.doc(docRef).update({
+          ID_FAV: docRef.id
+        })
+      })
+      .catch((error: any) => {
+        console.error('Error al agregar el Favorito: ', error);
+      });
+  }
+
+  async deleteFavorito(id: string) {
+    this.firestore.collection('favoritos').doc(id).delete()
+      .then(() => {
+        console.log('Favorito eliminado correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar Favorito: ', error);
+      });
+  }
+
+
+
 
 }
 
