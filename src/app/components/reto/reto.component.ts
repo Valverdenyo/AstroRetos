@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map } from 'rxjs/operators';
+import { AvisosService } from 'src/app/services/avisos.service';
 
 
 
@@ -37,6 +38,8 @@ export class RetoComponent implements OnInit {
     * Declaramos Array de Favoritos para guardar la info para mostrar.
     */
   favoritos: Favorito[] = [];
+
+  esFavorito$: Observable<boolean>;
   /**
    * Declara el tipo de icono para cambiarlo según el tipo de reto.
    */
@@ -48,8 +51,8 @@ export class RetoComponent implements OnInit {
   /**
   * Declara el tipo de icono para cambiarlo según esté en Favoritos o no.
   */
-  iconFav: string;
-  createRemoveFav: string;
+
+
 
   /**
    * 
@@ -65,7 +68,7 @@ export class RetoComponent implements OnInit {
     private platform: Platform,
     private authSvc: AuthService,
     private auth: AngularFireAuth,
-    private firestore: AngularFirestore) {
+    private avisosSvc: AvisosService) {
 
     this.auth.authState.subscribe((user) => {
       this.usuarioLogado = !!user;
@@ -90,16 +93,10 @@ export class RetoComponent implements OnInit {
   ngOnInit() {
 
     this.retoSvc.getRetosActivos().subscribe(retos => {
-      this.retos = retos;
-
-
-
-
+      this.retos = retos;            
     });
 
   }
-
-
 
   /**
    * Carga un modal para mostar la info detallada de un reto
@@ -175,17 +172,45 @@ export class RetoComponent implements OnInit {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  isRetoFavorito(retoId: string, user: string) {
-    this.retoSvc.checkFavorito(retoId, user).subscribe(existe => {
-
-      if (existe) {
-        this.iconFav = 'star-sharp';
-       
-      } else {
-        this.iconFav = 'star-outline';
-      
-      }
-    });
+  esRetoFavorito(retoId: string, user: string) {
+    return this.retoSvc.checkFavorito(retoId, user).pipe(
+      map(existe => {
+        console.log(existe);
+        return existe ? true : false;
+      })
+    );
   }
-  
+
+  setFavorito(retoId: string, user: string) {
+    try {
+
+      this.retoSvc.addFavorito(retoId, user);
+      this.avisosSvc.presentToast('Favorito añadido', 'success');
+
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al añadir Favorito', 'danger');
+    }
+  }
+
+  quitarFavorito(retoId: string) {
+    try {
+      this.retoSvc.deleteFavorito(retoId);
+     
+   this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
+ } catch (error) {
+   this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');
+ }
+  }
+
+  setRetoConseguido (retoId: string, user: string) {
+    try {
+
+      this.retoSvc.addRetoConseguido(retoId, user);
+      this.avisosSvc.presentToast('Reto conseguido', 'success');
+
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al conseguir Reto', 'danger');
+    }
+  }
+
 }

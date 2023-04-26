@@ -3,8 +3,7 @@
   <app-menu></app-menu>
 
   <ion-item-sliding *ngFor="let reto of retos; let i = index">
-    <ion-item>
-
+    <ion-item (click)="verDetalle(reto.ID)">
       <ion-avatar slot="start">
         <img [src]="reto?.IMAGEN" />
       </ion-avatar>

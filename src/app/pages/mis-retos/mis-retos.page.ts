@@ -9,6 +9,7 @@ import { MenuService } from '../../services/menu.service';
 import { RetoService } from '../../services/reto.service';
 import { AvisosService } from '../../services/avisos.service';
 import { NewRetoComponent } from 'src/app/components/new-reto/new-reto.component';
+import { InfoRetoComponent } from 'src/app/components/info-reto/info-reto.component';
 
 
 @Component({
@@ -76,6 +77,18 @@ export class MisRetosPage implements OnInit {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
     }
 
+  }
+
+  async verDetalle(id: string) {
+    const modal = await this.modalCtrl.create({
+      component: InfoRetoComponent,
+      componentProps: {
+        id
+      },
+      cssClass: 'modalInfo'
+    });
+
+    modal.present();
   }
 
 }

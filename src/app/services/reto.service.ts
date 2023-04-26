@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentSnapshot } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Favorito, Reto } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,13 +18,12 @@ export class RetoService {
   retos: Observable<Reto[]>;
   reto: Reto;
 
+  puntos: number;
+
   private favCollection: AngularFirestoreCollection<any>;
-  private usuarioDoc: AngularFirestoreDocument<any>;
-  private usuarioFavoritosCollection: AngularFirestoreCollection<any>;
 
   constructor(private firestore: AngularFirestore) {
 
-    //   this.favCollection = firestore.collection<any>('favoritos');
   }
 
   getRetos(): Observable<any[]> {
@@ -151,7 +150,7 @@ export class RetoService {
     );
   }
 
-  addFavorite(id: string, user: string) {
+  addFavorito(id: string, user: string) {
     this.firestore.collection('favoritos').add({
       USER: user,
       ID_RETO: id,
@@ -175,6 +174,59 @@ export class RetoService {
       .catch((error) => {
         console.error('Error al eliminar Favorito: ', error);
       });
+  }
+
+  addRetoConseguido(id: string, user: string) {
+    let nivel = '';
+    this.getRetosById(id).subscribe(reto => {
+      nivel = reto[0].NIVEL;
+    });
+    
+    let puntos = 0;
+    switch (nivel) {
+      case 'facil':
+        puntos = 1;
+      case 'intermedio':
+        puntos = 3;
+      case 'dificil':
+        puntos = 5;
+      default:
+        puntos = 0;
+    };
+console.log(nivel, puntos);
+    this.firestore.collection('retosconseguidos').add({
+      USER: user,
+      ID_RETO: id,
+      ID_RETO_CONSEGUIDO: '',
+      PUNTOS: puntos
+    })
+      .then((docRef: any) => {
+        this.firestore.doc(docRef).update({
+          ID_RETO_CONSEGUIDO: docRef.id
+        })
+      })
+      .catch((error: any) => {
+        console.error('Error al agregar el reto conseguido: ', error);
+      });
+
+  }
+
+  puntosReto(nivel: string) {
+
+    let puntos = 0;
+    if (nivel == 'facil') {
+      puntos = 1;
+    } else if (nivel == 'intermedio') {
+      puntos = 3;
+    } else {
+      puntos = 5;
+    }
+    console.log(puntos);
+    return puntos;
+  }
+
+  async deleteRetoConseguido(id: string) {
+
   }
 
 

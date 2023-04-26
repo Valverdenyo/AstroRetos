@@ -25,6 +25,13 @@ export interface Favorito {
     USER: string;
   }
 
+  export interface RetoConseguido {
+    ID_RETO: string;
+    ID_RETO_CONSEGUIDO: string;
+    USER: string;
+    PUNTOS: number;
+  }
+
 export interface MenuOpts {
     icon: string;
     name: string;

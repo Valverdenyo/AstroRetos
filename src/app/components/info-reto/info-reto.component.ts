@@ -6,6 +6,8 @@ import { RetoService } from 'src/app/services/reto.service';
 
 import { ModalController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { AvisosService } from 'src/app/services/avisos.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 /**
@@ -36,6 +38,8 @@ export class InfoRetoComponent implements OnInit {
    */
   mensaje: string = 'Te reto!';
 
+  email: string;
+
   /**
    *  
    * @param retoSvc Servicio que maneja la coleccion 'retos' de Firestore
@@ -46,6 +50,8 @@ export class InfoRetoComponent implements OnInit {
   constructor(private retoSvc: RetoService,
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
+    private avisosSvc: AvisosService,
+    private authSvc: AuthService,
     private platform: Platform
   ) { }
 
@@ -55,6 +61,11 @@ export class InfoRetoComponent implements OnInit {
    * Lo guarda en un array de retos, pero solo el de la posición 0.
    */
   ngOnInit() {
+
+    this.authSvc.getUserEmail().then(email => {
+      this.email = email;
+     
+    });
 
     this.retoSvc.getRetosById(this.id).subscribe(retos => {
       this.reto = retos[0];
@@ -115,6 +126,17 @@ export class InfoRetoComponent implements OnInit {
           .then(() => console.log('Compartido!'))
           .catch((error) => console.log('Error compartiendo', error));
       }
+    }
+  }
+
+  setFavorito(retoId: string, user: string){
+    try {
+
+      this.retoSvc.addFavorito(retoId, user);
+      this.avisosSvc.presentToast('Favorito añadido', 'success');
+      
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al añadir Favorito', 'danger');
     }
   }
 

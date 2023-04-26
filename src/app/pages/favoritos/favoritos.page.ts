@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ModalController } from '@ionic/angular';
+import { InfoRetoComponent } from 'src/app/components/info-reto/info-reto.component';
+
 import { Usuario, Reto, Favorito } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { AvisosService } from 'src/app/services/avisos.service';
@@ -28,7 +31,8 @@ export class FavoritosPage implements OnInit {
     private retoSvc: RetoService,
     private authSvc: AuthService,
     private userSvc: UserService,
-    private avisosSvc: AvisosService) {
+    private avisosSvc: AvisosService,
+    private modalCtrl: ModalController) {
 
     this.menuSvc.setMenu();  
   }
@@ -61,6 +65,18 @@ export class FavoritosPage implements OnInit {
     });
   
   } 
+
+  async verDetalle(id: string) {
+    const modal = await this.modalCtrl.create({
+      component: InfoRetoComponent,
+      componentProps: {
+        id
+      },
+      cssClass: 'modalInfo'
+    });
+
+    modal.present();
+  }
   
   quitarFavorito(id: string) {
     try {

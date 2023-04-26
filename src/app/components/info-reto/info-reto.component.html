@@ -24,7 +24,7 @@
           <ion-label [color]="getColorNivel(reto?.NIVEL)">Nivel: {{reto?.NIVEL}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-icon name="star-outline" slot="start"></ion-icon>
+          <ion-icon name="star-outline" slot="start" (click)="setFavorito(reto.ID, this.email)"></ion-icon>
           <ion-icon name="share-social-outline" slot="end" (click)="compartirReto()"></ion-icon>
         </ion-item>
       </ion-col>
