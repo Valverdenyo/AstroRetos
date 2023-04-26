@@ -31,7 +31,8 @@ export class AuthService {
       NOMBRE: usuario.NOMBRE,
       ROL: "Retador",
       AVATAR: "",
-      ID: ""
+      ID: "",
+      PUNTOS: 0
 
     })
       .then((docRef: any) => {

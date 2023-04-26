@@ -12,6 +12,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map } from 'rxjs/operators';
 import { AvisosService } from 'src/app/services/avisos.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 
@@ -48,11 +49,8 @@ export class RetoComponent implements OnInit {
    * Mensaje para compartir por RRSS.
    */
   mensaje: string = 'Te reto!';
-  /**
-  * Declara el tipo de icono para cambiarlo según esté en Favoritos o no.
-  */
-
-
+  
+  puntos: number;
 
   /**
    * 
@@ -68,6 +66,7 @@ export class RetoComponent implements OnInit {
     private platform: Platform,
     private authSvc: AuthService,
     private auth: AngularFireAuth,
+    private userSvc: UserService,
     private avisosSvc: AvisosService) {
 
     this.auth.authState.subscribe((user) => {
@@ -207,10 +206,28 @@ export class RetoComponent implements OnInit {
 
       this.retoSvc.addRetoConseguido(retoId, user);
       this.avisosSvc.presentToast('Reto conseguido', 'success');
+      this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos => {
+        
+        this.userSvc.updateUserPuntos(this.email, totalPuntos);
+      })
 
     } catch (error) {
       this.avisosSvc.presentToast('Error al conseguir Reto', 'danger');
     }
   }
+
+  removeRetoConseguido (retoId: string) {
+    try {
+
+      this.retoSvc.eliminarRetoConseguido(retoId);
+      this.avisosSvc.presentToast('Reto eliminado', 'success');
+      
+
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al eliminar Reto', 'danger');
+    }
+  }
+
+  
 
 }

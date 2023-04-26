@@ -16,6 +16,7 @@ export class AdminPage implements OnInit {
   segmento: string;
   retoActivo: string;
   color: string;
+  puntos: number;
 
   constructor(private userSvc: UserService,
     private avisosSvc: AvisosService,
@@ -30,6 +31,7 @@ export class AdminPage implements OnInit {
     this.retoSvc.getRetos().subscribe(retos => {
       this.retos = retos;
     });
+  
   }
 
   segmentChanged(event) {
@@ -76,6 +78,5 @@ export class AdminPage implements OnInit {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
     }
 
-  }
-
+  } 
 }

@@ -43,8 +43,12 @@ export class UserService {
       );
   }
 
-  updateUser() {
-
+  updateUserPuntos(user: string, puntos: number) {
+    this.getUserByEmail(user).subscribe(usuario => {
+      return this.firestore.collection('usuarios').doc(usuario.ID).update({
+        PUNTOS: puntos
+      });
+    });
   }
 
   updateUserRol(id: string) {
@@ -71,27 +75,41 @@ export class UserService {
     this.getUserById(id).subscribe(usuario => {
       this.usuario = usuario;
       this.newAvatar = this.usuario.AVATAR;
-      console.log('avatar viejo',this.newAvatar);
+      console.log('avatar viejo', this.newAvatar);
       this.newAvatar = avatar;
-      console.log('avatar nuevo',this.newAvatar);
-      
-    }); 
+      console.log('avatar nuevo', this.newAvatar);
+
+    });
     return this.firestore.collection('usuarios').doc(id).update({
       AVATAR: avatar
     });
   }
 
-    /*  async deleteUser(id: string) {
-      this.authSvc.deleteUser();
-      this.firestore.collection('usuarios').doc(id).delete()
-        .then(() => {
-          console.log('Documento eliminado correctamente');
-        })
-        .catch((error) => {
-          console.error('Error al eliminar documento: ', error);
-        });
-    } */
-   
+  /*  async deleteUser(id: string) {
+    this.authSvc.deleteUser();
+    this.firestore.collection('usuarios').doc(id).delete()
+      .then(() => {
+        console.log('Documento eliminado correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar documento: ', error);
+      });
+  } */
+
+  getTotalPuntosByUser(user: string): Observable<number> {
+    return this.firestore.collection<any>('retosconseguidos', ref => ref.where('USER', '==', user))
+      .valueChanges({ idField: 'ID' })
+      .pipe(
+        map(retos => retos.reduce((total, reto) => total + reto.PUNTOS, 0))
+      );
+  }
+
+  getUsuariosPorPuntos(): Observable<any[]> {
+    return this.firestore.collection('usuarios', ref => ref.orderBy('PUNTOS', 'desc'))
+      .valueChanges({ idField: 'ID' });
+  }
+  
+
   getMenuOpts(roles: string[]) {
     return this.http.get<MenuOpts[]>('/assets/data/menu.json')
       .pipe(

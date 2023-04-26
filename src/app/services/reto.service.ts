@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Favorito, Reto } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as firebase from 'firebase/compat';
 
 
 
@@ -19,6 +20,7 @@ export class RetoService {
   reto: Reto;
 
   puntos: number;
+  nivel: string;
 
   private favCollection: AngularFirestoreCollection<any>;
 
@@ -176,61 +178,61 @@ export class RetoService {
       });
   }
 
+  getNivel(id): Observable<string> {
+    return this.getRetosById(id).pipe(
+      map(reto => reto[0].NIVEL)
+    );
+  }
+
   addRetoConseguido(id: string, user: string) {
-    let nivel = '';
-    this.getRetosById(id).subscribe(reto => {
-      nivel = reto[0].NIVEL;
-    });
-    
-    let puntos = 0;
-    switch (nivel) {
-      case 'facil':
-        puntos = 1;
-      case 'intermedio':
-        puntos = 3;
-      case 'dificil':
-        puntos = 5;
-      default:
-        puntos = 0;
-    };
-console.log(nivel, puntos);
-    this.firestore.collection('retosconseguidos').add({
-      USER: user,
-      ID_RETO: id,
-      ID_RETO_CONSEGUIDO: '',
-      PUNTOS: puntos
-    })
-      .then((docRef: any) => {
-        this.firestore.doc(docRef).update({
-          ID_RETO_CONSEGUIDO: docRef.id
-        })
+
+    this.getNivel(id).subscribe(nivel => {
+
+      this.nivel = nivel;
+
+      switch (this.nivel) {
+        case 'facil':
+          this.puntos = 1;
+          break;
+
+        case 'intermedio':
+          this.puntos = 3;
+          break;
+
+        case 'dificil':
+          this.puntos = 5;
+          break;
+      };
+
+      this.firestore.collection('retosconseguidos').add({
+        USER: user,
+        ID_RETO: id,
+        ID_RETO_CONSEGUIDO: '',
+        PUNTOS: this.puntos
       })
-      .catch((error: any) => {
-        console.error('Error al agregar el reto conseguido: ', error);
-      });
-
+        .then((docRef: any) => {
+          this.firestore.doc(docRef).update({
+            ID_RETO_CONSEGUIDO: docRef.id
+          })
+        })
+        .catch((error: any) => {
+          console.error('Error al agregar el reto conseguido: ', error);
+        });
+    });
   }
 
-  puntosReto(nivel: string) {
-
-    let puntos = 0;
-    if (nivel == 'facil') {
-      puntos = 1;
-    } else if (nivel == 'intermedio') {
-      puntos = 3;
-    } else {
-      puntos = 5;
-    }
-    console.log(puntos);
-    return puntos;
+  eliminarRetoConseguido(id: string) {
+    this.firestore.collection('retosconseguidos').doc(id).delete().then(() => {
+      console.log("Documento eliminado correctamente");
+    }).catch((error) => {
+      console.error("Error al eliminar el documento: ", error);
+    });
   }
+  
 
   async deleteRetoConseguido(id: string) {
 
   }
-
-
-
 
 }
 

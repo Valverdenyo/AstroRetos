@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/interfaces/interfaces';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-ranking',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingPage implements OnInit {
 
-  constructor() { }
+
+  usuarios: Usuario[] = [];
+
+  constructor(private userSvc: UserService) { }
 
   ngOnInit() {
+    this.userSvc.getUsuariosPorPuntos().subscribe(usuarios => {
+      this.usuarios = usuarios;
+    });
+
   }
 
 }
