@@ -48,7 +48,7 @@
   <li>Interfaces</li>
   <li
   >
-  Favorito</li>
+  RetoConseguido</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -74,7 +74,7 @@
                 <h3>Descripción</h3>
             </p>
             <p class="comment">
-                <p>Interface para manejar Favoritos. COLECCION: favoritos</p>
+                <p>Interface para el manejo de los retos conseguidos. COLECCION: retosconseguidos</p>
 
             </p>
 
@@ -92,15 +92,21 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#ID_FAV" 
->
-                                            ID_FAV
-                                        </a>
-                                </li>
-                                <li>
                                         <a href="#ID_RETO" 
 >
                                             ID_RETO
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#ID_RETO_CONSEGUIDO" 
+>
+                                            ID_RETO_CONSEGUIDO
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#PUNTOS" 
+>
+                                            PUNTOS
                                         </a>
                                 </li>
                                 <li>
@@ -120,45 +126,6 @@
 
             <section>
                 <h3 id="inputs">Propiedades</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="ID_FAV"></a>
-                                        <span class="name "><b>ID_FAV</b>
-                                            <a href="#ID_FAV">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>ID_FAV:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Identificador de Favorito. Se guarda como campo el Identificador autogenerado para que sea más accesible</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -202,6 +169,84 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="ID_RETO_CONSEGUIDO"></a>
+                                        <span class="name "><b>ID_RETO_CONSEGUIDO</b>
+                                            <a href="#ID_RETO_CONSEGUIDO">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>ID_RETO_CONSEGUIDO:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Identificador del objeto, igual al autogenerado por Firestore</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="PUNTOS"></a>
+                                        <span class="name "><b>PUNTOS</b>
+                                            <a href="#PUNTOS">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>PUNTOS:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Puntos conseguidos por ese reto</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="USER"></a>
                                         <span class="name "><b>USER</b>
                                             <a href="#USER">
@@ -231,7 +276,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Email del usuario que marca el Favorito</p>
+                                    <div class="io-description"><p>Email dle usuario que ha conseguido el reto</p>
 </div>
                                 </td>
                             </tr>
@@ -437,7 +482,7 @@ export interface MenuOpts {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Favorito.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'RetoConseguido.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

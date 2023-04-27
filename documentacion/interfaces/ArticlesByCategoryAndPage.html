@@ -48,7 +48,7 @@
   <li>Interfaces</li>
   <li
   >
-  Error</li>
+  ArticlesByCategoryAndPage</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,7 +66,7 @@
             <h3>Fichero</h3>
         </p>
         <p class="comment">
-            <code>src/app/interfaces/errores.ts</code>
+            <code>src/app/interfaces/news.ts</code>
         </p>
 
 
@@ -74,143 +74,124 @@
                 <h3>Descripción</h3>
             </p>
             <p class="comment">
-                <p>Interface para mostrar mensajes de error</p>
+                <p>Interface para manejar las noticias de una Categoria concreta y por paginas. NO SE USA</p>
 
             </p>
 
 
-        <section>
-            <h3 id="index">Índice</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Propiedades</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                        <a href="#email" 
->
-                                            email
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#password" 
->
-                                            password
-                                        </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
 
 
             <section>
-                <h3 id="inputs">Propiedades</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="email"></a>
-                                        <span class="name "><b>email</b>
-                                            <a href="#email">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>email:     <code>[literal type, literal type]</code>
+    <h3 id="inputs">Indexable</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <code>[key: string]:    <code>literal type</code>
 </code>
-                                    </td>
-                                </tr>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="86" class="link-to-prism">src/app/interfaces/news.ts:86</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>    <code>[literal type, literal type]</code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="password"></a>
-                                        <span class="name "><b>password</b>
-                                            <a href="#password">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>password:     <code>[literal type, literal type]</code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>    <code>[literal type, literal type]</code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Error {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface NewsResponse {
+  /**
+   * Estado de la peticion
+   */
+  status:       string;
 
-    &#x27;email&#x27;: [
-        {
-         
-          type: &#x27;required&#x27;,
+  /**
+   * Resultados totales de la peticion
+   */
+  totalResults: number;
 
-          message: &#x27;Pon un mail.&#x27;
-        },
-        {
-          type: &#x27;pattern&#x27;,
-          message: &#x27;Email no es valido&#x27;
-        }
-      ],
-      &#x27;password&#x27;: [
-        {
-          type: &#x27;required&#x27;,
-          message: &#x27;Pon una contraseña.&#x27;
-        },
-        {
-          type: &#x27;minlength&#x27;,
-          message: &#x27;La contraseña debe tener al menos 6 caracteres&#x27;
-        }
-      ]
-    }
-</code></pre>
+  /**
+   * Objeto tipo Article para manejar las noticias
+   */
+  articles:     Article[];
+}
+
+/**
+ * Interface para el manejo de las noticias
+ */
+export interface Article {
+
+  /**
+   * Origen de la noticia
+   */
+  source:       Source;
+
+  /**
+   * Autor de la noticia
+   */
+  author?:      string;
+
+  /**
+   * Titulo de la noticia
+   */
+  title:        string;
+
+  /**
+   * Descripcion corta de la noticia
+   */
+  description?: string;
+
+  /**
+   * URL a la noticia completa
+   */
+  url:          string;
+
+  /**
+   * URL a la imagen de la noticia
+   */
+  urlToImage?:  string;
+
+  /**
+   * Fecha de publicacion
+   */
+  publishedAt:  string;
+
+  /**
+   * Contenido completo de la noticia
+   */
+  content?:     string;
+}
+
+/**
+ * Interface para el manejo del Origen de la noticia
+ */
+export interface Source {
+
+  /**
+   * Identificador del origen
+   */
+  id?:  string;
+
+  /**
+   * Nombre del Origen
+   */
+  name: string;
+}
+
+/**
+ * Interface para manejar las noticias de una Categoria concreta y por paginas. NO SE USA
+ */
+export interface ArticlesByCategoryAndPage {
+  [key: string] : {
+      page: number,
+      articles: Article[]
+  }
+}</code></pre>
     </div>
 </div>
 
@@ -247,7 +228,7 @@
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Error.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ArticlesByCategoryAndPage.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

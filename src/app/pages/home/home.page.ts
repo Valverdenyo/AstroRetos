@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
   /**
    * Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita
    */
-  enableFav = false;
+ 
   
   /**
    * Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra
@@ -66,7 +66,7 @@ export class HomePage implements OnInit {
                   
                   this.menuOpts = menuOpts;
                 });
-              this.enableFav = true;
+             
             } else {
               this.userSvc.getMenuOpts(['all', 'retador'])
                 .subscribe((menuOpts: MenuOpts[]) => {

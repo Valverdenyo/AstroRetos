@@ -1,7 +1,13 @@
+/**
+ * Interface para mostrar mensajes de error
+ */
 export interface Error {
+
     'email': [
         {
+         
           type: 'required',
+
           message: 'Pon un mail.'
         },
         {

@@ -1,7 +1,6 @@
 <app-header titulo = "Mis Retos"></app-header>
 <ion-content>
-  <app-menu></app-menu>
-
+  
   <ion-item-sliding *ngFor="let reto of retos">
     <ion-item (click)="verDetalle(reto.ID)">
       <ion-avatar slot="start">

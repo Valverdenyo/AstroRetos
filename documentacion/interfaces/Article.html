@@ -70,6 +70,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Descripción</h3>
+            </p>
+            <p class="comment">
+                <p>Interface para el manejo de las noticias</p>
+
+            </p>
 
 
         <section>
@@ -92,40 +99,23 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#category" 
+                                            <span class="modifier">Opcional</span>
+                                        <a href="#content" 
 >
-                                            category
+                                            content
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#country" 
->
-                                            country
-                                        </a>
-                                </li>
-                                <li>
+                                            <span class="modifier">Opcional</span>
                                         <a href="#description" 
 >
                                             description
                                         </a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Opcional</span>
-                                        <a href="#image" 
+                                        <a href="#publishedAt" 
 >
-                                            image
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#language" 
->
-                                            language
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#published_at" 
->
-                                            published_at
+                                            publishedAt
                                         </a>
                                 </li>
                                 <li>
@@ -144,6 +134,13 @@
                                         <a href="#url" 
 >
                                             url
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Opcional</span>
+                                        <a href="#urlToImage" 
+>
+                                            urlToImage
                                         </a>
                                 </li>
                             </ul>
@@ -193,15 +190,21 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Autor de la noticia</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="category"></a>
-                                        <span class="name "><b>category</b>
-                                            <a href="#category">
+                                        <a name="content"></a>
+                                        <span class="name "><b>content</b>
+                                            <a href="#content">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -209,7 +212,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>category:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>content:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -222,43 +225,21 @@
                                         </td>
                                     </tr>
 
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="country"></a>
-                                        <span class="name "><b>country</b>
-                                            <a href="#country">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>country:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                            <i>Opcional</i>
                                         </td>
                                     </tr>
 
 
 
 
-
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Contenido completo de la noticia</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -288,39 +269,6 @@
                                         </td>
                                     </tr>
 
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="image"></a>
-                                        <span class="name "><b>image</b>
-                                            <a href="#image">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>image:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
                                     <tr>
                                         <td class="col-md-4">
                                             <i>Opcional</i>
@@ -330,15 +278,21 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Descripcion corta de la noticia</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="language"></a>
-                                        <span class="name "><b>language</b>
-                                            <a href="#language">
+                                        <a name="publishedAt"></a>
+                                        <span class="name "><b>publishedAt</b>
+                                            <a href="#publishedAt">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -346,7 +300,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>language:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>publishedAt:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -363,39 +317,12 @@
 
 
 
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="published_at"></a>
-                                        <span class="name "><b>published_at</b>
-                                            <a href="#published_at">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>published_at:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Fecha de publicacion</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -412,7 +339,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>source:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>source:         <code><a href="../interfaces/Source.html" target="_self" >Source</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -420,7 +347,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Tipo : </i>        <code><a href="../interfaces/Source.html" target="_self" >Source</a></code>
 
                                         </td>
                                     </tr>
@@ -429,6 +356,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Origen de la noticia</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -462,6 +395,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Titulo de la noticia</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -495,6 +434,56 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>URL a la noticia completa</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="urlToImage"></a>
+                                        <span class="name "><b>urlToImage</b>
+                                            <a href="#urlToImage">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>urlToImage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Opcional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>URL a la imagen de la noticia</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -502,35 +491,93 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">interface RootObject {
-  pagination: Pagination;
-  data: Article[];
-}
-
-export interface Article {
-  author?: string;
-  title: string;
-  description: string;
-  url: string;
-  source: string;
-  image?: string;
-  category: string;
-  language: string;
-  country: string;
-  published_at: string;
-}
-
-export interface NewsResponse {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface NewsResponse {
+  /**
+   * Estado de la peticion
+   */
   status:       string;
+
+  /**
+   * Resultados totales de la peticion
+   */
   totalResults: number;
+
+  /**
+   * Objeto tipo Article para manejar las noticias
+   */
   articles:     Article[];
 }
 
-interface Pagination {
-  limit: number;
-  offset: number;
-  count: number;
-  total: number;
+/**
+ * Interface para el manejo de las noticias
+ */
+export interface Article {
+
+  /**
+   * Origen de la noticia
+   */
+  source:       Source;
+
+  /**
+   * Autor de la noticia
+   */
+  author?:      string;
+
+  /**
+   * Titulo de la noticia
+   */
+  title:        string;
+
+  /**
+   * Descripcion corta de la noticia
+   */
+  description?: string;
+
+  /**
+   * URL a la noticia completa
+   */
+  url:          string;
+
+  /**
+   * URL a la imagen de la noticia
+   */
+  urlToImage?:  string;
+
+  /**
+   * Fecha de publicacion
+   */
+  publishedAt:  string;
+
+  /**
+   * Contenido completo de la noticia
+   */
+  content?:     string;
+}
+
+/**
+ * Interface para el manejo del Origen de la noticia
+ */
+export interface Source {
+
+  /**
+   * Identificador del origen
+   */
+  id?:  string;
+
+  /**
+   * Nombre del Origen
+   */
+  name: string;
+}
+
+/**
+ * Interface para manejar las noticias de una Categoria concreta y por paginas. NO SE USA
+ */
+export interface ArticlesByCategoryAndPage {
+  [key: string] : {
+      page: number,
+      articles: Article[]
+  }
 }</code></pre>
     </div>
 </div>

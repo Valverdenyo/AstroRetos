@@ -1,14 +1,13 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Reto } from 'src/app/interfaces/interfaces';
-import { RetoService } from 'src/app/services/reto.service';
-
 import { ModalController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+
+import { Reto } from 'src/app/interfaces/interfaces';
+import { RetoService } from 'src/app/services/reto.service';
 import { AvisosService } from 'src/app/services/avisos.service';
 import { AuthService } from 'src/app/services/auth.service';
-
 
 /**
  * Componente que muestra un ion-card con toda las actividades que sae pueden realizar con cada uno.
@@ -37,7 +36,9 @@ export class InfoRetoComponent implements OnInit {
    * Mensaje standard para el botón de compartir en RRSS
    */
   mensaje: string = 'Te reto!';
-
+  /** Variable string para almacenar el email del usuario logado
+   * 
+   */
   email: string;
 
   /**
@@ -45,6 +46,8 @@ export class InfoRetoComponent implements OnInit {
    * @param retoSvc Servicio que maneja la coleccion 'retos' de Firestore
    * @param modalCtrl Controla el modal
    * @param socialSharing Componente que comparte Retos por RRSS
+   * @param avisosSvc Componente para mostrar avisos success/error
+   * @param authSvc Componente para controlar el inicio de sesion
    * @param platform Controla si abrimos la app por Navegador Web o Movil para así usar correctamente el SocialSharing
    */
   constructor(private retoSvc: RetoService,
@@ -129,6 +132,12 @@ export class InfoRetoComponent implements OnInit {
     }
   }
 
+  /**
+   * Método para marcar como Favorito un Reto concreto al usuario logado
+   * Al finalizar muestra el toast con el mensaje de success o error
+   * @param retoId ID del reto a marcar como Favorito
+   * @param user Usuario que marca el Favorito
+   */
   setFavorito(retoId: string, user: string){
     try {
 

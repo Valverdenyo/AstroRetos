@@ -3,6 +3,8 @@ import { UserService } from '../../services/user.service';
 import { Reto, Usuario } from '../../interfaces/interfaces';
 import { AvisosService } from '../../services/avisos.service';
 import { RetoService } from '../../services/reto.service';
+import { MenuService } from 'src/app/services/menu.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,20 +14,32 @@ import { RetoService } from '../../services/reto.service';
 export class AdminPage implements OnInit {
 
   usuarios: Usuario[] = [];
+  usuario: Usuario;
   retos: Reto[] = [];
   segmento: string;
   retoActivo: string;
   color: string;
   puntos: number;
+  email: string;
 
   constructor(private userSvc: UserService,
+    public menuSvc: MenuService,
+    private authSvc: AuthService,
     private avisosSvc: AvisosService,
-    private retoSvc: RetoService) { }
+    private retoSvc: RetoService) { 
+
+      this.menuSvc.setMenu();
+
+    }
 
   ngOnInit() {
 
-    this.userSvc.getUsers().subscribe(usuarios => {
-      this.usuarios = usuarios;
+    this.authSvc.getUserEmail().then(email => {
+      this.email = email;
+      this.userSvc.getUserByEmail(email).subscribe(usuario => {
+        this.usuario = usuario;
+      });
+
     });
 
     this.retoSvc.getRetos().subscribe(retos => {

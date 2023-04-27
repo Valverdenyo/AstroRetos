@@ -143,9 +143,6 @@ Página de inicio que muestra los retos activos.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#enableFav" >enableFav</a>
-                            </li>
-                            <li>
                                 <a href="#ionFabVisible" >ionFabVisible</a>
                             </li>
                             <li>
@@ -195,7 +192,7 @@ Página de inicio que muestra los retos activos.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/pages/home/home.page.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -211,7 +208,6 @@ Página de inicio que muestra los retos activos.</p>
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
-                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -226,10 +222,6 @@ Página de inicio que muestra los retos activos.</p>
                                                             No
                                                     </td>
                                                     
-                                                        <td>
-                                                                <p>Servicio para manejar la Autenticacion que conecta con Firebase Auth</p>
-
-                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>userSvc</td>
@@ -242,10 +234,6 @@ Página de inicio que muestra los retos activos.</p>
                                                             No
                                                     </td>
                                                     
-                                                        <td>
-                                                                <p>Servicio para manejar operaciones con los usuarios</p>
-
-                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>angularFireAuth</td>
@@ -258,10 +246,6 @@ Página de inicio que muestra los retos activos.</p>
                                                             No
                                                     </td>
                                                     
-                                                        <td>
-                                                                <p>Servicio Firebase auth para comprobar si usuario logado</p>
-
-                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -326,37 +310,6 @@ Página de inicio que muestra los retos activos.</p>
     <h3 id="inputs">
         Propiedades
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="enableFav"></a>
-                    <span class="name">
-                        <span ><b>enableFav</b></span>
-                        <a href="#enableFav"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Valor por defecto : </i><code>false</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/home/home.page.ts:39</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -533,8 +486,8 @@ export class HomePage implements OnInit {
   /**
    * Booleano que habilita/deshabilita el icono de Favoritos. Si no está logado, lo deshabilita
    */
-  enableFav &#x3D; false;
-
+ 
+  
   /**
    * Comprobamos si el usuario está logado y así mostrar el menú de una forma u otra
    * 
@@ -555,19 +508,19 @@ export class HomePage implements OnInit {
           this.userEmail &#x3D; email;
           this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
             this.usuarioLogado &#x3D; usuario;
-            console.log(&#x27;El usuario está logueado con &#x27;, this.usuarioLogado.EMAIL);
+            
             if (this.usuarioLogado.ROL &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
-              console.log(this.usuarioLogado.ROL);
+              
               this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;, &#x27;admin&#x27;])
                 .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-                  console.log(menuOpts);
+                  
                   this.menuOpts &#x3D; menuOpts;
                 });
-              this.enableFav &#x3D; true;
+             
             } else {
               this.userSvc.getMenuOpts([&#x27;all&#x27;, &#x27;retador&#x27;])
                 .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-                  console.log(menuOpts);
+                  
                   this.menuOpts &#x3D; menuOpts;
                 });
             }
@@ -577,11 +530,11 @@ export class HomePage implements OnInit {
         });
       } else {
         // El usuario no está logueado
-        console.log(&#x27;El usuario no está logueado&#x27;);
+        
         this.ionFabVisible &#x3D; true;
         this.userSvc.getMenuOpts([&#x27;all&#x27;])
           .subscribe((menuOpts: MenuOpts[]) &#x3D;&gt; {
-            console.log(menuOpts);
+            
             this.menuOpts &#x3D; menuOpts;
           });
       }
@@ -673,7 +626,7 @@ export class HomePage implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  </ion-header><ion-content [fullscreen]="true"><app-reto></app-reto>  <app-menu [menuOpts]="menuOpts"></app-menu>  <app-fab-login *ngIf="ionFabVisible"></app-fab-login></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>

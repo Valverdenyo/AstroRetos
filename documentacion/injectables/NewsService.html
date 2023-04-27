@@ -84,7 +84,7 @@
                                 <a href="#executeQuery" >executeQuery</a>
                             </li>
                             <li>
-                                <a href="#getNews" >getNews</a>
+                                <a href="#getTopHeadLines" >getTopHeadLines</a>
                             </li>
                         </ul>
                     </td>
@@ -109,12 +109,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/services/news.service.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/services/news.service.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -123,6 +125,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -137,6 +140,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio http para solicitar la llamada a la api</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -167,15 +174,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>executeQuery()</code>
+                    <code>executeQuery(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="19"
-                            class="link-to-prism">src/app/services/news.service.ts:19</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="37"
+                            class="link-to-prism">src/app/services/news.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -192,43 +199,6 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getNews"></a>
-                    <span class="name">
-                        <span ><b>getNews</b></span>
-                        <a href="#getNews"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getNews(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageSice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="31"
-                            class="link-to-prism">src/app/services/news.service.ts:31</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
                         <b>Parámetros :</b>
                         
                         <table class="params">
@@ -237,13 +207,14 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>page</td>
+                                    <td>endpoint</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -251,18 +222,10 @@
                                     </td>
 
 
-                                </tr>
-                                <tr>
-                                    <td>pageSice</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                        <p>cadena pasada con las variables que necesita la solicitud a la api</p>
+
                                     </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
                                 </tr>
                             </tbody>
                         </table>
@@ -280,6 +243,51 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTopHeadLines"></a>
+                    <span class="name">
+                        <span ><b>getTopHeadLines</b></span>
+                        <a href="#getTopHeadLines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTopHeadLines()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="53"
+                            class="link-to-prism">src/app/services/news.service.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Devuelve un observable con las cabeceras de las noticias a mostrar.
+Aqui pasa por parametro la categoria ciencia y espacio</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="../interfaces/Article.html" target="_self" >Observable&lt;Article[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -287,13 +295,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { environment } from &#x27;src/environments/environment&#x27;;
-import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { NewsResponse, Article } from &#x27;../interfaces/news&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
 
+import { map } from &#x27;rxjs/operators&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+
+import { environment } from &#x27;src/environments/environment&#x27;;
+import { NewsResponse, Article } from &#x27;../interfaces/news&#x27;;
+
+/**
+ * API del servicio de noticias apinews
+ */
 const apiKey &#x3D; environment.news.apiKey;
+
+/**
+ * URL del servicio
+ */
 const apiUrl &#x3D; environment.news.apiUrl;
 
 
@@ -302,29 +319,41 @@ const apiUrl &#x3D; environment.news.apiUrl;
 })
 export class NewsService {
 
+  /**
+   * Constructor de clase
+   * @param http Servicio http para solicitar la llamada a la api
+   */
   constructor(private http: HttpClient) { }
 
-  private executeQuery&lt;T&gt;() {
-    return this.http.get&lt;T&gt;(&#x60;${apiUrl}&#x60;, {
+  /**
+   * 
+   * @param endpoint cadena pasada con las variables que necesita la solicitud a la api
+   * @returns 
+   */
+  private executeQuery&lt;T&gt;(endpoint: string) {
+
+    return this.http.get&lt;T&gt;(&#x60;${apiUrl}${endpoint}&#x60;, {
       params: {
-        access_key: apiKey,
-        languages: &#x27;es,en&#x27;,
-        categories: &#x27;science&#x27;,
-        keywords: &#x27;astronomy&#x27;,
-        
+        apiKey,
+        country: &#x27;us&#x27;,
       }
-    })
+    });
+
   }
 
-  getNews(page: number, pageSice: number) {
-    const params &#x3D; new HttpParams()
-      .set(&#x27;access_key&#x27;, apiKey)
-      .set(&#x27;languages&#x27;, &#x27;es,en&#x27;)
-      .set(&#x27;categories&#x27;, &#x27;science&#x27;)
-      .set(&#x27;keywords&#x27;, &#x27;astronomy&#x27;);
+  /**
+   * Devuelve un observable con las cabeceras de las noticias a mostrar.
+   * Aqui pasa por parametro la categoria ciencia y espacio
+   * @returns 
+   */
+  getTopHeadLines(): Observable&lt;Article[]&gt; {
 
-    return this.http.get(&#x60;${apiUrl}/news&#x60;, { params });
-  } 
+    return this.executeQuery&lt;NewsResponse&gt;(&#x60;/top-headlines?category&#x3D;science&amp;q&#x3D;space&#x60;)
+      .pipe(
+        map(({ articles }) &#x3D;&gt; articles)
+      );
+      
+  }
 
 }
 </code></pre>

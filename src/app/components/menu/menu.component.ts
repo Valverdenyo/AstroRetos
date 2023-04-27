@@ -14,6 +14,10 @@ export class MenuComponent implements OnInit {
    */
   @Input()  menuOpts: MenuOpts[];
 
+  /**
+   * Contructor de clase
+   * @param router Componente de manejo de rutas del Menu
+   */
   constructor(private router: Router) { }
 
   /**

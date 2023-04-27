@@ -8,7 +8,7 @@ import { RetoService } from 'src/app/services/reto.service';
 import { InfoRetoComponent } from '../info-reto/info-reto.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map } from 'rxjs/operators';
 import { AvisosService } from 'src/app/services/avisos.service';

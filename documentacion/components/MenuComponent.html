@@ -184,6 +184,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Contructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -192,6 +194,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -206,6 +209,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Componente de manejo de rutas del Menu</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -274,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="30"
-                            class="link-to-prism">src/app/components/menu/menu.component.ts:30</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="34"
+                            class="link-to-prism">src/app/components/menu/menu.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -350,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="22"
-                            class="link-to-prism">src/app/components/menu/menu.component.ts:22</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="26"
+                            class="link-to-prism">src/app/components/menu/menu.component.ts:26</a></div>
                 </td>
             </tr>
 
@@ -391,6 +398,10 @@ export class MenuComponent implements OnInit {
    */
   @Input()  menuOpts: MenuOpts[];
 
+  /**
+   * Contructor de clase
+   * @param router Componente de manejo de rutas del Menu
+   */
   constructor(private router: Router) { }
 
   /**
@@ -413,7 +424,7 @@ export class MenuComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;start&quot; slot&#x3D;&quot;fixed&quot; class&#x3D;&quot;ion-margin&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;start&quot; slot&#x3D;&quot;fixed&quot; class&#x3D;&quot;ion-margin&quot; class&#x3D;&quot;fab-fixed&quot;&gt;
   &lt;ion-fab-button&gt;
     &lt;ion-icon name&#x3D;&quot;add&quot;&gt;&lt;/ion-icon&gt;
   &lt;/ion-fab-button&gt;
@@ -462,8 +473,8 @@ export class MenuComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-fab vertical="bottom" horizontal="start" slot="fixed" class="ion-margin">  <ion-fab-button>    <ion-icon name="add"></ion-icon>  </ion-fab-button>  <ion-fab-list side="top">    <ion-fab-button *ngFor="let opt of menuOpts; let i = index" color="primary-shade">      <ion-icon [name]="opt.icon" (click)="navigateToPage(opt.redirectTo)" color="primary"></ion-icon>         </ion-fab-button>  </ion-fab-list></ion-fab></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+        var COMPONENT_TEMPLATE = '<div><ion-fab vertical="bottom" horizontal="start" slot="fixed" class="ion-margin" class="fab-fixed">  <ion-fab-button>    <ion-icon name="add"></ion-icon>  </ion-fab-button>  <ion-fab-list side="top">    <ion-fab-button *ngFor="let opt of menuOpts; let i = index" color="primary-shade">      <ion-icon [name]="opt.icon" (click)="navigateToPage(opt.redirectTo)" color="primary"></ion-icon>         </ion-fab-button>  </ion-fab-list></ion-fab></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
 </script>

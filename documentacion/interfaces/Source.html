@@ -48,7 +48,7 @@
   <li>Interfaces</li>
   <li
   >
-  Favorito</li>
+  Source</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,7 +66,7 @@
             <h3>Fichero</h3>
         </p>
         <p class="comment">
-            <code>src/app/interfaces/interfaces.ts</code>
+            <code>src/app/interfaces/news.ts</code>
         </p>
 
 
@@ -74,7 +74,7 @@
                 <h3>Descripción</h3>
             </p>
             <p class="comment">
-                <p>Interface para manejar Favoritos. COLECCION: favoritos</p>
+                <p>Interface para el manejo del Origen de la noticia</p>
 
             </p>
 
@@ -92,21 +92,16 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#ID_FAV" 
+                                            <span class="modifier">Opcional</span>
+                                        <a href="#id" 
 >
-                                            ID_FAV
+                                            id
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#ID_RETO" 
+                                        <a href="#name" 
 >
-                                            ID_RETO
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#USER" 
->
-                                            USER
+                                            name
                                         </a>
                                 </li>
                             </ul>
@@ -124,9 +119,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="ID_FAV"></a>
-                                        <span class="name "><b>ID_FAV</b>
-                                            <a href="#ID_FAV">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -134,7 +129,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>ID_FAV:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -147,13 +142,18 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Opcional</i>
+                                        </td>
+                                    </tr>
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Identificador de Favorito. Se guarda como campo el Identificador autogenerado para que sea más accesible</p>
+                                    <div class="io-description"><p>Identificador del origen</p>
 </div>
                                 </td>
                             </tr>
@@ -163,9 +163,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="ID_RETO"></a>
-                                        <span class="name "><b>ID_RETO</b>
-                                            <a href="#ID_RETO">
+                                        <a name="name"></a>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -173,7 +173,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>ID_RETO:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -192,46 +192,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Identificador del Reto.</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="USER"></a>
-                                        <span class="name "><b>USER</b>
-                                            <a href="#USER">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>USER:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Email del usuario que marca el Favorito</p>
+                                    <div class="io-description"><p>Nombre del Origen</p>
 </div>
                                 </td>
                             </tr>
@@ -242,164 +203,93 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Usuario {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface NewsResponse {
   /**
-   * Identificador del usuario. Es el mismo que el autogenerado por Firebase para facilitar el manejo del objeto
+   * Estado de la peticion
    */
-  ID: string,
+  status:       string;
 
   /**
-   * Nombre del usuario
+   * Resultados totales de la peticion
    */
-  NOMBRE: string,
+  totalResults: number;
 
   /**
-   * Email del usuario
+   * Objeto tipo Article para manejar las noticias
    */
-  EMAIL: string,
-
-  /**
-   * Contraseña del usuario. No se envia ni se guarda. Solo se usa para el método de cambio de Password
-   */
-  PASSWORD: string,
-
-  /**
-   * Rol del usuario. Puede ser Anónimo, Retador o Administrador
-   */
-  ROL: string,
-
-  /**
-   * URL de acceso al avatar.
-   */
-  AVATAR: string,
-
-  /**
-   * Puntos totales según el número de retos conseguidos
-   */
-  PUNTOS: number
+  articles:     Article[];
 }
 
 /**
- * Interface para el manejo de retos. COLECCION: retos
+ * Interface para el manejo de las noticias
  */
-export interface Reto {
+export interface Article {
 
   /**
-   * Identificador del Reto. Es el mismo que el autogenerado por Firestore.
+   * Origen de la noticia
    */
-  ID: string,
+  source:       Source;
 
   /**
-   * Titulo del reto
+   * Autor de la noticia
    */
-  TITULO: string,
+  author?:      string;
 
   /**
-   * Descripcion larga del reto
+   * Titulo de la noticia
    */
-  DESCRIPCION: string,
+  title:        string;
 
   /**
-   * Tipo de reto. Puede ser ocular, prismaticos o telescopio
+   * Descripcion corta de la noticia
    */
-  TIPO: string,
+  description?: string;
 
   /**
-   * Nivel del reto. Puede ser facil, intermedio o dificil
+   * URL a la noticia completa
    */
-  NIVEL: string,
+  url:          string;
 
   /**
-   * Indica si el reto esta activo o no. El retador puede manejar los suyos. Los administradores, todos.
+   * URL a la imagen de la noticia
    */
-  ACTIVO: boolean,
+  urlToImage?:  string;
 
   /**
-   * Marca retos destacados. TODAVIA NO ESTA IMPLEMENTADO
+   * Fecha de publicacion
    */
-  DESTACADO: boolean,
+  publishedAt:  string;
 
   /**
-   * Email del retador.
+   * Contenido completo de la noticia
    */
-  RETADOR: string,
-
-  /**
-   * Imagen del reto subida por el retador
-   */
-  IMAGEN: string,
+  content?:     string;
 }
 
 /**
- * Interface para manejar Favoritos. COLECCION: favoritos
+ * Interface para el manejo del Origen de la noticia
  */
-export interface Favorito {
+export interface Source {
+
   /**
-   * Identificador del Reto.
+   * Identificador del origen
    */
-
-  ID_RETO: string;
-  /**
-   * Identificador de Favorito. Se guarda como campo el Identificador autogenerado para que sea más accesible 
-   */
-
-  ID_FAV: string;
-  /**
-   * Email del usuario que marca el Favorito
-   */
-
-  USER: string;
-}
-
-/**
- * Interface para el manejo de los retos conseguidos. COLECCION: retosconseguidos
- */
-export interface RetoConseguido {
-  /**
-   * Identificador del Reto.
-   */
-  ID_RETO: string;
+  id?:  string;
 
   /**
-   * Identificador del objeto, igual al autogenerado por Firestore
-   */
-  ID_RETO_CONSEGUIDO: string;
-
-  /**
-   * Email dle usuario que ha conseguido el reto
-   */
-  USER: string;
-
-  /**
-   * Puntos conseguidos por ese reto
-   */
-  PUNTOS: number;
-}
-
-/**
- * Interface para el manejo del Menu. Segun el rol del usuario, se cargaran unas opciones u otras.
- */
-export interface MenuOpts {
-
-  /**
-   * Icono de la opcion de menu
-   */
-  icon: string;
-
-  /**
-   * Nombre a mostrar en el menu
+   * Nombre del Origen
    */
   name: string;
+}
 
-  /**
-   * Página o tura a la que nos lleva la opcion
-   */
-  redirectTo: string;
-
-  /**
-   * Roles que tienen acceso: all, retador, administrador
-   */
-  rol: string;
+/**
+ * Interface para manejar las noticias de una Categoria concreta y por paginas. NO SE USA
+ */
+export interface ArticlesByCategoryAndPage {
+  [key: string] : {
+      page: number,
+      articles: Article[]
+  }
 }</code></pre>
     </div>
 </div>
@@ -437,7 +327,7 @@ export interface MenuOpts {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Favorito.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Source.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -19,19 +19,45 @@ import { InfoRetoComponent } from 'src/app/components/info-reto/info-reto.compon
 })
 export class MisRetosPage implements OnInit {
 
+  /**
+   * Variable para guardar el email del usuario logado
+   */
   email: string;
+
+  /**
+   * Objeto para almacenar los datos del usuario logado y mostrar sus retos
+   */
   usuario: Usuario;
+
+  /**
+   * array de objetos tipo Reto para guardarlos y mostrarlos
+   */
   retos: Reto[] = [];
 
+  /**
+   * Constructor de Clase, asigna el menu correspondiente dependiendo del rol
+   * @param menuSvc Servicio que prepara el menú
+   * @param retoSvc Servicio para el manejo de los Retos
+   * @param authSvc Servicio que se encarga de comprobar el usuario logado
+   * @param userSvc Servicio que maneja al usuario logado para obtener el rol
+   * @param avisosSvc Servicio de avisos a través del Toast
+   * @param modalCtrl Controlador de carga del Modal de creación de reto.
+   */
   constructor(public menuSvc: MenuService,
     private retoSvc: RetoService,
     private authSvc: AuthService,
     private userSvc: UserService,
     private avisosSvc: AvisosService,
     private modalCtrl: ModalController) {
+
     this.menuSvc.setMenu();
+
   }
 
+  /**
+   * Metodo de inicio.
+   * Comprueba el usuario logado para el menú y carga sus retos.
+   */
   ngOnInit() {
     this.authSvc.getUserEmail().then(email => {
       this.email = email;
@@ -43,10 +69,14 @@ export class MisRetosPage implements OnInit {
       });
     });
 
-
   }
 
+  /**
+   * Carga el Modal con el formulario para crear un nuevo reto
+   * @param id Pasa como parámetro el id del usuario que creará el reto
+   */
   async newReto(id: string) {
+
     const modal = await this.modalCtrl.create({
       component: NewRetoComponent,
       componentProps: {
@@ -56,29 +86,42 @@ export class MisRetosPage implements OnInit {
     });
 
     modal.present();
+
   }
 
+  /**
+   * Cambia el reto a activo/inactivo y muestra el aviso con el resultado.
+   * @param id Id del reto a cambiar
+   */
   cambiarEstado(id: string) {
     console.log('cambio Estado', id);
     try {
-     this.retoSvc.updateEstadoReto(id);
-     
+      this.retoSvc.updateEstadoReto(id);
+
       this.avisosSvc.presentToast('Cambio de Estado Correcto', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error en el cambio de Estado', 'danger');
     }
   }
 
+/**
+ * Elimina el reto seleccionado
+ * @param id Id del reto a eliminar
+ */
   deleteReto(id: string) {
     try {
-         this.retoSvc.deleteReto(id);
-      this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
+      this.retoSvc.deleteReto(id);
+      this.avisosSvc.presentToast('Reto eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
     }
 
   }
 
+  /**
+   * Carga el modal con la info detallada del reto
+   * @param id Id del reto a mostrar
+   */
   async verDetalle(id: string) {
     const modal = await this.modalCtrl.create({
       component: InfoRetoComponent,

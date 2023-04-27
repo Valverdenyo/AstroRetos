@@ -14,27 +14,65 @@ import { MenuOpts, Usuario } from '../interfaces/interfaces';
 })
 export class UserService {
 
+  /**
+   * Objeto tipo Usuario para manejar su informacion
+   */
   usuario: Usuario;
+
+  /**
+   * variable para guardar el nuevo rol del usuario a cambiar
+   */
   newRol: string;
+
+  /**
+   * variable que almacena la URL del nuevo avatar para cambiarlo
+   */
   newAvatar: string = '';
+
+  /**
+   * almacena una coleccion de Usuarios para su colsulta
+   */
   usuariosCollection: AngularFirestoreCollection<Usuario>;
 
+  /**
+   * Constructor de clase
+   * @param firestore Servicio de Firestore
+   * @param http Servicio de http usado para peticiones json a los datos del menu
+   */
   constructor(private firestore: AngularFirestore,
     private http: HttpClient
   ) { }
 
+  /**
+   * Obtiene un observable con todos los usuarios
+   * @returns 
+   */
   getUsers(): Observable<any[]> {
+
     return this.firestore.collection('usuarios').valueChanges({ idField: 'id' });
+
   }
 
+  /**
+   * Obtiene un Observable del usuario a traves de su email
+   * @param email Parametro pasado para buscar al usuario
+   * @returns 
+   */
   public getUserByEmail(email: string): Observable<Usuario> {
+
     return this.firestore.collection<Usuario>('usuarios', ref => ref.where('EMAIL', '==', email).limit(1))
       .valueChanges({ idField: 'id' })
       .pipe(
         map(usuarios => usuarios[0])
       );
+
   }
 
+  /**
+   * Devuelve un observable con el usuario buscado por Id
+   * @param id Id del usuario a buscar
+   * @returns 
+   */
   public getUserById(id: string): Observable<Usuario> {
     return this.firestore.collection<Usuario>('usuarios', ref => ref.where('ID', '==', id).limit(1))
       .valueChanges({ idField: 'id' })

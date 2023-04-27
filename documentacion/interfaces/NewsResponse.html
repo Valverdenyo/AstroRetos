@@ -70,6 +70,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Descripción</h3>
+            </p>
+            <p class="comment">
+                <p>Interface que maneja las peticiones de noticias. API de NEWSAPI: <a href="https://newsapi.org/v2">https://newsapi.org/v2</a></p>
+
+            </p>
 
 
         <section>
@@ -144,6 +151,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Objeto tipo Article para manejar las noticias</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -177,6 +190,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Estado de la peticion</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -210,6 +229,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Resultados totales de la peticion</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -217,35 +242,93 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">interface RootObject {
-  pagination: Pagination;
-  data: Article[];
-}
-
-export interface Article {
-  author?: string;
-  title: string;
-  description: string;
-  url: string;
-  source: string;
-  image?: string;
-  category: string;
-  language: string;
-  country: string;
-  published_at: string;
-}
-
-export interface NewsResponse {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface NewsResponse {
+  /**
+   * Estado de la peticion
+   */
   status:       string;
+
+  /**
+   * Resultados totales de la peticion
+   */
   totalResults: number;
+
+  /**
+   * Objeto tipo Article para manejar las noticias
+   */
   articles:     Article[];
 }
 
-interface Pagination {
-  limit: number;
-  offset: number;
-  count: number;
-  total: number;
+/**
+ * Interface para el manejo de las noticias
+ */
+export interface Article {
+
+  /**
+   * Origen de la noticia
+   */
+  source:       Source;
+
+  /**
+   * Autor de la noticia
+   */
+  author?:      string;
+
+  /**
+   * Titulo de la noticia
+   */
+  title:        string;
+
+  /**
+   * Descripcion corta de la noticia
+   */
+  description?: string;
+
+  /**
+   * URL a la noticia completa
+   */
+  url:          string;
+
+  /**
+   * URL a la imagen de la noticia
+   */
+  urlToImage?:  string;
+
+  /**
+   * Fecha de publicacion
+   */
+  publishedAt:  string;
+
+  /**
+   * Contenido completo de la noticia
+   */
+  content?:     string;
+}
+
+/**
+ * Interface para el manejo del Origen de la noticia
+ */
+export interface Source {
+
+  /**
+   * Identificador del origen
+   */
+  id?:  string;
+
+  /**
+   * Nombre del Origen
+   */
+  name: string;
+}
+
+/**
+ * Interface para manejar las noticias de una Categoria concreta y por paginas. NO SE USA
+ */
+export interface ArticlesByCategoryAndPage {
+  [key: string] : {
+      page: number,
+      articles: Article[]
+  }
 }</code></pre>
     </div>
 </div>

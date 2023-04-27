@@ -170,10 +170,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="13" class="link-to-prism">src/app/components/noticias/noticias.component.ts:13</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/components/noticias/noticias.component.ts:20</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de Clase. Este Componente solo se encarga de cargar el Componente Artículo, para adaptarlo según dispositivo.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -201,9 +207,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Definido en <a href="" data-line="13" class="link-to-prism">src/app/components/noticias/noticias.component.ts:13</a></div>
+                                    <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/components/noticias/noticias.component.ts:20</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Recibe los articulos</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -241,10 +253,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="11" class="link-to-prism">src/app/components/noticias/noticias.component.ts:11</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/components/noticias/noticias.component.ts:15</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable tipo Articulo para la carga de Articulos. Publica</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -254,7 +272,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+
 import { Article } from &#x27;src/app/interfaces/news&#x27;;
 
 @Component({
@@ -264,10 +283,19 @@ import { Article } from &#x27;src/app/interfaces/news&#x27;;
 })
 export class NoticiasComponent {
 
+  /**
+   * Variable tipo Articulo para la carga de Articulos. Publica
+   */
   public article: Article[] &#x3D; [];
 
+  /**
+   * Recibe los articulos
+   */
   @Input() articles: Article[] &#x3D; [];
 
+  /**
+   * Constructor de Clase. Este Componente solo se encarga de cargar el Componente Artículo, para adaptarlo según dispositivo.
+   */
   constructor() { }
 
 }
@@ -320,7 +348,7 @@ export class NoticiasComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-grid fixed>  <ion-row>    <ion-col *ngFor="let article of articles; let i = index"    size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">     <app-noticia [article]="article" [index]="i">     </app-noticia>    </ion-col>  </ion-row></ion-grid></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NoticiasComponent'};
 </script>

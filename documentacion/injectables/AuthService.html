@@ -245,8 +245,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="78"
-                            class="link-to-prism">src/app/services/auth.service.ts:78</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="80"
+                            class="link-to-prism">src/app/services/auth.service.ts:80</a></div>
                 </td>
             </tr>
 
@@ -326,8 +326,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="92"
-                            class="link-to-prism">src/app/services/auth.service.ts:92</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="94"
+                            class="link-to-prism">src/app/services/auth.service.ts:94</a></div>
                 </td>
             </tr>
 
@@ -363,8 +363,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="114"
-                            class="link-to-prism">src/app/services/auth.service.ts:114</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="116"
+                            class="link-to-prism">src/app/services/auth.service.ts:116</a></div>
                 </td>
             </tr>
 
@@ -434,8 +434,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="98"
-                            class="link-to-prism">src/app/services/auth.service.ts:98</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="100"
+                            class="link-to-prism">src/app/services/auth.service.ts:100</a></div>
                 </td>
             </tr>
 
@@ -473,8 +473,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="109"
-                            class="link-to-prism">src/app/services/auth.service.ts:109</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="111"
+                            class="link-to-prism">src/app/services/auth.service.ts:111</a></div>
                 </td>
             </tr>
 
@@ -544,8 +544,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="54"
-                            class="link-to-prism">src/app/services/auth.service.ts:54</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="56"
+                            class="link-to-prism">src/app/services/auth.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -613,8 +613,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="66"
-                            class="link-to-prism">src/app/services/auth.service.ts:66</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="68"
+                            class="link-to-prism">src/app/services/auth.service.ts:68</a></div>
                 </td>
             </tr>
 
@@ -719,8 +719,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="73"
-                            class="link-to-prism">src/app/services/auth.service.ts:73</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="75"
+                            class="link-to-prism">src/app/services/auth.service.ts:75</a></div>
                 </td>
             </tr>
 
@@ -807,13 +807,15 @@ export class AuthService {
       NOMBRE: usuario.NOMBRE,
       ROL: &quot;Retador&quot;,
       AVATAR: &quot;&quot;,
-      ID: &quot;&quot;
+      ID: &quot;&quot;,
+      PUNTOS: 0
 
     })
       .then((docRef: any) &#x3D;&gt; {
         this.firestore.doc(docRef).update({
           ID: docRef.id
         })
+        this.firestore.collection(&#x27;usuarios&#x27;).doc(docRef.id).collection(&#x27;favoritos&#x27;).add({})
       })
       .catch((error: any) &#x3D;&gt; {
         console.error(&#x27;Error al agregar usuario: &#x27;, error);

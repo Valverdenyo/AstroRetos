@@ -144,9 +144,6 @@
                                 <a href="#imagenSaneada" >imagenSaneada</a>
                             </li>
                             <li>
-                                <a href="#result" >result</a>
-                            </li>
-                            <li>
                                 <a href="#userEmail" >userEmail</a>
                             </li>
                             <li>
@@ -213,12 +210,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="30" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:30</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="49" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:49</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase.
+Revisa el estado de la sesión, recoge el mail y busca su perfil para cargar los datos.</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -227,6 +227,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -241,6 +242,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de autenticación para el manejo del cambio de contraseña</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>actionSheetCtrl</td>
@@ -253,6 +258,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador del ActionSheet que mostrará los accesos a la Camara o Galeria</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>alertCtrl</td>
@@ -265,6 +274,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador de las Alertas</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>userSvc</td>
@@ -277,6 +290,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de manejo del Usuario</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -289,6 +306,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador de rutas de accceso</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>navCtrl</td>
@@ -301,6 +322,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Controlador para redirigir a determinadas rutas</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>avisosSvc</td>
@@ -313,6 +338,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de avisos a traves de Toast</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>multimediaSvc</td>
@@ -325,6 +354,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de manejo de las imagenes</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>angularFireAuth</td>
@@ -337,6 +370,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de Angular para el manejo del estado de la sesión</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>sanitizer</td>
@@ -349,6 +386,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Libreria que &#39;sanea&#39; la imagen para hacer una subida segura a Firestorage</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -390,14 +431,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="118"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:118</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="173"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:173</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo que muestra una Alerta al eliminar el Usuario y si aceptamos, lo ELIMINA. NO IMPLEMENTADO
+Al eliminarlo de devuelve al Home</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -408,6 +452,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -422,6 +467,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>ID del usuario a eliminar (el mismo que ha iniciado sesión)</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -461,14 +510,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="140"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:140</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="201"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:201</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Muestra una Alerta para cambiar la contraseña. Se especifica 2 veces la contraseña,
+y si coinciden lanza el servicio de cambio de contraseña y te desloga para que entres
+con la contraseña nueva</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -500,14 +553,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="76"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:76</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="124"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:124</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método que muestra un ActionSheet con los iconos de Camara y Galeria para seleccionar la imagen del Avatar</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -537,14 +592,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="70"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:70</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="114"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:114</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo para deslogarse. Llama al servicio de Autenticacion, desloga, y te envia al Home.</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -574,14 +631,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="67"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:67</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="108"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:108</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo de inicio</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -613,14 +672,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="216"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:216</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="288"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:288</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo para aplicar un Avatar al Usuario desde la Camara
+Se selecciona la imagen de la galeria, la sanea para que sea segura y lanza el servicio de subida de la imagen
+a Firestorage y posteriormente el servicio de actualizacion del usuario pasando el ID del usuario y la URL de acceso</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -652,14 +715,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="198"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:198</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="265"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:265</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo para aplicar un Avatar al Usuario desde la Galeria
+Se selecciona la imagen de la galeria, la sanea para que sea segura y lanza el servicio de subida de la imagen
+a Firestorage y posteriormente el servicio de actualizacion del usuario pasando el ID del usuario y la URL de acceso</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -694,10 +761,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="30" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:30</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="49" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ActionSheet que se va a usar para mostrar la galeria o la camara</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -720,10 +793,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:27</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:39</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable donde se almacena la imagen obtenida de la camara o de la galeria</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -746,36 +825,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:28</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="44" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:44</a></div>
                         </td>
                     </tr>
 
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="result"></a>
-                    <span class="name">
-                        <span ><b>result</b></span>
-                        <a href="#result"><span class="icon ion-ios-link"></span></a>
-                    </span>
+                    <div class="io-description"><p>Variable que almacena la imagen ya lista para ser subida de forma segura</p>
+</div>
                 </td>
             </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Tipo : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="26" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:26</a></div>
-                        </td>
-                    </tr>
-
 
         </tbody>
     </table>
@@ -798,10 +857,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:25</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="29" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Email del usuario logado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -824,10 +889,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="29" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:29</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/pages/perfil/perfil.page.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto que guarda los datos del usuario logado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -838,16 +909,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { ActionSheetController, AlertController } from &#x27;@ionic/angular&#x27;;
-import { Usuario } from &#x27;src/app/interfaces/interfaces&#x27;;
-import { AuthService } from &#x27;src/app/services/auth.service&#x27;;
-import { UserService } from &#x27;../../services/user.service&#x27;;
-import { AvisosService } from &#x27;src/app/services/avisos.service&#x27;;
+
 import { Router } from &#x27;@angular/router&#x27;;
 import { NavController } from &#x27;@ionic/angular&#x27;;
 import { AngularFireAuth } from &#x27;@angular/fire/compat/auth&#x27;;
 import { DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
 import { Camera, CameraResultType, CameraSource } from &#x27;@capacitor/camera&#x27;;
+import { ActionSheetController, AlertController } from &#x27;@ionic/angular&#x27;;
+
+import { Usuario } from &#x27;src/app/interfaces/interfaces&#x27;;
+import { AuthService } from &#x27;src/app/services/auth.service&#x27;;
+import { UserService } from &#x27;../../services/user.service&#x27;;
+import { AvisosService } from &#x27;src/app/services/avisos.service&#x27;;
 import { MultimediaService } from &#x27;../../services/multimedia.service&#x27;;
 
 
@@ -860,14 +933,45 @@ import { MultimediaService } from &#x27;../../services/multimedia.service&#x27;;
 })
 export class PerfilPage implements OnInit {
 
-
+  /**
+   * Email del usuario logado
+   */
   userEmail: string;
-  result: any;
-  image: any;
-  imagenSaneada: any;
+
+  /**
+   * Objeto que guarda los datos del usuario logado
+   */
   usuarioLogado: Usuario;
+
+  /**
+   * Variable donde se almacena la imagen obtenida de la camara o de la galeria
+   */
+  image: any;
+
+  /**
+   * Variable que almacena la imagen ya lista para ser subida de forma segura
+   */
+  imagenSaneada: any;
+
+  /**
+   * ActionSheet que se va a usar para mostrar la galeria o la camara
+   */
   actionSheet: HTMLIonActionSheetElement;
 
+  /**
+   * Constructor de clase.
+   * Revisa el estado de la sesión, recoge el mail y busca su perfil para cargar los datos.
+   * @param authSvc Servicio de autenticación para el manejo del cambio de contraseña
+   * @param actionSheetCtrl Controlador del ActionSheet que mostrará los accesos a la Camara o Galeria
+   * @param alertCtrl Controlador de las Alertas
+   * @param userSvc Servicio de manejo del Usuario
+   * @param router Controlador de rutas de accceso
+   * @param navCtrl Controlador para redirigir a determinadas rutas
+   * @param avisosSvc Servicio de avisos a traves de Toast
+   * @param multimediaSvc Servicio de manejo de las imagenes
+   * @param angularFireAuth Servicio de Angular para el manejo del estado de la sesión
+   * @param sanitizer Libreria que &#x27;sanea&#x27; la imagen para hacer una subida segura a Firestorage
+   */
   constructor(private authSvc: AuthService,
     private actionSheetCtrl: ActionSheetController,
     private alertCtrl: AlertController,
@@ -883,53 +987,66 @@ export class PerfilPage implements OnInit {
   ) {
 
     this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
+
       if (user) {
         // El usuario está logueado
 
         this.authSvc.getUserEmail().then(email &#x3D;&gt; {
+
           this.userEmail &#x3D; email;
-          console.log(&#x27;El usuario está logueado con &#x27;, this.userEmail);
           this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
+
             this.usuarioLogado &#x3D; usuario;
-            
+
           });
 
         });
+
       } else {
         // El usuario no está logueado
         console.log(&#x27;no deberias estar aqui&#x27;);
+
       }
+
     });
 
   }
 
+  /**
+   * Metodo de inicio
+   */
   ngOnInit() {
   }
 
+  /**
+   * Metodo para deslogarse. Llama al servicio de Autenticacion, desloga, y te envia al Home.
+   */
   logOut() {
+
     this.authSvc.signOut();
     this.navCtrl.navigateRoot(&#x27;/home&#x27;);
 
   }
 
+  /**
+   * Método que muestra un ActionSheet con los iconos de Camara y Galeria para seleccionar la imagen del Avatar
+   */
   async avatarActionSheet() {
+
     this.actionSheet &#x3D; await this.actionSheetCtrl.create({
+
       cssClass: &#x27;multimedia-class&#x27;,
       buttons: [
         {
           icon: &#x27;camera-outline&#x27;,
           handler: () &#x3D;&gt; {
-           this.setAvatarCamara();
+            this.setAvatarCamara();
           }
         },
         {
           icon: &#x27;image-outline&#x27;,
           handler: () &#x3D;&gt; {
             this.setAvatarGallery();
-            console.log(this.usuarioLogado.EMAIL);
-            console.log(this.usuarioLogado.NOMBRE);
-            console.log(this.usuarioLogado.ROL);
-            console.log(this.usuarioLogado.AVATAR);
           }
         },
         {
@@ -938,10 +1055,12 @@ export class PerfilPage implements OnInit {
           role: &#x27;cancel&#x27;
         }
       ],
-      // Template personalizado para mostrar los botones a la izquierda y derecha
-      // Los botones se ajustarán a los lados opuestos de la hoja de acción
-      // utilizando la clase CSS &quot;ion-action-sheet-buttons-start&quot; e &quot;ion-action-sheet-buttons-end&quot;
-      // y se alinearán al centro de la hoja de acción utilizando la clase CSS &quot;ion-justify-content-center&quot;
+
+      /** Template personalizado para mostrar los botones a la izquierda y derecha
+       * Los botones se ajustarán a los lados opuestos de la hoja de acción
+       * utilizando la clase CSS &quot;ion-action-sheet-buttons-start&quot; e &quot;ion-action-sheet-buttons-end&quot;
+       * y se alinearán al centro de la hoja de acción utilizando la clase CSS &quot;ion-justify-content-center&quot;
+       */
       backdropDismiss: true,
       animated: true,
       keyboardClose: true,
@@ -949,12 +1068,20 @@ export class PerfilPage implements OnInit {
 
       translucent: true,
       id: &#x27;my-action-sheet&#x27;
+
     });
 
     await this.actionSheet.present();
+
   }
 
+  /**
+   * Metodo que muestra una Alerta al eliminar el Usuario y si aceptamos, lo ELIMINA. NO IMPLEMENTADO
+   * Al eliminarlo de devuelve al Home
+   * @param documentId ID del usuario a eliminar (el mismo que ha iniciado sesión)
+   */
   async alertDelete(documentId: string) {
+
     const alert &#x3D; await this.alertCtrl.create({
       header: &#x27;Eliminar usuario&#x27;,
       message: &#x27;¿Estás seguro de que quieres eliminar este usuario?&#x27;,
@@ -976,6 +1103,11 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
+  /**
+   * Muestra una Alerta para cambiar la contraseña. Se especifica 2 veces la contraseña,
+   * y si coinciden lanza el servicio de cambio de contraseña y te desloga para que entres
+   * con la contraseña nueva
+   */
   async alertPassChange() {
     const alert &#x3D; await this.alertCtrl.create({
       header: &#x27;Pon tu nueva contraseña&#x27;,
@@ -1032,8 +1164,14 @@ export class PerfilPage implements OnInit {
     });
 
     await alert.present();
+
   }
 
+  /**
+   * Metodo para aplicar un Avatar al Usuario desde la Galeria
+   * Se selecciona la imagen de la galeria, la sanea para que sea segura y lanza el servicio de subida de la imagen
+   * a Firestorage y posteriormente el servicio de actualizacion del usuario pasando el ID del usuario y la URL de acceso
+   */
   async setAvatarGallery() {
     const foto &#x3D; await Camera.getPhoto({
       quality: 90,
@@ -1052,7 +1190,13 @@ export class PerfilPage implements OnInit {
     this.userSvc.updateUserAvatar(this.usuarioLogado.ID, res);
   }
 
+  /**
+  * Metodo para aplicar un Avatar al Usuario desde la Camara
+  * Se selecciona la imagen de la galeria, la sanea para que sea segura y lanza el servicio de subida de la imagen
+  * a Firestorage y posteriormente el servicio de actualizacion del usuario pasando el ID del usuario y la URL de acceso
+  */
   async setAvatarCamara() {
+
     const foto &#x3D; await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
@@ -1068,8 +1212,8 @@ export class PerfilPage implements OnInit {
     console.log(&#x27;ruta&#x27;, res);
     console.log(&#x27;id&#x27;, this.usuarioLogado.ID);
     this.userSvc.updateUserAvatar(this.usuarioLogado.ID, res);
-  }
 
+  }
 
 }
 </code></pre>
@@ -1150,7 +1294,7 @@ export class PerfilPage implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-header class="ion-no-border" translucent>  <ion-toolbar>    <ion-buttons slot="start">      <ion-back-button defaultHref="/" color="primary"></ion-back-button>    </ion-buttons>    <ion-title class="ion-text-capitalize" align="center" *ngIf="usuarioLogado?.ROL">Hola {{usuarioLogado.NOMBRE}} !!</ion-title>  </ion-toolbar></ion-header><ion-content>  <div>    <ion-avatar class="avatar">      <ion-img [src]="usuarioLogado?.AVATAR" class="imagenAvatar"></ion-img>    </ion-avatar>    <div class="image-text" align="center" color="primary" (click)="avatarActionSheet()">Cambiar Avatar</div>  </div>  <ion-button (click)="alertPassChange()" expand="block" fill="clear" shape="round">    Cambiar Contraseña  </ion-button>  <ion-item>    <ion-label>Puntos</ion-label>  </ion-item>  <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">    Cerrar sesión  </ion-button>  <ion-button (click)="alertDelete(usuarioLogado.ID)" expand="block" fill="clear" shape="round" color="danger">    Eliminar Cuenta  </ion-button></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PerfilPage'};
 </script>

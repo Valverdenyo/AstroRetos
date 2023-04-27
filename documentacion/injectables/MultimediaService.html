@@ -111,6 +111,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -119,6 +121,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -133,6 +136,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servidcio de almacenamiento de archivos de Firebase</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -168,14 +175,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="15"
-                            class="link-to-prism">src/app/services/multimedia.service.ts:15</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="24"
+                            class="link-to-prism">src/app/services/multimedia.service.ts:24</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Subida de la imagen a una ruta pasada por parametro</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -186,6 +195,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -200,6 +210,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>archivo saneado que tiene que subir a Firestorage</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>path</td>
@@ -212,6 +226,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>ruta en la que va a alojar el archivo</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>nombre</td>
@@ -224,6 +242,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>nombre del archivo</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -257,11 +279,21 @@ import { finalize } from &#x27;rxjs/operators&#x27;;
 })
 export class MultimediaService {
 
- 
-
+/**
+ * Constructor de clase
+ * @param fireStorage Servidcio de almacenamiento de archivos de Firebase
+ */
   constructor(private fireStorage: AngularFireStorage) { }
 
+  /**
+   * Subida de la imagen a una ruta pasada por parametro
+   * @param file archivo saneado que tiene que subir a Firestorage
+   * @param path ruta en la que va a alojar el archivo
+   * @param nombre nombre del archivo
+   * @returns 
+   */
   subirImagen(file: any, path: string, nombre: string): Promise&lt;string&gt; {
+
     return new Promise(resolve &#x3D;&gt; {
       const filePath &#x3D; path + &#x27;/&#x27; + nombre + Date.now();
       const ref &#x3D; this.fireStorage.ref(filePath);

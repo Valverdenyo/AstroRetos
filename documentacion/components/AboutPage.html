@@ -164,12 +164,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="11" class="link-to-prism">src/app/pages/about/about.page.ts:11</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="12" class="link-to-prism">src/app/pages/about/about.page.ts:12</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -178,6 +180,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -192,6 +195,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Componente para mostrar los enlaces a perfiles en el navegador integrado a traves de InAppBrowser</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>platform</td>
@@ -204,6 +211,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Componente para controlar la plataforma donde se ejecuta la app</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -243,14 +254,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="16"
-                            class="link-to-prism">src/app/pages/about/about.page.ts:16</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="25"
+                            class="link-to-prism">src/app/pages/about/about.page.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo de inicio</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -280,14 +293,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="19"
-                            class="link-to-prism">src/app/pages/about/about.page.ts:19</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="33"
+                            class="link-to-prism">src/app/pages/about/about.page.ts:33</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Abre los perfiles</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -298,6 +313,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -312,6 +328,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>URL que se tiene que abrir</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -336,6 +356,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
 import { InAppBrowser } from &#x27;@awesome-cordova-plugins/in-app-browser/ngx&#x27;;
 import { Platform } from &#x27;@ionic/angular&#x27;;
 
@@ -347,12 +368,25 @@ import { Platform } from &#x27;@ionic/angular&#x27;;
 })
 export class AboutPage implements OnInit {
 
+/**
+ * Constructor de clase
+ * @param iab Componente para mostrar los enlaces a perfiles en el navegador integrado a traves de InAppBrowser
+ * @param platform Componente para controlar la plataforma donde se ejecuta la app
+ */
   constructor(private iab: InAppBrowser,
     private platform: Platform) { }
 
+    /**
+     * Metodo de inicio
+     */
   ngOnInit() {
   }
 
+  /**
+   * Abre los perfiles 
+   * @param url URL que se tiene que abrir
+   * @returns 
+   */
   openURL(url: string) {
 
     if (this.platform.is(&#x27;android&#x27;)) {
@@ -478,7 +512,7 @@ ion-img {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><app-header titulo="Acerca de..."></app-header><ion-content>       <ion-grid fixed class="ion-no-margin">        <ion-row>            <ion-col size="12">                <ion-img src="./assets/images/no-avatar.png"></ion-img>            </ion-col>        </ion-row>        <ion-row>            <ion-col size="12" class="ion-text-center">                <p>                    Aplicación desarrollada como Proyecto de Fin de Curso.                </p>                <p>                    Curso: 3DAMN                </p>                <p>                    Alumno: Juan Manuel Pérez López                </p>                <p>                    Tutor: Manuel Santa Ana Barry                </p>                <p>                    Enlace proyecto GitHub: <a href="https://github.com/Valverdenyo/AstroRetos">AstroRetos</a>                </p>                <p>                    Enlace Documentación:                </p>            </ion-col>        </ion-row>        <ion-row>            <ion-col size="4">                <ion-icon name="logo-github" (click)="openURL(\'https://github.com/Valverdenyo\')"></ion-icon>            </ion-col>            <ion-col size="4">                <ion-icon name="logo-twitter" class="color-twitter" (click)="openURL(\'https://twitter.com/Valverdenyo\')"></ion-icon>            </ion-col>            <ion-col size="4">                <ion-icon name="logo-linkedin" class="color-linkedin" (click)="openURL(\'https://www.linkedin.com/in/juanmaperlo/\')"></ion-icon>            </ion-col>        </ion-row>        <ion-row>            <ion-col size="12" class="ion-text-center">                <ion-label>                    Contacto:                     <a href="mailto:elwe.isilra@gmail.com">elwe.isilra@gmail.com</a>                  </ion-label>            </ion-col>        </ion-row>    </ion-grid></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AboutPage'};
 </script>

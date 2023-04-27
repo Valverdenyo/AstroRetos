@@ -106,6 +106,9 @@
                                 <a href="#getMenuOpts" >getMenuOpts</a>
                             </li>
                             <li>
+                                <a href="#getTotalPuntosByUser" >getTotalPuntosByUser</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getUserByEmail" >getUserByEmail</a>
                             </li>
@@ -117,10 +120,13 @@
                                 <a href="#getUsers" >getUsers</a>
                             </li>
                             <li>
-                                <a href="#updateUser" >updateUser</a>
+                                <a href="#getUsuariosPorPuntos" >getUsuariosPorPuntos</a>
                             </li>
                             <li>
                                 <a href="#updateUserAvatar" >updateUserAvatar</a>
+                            </li>
+                            <li>
+                                <a href="#updateUserPuntos" >updateUserPuntos</a>
                             </li>
                             <li>
                                 <a href="#updateUserRol" >updateUserRol</a>
@@ -148,12 +154,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/services/user.service.ts:20</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/services/user.service.ts:35</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -162,6 +170,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -176,6 +185,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de Firestore</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>http</td>
@@ -188,6 +201,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de http usado para peticiones json a los datos del menu</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -223,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="95"
-                            class="link-to-prism">src/app/services/user.service.ts:95</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="151"
+                            class="link-to-prism">src/app/services/user.service.ts:151</a></div>
                 </td>
             </tr>
 
@@ -276,26 +293,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUserByEmail"></a>
+                    <a name="getTotalPuntosByUser"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
-                        <span ><b>getUserByEmail</b></span>
-                        <a href="#getUserByEmail"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getTotalPuntosByUser</b></span>
+                        <a href="#getTotalPuntosByUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserByEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getTotalPuntosByUser(user: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="30"
-                            class="link-to-prism">src/app/services/user.service.ts:30</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="137"
+                            class="link-to-prism">src/app/services/user.service.ts:137</a></div>
                 </td>
             </tr>
 
@@ -316,6 +331,80 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;number&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserByEmail"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>getUserByEmail</b></span>
+                        <a href="#getUserByEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserByEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="61"
+                            class="link-to-prism">src/app/services/user.service.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un Observable del usuario a traves de su email</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Descripción</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
                                     <td>email</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -326,6 +415,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Parametro pasado para buscar al usuario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -365,14 +458,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="38"
-                            class="link-to-prism">src/app/services/user.service.ts:38</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="76"
+                            class="link-to-prism">src/app/services/user.service.ts:76</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Devuelve un observable con el usuario buscado por Id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -383,6 +478,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -397,6 +493,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del usuario a buscar</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -434,18 +534,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="26"
-                            class="link-to-prism">src/app/services/user.service.ts:26</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="50"
+                            class="link-to-prism">src/app/services/user.service.ts:50</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un observable con todos los usuarios</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Observable&lt;any[]&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -455,24 +562,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateUser"></a>
+                    <a name="getUsuariosPorPuntos"></a>
                     <span class="name">
-                        <span ><b>updateUser</b></span>
-                        <a href="#updateUser"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getUsuariosPorPuntos</b></span>
+                        <a href="#getUsuariosPorPuntos"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateUser()</code>
+<code>getUsuariosPorPuntos()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="46"
-                            class="link-to-prism">src/app/services/user.service.ts:46</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="145"
+                            class="link-to-prism">src/app/services/user.service.ts:145</a></div>
                 </td>
             </tr>
 
@@ -481,7 +588,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Devuelve : </b>    <code>Observable&lt;any[]&gt;</code>
 
                     </div>
                 </td>
@@ -508,8 +615,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="70"
-                            class="link-to-prism">src/app/services/user.service.ts:70</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="112"
+                            class="link-to-prism">src/app/services/user.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -573,6 +680,87 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="updateUserPuntos"></a>
+                    <span class="name">
+                        <span ><b>updateUserPuntos</b></span>
+                        <a href="#updateUserPuntos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateUserPuntos(user: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, puntos: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="84"
+                            class="link-to-prism">src/app/services/user.service.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>puntos</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateUserRol"></a>
                     <span class="name">
                         <span ><b>updateUserRol</b></span>
@@ -589,8 +777,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="50"
-                            class="link-to-prism">src/app/services/user.service.ts:50</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="92"
+                            class="link-to-prism">src/app/services/user.service.ts:92</a></div>
                 </td>
             </tr>
 
@@ -668,10 +856,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/services/user.service.ts:19</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="30" class="link-to-prism">src/app/services/user.service.ts:30</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable que almacena la URL del nuevo avatar para cambiarlo</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -694,10 +888,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/services/user.service.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/services/user.service.ts:25</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable para guardar el nuevo rol del usuario a cambiar</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -720,10 +920,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/services/user.service.ts:17</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/services/user.service.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto tipo Usuario para manejar su informacion</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -746,10 +952,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/services/user.service.ts:20</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/services/user.service.ts:35</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>almacena una coleccion de Usuarios para su colsulta</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -775,27 +987,65 @@ import { MenuOpts, Usuario } from &#x27;../interfaces/interfaces&#x27;;
 })
 export class UserService {
 
+  /**
+   * Objeto tipo Usuario para manejar su informacion
+   */
   usuario: Usuario;
+
+  /**
+   * variable para guardar el nuevo rol del usuario a cambiar
+   */
   newRol: string;
+
+  /**
+   * variable que almacena la URL del nuevo avatar para cambiarlo
+   */
   newAvatar: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * almacena una coleccion de Usuarios para su colsulta
+   */
   usuariosCollection: AngularFirestoreCollection&lt;Usuario&gt;;
 
+  /**
+   * Constructor de clase
+   * @param firestore Servicio de Firestore
+   * @param http Servicio de http usado para peticiones json a los datos del menu
+   */
   constructor(private firestore: AngularFirestore,
     private http: HttpClient
   ) { }
 
+  /**
+   * Obtiene un observable con todos los usuarios
+   * @returns 
+   */
   getUsers(): Observable&lt;any[]&gt; {
+
     return this.firestore.collection(&#x27;usuarios&#x27;).valueChanges({ idField: &#x27;id&#x27; });
+
   }
 
+  /**
+   * Obtiene un Observable del usuario a traves de su email
+   * @param email Parametro pasado para buscar al usuario
+   * @returns 
+   */
   public getUserByEmail(email: string): Observable&lt;Usuario&gt; {
+
     return this.firestore.collection&lt;Usuario&gt;(&#x27;usuarios&#x27;, ref &#x3D;&gt; ref.where(&#x27;EMAIL&#x27;, &#x27;&#x3D;&#x3D;&#x27;, email).limit(1))
       .valueChanges({ idField: &#x27;id&#x27; })
       .pipe(
         map(usuarios &#x3D;&gt; usuarios[0])
       );
+
   }
 
+  /**
+   * Devuelve un observable con el usuario buscado por Id
+   * @param id Id del usuario a buscar
+   * @returns 
+   */
   public getUserById(id: string): Observable&lt;Usuario&gt; {
     return this.firestore.collection&lt;Usuario&gt;(&#x27;usuarios&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id).limit(1))
       .valueChanges({ idField: &#x27;id&#x27; })
@@ -804,8 +1054,12 @@ export class UserService {
       );
   }
 
-  updateUser() {
-
+  updateUserPuntos(user: string, puntos: number) {
+    this.getUserByEmail(user).subscribe(usuario &#x3D;&gt; {
+      return this.firestore.collection(&#x27;usuarios&#x27;).doc(usuario.ID).update({
+        PUNTOS: puntos
+      });
+    });
   }
 
   updateUserRol(id: string) {
@@ -832,27 +1086,41 @@ export class UserService {
     this.getUserById(id).subscribe(usuario &#x3D;&gt; {
       this.usuario &#x3D; usuario;
       this.newAvatar &#x3D; this.usuario.AVATAR;
-      console.log(&#x27;avatar viejo&#x27;,this.newAvatar);
+      console.log(&#x27;avatar viejo&#x27;, this.newAvatar);
       this.newAvatar &#x3D; avatar;
-      console.log(&#x27;avatar nuevo&#x27;,this.newAvatar);
-      
-    }); 
+      console.log(&#x27;avatar nuevo&#x27;, this.newAvatar);
+
+    });
     return this.firestore.collection(&#x27;usuarios&#x27;).doc(id).update({
       AVATAR: avatar
     });
   }
 
-    /*  async deleteUser(id: string) {
-      this.authSvc.deleteUser();
-      this.firestore.collection(&#x27;usuarios&#x27;).doc(id).delete()
-        .then(() &#x3D;&gt; {
-          console.log(&#x27;Documento eliminado correctamente&#x27;);
-        })
-        .catch((error) &#x3D;&gt; {
-          console.error(&#x27;Error al eliminar documento: &#x27;, error);
-        });
-    } */
-   
+  /*  async deleteUser(id: string) {
+    this.authSvc.deleteUser();
+    this.firestore.collection(&#x27;usuarios&#x27;).doc(id).delete()
+      .then(() &#x3D;&gt; {
+        console.log(&#x27;Documento eliminado correctamente&#x27;);
+      })
+      .catch((error) &#x3D;&gt; {
+        console.error(&#x27;Error al eliminar documento: &#x27;, error);
+      });
+  } */
+
+  getTotalPuntosByUser(user: string): Observable&lt;number&gt; {
+    return this.firestore.collection&lt;any&gt;(&#x27;retosconseguidos&#x27;, ref &#x3D;&gt; ref.where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, user))
+      .valueChanges({ idField: &#x27;ID&#x27; })
+      .pipe(
+        map(retos &#x3D;&gt; retos.reduce((total, reto) &#x3D;&gt; total + reto.PUNTOS, 0))
+      );
+  }
+
+  getUsuariosPorPuntos(): Observable&lt;any[]&gt; {
+    return this.firestore.collection(&#x27;usuarios&#x27;, ref &#x3D;&gt; ref.orderBy(&#x27;PUNTOS&#x27;, &#x27;desc&#x27;))
+      .valueChanges({ idField: &#x27;ID&#x27; });
+  }
+  
+
   getMenuOpts(roles: string[]) {
     return this.http.get&lt;MenuOpts[]&gt;(&#x27;/assets/data/menu.json&#x27;)
       .pipe(
