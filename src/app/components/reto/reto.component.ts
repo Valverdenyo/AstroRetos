@@ -40,7 +40,9 @@ export class RetoComponent implements OnInit {
     */
   favoritos: Favorito[] = [];
 
-  esFavorito$: Observable<boolean>;
+  esFavorito: boolean = false;
+
+  esRetoConseguido = false;
   /**
    * Declara el tipo de icono para cambiarlo según el tipo de reto.
    */
@@ -71,17 +73,11 @@ export class RetoComponent implements OnInit {
 
     this.auth.authState.subscribe((user) => {
       this.usuarioLogado = !!user;
+      console.log(this.usuarioLogado);
       this.authSvc.getUserEmail().then(email => {
         this.email = email;
       });
     });
-
-  }
-
-  /**
-   * Cuando cargue completamente la página, checkeamos la vista para incluir el icono de Favorito
-   */
-  ionViewDidEnter() {
 
   }
 
@@ -171,14 +167,18 @@ export class RetoComponent implements OnInit {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  esRetoFavorito(retoId: string, user: string) {
-    return this.retoSvc.checkFavorito(retoId, user).pipe(
-      map(existe => {
-        console.log(existe);
-        return existe ? true : false;
-      })
-    );
-  }
+  async checkRetoFavorito(retoId: string, user: string): Promise<string> {
+    const existe = await this.retoSvc.checkFavorito(retoId, user).toPromise();
+    
+    if (existe) {
+      console.log('existe');
+       return 'star-sharp';
+    } else {
+      console.log('no existe');
+       return 'star-outline';
+    }
+ }
+
 
   setFavorito(retoId: string, user: string) {
     try {
