@@ -51,7 +51,7 @@ export class RetoComponent implements OnInit {
    * Mensaje para compartir por RRSS.
    */
   mensaje: string = 'Te reto!';
-  
+
   puntos: number;
 
   /**
@@ -88,7 +88,7 @@ export class RetoComponent implements OnInit {
   ngOnInit() {
 
     this.retoSvc.getRetosActivos().subscribe(retos => {
-      this.retos = retos;            
+      this.retos = retos;
     });
 
   }
@@ -168,16 +168,23 @@ export class RetoComponent implements OnInit {
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
   async checkRetoFavorito(retoId: string, user: string): Promise<string> {
-    const existe = await this.retoSvc.checkFavorito(retoId, user).toPromise();
-    
+
+    console.log('checkeamos');
+
+    const existe = await this.retoSvc.checkFavorito(retoId, user);
+
     if (existe) {
+      this.iconTipo = 'star-sharp';
       console.log('existe');
-       return 'star-sharp';
+
+      return 'star-sharp';
     } else {
+      this.iconTipo = 'star-outline';
       console.log('no existe');
-       return 'star-outline';
+
+      return 'star-outline';
     }
- }
+  }
 
 
   setFavorito(retoId: string, user: string) {
@@ -194,20 +201,20 @@ export class RetoComponent implements OnInit {
   quitarFavorito(retoId: string) {
     try {
       this.retoSvc.deleteFavorito(retoId);
-     
-   this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
- } catch (error) {
-   this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');
- }
+
+      this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');
+    }
   }
 
-  setRetoConseguido (retoId: string, user: string) {
+  setRetoConseguido(retoId: string, user: string) {
     try {
 
       this.retoSvc.addRetoConseguido(retoId, user);
       this.avisosSvc.presentToast('Reto conseguido', 'success');
       this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos => {
-        
+
         this.userSvc.updateUserPuntos(this.email, totalPuntos);
       })
 
@@ -216,18 +223,18 @@ export class RetoComponent implements OnInit {
     }
   }
 
-  removeRetoConseguido (retoId: string) {
+  removeRetoConseguido(retoId: string) {
     try {
 
       this.retoSvc.eliminarRetoConseguido(retoId);
       this.avisosSvc.presentToast('Reto eliminado', 'success');
-      
+
 
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar Reto', 'danger');
     }
   }
 
-  
+
 
 }

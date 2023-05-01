@@ -144,12 +144,9 @@ export class RetoService {
 
   }
 
-  checkFavorito(idReto: string, user: string): Observable<boolean> {
-    return this.firestore.collection<Favorito>('favoritos', ref =>
-      ref.where('ID_RETO', '==', idReto).where('USER', '==', user)
-    ).get().pipe(
-      map(querySnapshot => !querySnapshot.empty)
-    );
+  async checkFavorito(retoId: string, user: string): Promise<boolean> {
+    const snapshot = await this.firestore.collection('favoritos').ref.where('ID_RETO', '==', retoId).where('USER', '==', user).get();
+    return !snapshot.empty;
   }
 
   addFavorito(id: string, user: string) {
@@ -228,7 +225,7 @@ export class RetoService {
       console.error("Error al eliminar el documento: ", error);
     });
   }
-  
+
 
   async deleteRetoConseguido(id: string) {
 

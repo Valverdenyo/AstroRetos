@@ -22,7 +22,7 @@
         (click)="removeRetoConseguido(reto.ID)"></ion-icon>
 
 
-      <ion-icon *ngIf="usuarioLogado" name="star-sharp"
+      <ion-icon *ngIf="usuarioLogado" name="star-outline" (click)="checkRetoFavorito(reto.ID, this.email)"
       slot="end" color="primary"
        
       ></ion-icon>
