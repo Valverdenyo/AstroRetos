@@ -4,7 +4,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { AuthService } from '../../services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-import { MenuOpts, Usuario } from 'src/app/interfaces/interfaces';
+import { MenuOpts, Reto, Usuario } from 'src/app/interfaces/interfaces';
+import { RetoService } from 'src/app/services/reto.service';
 
 /**
  * Componente Home. Indica la plantilla HTML que usa y su CSS.
@@ -16,6 +17,8 @@ import { MenuOpts, Usuario } from 'src/app/interfaces/interfaces';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  public retos: Reto[] = [];
 
 /**
  * Booleano para mostrar/ocultar el FAB de Login
@@ -47,7 +50,8 @@ export class HomePage implements OnInit {
    */
   constructor(private authSvc: AuthService,
     private userSvc: UserService,
-    private angularFireAuth: AngularFireAuth) {
+    private angularFireAuth: AngularFireAuth,
+    private retoSvc: RetoService) {
 
     this.angularFireAuth.onAuthStateChanged(user => {
       if (user) {
@@ -96,6 +100,10 @@ export class HomePage implements OnInit {
    * Método de inicio. No hace ninguna carga inicial
    */
   ngOnInit() {
+
+    this.retoSvc.getRetosActivos().subscribe(retos => {
+      this.retos = retos;
+    }); 
 
   }
 

@@ -1,4 +1,4 @@
-<ion-card *ngFor="let reto of retos">
+<ion-card>
   <ion-card-header>
 
     <ion-item>
@@ -16,19 +16,20 @@
 
       <ion-icon [name]="getIconTipo(reto.TIPO)" slot="start" color="primary"></ion-icon>
       <ion-icon name="ellipse-sharp" [color]="getColorNivel(reto.NIVEL)" slot="start"></ion-icon>
-
-
-      <ion-icon *ngIf="usuarioLogado" name="checkmark-circle-outline" color="success"
+<ion-buttons slot="start">
+  <ion-button>
+    <ion-icon *ngIf="usuarioLogado" name="checkmark-circle-outline" color="success"
         (click)="removeRetoConseguido(reto.ID)"></ion-icon>
-
-
-      <ion-icon *ngIf="usuarioLogado" name="star-outline" (click)="checkRetoFavorito(reto.ID, this.email)"
-      slot="end" color="primary"
-       
-      ></ion-icon>
-    
-
-      <ion-icon name="share-social-outline" color="primary" slot="end" (click)="compartirReto()"></ion-icon>
+  </ion-button>
+</ion-buttons>
+<ion-buttons slot="end">
+  <ion-button slot="icon-only" (click)="checkRetoFavorito(reto.ID, this.email)">
+    <ion-icon *ngIf="checkRetoFavorito(reto.ID, this.email)" name="star-outline" slot="end" color="primary"></ion-icon>
+  </ion-button>
+  <ion-button slot="icon-only" (click)="compartirReto()">
+    <ion-icon name="share-social-outline" color="primary" slot="end"></ion-icon>
+  </ion-button>
+</ion-buttons>   
 
     </ion-item>
   </ion-card-content>

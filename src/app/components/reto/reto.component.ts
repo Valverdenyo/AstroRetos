@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ModalController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { map } from 'rxjs/operators';
+
 import { AvisosService } from 'src/app/services/avisos.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -21,7 +21,10 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './reto.component.html',
   styleUrls: ['./reto.component.scss'],
 })
-export class RetoComponent implements OnInit {
+export class RetoComponent {
+
+  @Input() reto!: Reto;
+  @Input() index!: number;
 
   /**
    * Comprueba si el usuario está logado o no para habilitar el icono de favoritos y de Realizado.
@@ -77,18 +80,6 @@ export class RetoComponent implements OnInit {
       this.authSvc.getUserEmail().then(email => {
         this.email = email;
       });
-    });
-
-  }
-
-  /**
-   * Carga al inicio solo los retos marcados como Activos
-   * Tambien revisa si el usuario está logado y busca si el reto ya lo tiene en Favoritos (NO IMPLEMENTADO) o no.
-   */
-  ngOnInit() {
-
-    this.retoSvc.getRetosActivos().subscribe(retos => {
-      this.retos = retos;
     });
 
   }
@@ -167,22 +158,22 @@ export class RetoComponent implements OnInit {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  async checkRetoFavorito(retoId: string, user: string): Promise<string> {
+  async checkRetoFavorito(retoId: string, user: string): Promise<boolean> {
 
     console.log('checkeamos');
 
     const existe = await this.retoSvc.checkFavorito(retoId, user);
-
+    console.log(existe);
     if (existe) {
       this.iconTipo = 'star-sharp';
       console.log('existe');
 
-      return 'star-sharp';
+      return true;
     } else {
       this.iconTipo = 'star-outline';
       console.log('no existe');
 
-      return 'star-outline';
+      return false;
     }
   }
 
