@@ -7,7 +7,6 @@ import { Favorito, Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 import { InfoRetoComponent } from '../info-reto/info-reto.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { Observable } from 'rxjs';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
@@ -21,9 +20,10 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './reto.component.html',
   styleUrls: ['./reto.component.scss'],
 })
-export class RetoComponent {
+export class RetoComponent implements OnInit {
 
   @Input() reto!: Reto;
+
   @Input() index!: number;
 
   /**
@@ -43,7 +43,9 @@ export class RetoComponent {
     */
   favoritos: Favorito[] = [];
 
-  esFavorito: boolean = false;
+  favorito: Favorito;
+
+  esFavorito: boolean;
 
   esRetoConseguido = false;
   /**
@@ -78,9 +80,17 @@ export class RetoComponent {
       this.usuarioLogado = !!user;
       console.log(this.usuarioLogado);
       this.authSvc.getUserEmail().then(email => {
-        this.email = email;
+        this.email = 'elwe.isilra@gmail.com';
       });
     });
+
+  }
+
+  ngOnInit() {
+
+    this.email = 'elwe.isilra@gmail.com';
+    console.log(this.reto.ID, this.email);
+    this.checkRetoFavorito(this.reto.ID, this.email);
 
   }
 
@@ -158,23 +168,12 @@ export class RetoComponent {
   /**
    * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
    */
-  async checkRetoFavorito(retoId: string, user: string): Promise<boolean> {
+  checkRetoFavorito(retoId: string, user: string) {
 
-    console.log('checkeamos');
-
-    const existe = await this.retoSvc.checkFavorito(retoId, user);
-    console.log(existe);
-    if (existe) {
-      this.iconTipo = 'star-sharp';
-      console.log('existe');
-
-      return true;
-    } else {
-      this.iconTipo = 'star-outline';
-      console.log('no existe');
-
-      return false;
-    }
+    this.retoSvc.checkFavorito(retoId, user).subscribe(existe => {
+      this.esFavorito = existe;
+      console.log(this.esFavorito);
+    });
   }
 
 
@@ -189,9 +188,15 @@ export class RetoComponent {
     }
   }
 
-  quitarFavorito(retoId: string) {
+  quitarFavorito(retoId: string, email: string) {
     try {
-      this.retoSvc.deleteFavorito(retoId);
+
+      this.retoSvc.getFavorito(retoId, email).subscribe(fav => {
+        
+        console.log(fav[0].ID_FAV);
+        this.retoSvc.deleteFavorito(fav[0].ID_FAV);
+      })
+
 
       this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
     } catch (error) {

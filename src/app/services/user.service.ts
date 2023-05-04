@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 import { MenuOpts, Usuario } from '../interfaces/interfaces';
 
@@ -13,6 +14,8 @@ import { MenuOpts, Usuario } from '../interfaces/interfaces';
   providedIn: 'root'
 })
 export class UserService {
+
+  private userEmail = new BehaviorSubject<string>('');
 
   /**
    * Objeto tipo Usuario para manejar su informacion
@@ -42,6 +45,14 @@ export class UserService {
   constructor(private firestore: AngularFirestore,
     private http: HttpClient
   ) { }
+
+  setUserEmail(email: string) {
+    this.userEmail.next(email);
+  }
+
+  getUserEmail() {
+    return this.userEmail.asObservable();
+  }
 
   /**
    * Obtiene un observable con todos los usuarios

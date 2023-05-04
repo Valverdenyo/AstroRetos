@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { RegistroComponent } from '../registro/registro.component';
 import { Error } from 'src/app/interfaces/errores';
 import { Usuario } from 'src/app/interfaces/interfaces';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
    * @param navCtrl Controlador de navegación por la app
    */
   constructor(private authSvc: AuthService,
+    private userSvc: UserService,
     private fBuilder: FormBuilder,
     private modalCtrl: ModalController,
     private navCtrl: NavController) {
@@ -74,6 +76,9 @@ export class LoginComponent implements OnInit {
     try {
       await this.authSvc.signIn(value);
       this.navCtrl.navigateRoot('/home');
+      const userEmail = this.loginForm.value.email;
+      this.userSvc.setUserEmail(userEmail);
+      console.log('logado con', userEmail);
 
     } catch (error) {
       console.log('Error al iniciar sesión:', error);

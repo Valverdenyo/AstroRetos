@@ -22,10 +22,12 @@
         (click)="removeRetoConseguido(reto.ID)"></ion-icon>
   </ion-button>
 </ion-buttons>
-<ion-buttons slot="end">
-  <ion-button slot="icon-only" (click)="checkRetoFavorito(reto.ID, this.email)">
-    <ion-icon *ngIf="checkRetoFavorito(reto.ID, this.email)" name="star-outline" slot="end" color="primary"></ion-icon>
-  </ion-button>
+
+    <ion-icon *ngIf="esFavorito" name="star-sharp" slot="end" color="primary" (click)="quitarFavorito(reto.ID, this.email)"></ion-icon>
+    <ion-icon *ngIf="!esFavorito" name="star-outline" slot="end" color="primary" (click)="setFavorito(reto.ID, this.email)"></ion-icon>
+ <ion-buttons slot="end">
+  
+
   <ion-button slot="icon-only" (click)="compartirReto()">
     <ion-icon name="share-social-outline" color="primary" slot="end"></ion-icon>
   </ion-button>

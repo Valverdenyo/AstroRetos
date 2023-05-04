@@ -3,9 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Favorito, Reto } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import * as firebase from 'firebase/compat';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +22,7 @@ export class RetoService {
   private favCollection: AngularFirestoreCollection<any>;
 
   constructor(private firestore: AngularFirestore) {
+   
 
   }
 
@@ -144,10 +142,26 @@ export class RetoService {
 
   }
 
-  async checkFavorito(retoId: string, user: string): Promise<boolean> {
-    const snapshot = await this.firestore.collection('favoritos').ref.where('ID_RETO', '==', retoId).where('USER', '==', user).get();
-    return !snapshot.empty;
+  checkFavorito(retoId: string, user: string): Observable<boolean> {
+    console.log('buscando favorito', retoId, 'del usuario', user);
+    return this.firestore.collection('favoritos', ref => ref.where('ID_RETO', '==', retoId).where('USER', '==', user)).valueChanges().pipe(
+      map(favoritos => favoritos.length > 0)
+    );
   }
+
+  getFavorito(retoId: string, user: string) {
+    this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('ID_RETO', '==', retoId).where('USER', '==', user));
+    this.retosFavoritos = this.favCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Favorito;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retosFavoritos;
+
+  }
+
 
   addFavorito(id: string, user: string) {
     this.firestore.collection('favoritos').add({

@@ -76,18 +76,17 @@ export class PerfilPage implements OnInit {
 
   ) {
 
-    this.angularFireAuth.onAuthStateChanged(user => {
+      this.angularFireAuth.onAuthStateChanged(user => {
 
       if (user) {
         // El usuario está logueado
-
-        this.authSvc.getUserEmail().then(email => {
-
+        this.userSvc.getUserEmail().subscribe(email => {
           this.userEmail = email;
+   
+
           this.userSvc.getUserByEmail(email).subscribe(usuario => {
 
             this.usuarioLogado = usuario;
-
           });
 
         });
@@ -98,7 +97,7 @@ export class PerfilPage implements OnInit {
 
       }
 
-    });
+    });       
 
   }
 
@@ -106,6 +105,15 @@ export class PerfilPage implements OnInit {
    * Metodo de inicio
    */
   ngOnInit() {
+    this.userSvc.getUserEmail().subscribe(email => {
+      this.userEmail = email;
+      console.log(this.userEmail);
+      this.userSvc.getUserByEmail(email).subscribe(usuario => {
+
+        this.usuarioLogado = usuario;
+      });
+    });
+  
   }
 
   /**
