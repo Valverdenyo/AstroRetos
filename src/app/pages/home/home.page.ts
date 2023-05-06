@@ -97,7 +97,7 @@ export class HomePage implements OnInit {
   }
 
   /**
-   * Método de inicio. No hace ninguna carga inicial
+   * Método de inicio. Carga los retos activos
    */
   ngOnInit() {
 

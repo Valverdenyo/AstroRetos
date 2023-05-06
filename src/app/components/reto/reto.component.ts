@@ -71,24 +71,19 @@ export class RetoComponent implements OnInit {
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
     private platform: Platform,
-    private authSvc: AuthService,
-    private auth: AngularFireAuth,
     private userSvc: UserService,
     private avisosSvc: AvisosService) {
 
-    this.auth.authState.subscribe((user) => {
-      this.usuarioLogado = !!user;
-      console.log(this.usuarioLogado);
-      this.authSvc.getUserEmail().then(email => {
-        this.email = 'elwe.isilra@gmail.com';
-      });
+    this.userSvc.getUserEmail().subscribe(email => {
+      this.email = email;
+      console.log('email', this.email);
     });
 
   }
 
   ngOnInit() {
 
-    this.email = 'elwe.isilra@gmail.com';
+
     console.log(this.reto.ID, this.email);
     this.checkRetoFavorito(this.reto.ID, this.email);
 
@@ -180,8 +175,14 @@ export class RetoComponent implements OnInit {
   setFavorito(retoId: string, user: string) {
     try {
 
-      this.retoSvc.addFavorito(retoId, user);
-      this.avisosSvc.presentToast('Favorito añadido', 'success');
+      if (user !== '') {
+        this.retoSvc.addFavorito(retoId, user);
+        this.avisosSvc.presentToast('Favorito añadido', 'success');
+
+      } else {
+        this.avisosSvc.presentToast('Debes estar logado para hacer esto', 'warning');
+      }
+
 
     } catch (error) {
       this.avisosSvc.presentToast('Error al añadir Favorito', 'danger');
@@ -192,8 +193,7 @@ export class RetoComponent implements OnInit {
     try {
 
       this.retoSvc.getFavorito(retoId, email).subscribe(fav => {
-        
-        console.log(fav[0].ID_FAV);
+
         this.retoSvc.deleteFavorito(fav[0].ID_FAV);
       })
 
