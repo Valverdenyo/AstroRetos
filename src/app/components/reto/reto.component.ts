@@ -47,7 +47,7 @@ export class RetoComponent implements OnInit {
 
   esFavorito: boolean;
 
-  esRetoConseguido = false;
+  esRetoConseguido: boolean;
   /**
    * Declara el tipo de icono para cambiarlo según el tipo de reto.
    */
@@ -86,6 +86,7 @@ export class RetoComponent implements OnInit {
 
     console.log(this.reto.ID, this.email);
     this.checkRetoFavorito(this.reto.ID, this.email);
+    this.checkRetoConseguido(this.reto.ID, this.email);
 
   }
 
@@ -204,6 +205,14 @@ export class RetoComponent implements OnInit {
     }
   }
 
+  checkRetoConseguido(retoId: string, user: string) {
+
+    this.retoSvc.checkRetoConseguido(retoId, user).subscribe(existe => {
+      this.esRetoConseguido = existe;
+      console.log(this.esRetoConseguido);
+    });
+  }
+
   setRetoConseguido(retoId: string, user: string) {
     try {
 
@@ -219,13 +228,14 @@ export class RetoComponent implements OnInit {
     }
   }
 
-  removeRetoConseguido(retoId: string) {
+  removeRetoConseguido(retoId: string, email:string) {
     try {
 
-      this.retoSvc.eliminarRetoConseguido(retoId);
-      this.avisosSvc.presentToast('Reto eliminado', 'success');
+      this.retoSvc.getRetoConseguido(retoId, email).subscribe(retoConseguido => {
 
-
+        this.retoSvc.deleteRetoConseguido(retoConseguido[0].ID_RETO_CONSEGUIDO);
+      this.avisosSvc.presentToast('Reto Conseguido eliminado', 'success');
+      });
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar Reto', 'danger');
     }

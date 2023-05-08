@@ -431,8 +431,8 @@ Revisa el estado de la sesión, recoge el mail y busca su perfil para cargar los
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="173"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:173</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="181"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:181</a></div>
                 </td>
             </tr>
 
@@ -510,8 +510,8 @@ Al eliminarlo de devuelve al Home</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="201"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:201</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="209"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:209</a></div>
                 </td>
             </tr>
 
@@ -553,8 +553,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="124"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:124</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="132"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:132</a></div>
                 </td>
             </tr>
 
@@ -592,8 +592,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="114"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:114</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="122"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:122</a></div>
                 </td>
             </tr>
 
@@ -631,8 +631,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="108"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:108</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="107"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:107</a></div>
                 </td>
             </tr>
 
@@ -672,8 +672,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="288"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:288</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="296"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:296</a></div>
                 </td>
             </tr>
 
@@ -715,8 +715,8 @@ a Firestorage y posteriormente el servicio de actualizacion del usuario pasando 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="265"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:265</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="273"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:273</a></div>
                 </td>
             </tr>
 
@@ -986,18 +986,17 @@ export class PerfilPage implements OnInit {
 
   ) {
 
-    this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
+      this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
 
       if (user) {
         // El usuario está logueado
-
-        this.authSvc.getUserEmail().then(email &#x3D;&gt; {
-
+        this.userSvc.getUserEmail().subscribe(email &#x3D;&gt; {
           this.userEmail &#x3D; email;
+   
+
           this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
 
             this.usuarioLogado &#x3D; usuario;
-
           });
 
         });
@@ -1008,7 +1007,7 @@ export class PerfilPage implements OnInit {
 
       }
 
-    });
+    });       
 
   }
 
@@ -1016,6 +1015,15 @@ export class PerfilPage implements OnInit {
    * Metodo de inicio
    */
   ngOnInit() {
+    this.userSvc.getUserEmail().subscribe(email &#x3D;&gt; {
+      this.userEmail &#x3D; email;
+      console.log(this.userEmail);
+      this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
+
+        this.usuarioLogado &#x3D; usuario;
+      });
+    });
+  
   }
 
   /**
@@ -1294,7 +1302,7 @@ export class PerfilPage implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ion-header class="ion-no-border" translucent>  <ion-toolbar>    <ion-buttons slot="start">      <ion-back-button defaultHref="/" color="primary"></ion-back-button>    </ion-buttons>    <ion-title class="ion-text-capitalize" align="center" *ngIf="usuarioLogado?.ROL">Hola {{usuarioLogado.NOMBRE}} !!</ion-title>  </ion-toolbar></ion-header><ion-content>  <div>    <ion-avatar class="avatar">      <ion-img [src]="usuarioLogado?.AVATAR" class="imagenAvatar"></ion-img>    </ion-avatar>    <div class="image-text" align="center" color="primary" (click)="avatarActionSheet()">Cambiar Avatar</div>  </div>  <ion-button (click)="alertPassChange()" expand="block" fill="clear" shape="round">    Cambiar Contraseña  </ion-button>  <ion-item>    <ion-label>Puntos</ion-label>  </ion-item>  <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">    Cerrar sesión  </ion-button>  <ion-button (click)="alertDelete(usuarioLogado.ID)" expand="block" fill="clear" shape="round" color="danger">    Eliminar Cuenta  </ion-button></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'}];
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PerfilPage'};
 </script>

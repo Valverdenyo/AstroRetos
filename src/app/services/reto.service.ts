@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Favorito, Reto } from '../interfaces/interfaces';
+import { Favorito, Reto, RetoConseguido } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,15 +11,21 @@ export class RetoService {
 
   retosFavoritos: Observable<Favorito[]>;
   retoFavorito: Favorito;
-  private retosCollection: AngularFirestoreCollection<Reto>;
+  private favCollection: AngularFirestoreCollection<any>;
+
+  retosConseguidos: Observable<RetoConseguido[]>;
+  retoConseguido: RetoConseguido;
+  private retosConseguidosCollection: AngularFirestoreCollection<any>;
+  
 
   retos: Observable<Reto[]>;
   reto: Reto;
+  private retosCollection: AngularFirestoreCollection<Reto>;
 
   puntos: number;
   nivel: string;
 
-  private favCollection: AngularFirestoreCollection<any>;
+  
 
   constructor(private firestore: AngularFirestore) {
    
@@ -162,7 +168,6 @@ export class RetoService {
 
   }
 
-
   addFavorito(id: string, user: string) {
     this.firestore.collection('favoritos').add({
       USER: user,
@@ -194,6 +199,44 @@ export class RetoService {
       map(reto => reto[0].NIVEL)
     );
   }
+
+  checkRetoConseguido(retoId: string, user: string): Observable<boolean> {
+    console.log('buscando reto conseguido', retoId, 'del usuario', user);
+    return this.firestore.collection('retosconseguidos', ref => ref.where('ID_RETO', '==', retoId).where('USER', '==', user)).valueChanges().pipe(
+      map(favoritos => favoritos.length > 0)
+    );
+  }
+
+  getRetosConseguidos(): Observable<any[]> {
+    return this.firestore.collection('retosconseguidos').valueChanges({ idField: 'id' });
+  }
+
+  getRetosConseguidosByUser(id: string) {
+    this.retosConseguidosCollection = this.firestore.collection<RetoConseguido>('retosconseguidos', ref => ref.where('USER', '==', id));
+    this.retosConseguidos = this.retosConseguidosCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as RetoConseguido;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retosConseguidos;
+
+  }
+
+  getRetoConseguido(retoId: string, user: string) {
+    this.retosConseguidosCollection = this.firestore.collection<RetoConseguido>('retosconseguidos', ref => ref.where('ID_RETO', '==', retoId).where('USER', '==', user));
+    this.retosConseguidos = this.retosConseguidosCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as RetoConseguido;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retosConseguidos;
+
+  }
+
 
   addRetoConseguido(id: string, user: string) {
 
@@ -232,7 +275,7 @@ export class RetoService {
     });
   }
 
-  eliminarRetoConseguido(id: string) {
+  async deleteRetoConseguido(id: string) {
     this.firestore.collection('retosconseguidos').doc(id).delete().then(() => {
       console.log("Documento eliminado correctamente");
     }).catch((error) => {
@@ -240,10 +283,6 @@ export class RetoService {
     });
   }
 
-
-  async deleteRetoConseguido(id: string) {
-
-  }
 
 }
 
