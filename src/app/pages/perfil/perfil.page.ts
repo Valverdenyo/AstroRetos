@@ -76,7 +76,7 @@ export class PerfilPage implements OnInit {
 
   ) {
 
-      this.angularFireAuth.onAuthStateChanged(user => {
+    /*   this.angularFireAuth.onAuthStateChanged(user => {
 
       if (user) {
         // El usuario está logueado
@@ -97,7 +97,7 @@ export class PerfilPage implements OnInit {
 
       }
 
-    });       
+    });        */
 
   }
 

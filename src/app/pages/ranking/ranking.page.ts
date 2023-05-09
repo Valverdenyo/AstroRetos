@@ -11,23 +11,45 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RankingPage implements OnInit {
 
-  email: string;
+  /**
+   * Guarda el email del usuario logado
+   */
+  public userEmail: string;
+
+  /**
+   * Objeto de tipo usuario
+   */
   usuario: Usuario;
+
+  /**
+   * Array de objetos de Usuario
+   */
   usuarios: Usuario[] = [];
 
+  /**
+   * constructor de clase
+   * @param userSvc Servicio personalizado para manejo de Usuarios
+   * @param menuSvc Servicio para controlar el menu
+   * @param authSvc Servicio para gestionar la Autenticación
+   */
   constructor(private userSvc: UserService,
     public menuSvc: MenuService,
     private authSvc: AuthService) {
 
+      //Cargamos opciones de Menu
     this.menuSvc.setMenu();
 
   }
 
+  /**Metodos de carga al inicio
+   * Comprobamos si está logado y guardamos la info del usuario logado
+   * Carga los puntos de cada usuario
+   */
   ngOnInit() {
 
     this.authSvc.getUserEmail().then(email => {
-      this.email = email;
-      this.userSvc.getUserByEmail(email).subscribe(usuario => {
+      this.userEmail = email;
+      this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario => {
         this.usuario = usuario;
       });
 

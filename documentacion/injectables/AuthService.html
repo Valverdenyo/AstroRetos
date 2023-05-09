@@ -79,6 +79,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userEmail" >userEmail</a>
+                            </li>
+                            <li>
                                 <a href="#usuarioLogado" >usuarioLogado</a>
                             </li>
                         </ul>
@@ -103,6 +107,7 @@
                                 <a href="#deleteUser" >deleteUser</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#getUserEmail" >getUserEmail</a>
                             </li>
@@ -141,17 +146,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(angularFireAuth: AngularFireAuth, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, firestore: AngularFirestore, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(angularFireAuth: AngularFireAuth, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, firestore: AngularFirestore, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/services/auth.service.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/services/auth.service.ts:27</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -160,6 +167,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -174,6 +182,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de Angular Firebase con los metodos típicos de autenticacion</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>userSvc</td>
@@ -186,6 +198,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio personalizado para operaciones con el usuario</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>firestore</td>
@@ -198,6 +214,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de firestore</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -210,6 +230,26 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de enrutamiento dentro de la aplicación</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>avisosSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AvisosService.html" target="_self" >AvisosService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de avisos a través de Toasts</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -245,14 +285,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="80"
-                            class="link-to-prism">src/app/services/auth.service.ts:80</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="122"
+                            class="link-to-prism">src/app/services/auth.service.ts:122</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método que activa o desactiva rutas en funcion de si existe usuarios logado o no, para personalizar el menú
+Si no estas logado, redireccionaria al Login</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -263,6 +306,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -277,6 +321,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Ruta a la que se intenta acceder</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>state</td>
@@ -289,6 +337,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Estado del enrutador</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -326,18 +378,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="94"
-                            class="link-to-prism">src/app/services/auth.service.ts:94</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="140"
+                            class="link-to-prism">src/app/services/auth.service.ts:140</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba si hay un usuario logado o no</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -363,14 +422,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="116"
-                            class="link-to-prism">src/app/services/auth.service.ts:116</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="174"
+                            class="link-to-prism">src/app/services/auth.service.ts:174</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo para eliminar un usuario concreto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -381,6 +442,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -395,6 +457,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id del usuario a eliminar pasado por parámetro</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -418,6 +484,7 @@
                 <td class="col-md-4">
                     <a name="getUserEmail"></a>
                     <span class="name">
+                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
                         <span ><b>getUserEmail</b></span>
                         <a href="#getUserEmail"><span class="icon ion-ios-link"></span></a>
@@ -434,18 +501,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="100"
-                            class="link-to-prism">src/app/services/auth.service.ts:100</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="150"
+                            class="link-to-prism">src/app/services/auth.service.ts:150</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene el mail del usuario en caso de estar logado</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Promise&lt;string | null&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -473,14 +547,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="111"
-                            class="link-to-prism">src/app/services/auth.service.ts:111</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="165"
+                            class="link-to-prism">src/app/services/auth.service.ts:165</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método para cambiar la contraseña del usuario</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -491,6 +567,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -505,6 +582,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>String recibido a través del formulario con la nueva contraseña</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -544,14 +625,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="56"
-                            class="link-to-prism">src/app/services/auth.service.ts:56</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="82"
+                            class="link-to-prism">src/app/services/auth.service.ts:82</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método para hacer el login segun los datos recogidos en el formulario y lo guarda en el objeto tipo Usuario</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -562,6 +645,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -576,6 +660,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Valores recogidos por el formulario de acceso</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -613,18 +701,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="68"
-                            class="link-to-prism">src/app/services/auth.service.ts:68</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="98"
+                            class="link-to-prism">src/app/services/auth.service.ts:98</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método de deslogado del usuario con retorno al Home</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -650,14 +745,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="27"
-                            class="link-to-prism">src/app/services/auth.service.ts:27</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="49"
+                            class="link-to-prism">src/app/services/auth.service.ts:49</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método de creación de usuarios. Primero crea el usuario en Firestore y también lo crea en Auth de Firebase</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -668,6 +765,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -682,6 +780,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Datos recogidos por el Formulario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -719,18 +821,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="75"
-                            class="link-to-prism">src/app/services/auth.service.ts:75</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="110"
+                            class="link-to-prism">src/app/services/auth.service.ts:110</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene los detalles de usuario a traves del Auth de Firebase</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -742,6 +851,39 @@
     <h3 id="inputs">
         Propiedades
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/services/auth.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable para guardar el mail del usuario logado</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -761,10 +903,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/services/auth.service.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/services/auth.service.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto de tipo usuario para almacenar los datos del usuario Logado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -784,6 +932,7 @@ import { AngularFireAuth } from &#x27;@angular/fire/compat/auth&#x27;;
 import { take, map, tap } from &#x27;rxjs/operators&#x27;;
 import { Usuario } from &#x27;../interfaces/interfaces&#x27;;
 import { UserService } from &#x27;./user.service&#x27;;
+import { AvisosService } from &#x27;./avisos.service&#x27;;
 
 
 @Injectable({
@@ -791,15 +940,36 @@ import { UserService } from &#x27;./user.service&#x27;;
 })
 export class AuthService {
 
+  /**
+   * Objeto de tipo usuario para almacenar los datos del usuario Logado
+   */
   usuarioLogado: Usuario;
 
+  /**
+   * Variable para guardar el mail del usuario logado
+   */
+  public userEmail: string;
+
+  /**
+   * Constructor de clase
+   * @param angularFireAuth Servicio de Angular Firebase con los metodos típicos de autenticacion
+   * @param userSvc Servicio personalizado para operaciones con el usuario
+   * @param firestore Servicio de firestore 
+   * @param router Servicio de enrutamiento dentro de la aplicación
+   * @param avisosSvc Servicio de avisos a través de Toasts
+   */
   constructor(private angularFireAuth: AngularFireAuth,
     private userSvc: UserService,
     private firestore: AngularFirestore,
-    private router: Router) {
-    
+    private router: Router,
+    private avisosSvc: AvisosService) {
   }
 
+  /**
+   * Método de creación de usuarios. Primero crea el usuario en Firestore y también lo crea en Auth de Firebase
+   * @param usuario Datos recogidos por el Formulario
+   * @returns 
+   */
   signUp(usuario: Usuario) {
 
     this.firestore.collection(&#x27;usuarios&#x27;).add({
@@ -814,11 +984,10 @@ export class AuthService {
       .then((docRef: any) &#x3D;&gt; {
         this.firestore.doc(docRef).update({
           ID: docRef.id
-        })
-        this.firestore.collection(&#x27;usuarios&#x27;).doc(docRef.id).collection(&#x27;favoritos&#x27;).add({})
+        });
       })
       .catch((error: any) &#x3D;&gt; {
-        console.error(&#x27;Error al agregar usuario: &#x27;, error);
+        this.avisosSvc.presentToast(&#x27;No se ha podido crear el Usuario&#x27;, &#x27;danger&#x27;);
       });
 
     return new Promise&lt;any&gt;((resolve, reject) &#x3D;&gt; {
@@ -829,6 +998,11 @@ export class AuthService {
     })
   }
 
+  /**
+   * Método para hacer el login segun los datos recogidos en el formulario y lo guarda en el objeto tipo Usuario
+   * @param value Valores recogidos por el formulario de acceso
+   * @returns 
+   */
   async signIn(value: any) {
 
     this.userSvc.getUserByEmail(value.email).subscribe(resultado &#x3D;&gt; {
@@ -841,19 +1015,35 @@ export class AuthService {
 
   }
 
+  /**
+   * Método de deslogado del usuario con retorno al Home
+   * @returns 
+   */
   signOut() {
     return new Promise&lt;void&gt;((resolve, reject) &#x3D;&gt; {
       this.angularFireAuth.signOut();
+      this.userEmail &#x3D; null;
       this.router.navigateByUrl(&#x27;home&#x27;);
     })
   }
 
+  /**
+   * Obtiene los detalles de usuario a traves del Auth de Firebase
+   * @returns 
+   */
   userDetails() {
 
     return this.angularFireAuth.user;
   }
 
-   canActivate(
+  /**
+   * Método que activa o desactiva rutas en funcion de si existe usuarios logado o no, para personalizar el menú
+   * Si no estas logado, redireccionaria al Login
+   * @param next Ruta a la que se intenta acceder
+   * @param state Estado del enrutador
+   * @returns 
+   */
+  canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
     return this.angularFireAuth.authState.pipe(
@@ -865,41 +1055,56 @@ export class AuthService {
         }
       })
     );
-  } 
-
-  checkLogin(): boolean {
-    
-    return !!this.angularFireAuth.currentUser;
-    
   }
 
-  async getUserEmail(): Promise&lt;string | null&gt; {
+  /**
+   * Comprueba si hay un usuario logado o no
+   * @returns 
+   */
+  checkLogin(): boolean {
+
+    return !!this.angularFireAuth.currentUser;
+
+  }
+
+  /**
+   * Obtiene el mail del usuario en caso de estar logado
+   * @returns 
+   */
+  public async getUserEmail(): Promise&lt;string | null&gt; {
     if (this.checkLogin()) {
       const user &#x3D; await this.angularFireAuth.currentUser;
       if (user) {
-       
-        return user.email || null;
+        this.userEmail &#x3D; user.email;
+        return this.userEmail || null;
       }
     }
     return null;
   }
 
+  /**
+   * Método para cambiar la contraseña del usuario
+   * @param nuevaContraseña String recibido a través del formulario con la nueva contraseña
+   */
   async passChange(nuevaContraseña: string) {
     const user &#x3D; await this.angularFireAuth.currentUser;
     await user.updatePassword(nuevaContraseña);
   }
 
+  /**
+   * Metodo para eliminar un usuario concreto
+   * @param id id del usuario a eliminar pasado por parámetro
+   */
   deleteUser(id: string) {
-    
+
     this.firestore.collection(&#x27;usuarios&#x27;).doc(id).delete()
       .then(() &#x3D;&gt; {
-        console.log(&#x27;Documento eliminado correctamente&#x27;);
+        this.avisosSvc.presentToast(&#x27;Usuario eliminado correctamente&#x27;, &#x27;success&#x27;);
       })
       .catch((error) &#x3D;&gt; {
-        console.error(&#x27;Error al eliminar documento: &#x27;, error);
+        this.avisosSvc.presentToast(&#x27;Error eliminando el Usuario&#x27;, &#x27;danger&#x27;);
       });
   }
-
 
 }
 </code></pre>

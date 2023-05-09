@@ -135,9 +135,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#email" >email</a>
-                            </li>
-                            <li>
                                 <a href="#esFavorito" >esFavorito</a>
                             </li>
                             <li>
@@ -162,6 +159,10 @@
                                 <a href="#retos" >retos</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userEmail" >userEmail</a>
+                            </li>
+                            <li>
                                 <a href="#usuarioLogado" >usuarioLogado</a>
                             </li>
                         </ul>
@@ -176,6 +177,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#checkRetoConseguido" >checkRetoConseguido</a>
+                            </li>
                             <li>
                                 <a href="#checkRetoFavorito" >checkRetoFavorito</a>
                             </li>
@@ -242,7 +246,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(retoSvc: <a href="../injectables/RetoService.html" target="_self">RetoService</a>, modalCtrl: ModalController, socialSharing: SocialSharing, platform: Platform, authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, auth: AngularFireAuth, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>)</code>
+<code>constructor(retoSvc: <a href="../injectables/RetoService.html" target="_self">RetoService</a>, modalCtrl: ModalController, socialSharing: SocialSharing, platform: Platform, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -326,36 +330,6 @@
                                                     
                                                         <td>
                                                                 <p>Controla la plataforma dónde se usa la app, movil o web</p>
-
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>authSvc</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>auth</td>
-                                                  
-                                                        <td>
-                                                                    <code>AngularFireAuth</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                                <p>Servicio de Firebase Auth</p>
 
                                                         </td>
                                                 </tr>
@@ -453,6 +427,87 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="checkRetoConseguido"></a>
+                    <span class="name">
+                        <span ><b>checkRetoConseguido</b></span>
+                        <a href="#checkRetoConseguido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkRetoConseguido(retoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="208"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:208</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>retoId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="checkRetoFavorito"></a>
                     <span class="name">
                         <span ><b>checkRetoFavorito</b></span>
@@ -469,8 +524,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="171"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:171</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="167"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:167</a></div>
                 </td>
             </tr>
 
@@ -552,8 +607,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="152"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:152</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="148"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:148</a></div>
                 </td>
             </tr>
 
@@ -591,8 +646,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="136"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:136</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="132"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:132</a></div>
                 </td>
             </tr>
 
@@ -668,8 +723,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="118"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:118</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="114"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:114</a></div>
                 </td>
             </tr>
 
@@ -745,8 +800,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="89"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:89</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="84"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -782,8 +837,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="191"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:191</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="193"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:193</a></div>
                 </td>
             </tr>
 
@@ -856,15 +911,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>removeRetoConseguido(retoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>removeRetoConseguido(retoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="222"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:222</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="231"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:231</a></div>
                 </td>
             </tr>
 
@@ -886,6 +941,18 @@
                             <tbody>
                                 <tr>
                                     <td>retoId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>email</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -932,8 +999,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="180"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:180</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="176"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:176</a></div>
                 </td>
             </tr>
 
@@ -1013,8 +1080,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="207"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:207</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="216"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:216</a></div>
                 </td>
             </tr>
 
@@ -1096,8 +1163,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="101"
-                            class="link-to-prism">src/app/components/reto/reto.component.ts:101</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="97"
+                            class="link-to-prism">src/app/components/reto/reto.component.ts:97</a></div>
                 </td>
             </tr>
 
@@ -1162,38 +1229,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="email"></a>
-                    <span class="name">
-                        <span ><b>email</b></span>
-                        <a href="#email"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="36" class="link-to-prism">src/app/components/reto/reto.component.ts:36</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Variable para guardar el email del usuario logado y así personalizar los iconos del reto</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="esFavorito"></a>
                     <span class="name">
                         <span ><b>esFavorito</b></span>
@@ -1229,7 +1264,8 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Valor por defecto : </i><code>false</code>
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                     <tr>
@@ -1440,6 +1476,39 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="36" class="link-to-prism">src/app/components/reto/reto.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable para guardar el email del usuario logado y así personalizar los iconos del reto</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="usuarioLogado"></a>
                     <span class="name">
                         <span ><b>usuarioLogado</b></span>
@@ -1508,7 +1577,7 @@ export class RetoComponent implements OnInit {
   /**
    * Variable para guardar el email del usuario logado y así personalizar los iconos del reto
    */
-  email: string;
+  public userEmail: string;
   /**
    * Declaramos Array de Retos para guardar la info para mostrar.
    */
@@ -1522,7 +1591,7 @@ export class RetoComponent implements OnInit {
 
   esFavorito: boolean;
 
-  esRetoConseguido &#x3D; false;
+  esRetoConseguido: boolean;
   /**
    * Declara el tipo de icono para cambiarlo según el tipo de reto.
    */
@@ -1546,26 +1615,22 @@ export class RetoComponent implements OnInit {
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
     private platform: Platform,
-    private authSvc: AuthService,
-    private auth: AngularFireAuth,
     private userSvc: UserService,
     private avisosSvc: AvisosService) {
 
-    this.auth.authState.subscribe((user) &#x3D;&gt; {
-      this.usuarioLogado &#x3D; !!user;
-      console.log(this.usuarioLogado);
-      this.authSvc.getUserEmail().then(email &#x3D;&gt; {
-        this.email &#x3D; &#x27;elwe.isilra@gmail.com&#x27;;
-      });
+    this.userSvc.getUserEmail().subscribe(email &#x3D;&gt; {
+      this.userEmail &#x3D; email;
+      console.log(&#x27;email&#x27;, this.userEmail);
     });
 
   }
 
   ngOnInit() {
 
-    this.email &#x3D; &#x27;elwe.isilra@gmail.com&#x27;;
-    console.log(this.reto.ID, this.email);
-    this.checkRetoFavorito(this.reto.ID, this.email);
+
+    console.log(this.reto.ID, this.userEmail);
+    this.checkRetoFavorito(this.reto.ID, this.userEmail);
+    this.checkRetoConseguido(this.reto.ID, this.userEmail);
 
   }
 
@@ -1655,8 +1720,14 @@ export class RetoComponent implements OnInit {
   setFavorito(retoId: string, user: string) {
     try {
 
-      this.retoSvc.addFavorito(retoId, user);
-      this.avisosSvc.presentToast(&#x27;Favorito añadido&#x27;, &#x27;success&#x27;);
+      if (user !&#x3D;&#x3D; &#x27;&#x27;) {
+        this.retoSvc.addFavorito(retoId, user);
+        this.avisosSvc.presentToast(&#x27;Favorito añadido&#x27;, &#x27;success&#x27;);
+
+      } else {
+        this.avisosSvc.presentToast(&#x27;Debes estar logado para hacer esto&#x27;, &#x27;warning&#x27;);
+      }
+
 
     } catch (error) {
       this.avisosSvc.presentToast(&#x27;Error al añadir Favorito&#x27;, &#x27;danger&#x27;);
@@ -1667,8 +1738,7 @@ export class RetoComponent implements OnInit {
     try {
 
       this.retoSvc.getFavorito(retoId, email).subscribe(fav &#x3D;&gt; {
-        
-        console.log(fav[0].ID_FAV);
+
         this.retoSvc.deleteFavorito(fav[0].ID_FAV);
       })
 
@@ -1679,14 +1749,22 @@ export class RetoComponent implements OnInit {
     }
   }
 
+  checkRetoConseguido(retoId: string, user: string) {
+
+    this.retoSvc.checkRetoConseguido(retoId, user).subscribe(existe &#x3D;&gt; {
+      this.esRetoConseguido &#x3D; existe;
+      console.log(this.esRetoConseguido);
+    });
+  }
+
   setRetoConseguido(retoId: string, user: string) {
     try {
 
       this.retoSvc.addRetoConseguido(retoId, user);
       this.avisosSvc.presentToast(&#x27;Reto conseguido&#x27;, &#x27;success&#x27;);
-      this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos &#x3D;&gt; {
+      this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos &#x3D;&gt; {
 
-        this.userSvc.updateUserPuntos(this.email, totalPuntos);
+        this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
       })
 
     } catch (error) {
@@ -1694,13 +1772,14 @@ export class RetoComponent implements OnInit {
     }
   }
 
-  removeRetoConseguido(retoId: string) {
+  removeRetoConseguido(retoId: string, email:string) {
     try {
 
-      this.retoSvc.eliminarRetoConseguido(retoId);
-      this.avisosSvc.presentToast(&#x27;Reto eliminado&#x27;, &#x27;success&#x27;);
+      this.retoSvc.getRetoConseguido(retoId, email).subscribe(retoConseguido &#x3D;&gt; {
 
-
+        this.retoSvc.deleteRetoConseguido(retoConseguido[0].ID_RETO_CONSEGUIDO);
+      this.avisosSvc.presentToast(&#x27;Reto Conseguido eliminado&#x27;, &#x27;success&#x27;);
+      });
     } catch (error) {
       this.avisosSvc.presentToast(&#x27;Error al eliminar Reto&#x27;, &#x27;danger&#x27;);
     }
@@ -1731,18 +1810,14 @@ export class RetoComponent implements OnInit {
 
       &lt;ion-icon [name]&#x3D;&quot;getIconTipo(reto.TIPO)&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;primary&quot;&gt;&lt;/ion-icon&gt;
       &lt;ion-icon name&#x3D;&quot;ellipse-sharp&quot; [color]&#x3D;&quot;getColorNivel(reto.NIVEL)&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
-&lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
-  &lt;ion-button&gt;
-    &lt;ion-icon *ngIf&#x3D;&quot;usuarioLogado&quot; name&#x3D;&quot;checkmark-circle-outline&quot; color&#x3D;&quot;success&quot;
-        (click)&#x3D;&quot;removeRetoConseguido(reto.ID)&quot;&gt;&lt;/ion-icon&gt;
-  &lt;/ion-button&gt;
-&lt;/ion-buttons&gt;
 
-    &lt;ion-icon *ngIf&#x3D;&quot;esFavorito&quot; name&#x3D;&quot;star-sharp&quot; slot&#x3D;&quot;end&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;quitarFavorito(reto.ID, this.email)&quot;&gt;&lt;/ion-icon&gt;
-    &lt;ion-icon *ngIf&#x3D;&quot;!esFavorito&quot; name&#x3D;&quot;star-outline&quot; slot&#x3D;&quot;end&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;setFavorito(reto.ID, this.email)&quot;&gt;&lt;/ion-icon&gt;
+&lt;ion-icon *ngIf&#x3D;&quot;esRetoConseguido&quot; name&#x3D;&quot;checkmark-circle-sharp&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;removeRetoConseguido(reto.ID, this.userEmail)&quot;&gt;&lt;/ion-icon&gt;
+&lt;ion-icon *ngIf&#x3D;&quot;!esRetoConseguido&quot; name&#x3D;&quot;checkmark-circle-outline&quot; slot&#x3D;&quot;start&quot; color&#x3D;&quot;success&quot; (click)&#x3D;&quot;setRetoConseguido(reto.ID, this.userEmail)&quot;&gt;&lt;/ion-icon&gt;
+
+    &lt;ion-icon *ngIf&#x3D;&quot;esFavorito&quot; name&#x3D;&quot;star-sharp&quot; slot&#x3D;&quot;end&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;quitarFavorito(reto.ID, this.userEmail)&quot;&gt;&lt;/ion-icon&gt;
+    &lt;ion-icon *ngIf&#x3D;&quot;!esFavorito&quot; name&#x3D;&quot;star-outline&quot; slot&#x3D;&quot;end&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;setFavorito(reto.ID, this.userEmail)&quot;&gt;&lt;/ion-icon&gt;
+
  &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
-  
-
   &lt;ion-button slot&#x3D;&quot;icon-only&quot; (click)&#x3D;&quot;compartirReto()&quot;&gt;
     &lt;ion-icon name&#x3D;&quot;share-social-outline&quot; color&#x3D;&quot;primary&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
   &lt;/ion-button&gt;
@@ -1785,7 +1860,7 @@ export class RetoComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-card>  <ion-card-header>    <ion-item>      <ion-card-subtitle color="primary"> {{reto.TITULO}} </ion-card-subtitle>      <ion-icon name="information-circle-outline" color="primary" slot="end" (click)="verDetalle(reto.ID)"></ion-icon>    </ion-item>  </ion-card-header>  <ion-card-content>    <ion-item>      <ion-img [src]="reto.IMAGEN"></ion-img>    </ion-item>    <ion-item>      <ion-icon [name]="getIconTipo(reto.TIPO)" slot="start" color="primary"></ion-icon>      <ion-icon name="ellipse-sharp" [color]="getColorNivel(reto.NIVEL)" slot="start"></ion-icon><ion-buttons slot="start">  <ion-button>    <ion-icon *ngIf="usuarioLogado" name="checkmark-circle-outline" color="success"        (click)="removeRetoConseguido(reto.ID)"></ion-icon>  </ion-button></ion-buttons>    <ion-icon *ngIf="esFavorito" name="star-sharp" slot="end" color="primary" (click)="quitarFavorito(reto.ID, this.email)"></ion-icon>    <ion-icon *ngIf="!esFavorito" name="star-outline" slot="end" color="primary" (click)="setFavorito(reto.ID, this.email)"></ion-icon> <ion-buttons slot="end">    <ion-button slot="icon-only" (click)="compartirReto()">    <ion-icon name="share-social-outline" color="primary" slot="end"></ion-icon>  </ion-button></ion-buttons>       </ion-item>  </ion-card-content></ion-card></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-card>  <ion-card-header>    <ion-item>      <ion-card-subtitle color="primary"> {{reto.TITULO}} </ion-card-subtitle>      <ion-icon name="information-circle-outline" color="primary" slot="end" (click)="verDetalle(reto.ID)"></ion-icon>    </ion-item>  </ion-card-header>  <ion-card-content>    <ion-item>      <ion-img [src]="reto.IMAGEN"></ion-img>    </ion-item>    <ion-item>      <ion-icon [name]="getIconTipo(reto.TIPO)" slot="start" color="primary"></ion-icon>      <ion-icon name="ellipse-sharp" [color]="getColorNivel(reto.NIVEL)" slot="start"></ion-icon><ion-icon *ngIf="esRetoConseguido" name="checkmark-circle-sharp" slot="start" color="success" (click)="removeRetoConseguido(reto.ID, this.userEmail)"></ion-icon><ion-icon *ngIf="!esRetoConseguido" name="checkmark-circle-outline" slot="start" color="success" (click)="setRetoConseguido(reto.ID, this.userEmail)"></ion-icon>    <ion-icon *ngIf="esFavorito" name="star-sharp" slot="end" color="primary" (click)="quitarFavorito(reto.ID, this.userEmail)"></ion-icon>    <ion-icon *ngIf="!esFavorito" name="star-outline" slot="end" color="primary" (click)="setFavorito(reto.ID, this.userEmail)"></ion-icon> <ion-buttons slot="end">  <ion-button slot="icon-only" (click)="compartirReto()">    <ion-icon name="share-social-outline" color="primary" slot="end"></ion-icon>  </ion-button></ion-buttons>       </ion-item>  </ion-card-content></ion-card></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RetoComponent'};

@@ -30,7 +30,7 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   /**
-   * 
+   * Ejecuta la consulta a la API con los filtros pasados por el endpoint
    * @param endpoint cadena pasada con las variables que necesita la solicitud a la api
    * @returns 
    */

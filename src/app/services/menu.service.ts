@@ -32,7 +32,7 @@ export class MenuService {
   enableFav = false;
 
   /**
-   * 
+   * Constructor de clase
    * @param angularFireAuth Servicio de Angular que gestiona el Auth de Firebase
    * @param authSvc Servicio para gestionar los inicios de sesión y su estado
    * @param userSvc Servicio que gestiona todo lo relacionado con los usuarios

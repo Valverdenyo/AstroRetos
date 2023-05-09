@@ -13,30 +13,69 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AdminPage implements OnInit {
 
+  /**
+   * Array de objetos de tipo Usuario
+   */
   usuarios: Usuario[] = [];
-  usuario: Usuario;
-  retos: Reto[] = [];
-  segmento: string;
-  retoActivo: string;
-  color: string;
-  puntos: number;
-  email: string;
 
+  /**
+   * Objeto de tipo Usuario
+   */
+  usuario: Usuario;
+
+  /**
+   * Array de objetos de tipo Reto
+   */
+  retos: Reto[] = [];
+
+  /**
+   * Variable para manejar la pagina, que será por segmentos
+   */
+  segmento: string;
+
+  /**
+   * String para guardar si el reto está activo o no
+   */
+  retoActivo: string;
+
+  /**
+   * Variable para guardar los puntos de los usuarios
+   */
+  puntos: number;
+
+  /**
+   * Para guardar el mail del usuario logado
+   */
+  public userEmail: string;
+
+  /**
+   * Constructor de clase
+   * @param userSvc Servicio para el manejo de datos de usuario
+   * @param menuSvc Servicio para la personalización del Menu
+   * @param authSvc Servicio para la gestion de la Autenticacion
+   * @param avisosSvc Servicio para controlar avisos con el Toast
+   * @param retoSvc Servicio para el manejo de los Retos
+   */
   constructor(private userSvc: UserService,
     public menuSvc: MenuService,
     private authSvc: AuthService,
     private avisosSvc: AvisosService,
-    private retoSvc: RetoService) { 
+    private retoSvc: RetoService) {
 
-      this.menuSvc.setMenu();
+    this.menuSvc.setMenu();
 
-    }
+  }
 
+  /**
+   * Metodo de inicio
+   * Comprueba el usuario logado para almacenar los datos de su perfil
+   * Obtiene tambien la lista de todos los retos y usuarios para mostrarlos
+   */
   ngOnInit() {
 
     this.authSvc.getUserEmail().then(email => {
-      this.email = email;
-      this.userSvc.getUserByEmail(email).subscribe(usuario => {
+      this.userEmail = email;
+      this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario => {
         this.usuario = usuario;
       });
 
@@ -45,34 +84,64 @@ export class AdminPage implements OnInit {
     this.retoSvc.getRetos().subscribe(retos => {
       this.retos = retos;
     });
-  
+
+    this.userSvc.getUsers().subscribe(users => {
+      this.usuarios = users;
+    });
+
   }
 
-  segmentChanged(event) {
-    this.segmento = event.detail.value;
+  /**
+   * Metodo que realiza el cambio de segmento al recibir un evento
+   * @param event Evento (cambio de segmento)
+   */
+  segmentChanged(event: Event) {
+
+    this.segmento = (event as CustomEvent).detail.value;
+
+    this.retoSvc.getRetos().subscribe(retos => {
+      this.retos = retos;
+    });
+
   }
 
+  /**
+   * Método para cambiar el Rol de un usuario concreto Retador<=>Administrador
+   * @param id Id del usuario
+   */
   cambiarRol(id: string) {
+
     console.log('cambio rol', id);
     try {
-     this.userSvc.updateUserRol(id);
+      this.userSvc.updateUserRol(id);
       this.avisosSvc.presentToast('Cambio de Rol Correcto', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error en el cambio de Rol', 'danger');
     }
+
   }
 
+  /**
+   * Metodo que cambia el estado del reto: activo<=>inactivo
+   * @param id Id del Reto
+   */
   cambiarEstado(id: string) {
+
     console.log('cambio Estado', id);
     try {
-     this.retoSvc.updateEstadoReto(id);
-     
+      this.retoSvc.updateEstadoReto(id);
+
       this.avisosSvc.presentToast('Cambio de Estado Correcto', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error en el cambio de Estado', 'danger');
     }
+
   }
 
+  /**
+   * Metodo que elimina un usuaio
+   * @param id Ide del usuario a borrar
+   */
   deleteUser(id: string) {
 
     try {
@@ -84,13 +153,19 @@ export class AdminPage implements OnInit {
 
   }
 
+  /**
+   * Metodo que elimina un reto
+   * @param id Id del Reto a eliminar
+   */
   deleteReto(id: string) {
+
     try {
-         this.retoSvc.deleteReto(id);
+      this.retoSvc.deleteReto(id);
       this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
     }
 
-  } 
+  }
+
 }

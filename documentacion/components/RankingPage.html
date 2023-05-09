@@ -135,11 +135,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#email" >email</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#menuSvc" >menuSvc</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#menuSvc" >menuSvc</a>
+                                <a href="#userEmail" >userEmail</a>
                             </li>
                             <li>
                                 <a href="#usuario" >usuario</a>
@@ -185,12 +186,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:16</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:27</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -199,6 +202,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -213,6 +217,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio personalizado para manejo de Usuarios</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>menuSvc</td>
@@ -225,6 +233,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para controlar el menu</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>authSvc</td>
@@ -237,6 +249,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para gestionar la Autenticación</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -276,14 +292,18 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="26"
-                            class="link-to-prism">src/app/pages/ranking/ranking.page.ts:26</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="48"
+                            class="link-to-prism">src/app/pages/ranking/ranking.page.ts:48</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodos de carga al inicio
+Comprobamos si está logado y guardamos la info del usuario logado
+Carga los puntos de cada usuario</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -299,32 +319,6 @@
     <h3 id="inputs">
         Propiedades
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="email"></a>
-                    <span class="name">
-                        <span ><b>email</b></span>
-                        <a href="#email"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:14</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -345,10 +339,48 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:19</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="36" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:36</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio para controlar el menu</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:17</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Guarda el email del usuario logado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -371,10 +403,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto de tipo usuario</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -402,10 +440,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:16</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/ranking/ranking.page.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Array de objetos de Usuario</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -428,23 +472,45 @@ import { UserService } from &#x27;src/app/services/user.service&#x27;;
 })
 export class RankingPage implements OnInit {
 
-  email: string;
+  /**
+   * Guarda el email del usuario logado
+   */
+  public userEmail: string;
+
+  /**
+   * Objeto de tipo usuario
+   */
   usuario: Usuario;
+
+  /**
+   * Array de objetos de Usuario
+   */
   usuarios: Usuario[] &#x3D; [];
 
+  /**
+   * constructor de clase
+   * @param userSvc Servicio personalizado para manejo de Usuarios
+   * @param menuSvc Servicio para controlar el menu
+   * @param authSvc Servicio para gestionar la Autenticación
+   */
   constructor(private userSvc: UserService,
     public menuSvc: MenuService,
     private authSvc: AuthService) {
 
+      //Cargamos opciones de Menu
     this.menuSvc.setMenu();
 
   }
 
+  /**Metodos de carga al inicio
+   * Comprobamos si está logado y guardamos la info del usuario logado
+   * Carga los puntos de cada usuario
+   */
   ngOnInit() {
 
     this.authSvc.getUserEmail().then(email &#x3D;&gt; {
-      this.email &#x3D; email;
-      this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
+      this.userEmail &#x3D; email;
+      this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario &#x3D;&gt; {
         this.usuario &#x3D; usuario;
       });
 

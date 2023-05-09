@@ -33,7 +33,7 @@ export class RetoComponent implements OnInit {
   /**
    * Variable para guardar el email del usuario logado y así personalizar los iconos del reto
    */
-  email: string;
+  public userEmail: string;
   /**
    * Declaramos Array de Retos para guardar la info para mostrar.
    */
@@ -75,8 +75,8 @@ export class RetoComponent implements OnInit {
     private avisosSvc: AvisosService) {
 
     this.userSvc.getUserEmail().subscribe(email => {
-      this.email = email;
-      console.log('email', this.email);
+      this.userEmail = email;
+      console.log('email', this.userEmail);
     });
 
   }
@@ -84,9 +84,9 @@ export class RetoComponent implements OnInit {
   ngOnInit() {
 
 
-    console.log(this.reto.ID, this.email);
-    this.checkRetoFavorito(this.reto.ID, this.email);
-    this.checkRetoConseguido(this.reto.ID, this.email);
+    console.log(this.reto.ID, this.userEmail);
+    this.checkRetoFavorito(this.reto.ID, this.userEmail);
+    this.checkRetoConseguido(this.reto.ID, this.userEmail);
 
   }
 
@@ -218,9 +218,9 @@ export class RetoComponent implements OnInit {
 
       this.retoSvc.addRetoConseguido(retoId, user);
       this.avisosSvc.presentToast('Reto conseguido', 'success');
-      this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos => {
+      this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos => {
 
-        this.userSvc.updateUserPuntos(this.email, totalPuntos);
+        this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
       })
 
     } catch (error) {
