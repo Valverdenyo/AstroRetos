@@ -983,8 +983,8 @@ Dependiendo del nivel, obtiene los puntos para añadirlos a la tabla</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="446"
-                            class="link-to-prism">src/app/services/reto.service.ts:446</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="445"
+                            class="link-to-prism">src/app/services/reto.service.ts:445</a></div>
                 </td>
             </tr>
 
@@ -2647,12 +2647,11 @@ export class RetoService {
         ID_RETO: id,
         ID_RETO_CONSEGUIDO: &#x27;&#x27;,
         PUNTOS: this.puntos
-      })
-        .then((docRef: any) &#x3D;&gt; {
-          this.firestore.doc(docRef).update({
+    }).then(async (docRef: any) &#x3D;&gt; {
+        await this.firestore.doc(docRef).update({
             ID_RETO_CONSEGUIDO: docRef.id
-          })
         })
+    })
         .catch((error: any) &#x3D;&gt; {
           console.error(&#x27;Error al agregar el reto conseguido: &#x27;, error);
         });

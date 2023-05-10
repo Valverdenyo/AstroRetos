@@ -112,6 +112,10 @@
                                 <a href="#getUserEmail" >getUserEmail</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#initAuthStateListener" >initAuthStateListener</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#passChange" >passChange</a>
                             </li>
@@ -422,8 +426,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="174"
-                            class="link-to-prism">src/app/services/auth.service.ts:174</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="184"
+                            class="link-to-prism">src/app/services/auth.service.ts:184</a></div>
                 </td>
             </tr>
 
@@ -529,6 +533,45 @@ Si no estas logado, redireccionaria al Login</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="initAuthStateListener"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>initAuthStateListener</b></span>
+                        <a href="#initAuthStateListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initAuthStateListener()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="161"
+                            class="link-to-prism">src/app/services/auth.service.ts:161</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="passChange"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -547,8 +590,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="165"
-                            class="link-to-prism">src/app/services/auth.service.ts:165</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="175"
+                            class="link-to-prism">src/app/services/auth.service.ts:175</a></div>
                 </td>
             </tr>
 
@@ -1080,6 +1123,16 @@ export class AuthService {
       }
     }
     return null;
+  }
+
+  public initAuthStateListener(): void {
+    this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
+      if (user) {
+        this.userEmail &#x3D; user.email;
+      } else {
+        this.userEmail &#x3D; null;
+      }
+    });
   }
 
   /**

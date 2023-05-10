@@ -59,7 +59,6 @@ export class PerfilPage implements OnInit {
    * @param navCtrl Controlador para redirigir a determinadas rutas
    * @param avisosSvc Servicio de avisos a traves de Toast
    * @param multimediaSvc Servicio de manejo de las imagenes
-   * @param angularFireAuth Servicio de Angular para el manejo del estado de la sesión
    * @param sanitizer Libreria que 'sanea' la imagen para hacer una subida segura a Firestorage
    */
   constructor(private authSvc: AuthService,
@@ -69,8 +68,7 @@ export class PerfilPage implements OnInit {
     private router: Router,
     private navCtrl: NavController,
     private avisosSvc: AvisosService,
-    private multimediaSvc: MultimediaService,
-    private angularFireAuth: AngularFireAuth,
+    private multimediaSvc: MultimediaService,   
     private sanitizer: DomSanitizer,
 
 
@@ -99,20 +97,22 @@ export class PerfilPage implements OnInit {
 
     });        */
 
+    this.authSvc.initAuthStateListener();
+    this.userEmail = this.authSvc.userEmail;
+
+
   }
 
   /**
    * Metodo de inicio
    */
   ngOnInit() {
-    this.userSvc.getUserEmail().subscribe(email => {
-      this.userEmail = email;
-      console.log(this.userEmail);
-      this.userSvc.getUserByEmail(email).subscribe(usuario => {
+ 
+      this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario => {
 
         this.usuarioLogado = usuario;
       });
-    });
+   
   
   }
 

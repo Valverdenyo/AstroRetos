@@ -89,8 +89,9 @@ export class FavoritosPage implements OnInit {
 
       this.retoSvc.getFavoritosByUser(this.userEmail).subscribe(favoritos => {
         this.favoritos = favoritos;
+        console.log(this.favoritos.length);
 
-        for (let index = 0; index < this.favoritos.length; index++) {
+      for (let index = 0; index < this.favoritos.length; index++) {
           this.retoSvc.getRetosById(this.favoritos[index].ID_RETO).subscribe(reto => {
             this.retos = [...this.retos, ...reto];
             console.log('reto', index, this.retos[index], this.favoritos[index]);

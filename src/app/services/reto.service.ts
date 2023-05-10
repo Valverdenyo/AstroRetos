@@ -427,12 +427,11 @@ export class RetoService {
         ID_RETO: id,
         ID_RETO_CONSEGUIDO: '',
         PUNTOS: this.puntos
-      })
-        .then((docRef: any) => {
-          this.firestore.doc(docRef).update({
+    }).then(async (docRef: any) => {
+        await this.firestore.doc(docRef).update({
             ID_RETO_CONSEGUIDO: docRef.id
-          })
         })
+    })
         .catch((error: any) => {
           console.error('Error al agregar el reto conseguido: ', error);
         });

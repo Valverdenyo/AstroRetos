@@ -158,6 +158,16 @@ export class AuthService {
     return null;
   }
 
+  public initAuthStateListener(): void {
+    this.angularFireAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.userEmail = user.email;
+      } else {
+        this.userEmail = null;
+      }
+    });
+  }
+
   /**
    * Método para cambiar la contraseña del usuario
    * @param nuevaContraseña String recibido a través del formulario con la nueva contraseña

@@ -399,8 +399,8 @@ Almacenamos los retos por los ID de los favoritos</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="128"
-                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:128</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="129"
+                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:129</a></div>
                 </td>
             </tr>
 
@@ -477,8 +477,8 @@ Almacenamos los retos por los ID de los favoritos</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="110"
-                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:110</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="111"
+                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:111</a></div>
                 </td>
             </tr>
 
@@ -871,8 +871,9 @@ export class FavoritosPage implements OnInit {
 
       this.retoSvc.getFavoritosByUser(this.userEmail).subscribe(favoritos &#x3D;&gt; {
         this.favoritos &#x3D; favoritos;
+        console.log(this.favoritos.length);
 
-        for (let index &#x3D; 0; index &lt; this.favoritos.length; index++) {
+      for (let index &#x3D; 0; index &lt; this.favoritos.length; index++) {
           this.retoSvc.getRetosById(this.favoritos[index].ID_RETO).subscribe(reto &#x3D;&gt; {
             this.retos &#x3D; [...this.retos, ...reto];
             console.log(&#x27;reto&#x27;, index, this.retos[index], this.favoritos[index]);
