@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 import { MenuOpts, Usuario } from '../interfaces/interfaces';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -93,11 +94,7 @@ export class UserService {
   }
 
   updateUserPuntos(user: string, puntos: number) {
-    this.getUserByEmail(user).subscribe(usuario => {
-      return this.firestore.collection('usuarios').doc(usuario.ID).update({
-        PUNTOS: puntos
-      });
-    });
+    
   }
 
   updateUserRol(id: string) {
@@ -134,16 +131,6 @@ export class UserService {
     });
   }
 
-  /*  async deleteUser(id: string) {
-    this.authSvc.deleteUser();
-    this.firestore.collection('usuarios').doc(id).delete()
-      .then(() => {
-        console.log('Documento eliminado correctamente');
-      })
-      .catch((error) => {
-        console.error('Error al eliminar documento: ', error);
-      });
-  } */
 
   getTotalPuntosByUser(user: string): Observable<number> {
     return this.firestore.collection<any>('retosconseguidos', ref => ref.where('USER', '==', user))

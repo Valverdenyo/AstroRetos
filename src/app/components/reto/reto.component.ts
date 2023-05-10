@@ -215,11 +215,11 @@ export class RetoComponent implements OnInit {
 
   setRetoConseguido(retoId: string, user: string) {
     try {
-
+      console.log('vamos a conseguir el reto');
       this.retoSvc.addRetoConseguido(retoId, user);
       this.avisosSvc.presentToast('Reto conseguido', 'success');
       this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos => {
-
+console.log('total de puntos', totalPuntos);
         this.userSvc.updateUserPuntos(this.email, totalPuntos);
       })
 
@@ -228,13 +228,13 @@ export class RetoComponent implements OnInit {
     }
   }
 
-  removeRetoConseguido(retoId: string, email:string) {
+  removeRetoConseguido(retoId: string, email: string) {
     try {
 
       this.retoSvc.getRetoConseguido(retoId, email).subscribe(retoConseguido => {
 
         this.retoSvc.deleteRetoConseguido(retoConseguido[0].ID_RETO_CONSEGUIDO);
-      this.avisosSvc.presentToast('Reto Conseguido eliminado', 'success');
+        this.avisosSvc.presentToast('Reto Conseguido eliminado', 'success');
       });
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar Reto', 'danger');

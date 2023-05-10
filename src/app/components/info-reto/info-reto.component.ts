@@ -8,6 +8,7 @@ import { Reto } from 'src/app/interfaces/interfaces';
 import { RetoService } from 'src/app/services/reto.service';
 import { AvisosService } from 'src/app/services/avisos.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 /**
  * Componente que muestra un ion-card con toda las actividades que sae pueden realizar con cada uno.
@@ -41,6 +42,10 @@ export class InfoRetoComponent implements OnInit {
    */
   email: string;
 
+  esFavorito: boolean;
+
+  esRetoConseguido: boolean;
+
   /**
    *  
    * @param retoSvc Servicio que maneja la coleccion 'retos' de Firestore
@@ -55,6 +60,7 @@ export class InfoRetoComponent implements OnInit {
     private socialSharing: SocialSharing,
     private avisosSvc: AvisosService,
     private authSvc: AuthService,
+    private userSvc: UserService,
     private platform: Platform
   ) { }
 
@@ -67,13 +73,15 @@ export class InfoRetoComponent implements OnInit {
 
     this.authSvc.getUserEmail().then(email => {
       this.email = email;
-     
+
     });
 
     this.retoSvc.getRetosById(this.id).subscribe(retos => {
       this.reto = retos[0];
+      this.checkRetoFavorito(this.reto.ID, this.email);
+      this.checkRetoConseguido(this.reto.ID, this.email);
     });
-
+    
   }
 
   /**
@@ -132,22 +140,83 @@ export class InfoRetoComponent implements OnInit {
     }
   }
 
+  checkRetoFavorito(retoId: string, user: string) {
+
+    this.retoSvc.checkFavorito(retoId, user).subscribe(existe => {
+      this.esFavorito = existe;
+      console.log(this.esFavorito);
+    });
+  }
+
+
   /**
    * Método para marcar como Favorito un Reto concreto al usuario logado
    * Al finalizar muestra el toast con el mensaje de success o error
    * @param retoId ID del reto a marcar como Favorito
    * @param user Usuario que marca el Favorito
    */
-  setFavorito(retoId: string, user: string){
+  setFavorito(retoId: string, user: string) {
     try {
 
       this.retoSvc.addFavorito(retoId, user);
       this.avisosSvc.presentToast('Favorito añadido', 'success');
-      
+
     } catch (error) {
       this.avisosSvc.presentToast('Error al añadir Favorito', 'danger');
     }
   }
+
+  quitarFavorito(retoId: string, email: string) {
+    try {
+
+      this.retoSvc.getFavorito(retoId, email).subscribe(fav => {
+
+        this.retoSvc.deleteFavorito(fav[0].ID_FAV);
+      })
+
+
+      this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');
+    }
+  }
+
+  checkRetoConseguido(retoId: string, user: string) {
+
+    this.retoSvc.checkRetoConseguido(retoId, user).subscribe(existe => {
+      this.esRetoConseguido = existe;
+      console.log(this.esRetoConseguido);
+    });
+  }
+
+  setRetoConseguido(retoId: string, user: string) {
+    try {
+      console.log('vamos a conseguir el reto');
+      this.retoSvc.addRetoConseguido(retoId, user);
+      this.avisosSvc.presentToast('Reto conseguido', 'success');
+      this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos => {
+
+        this.userSvc.updateUserPuntos(this.email, totalPuntos);
+      })
+
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al conseguir Reto', 'danger');
+    }
+  }
+
+  removeRetoConseguido(retoId: string, email: string) {
+    try {
+
+      this.retoSvc.getRetoConseguido(retoId, email).subscribe(retoConseguido => {
+
+        this.retoSvc.deleteRetoConseguido(retoConseguido[0].ID_RETO_CONSEGUIDO);
+        this.avisosSvc.presentToast('Reto Conseguido eliminado', 'success');
+      });
+    } catch (error) {
+      this.avisosSvc.presentToast('Error al eliminar Reto', 'danger');
+    }
+  }
+
 
   /**
    * Método que cierra el modal para volver al listado
