@@ -205,7 +205,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, actionSheetCtrl: ActionSheetController, alertCtrl: AlertController, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, navCtrl: NavController, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>, multimediaSvc: <a href="../injectables/MultimediaService.html" target="_self">MultimediaService</a>, angularFireAuth: AngularFireAuth, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
+<code>constructor(authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, actionSheetCtrl: ActionSheetController, alertCtrl: AlertController, userSvc: <a href="../injectables/UserService.html" target="_self">UserService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, navCtrl: NavController, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>, multimediaSvc: <a href="../injectables/MultimediaService.html" target="_self">MultimediaService</a>, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -356,22 +356,6 @@ Revisa el estado de la sesión, recoge el mail y busca su perfil para cargar los
                                                     
                                                         <td>
                                                                 <p>Servicio de manejo de las imagenes</p>
-
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>angularFireAuth</td>
-                                                  
-                                                        <td>
-                                                                    <code>AngularFireAuth</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                                <p>Servicio de Angular para el manejo del estado de la sesión</p>
 
                                                         </td>
                                                 </tr>
@@ -631,8 +615,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="107"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:107</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="109"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:109</a></div>
                 </td>
             </tr>
 
@@ -969,7 +953,6 @@ export class PerfilPage implements OnInit {
    * @param navCtrl Controlador para redirigir a determinadas rutas
    * @param avisosSvc Servicio de avisos a traves de Toast
    * @param multimediaSvc Servicio de manejo de las imagenes
-   * @param angularFireAuth Servicio de Angular para el manejo del estado de la sesión
    * @param sanitizer Libreria que &#x27;sanea&#x27; la imagen para hacer una subida segura a Firestorage
    */
   constructor(private authSvc: AuthService,
@@ -979,14 +962,13 @@ export class PerfilPage implements OnInit {
     private router: Router,
     private navCtrl: NavController,
     private avisosSvc: AvisosService,
-    private multimediaSvc: MultimediaService,
-    private angularFireAuth: AngularFireAuth,
+    private multimediaSvc: MultimediaService,   
     private sanitizer: DomSanitizer,
 
 
   ) {
 
-      this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
+    /*   this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
 
       if (user) {
         // El usuario está logueado
@@ -1007,7 +989,11 @@ export class PerfilPage implements OnInit {
 
       }
 
-    });       
+    });        */
+
+    this.authSvc.initAuthStateListener();
+    this.userEmail &#x3D; this.authSvc.userEmail;
+
 
   }
 
@@ -1015,14 +1001,12 @@ export class PerfilPage implements OnInit {
    * Metodo de inicio
    */
   ngOnInit() {
-    this.userSvc.getUserEmail().subscribe(email &#x3D;&gt; {
-      this.userEmail &#x3D; email;
-      console.log(this.userEmail);
-      this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
+ 
+      this.userSvc.getUserByEmail(this.userEmail).subscribe(usuario &#x3D;&gt; {
 
         this.usuarioLogado &#x3D; usuario;
       });
-    });
+   
   
   }
 

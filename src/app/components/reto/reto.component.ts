@@ -22,8 +22,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RetoComponent implements OnInit {
 
+/**
+ * Recibe el objeto reto a cargar
+ */
   @Input() reto!: Reto;
 
+/**
+ *recibe un numero de indice para la carga 
+ */
   @Input() index!: number;
 
   /**
@@ -33,7 +39,7 @@ export class RetoComponent implements OnInit {
   /**
    * Variable para guardar el email del usuario logado y así personalizar los iconos del reto
    */
-  email: string;
+  public userEmail: string;
   /**
    * Declaramos Array de Retos para guardar la info para mostrar.
    */
@@ -43,10 +49,19 @@ export class RetoComponent implements OnInit {
     */
   favoritos: Favorito[] = [];
 
+  /**
+   * Objeto de tipo Favorito para almacenar la informacion
+   */
   favorito: Favorito;
 
+  /**
+   * Para comprobar si el reto esta en favoritos del usuario
+   */
   esFavorito: boolean;
 
+  /**
+   * Para comprobar si el resto está conseguido por el usuario
+   */
   esRetoConseguido: boolean;
   /**
    * Declara el tipo de icono para cambiarlo según el tipo de reto.
@@ -57,36 +72,48 @@ export class RetoComponent implements OnInit {
    */
   mensaje: string = 'Te reto!';
 
+  /**
+   * Numero de puntos obtenidos al conseguir el reto
+   */
   puntos: number;
 
-  /**
-   * 
-   * @param retoSvc Servicio de manejo de Los Retos
-   * @param modalCtrl Controlador de Modar para mostrar la info detallada como modal
-   * @param socialSharing PlugIn para compartir por RRSS
-   * @param platform Controla la plataforma dónde se usa la app, movil o web
-   * @param auth Servicio de Firebase Auth
-   */
+/**
+ * constructor de clase
+ * @param retoSvc Servicio para el manejo de los retos
+ * @param modalCtrl Controlador de uso de modales
+ * @param socialSharing Componente usado para compartir retos en aplicaciones
+ * @param platform Componente para comprobar la plataforma de ejecucion
+ * @param userSvc Servicio de manejo del usuario
+ * @param authSvc Servicio para controlar la autenticacion
+ * @param avisosSvc Servicio de avisos a traves dded toast
+ */
   constructor(private retoSvc: RetoService,
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
     private platform: Platform,
     private userSvc: UserService,
+    private authSvc: AuthService,
     private avisosSvc: AvisosService) {
 
-    this.userSvc.getUserEmail().subscribe(email => {
-      this.email = email;
-      console.log('email', this.email);
-    });
+   /*  this.userSvc.getUserEmail().subscribe(email => {
+      this.userEmail = email;
+      console.log('email', this.userEmail);
+    }); */
+
+    this.authSvc.initAuthStateListener();
+    this.userEmail = this.authSvc.userEmail;
 
   }
 
+  /**
+   * Método de inicio
+   * Checkeamos si el usuario logado tiene el reto en favorito o conseguido para mostrar los iconos correspondientes
+   */
   ngOnInit() {
 
-
-    console.log(this.reto.ID, this.email);
-    this.checkRetoFavorito(this.reto.ID, this.email);
-    this.checkRetoConseguido(this.reto.ID, this.email);
+    console.log(this.reto.ID, this.userEmail);
+    this.checkRetoFavorito(this.reto.ID, this.userEmail);
+    this.checkRetoConseguido(this.reto.ID, this.userEmail);
 
   }
 
@@ -159,10 +186,11 @@ export class RetoComponent implements OnInit {
           .catch((error) => console.log('Error compartiendo', error));
       }
     }
+
   }
 
   /**
-   * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente (NO IMPLEMENTADO)
+   * Gestiona si el reto esta en Favorito o no para mostrar el icono correspondiente
    */
   checkRetoFavorito(retoId: string, user: string) {
 
@@ -170,10 +198,16 @@ export class RetoComponent implements OnInit {
       this.esFavorito = existe;
       console.log(this.esFavorito);
     });
+
   }
 
-
+/**
+ * Metodo para marcar un reto como favorito
+ * @param retoId Id del reto a marcar
+ * @param user Email del usuario logado
+ */
   setFavorito(retoId: string, user: string) {
+
     try {
 
       if (user !== '') {
@@ -188,9 +222,16 @@ export class RetoComponent implements OnInit {
     } catch (error) {
       this.avisosSvc.presentToast('Error al añadir Favorito', 'danger');
     }
+
   }
 
+  /**
+ * Metodo para desmarcar un reto como favorito
+ * @param retoId Id del reto a marcar
+ * @param user Email del usuario logado
+ */
   quitarFavorito(retoId: string, email: string) {
+
     try {
 
       this.retoSvc.getFavorito(retoId, email).subscribe(fav => {
@@ -203,32 +244,50 @@ export class RetoComponent implements OnInit {
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');
     }
+
   }
 
+  /**
+   * Gestiona si el reto esta esta conseguido por el usuario o no para mostrar el icono correspondiente
+   */
   checkRetoConseguido(retoId: string, user: string) {
 
     this.retoSvc.checkRetoConseguido(retoId, user).subscribe(existe => {
       this.esRetoConseguido = existe;
       console.log(this.esRetoConseguido);
     });
+
   }
 
-  setRetoConseguido(retoId: string, user: string) {
+  /**
+ * Metodo para marcar un reto como conseguido
+ * @param retoId Id del reto a marcar
+ * @param user Email del usuario logado
+ */
+  async setRetoConseguido(retoId: string, user: string) {
+
     try {
-      console.log('vamos a conseguir el reto');
-      this.retoSvc.addRetoConseguido(retoId, user);
+
+      await this.retoSvc.addRetoConseguido(retoId, user);
       this.avisosSvc.presentToast('Reto conseguido', 'success');
-      this.userSvc.getTotalPuntosByUser(this.email).subscribe(totalPuntos => {
-console.log('total de puntos', totalPuntos);
-        this.userSvc.updateUserPuntos(this.email, totalPuntos);
-      })
+      this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos => {
+
+        this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
+      });
 
     } catch (error) {
       this.avisosSvc.presentToast('Error al conseguir Reto', 'danger');
     }
+
   }
 
-  removeRetoConseguido(retoId: string, email: string) {
+  /**
+ * Metodo para desmarcar el reto conseguido
+ * @param retoId Id del reto a marcar
+ * @param user Email del usuario logado
+ */
+  removeRetoConseguido(retoId: string, email:string) {
+
     try {
 
       this.retoSvc.getRetoConseguido(retoId, email).subscribe(retoConseguido => {
@@ -239,8 +298,7 @@ console.log('total de puntos', totalPuntos);
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar Reto', 'danger');
     }
+
   }
-
-
 
 }

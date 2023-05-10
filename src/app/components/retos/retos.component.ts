@@ -9,11 +9,19 @@ import { Reto } from 'src/app/interfaces/interfaces';
 })
 export class RetosComponent {
 
+  /**
+   * Array de Retos
+   */
   public reto: Reto[] = [];
 
+  /**
+   * Recie retos como parámetro
+   */
   @Input() retos: Reto[] = []
 
+  /**
+   * Constructor de clase
+   */
   constructor() { }
 
- 
 }

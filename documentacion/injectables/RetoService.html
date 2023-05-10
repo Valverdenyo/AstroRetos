@@ -92,6 +92,9 @@
                                 <a href="#reto" >reto</a>
                             </li>
                             <li>
+                                <a href="#retoConseguido" >retoConseguido</a>
+                            </li>
+                            <li>
                                 <a href="#retoFavorito" >retoFavorito</a>
                             </li>
                             <li>
@@ -100,6 +103,13 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#retosCollection" >retosCollection</a>
+                            </li>
+                            <li>
+                                <a href="#retosConseguidos" >retosConseguidos</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#retosConseguidosCollection" >retosConseguidosCollection</a>
                             </li>
                             <li>
                                 <a href="#retosFavoritos" >retosFavoritos</a>
@@ -133,6 +143,9 @@
                                 <a href="#checkRetoActivo" >checkRetoActivo</a>
                             </li>
                             <li>
+                                <a href="#checkRetoConseguido" >checkRetoConseguido</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#deleteFavorito" >deleteFavorito</a>
                             </li>
@@ -143,9 +156,6 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#deleteRetoConseguido" >deleteRetoConseguido</a>
-                            </li>
-                            <li>
-                                <a href="#eliminarRetoConseguido" >eliminarRetoConseguido</a>
                             </li>
                             <li>
                                 <a href="#getFavorito" >getFavorito</a>
@@ -160,6 +170,9 @@
                                 <a href="#getNivel" >getNivel</a>
                             </li>
                             <li>
+                                <a href="#getRetoConseguido" >getRetoConseguido</a>
+                            </li>
+                            <li>
                                 <a href="#getRetos" >getRetos</a>
                             </li>
                             <li>
@@ -170,6 +183,12 @@
                             </li>
                             <li>
                                 <a href="#getRetosByUser" >getRetosByUser</a>
+                            </li>
+                            <li>
+                                <a href="#getRetosConseguidos" >getRetosConseguidos</a>
+                            </li>
+                            <li>
+                                <a href="#getRetosConseguidosByUser" >getRetosConseguidosByUser</a>
                             </li>
                             <li>
                                 <a href="#updateEstadoReto" >updateEstadoReto</a>
@@ -192,17 +211,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(firestore: AngularFirestore)</code>
+<code>constructor(firestore: AngularFirestore, avisosSvc: <a href="../injectables/AvisosService.html" target="_self">AvisosService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/services/reto.service.ts:22</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="59" class="link-to-prism">src/app/services/reto.service.ts:59</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -211,6 +232,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -225,6 +247,26 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de Angular firestore</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>avisosSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AvisosService.html" target="_self" >AvisosService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de avisos via toast</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -260,14 +302,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="166"
-                            class="link-to-prism">src/app/services/reto.service.ts:166</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="288"
+                            class="link-to-prism">src/app/services/reto.service.ts:288</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Añade un favorito al usaurio actual</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -278,6 +322,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -292,6 +337,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>user</td>
@@ -304,6 +353,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>email del usuario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -341,14 +394,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="94"
-                            class="link-to-prism">src/app/services/reto.service.ts:94</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="177"
+                            class="link-to-prism">src/app/services/reto.service.ts:177</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método para crear un nuevo reto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -359,6 +414,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -373,6 +429,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Valores pasados desde el formulario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -410,14 +470,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="198"
-                            class="link-to-prism">src/app/services/reto.service.ts:198</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="405"
+                            class="link-to-prism">src/app/services/reto.service.ts:405</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Crea una nueva entrada de reto conseguido.
+Dependiendo del nivel, obtiene los puntos para añadirlos a la tabla</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -428,6 +491,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -442,6 +506,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id del reto conseguido</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>user</td>
@@ -454,6 +522,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>usuario que consigue el reto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -491,14 +563,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="145"
-                            class="link-to-prism">src/app/services/reto.service.ts:145</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="255"
+                            class="link-to-prism">src/app/services/reto.service.ts:255</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Comprueba si un usuario tiene un reto como Favorito</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -509,6 +583,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -523,6 +598,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto a comprobar</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>user</td>
@@ -535,6 +614,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Email del usuario a comprobar</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -574,14 +657,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="88"
-                            class="link-to-prism">src/app/services/reto.service.ts:88</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="165"
+                            class="link-to-prism">src/app/services/reto.service.ts:165</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método que comprueba si un reto está Activo o no</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -592,6 +677,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -606,6 +692,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto a revisar el estado</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -614,6 +704,98 @@
                     </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkRetoConseguido"></a>
+                    <span class="name">
+                        <span ><b>checkRetoConseguido</b></span>
+                        <a href="#checkRetoConseguido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkRetoConseguido(retoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="341"
+                            class="link-to-prism">src/app/services/reto.service.ts:341</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Revisa si el reto ha sido conseguido por un usuario</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Descripción</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>retoId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Id del reto</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>email del usuario</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;boolean&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -645,14 +827,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="182"
-                            class="link-to-prism">src/app/services/reto.service.ts:182</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="310"
+                            class="link-to-prism">src/app/services/reto.service.ts:310</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Elimina un favorito de la lista</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -663,6 +847,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -677,6 +862,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id del favorito</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -716,14 +905,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="118"
-                            class="link-to-prism">src/app/services/reto.service.ts:118</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="207"
+                            class="link-to-prism">src/app/services/reto.service.ts:207</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Método para eliminar un reto concreto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -734,6 +925,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -748,6 +940,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto a eliminar</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -787,14 +983,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="244"
-                            class="link-to-prism">src/app/services/reto.service.ts:244</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="445"
+                            class="link-to-prism">src/app/services/reto.service.ts:445</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Elimina un reto conseguido</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -805,6 +1003,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -819,6 +1018,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id del reto conseguido</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -827,75 +1030,6 @@
                     </div>
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="eliminarRetoConseguido"></a>
-                    <span class="name">
-                        <span ><b>eliminarRetoConseguido</b></span>
-                        <a href="#eliminarRetoConseguido"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>eliminarRetoConseguido(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="235"
-                            class="link-to-prism">src/app/services/reto.service.ts:235</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parámetros :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td>Tipo</td>
-                                    <td>Opcional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -925,14 +1059,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="152"
-                            class="link-to-prism">src/app/services/reto.service.ts:152</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="269"
+                            class="link-to-prism">src/app/services/reto.service.ts:269</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene los datos de un reto favorito concreto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -943,6 +1079,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -957,6 +1094,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Reto a cargar</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>user</td>
@@ -969,6 +1110,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>email del usuario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1006,18 +1151,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="128"
-                            class="link-to-prism">src/app/services/reto.service.ts:128</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="224"
+                            class="link-to-prism">src/app/services/reto.service.ts:224</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un Observable de los favoritos</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Observable&lt;any[]&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -1043,14 +1195,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="132"
-                            class="link-to-prism">src/app/services/reto.service.ts:132</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="235"
+                            class="link-to-prism">src/app/services/reto.service.ts:235</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene una lista de favoritos de un usuario concreto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -1061,6 +1215,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1075,6 +1230,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del usuario para filtrar los favoritos</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1112,14 +1271,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="192"
-                            class="link-to-prism">src/app/services/reto.service.ts:192</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="327"
+                            class="link-to-prism">src/app/services/reto.service.ts:327</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene el nivel de dificultad de un reto concreto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -1129,6 +1290,7 @@
                                 <tr>
                                     <td>Nombre</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1140,6 +1302,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1148,6 +1314,98 @@
                     </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRetoConseguido"></a>
+                    <span class="name">
+                        <span ><b>getRetoConseguido</b></span>
+                        <a href="#getRetoConseguido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRetoConseguido(retoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="385"
+                            class="link-to-prism">src/app/services/reto.service.ts:385</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene la informacion del reto conseguido</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Descripción</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>retoId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Id del Reto</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Email del usuario</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;{}&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1177,18 +1435,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="29"
-                            class="link-to-prism">src/app/services/reto.service.ts:29</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="73"
+                            class="link-to-prism">src/app/services/reto.service.ts:73</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un Observable con todos los retos creados</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Observable&lt;any[]&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -1214,18 +1479,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="33"
-                            class="link-to-prism">src/app/services/reto.service.ts:33</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="83"
+                            class="link-to-prism">src/app/services/reto.service.ts:83</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un array con los retos Activos, que son los que se muestran en el Home</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Devuelve : </b>    <code>Observable&lt;{}&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -1251,14 +1523,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="45"
-                            class="link-to-prism">src/app/services/reto.service.ts:45</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="102"
+                            class="link-to-prism">src/app/services/reto.service.ts:102</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un Observable tipo Reto de un reto pasado por parámetro</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -1269,6 +1543,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1283,6 +1558,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1320,14 +1599,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="57"
-                            class="link-to-prism">src/app/services/reto.service.ts:57</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="121"
+                            class="link-to-prism">src/app/services/reto.service.ts:121</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un array de Retos creados por un usuario pasado por parámetro</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -1338,6 +1619,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1352,6 +1634,130 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del usuario</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;{}&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRetosConseguidos"></a>
+                    <span class="name">
+                        <span ><b>getRetosConseguidos</b></span>
+                        <a href="#getRetosConseguidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRetosConseguidos()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="354"
+                            class="link-to-prism">src/app/services/reto.service.ts:354</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene un listado de todos los retos conseguidos</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRetosConseguidosByUser"></a>
+                    <span class="name">
+                        <span ><b>getRetosConseguidosByUser</b></span>
+                        <a href="#getRetosConseguidosByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRetosConseguidosByUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="365"
+                            class="link-to-prism">src/app/services/reto.service.ts:365</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Obtiene una lista de retos conseguidos por un usuario concreto</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Descripción</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Id del Usuario</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1389,14 +1795,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="69"
-                            class="link-to-prism">src/app/services/reto.service.ts:69</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="140"
+                            class="link-to-prism">src/app/services/reto.service.ts:140</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Actualiza el estado del reto: Activo &lt;=&gt; Inactivo</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -1407,6 +1815,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1421,6 +1830,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto a Actualizar</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1464,10 +1877,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/services/reto.service.ts:22</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/services/reto.service.ts:23</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Coleccion de firestore de &#39;favoritos&#39;</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1490,10 +1909,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="20" class="link-to-prism">src/app/services/reto.service.ts:20</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="59" class="link-to-prism">src/app/services/reto.service.ts:59</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable para guardar el nivel de dificultad del reto</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1516,10 +1941,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/services/reto.service.ts:19</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="54" class="link-to-prism">src/app/services/reto.service.ts:54</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>variable para guardar los puntos que se optienen al conseguir el reto</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1542,10 +1973,48 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/services/reto.service.ts:17</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="45" class="link-to-prism">src/app/services/reto.service.ts:45</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto tipo reto</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retoConseguido"></a>
+                    <span class="name">
+                        <span ><b>retoConseguido</b></span>
+                        <a href="#retoConseguido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/RetoConseguido.html" target="_self" >RetoConseguido</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="32" class="link-to-prism">src/app/services/reto.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto tipo Reto conseguido</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1568,10 +2037,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="13" class="link-to-prism">src/app/services/reto.service.ts:13</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/services/reto.service.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto tipo Favorito</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1594,10 +2069,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/services/reto.service.ts:16</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="41" class="link-to-prism">src/app/services/reto.service.ts:41</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable con un array de retos</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1621,10 +2102,81 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="14" class="link-to-prism">src/app/services/reto.service.ts:14</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="49" class="link-to-prism">src/app/services/reto.service.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>coleccion de firestore de &#39;retos&#39;</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retosConseguidos"></a>
+                    <span class="name">
+                        <span ><b>retosConseguidos</b></span>
+                        <a href="#retosConseguidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Observable&lt;RetoConseguido[]&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/services/reto.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable con un array de retos conseguidos</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retosConseguidosCollection"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>retosConseguidosCollection</b></span>
+                        <a href="#retosConseguidosCollection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>AngularFirestoreCollection&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="36" class="link-to-prism">src/app/services/reto.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>coleccion de firestore de &#39;retosconseguidos&#39;</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1647,10 +2199,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="12" class="link-to-prism">src/app/services/reto.service.ts:12</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/services/reto.service.ts:15</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Observable con un array de retos favoritos</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1662,37 +2220,88 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from &#x27;@angular/fire/compat/firestore&#x27;;
-import { Favorito, Reto } from &#x27;../interfaces/interfaces&#x27;;
+import { Favorito, Reto, RetoConseguido } from &#x27;../interfaces/interfaces&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
+import { AvisosService } from &#x27;./avisos.service&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class RetoService {
-
+  /**
+   * Observable con un array de retos favoritos
+   */
   retosFavoritos: Observable&lt;Favorito[]&gt;;
+  /**
+   * Objeto tipo Favorito
+   */
   retoFavorito: Favorito;
-  private retosCollection: AngularFirestoreCollection&lt;Reto&gt;;
-
-  retos: Observable&lt;Reto[]&gt;;
-  reto: Reto;
-
-  puntos: number;
-  nivel: string;
-
+  /**
+   * Coleccion de firestore de &#x27;favoritos&#x27;
+   */
   private favCollection: AngularFirestoreCollection&lt;any&gt;;
 
-  constructor(private firestore: AngularFirestore) {
-   
+  /**
+   * Observable con un array de retos conseguidos
+   */
+  retosConseguidos: Observable&lt;RetoConseguido[]&gt;;
+  /**
+   * Objeto tipo Reto conseguido
+   */
+  retoConseguido: RetoConseguido;
+  /**
+   * coleccion de firestore de &#x27;retosconseguidos&#x27;
+   */
+  private retosConseguidosCollection: AngularFirestoreCollection&lt;any&gt;;
 
-  }
+  /**
+   * Observable con un array de retos
+   */
+  retos: Observable&lt;Reto[]&gt;;
+  /**
+   * Objeto tipo reto
+   */
+  reto: Reto;
+  /**
+   * coleccion de firestore de &#x27;retos&#x27;
+   */
+  private retosCollection: AngularFirestoreCollection&lt;Reto&gt;;
 
+  /**
+   * variable para guardar los puntos que se optienen al conseguir el reto
+   */
+  puntos: number;
+
+  /**
+   * Variable para guardar el nivel de dificultad del reto
+   */
+  nivel: string;
+
+  /**
+   * Constructor de clase
+   * @param firestore Servicio de Angular firestore
+   * @param avisosSvc Servicio de avisos via toast
+   */
+  constructor(private firestore: AngularFirestore,
+    private avisosSvc: AvisosService) { }
+
+  /**
+   * Obtiene un Observable con todos los retos creados
+   * @returns 
+   */
   getRetos(): Observable&lt;any[]&gt; {
+
     return this.firestore.collection(&#x27;retos&#x27;).valueChanges({ idField: &#x27;id&#x27; });
+
   }
 
+  /**
+   * Obtiene un array con los retos Activos, que son los que se muestran en el Home
+   * @returns 
+   */
   getRetosActivos() {
+
     this.retosCollection &#x3D; this.firestore.collection&lt;Reto&gt;(&#x27;retos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ACTIVO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, true));
     this.retos &#x3D; this.retosCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -1702,9 +2311,16 @@ export class RetoService {
       }))
     );
     return this.retos;
+
   }
 
+  /**
+   * Obtiene un Observable tipo Reto de un reto pasado por parámetro
+   * @param id Id del reto
+   * @returns 
+   */
   getRetosById(id: string): Observable&lt;Reto[]&gt; {
+
     this.retosCollection &#x3D; this.firestore.collection&lt;Reto&gt;(&#x27;retos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id));
     this.retos &#x3D; this.retosCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -1714,9 +2330,16 @@ export class RetoService {
       }))
     );
     return this.retos;
+
   }
 
+  /**
+   * Obtiene un array de Retos creados por un usuario pasado por parámetro
+   * @param id Id del usuario
+   * @returns 
+   */
   getRetosByUser(id: string) {
+
     this.retosCollection &#x3D; this.firestore.collection&lt;Reto&gt;(&#x27;retos&#x27;, ref &#x3D;&gt; ref.where(&#x27;RETADOR&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id));
     this.retos &#x3D; this.retosCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -1726,9 +2349,16 @@ export class RetoService {
       }))
     );
     return this.retos;
+
   }
 
+  /**
+   * Actualiza el estado del reto: Activo &lt;&#x3D;&gt; Inactivo
+   * @param id Id del reto a Actualizar
+   * @returns 
+   */
   updateEstadoReto(id: string) {
+
     this.getRetosById(id).subscribe(reto &#x3D;&gt; {
       this.reto &#x3D; reto[0];
     });
@@ -1744,15 +2374,26 @@ export class RetoService {
     return this.firestore.collection(&#x27;retos&#x27;).doc(id).update({
       ACTIVO: this.reto.ACTIVO
     });
+
   }
 
-
+  /**
+   * Método que comprueba si un reto está Activo o no
+   * @param id Id del reto a revisar el estado
+   * @returns 
+   */
   async checkRetoActivo(id: string): Promise&lt;boolean&gt; {
+
     console.log(&#x27;check&#x27;, id);
     const doc &#x3D; await this.firestore.collection(&#x27;retos&#x27;).doc(id).get().toPromise();
     return doc.exists &amp;&amp; (doc.data() as Reto).ACTIVO;
+
   }
 
+  /**
+   * Método para crear un nuevo reto
+   * @param reto Valores pasados desde el formulario
+   */
   addReto(reto: Reto) {
 
     this.firestore.collection(&#x27;retos&#x27;).add({
@@ -1774,24 +2415,45 @@ export class RetoService {
       })
       .catch((error: any) &#x3D;&gt; {
         console.error(&#x27;Error al crear el reto: &#x27;, error);
+        this.avisosSvc.presentToast(&#x27;No se ha podido crear el Reto&#x27;, &#x27;danger&#x27;);
       });
+
   }
 
+  /**
+   * Método para eliminar un reto concreto
+   * @param id Id del reto a eliminar
+   */
   async deleteReto(id: string) {
+
     this.firestore.collection(&#x27;retos&#x27;).doc(id).delete()
       .then(() &#x3D;&gt; {
-        console.log(&#x27;Reto eliminado correctamente&#x27;);
+        this.avisosSvc.presentToast(&#x27;Reto eliminado correctamente&#x27;, &#x27;success&#x27;);
       })
       .catch((error) &#x3D;&gt; {
+        this.avisosSvc.presentToast(&#x27;No se ha podido eliminar el Reto&#x27;, &#x27;danger&#x27;);
         console.error(&#x27;Error al eliminar Reto: &#x27;, error);
       });
+
   }
 
+  /**
+   * Obtiene un Observable de los favoritos
+   * @returns 
+   */
   getFavoritos(): Observable&lt;any[]&gt; {
+
     return this.firestore.collection(&#x27;favoritos&#x27;).valueChanges({ idField: &#x27;id&#x27; });
+
   }
 
+  /**
+   * Obtiene una lista de favoritos de un usuario concreto
+   * @param id Id del usuario para filtrar los favoritos
+   * @returns 
+   */
   getFavoritosByUser(id: string) {
+
     this.favCollection &#x3D; this.firestore.collection&lt;Favorito&gt;(&#x27;favoritos&#x27;, ref &#x3D;&gt; ref.where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id));
     this.retosFavoritos &#x3D; this.favCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -1804,14 +2466,28 @@ export class RetoService {
 
   }
 
+  /**
+   * Comprueba si un usuario tiene un reto como Favorito
+   * @param retoId Id del reto a comprobar
+   * @param user Email del usuario a comprobar
+   * @returns 
+   */
   checkFavorito(retoId: string, user: string): Observable&lt;boolean&gt; {
-    console.log(&#x27;buscando favorito&#x27;, retoId, &#x27;del usuario&#x27;, user);
+
     return this.firestore.collection(&#x27;favoritos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID_RETO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, retoId).where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, user)).valueChanges().pipe(
       map(favoritos &#x3D;&gt; favoritos.length &gt; 0)
     );
+
   }
 
+  /**
+   * Obtiene los datos de un reto favorito concreto
+   * @param retoId Reto a cargar
+   * @param user email del usuario
+   * @returns 
+   */
   getFavorito(retoId: string, user: string) {
+
     this.favCollection &#x3D; this.firestore.collection&lt;Favorito&gt;(&#x27;favoritos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID_RETO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, retoId).where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, user));
     this.retosFavoritos &#x3D; this.favCollection.snapshotChanges().pipe(
       map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
@@ -1824,8 +2500,13 @@ export class RetoService {
 
   }
 
-
+  /**
+   * Añade un favorito al usaurio actual
+   * @param id Id del reto
+   * @param user email del usuario
+   */
   addFavorito(id: string, user: string) {
+
     this.firestore.collection(&#x27;favoritos&#x27;).add({
       USER: user,
       ID_RETO: id,
@@ -1839,9 +2520,15 @@ export class RetoService {
       .catch((error: any) &#x3D;&gt; {
         console.error(&#x27;Error al agregar el Favorito: &#x27;, error);
       });
+
   }
 
+  /**
+   * Elimina un favorito de la lista
+   * @param id id del favorito
+   */
   async deleteFavorito(id: string) {
+
     this.firestore.collection(&#x27;favoritos&#x27;).doc(id).delete()
       .then(() &#x3D;&gt; {
         console.log(&#x27;Favorito eliminado correctamente&#x27;);
@@ -1849,14 +2536,92 @@ export class RetoService {
       .catch((error) &#x3D;&gt; {
         console.error(&#x27;Error al eliminar Favorito: &#x27;, error);
       });
+
   }
 
+  /**
+   * Obtiene el nivel de dificultad de un reto concreto
+   * @param id Id del reto
+   * @returns 
+   */
   getNivel(id): Observable&lt;string&gt; {
+
     return this.getRetosById(id).pipe(
       map(reto &#x3D;&gt; reto[0].NIVEL)
     );
+
   }
 
+  /**
+   * Revisa si el reto ha sido conseguido por un usuario
+   * @param retoId Id del reto
+   * @param user email del usuario
+   * @returns 
+   */
+  checkRetoConseguido(retoId: string, user: string): Observable&lt;boolean&gt; {
+
+    console.log(&#x27;buscando reto conseguido&#x27;, retoId, &#x27;del usuario&#x27;, user);
+    return this.firestore.collection(&#x27;retosconseguidos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID_RETO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, retoId).where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, user)).valueChanges().pipe(
+      map(favoritos &#x3D;&gt; favoritos.length &gt; 0)
+    );
+
+  }
+
+  /**
+   * Obtiene un listado de todos los retos conseguidos
+   * @returns 
+   */
+  getRetosConseguidos(): Observable&lt;any[]&gt; {
+
+    return this.firestore.collection(&#x27;retosconseguidos&#x27;).valueChanges({ idField: &#x27;id&#x27; });
+
+  }
+
+  /**
+   * Obtiene una lista de retos conseguidos por un usuario concreto
+   * @param id Id del Usuario
+   * @returns 
+   */
+  getRetosConseguidosByUser(id: string) {
+
+    this.retosConseguidosCollection &#x3D; this.firestore.collection&lt;RetoConseguido&gt;(&#x27;retosconseguidos&#x27;, ref &#x3D;&gt; ref.where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, id));
+    this.retosConseguidos &#x3D; this.retosConseguidosCollection.snapshotChanges().pipe(
+      map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
+        const data &#x3D; a.payload.doc.data() as RetoConseguido;
+        const id &#x3D; a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retosConseguidos;
+
+  }
+
+  /**
+   * Obtiene la informacion del reto conseguido
+   * @param retoId Id del Reto
+   * @param user Email del usuario
+   * @returns 
+   */
+  getRetoConseguido(retoId: string, user: string) {
+
+    this.retosConseguidosCollection &#x3D; this.firestore.collection&lt;RetoConseguido&gt;(&#x27;retosconseguidos&#x27;, ref &#x3D;&gt; ref.where(&#x27;ID_RETO&#x27;, &#x27;&#x3D;&#x3D;&#x27;, retoId).where(&#x27;USER&#x27;, &#x27;&#x3D;&#x3D;&#x27;, user));
+    this.retosConseguidos &#x3D; this.retosConseguidosCollection.snapshotChanges().pipe(
+      map(actions &#x3D;&gt; actions.map(a &#x3D;&gt; {
+        const data &#x3D; a.payload.doc.data() as RetoConseguido;
+        const id &#x3D; a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.retosConseguidos;
+
+  }
+
+  /**
+   * Crea una nueva entrada de reto conseguido. 
+   * Dependiendo del nivel, obtiene los puntos para añadirlos a la tabla
+   * @param id id del reto conseguido
+   * @param user usuario que consigue el reto
+   */
   addRetoConseguido(id: string, user: string) {
 
     this.getNivel(id).subscribe(nivel &#x3D;&gt; {
@@ -1882,28 +2647,28 @@ export class RetoService {
         ID_RETO: id,
         ID_RETO_CONSEGUIDO: &#x27;&#x27;,
         PUNTOS: this.puntos
-      })
-        .then((docRef: any) &#x3D;&gt; {
-          this.firestore.doc(docRef).update({
+    }).then(async (docRef: any) &#x3D;&gt; {
+        await this.firestore.doc(docRef).update({
             ID_RETO_CONSEGUIDO: docRef.id
-          })
         })
+    })
         .catch((error: any) &#x3D;&gt; {
           console.error(&#x27;Error al agregar el reto conseguido: &#x27;, error);
         });
     });
   }
 
-  eliminarRetoConseguido(id: string) {
+  /**
+   * Elimina un reto conseguido
+   * @param id id del reto conseguido
+   */
+  async deleteRetoConseguido(id: string) {
+
     this.firestore.collection(&#x27;retosconseguidos&#x27;).doc(id).delete().then(() &#x3D;&gt; {
       console.log(&quot;Documento eliminado correctamente&quot;);
     }).catch((error) &#x3D;&gt; {
       console.error(&quot;Error al eliminar el documento: &quot;, error);
     });
-  }
-
-
-  async deleteRetoConseguido(id: string) {
 
   }
 

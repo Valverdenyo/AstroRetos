@@ -97,12 +97,15 @@ export class UserService {
     
   }
 
+  /**
+   * Metodo para cambiar de rol al usuario: Retador <=> Administrador
+   * @param id Id del usuario al que cambiar el Rol
+   * @returns 
+   */
   updateUserRol(id: string) {
     this.getUserById(id).subscribe(usuario => {
       this.usuario = usuario;
     });
-
-    console.log('tiene el rol', this.usuario.ROL);
 
     if (this.usuario.ROL == 'retador') {
       this.newRol = 'admin';
@@ -117,36 +120,57 @@ export class UserService {
     });
   }
 
+  /**
+   * Metodo para cambiar el Avatar de un usuario
+   * @param id Id del usuario al que cambiar el Avatar
+   * @param avatar Imagen nueva del avatar (string saneado)
+   * @returns 
+   */
   updateUserAvatar(id: string, avatar: string) {
+
     this.getUserById(id).subscribe(usuario => {
       this.usuario = usuario;
       this.newAvatar = this.usuario.AVATAR;
-      console.log('avatar viejo', this.newAvatar);
       this.newAvatar = avatar;
-      console.log('avatar nuevo', this.newAvatar);
-
     });
     return this.firestore.collection('usuarios').doc(id).update({
       AVATAR: avatar
     });
+
   }
-
-
+  /**
+   * Obtiene el total de puntos de un usuario concreto
+   * @param user Usuario del que obtener los puntos
+   * @returns 
+   */
   getTotalPuntosByUser(user: string): Observable<number> {
+
     return this.firestore.collection<any>('retosconseguidos', ref => ref.where('USER', '==', user))
       .valueChanges({ idField: 'ID' })
       .pipe(
         map(retos => retos.reduce((total, reto) => total + reto.PUNTOS, 0))
       );
+
   }
 
+  /**
+   * Obtiene una lista ordenada de los usuarios con más puntos. El de mayor puntuacion, arriba
+   * @returns 
+   */
   getUsuariosPorPuntos(): Observable<any[]> {
+
     return this.firestore.collection('usuarios', ref => ref.orderBy('PUNTOS', 'desc'))
       .valueChanges({ idField: 'ID' });
-  }
-  
 
+  }
+
+  /**
+   * Obtiene del JSON de roles las opciones adecuadas dependiendo del rol del usuario logado
+   * @param roles roles del usuario logado
+   * @returns 
+   */
   getMenuOpts(roles: string[]) {
+
     return this.http.get<MenuOpts[]>('/assets/data/menu.json')
       .pipe(
         map((menuOpts: MenuOpts[]) => {
@@ -155,6 +179,7 @@ export class UserService {
           });
         })
       );
+
   }
 
 }

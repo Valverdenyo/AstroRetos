@@ -135,9 +135,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#email" >email</a>
-                            </li>
-                            <li>
                                 <a href="#favoritos" >favoritos</a>
                             </li>
                             <li>
@@ -152,6 +149,10 @@
                             </li>
                             <li>
                                 <a href="#retos" >retos</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userEmail" >userEmail</a>
                             </li>
                             <li>
                                 <a href="#usuario" >usuario</a>
@@ -201,12 +202,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:27</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="49" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:49</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de clase
+Aqui cargamos el menu personalizado</p>
+</div>
                             <div>
                                     <b>Parámetros :</b>
                                     <table class="params">
@@ -215,6 +219,7 @@
                                                 <td>Nombre</td>
                                                     <td>Tipo</td>
                                                 <td>Opcional</td>
+                                                    <td>Descripción</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -229,6 +234,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para personalizar el menu</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>retoSvc</td>
@@ -241,6 +250,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para el manejo de los retos</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>authSvc</td>
@@ -253,6 +266,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para gestionar la Autenticacion</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>userSvc</td>
@@ -265,6 +282,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio para operaciones con el usuario</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>avisosSvc</td>
@@ -277,6 +298,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio de avisos a traves de toast</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>modalCtrl</td>
@@ -289,6 +314,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Servicio que controla la carga de modales</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -328,14 +357,19 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="40"
-                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:40</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="77"
+                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:77</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Metodo de inicio
+Comprobamos el mail del usuario logado
+Cargamos los favoritos de ese usuario
+Almacenamos los retos por los ID de los favoritos</p>
+</div>
 
                     <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -365,14 +399,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="81"
-                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:81</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="129"
+                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:129</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Quita el favorito de la lista</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -383,6 +419,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -397,6 +434,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del favorito</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -436,14 +477,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="69"
-                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:69</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="111"
+                            class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:111</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Muestra el Modal con los detalles del reto</p>
+</div>
 
                     <div class="io-description">
                         <b>Parámetros :</b>
@@ -454,6 +497,7 @@
                                     <td>Nombre</td>
                                     <td>Tipo</td>
                                     <td>Opcional</td>
+                                    <td>Descripción</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -468,6 +512,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Id del reto</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -495,32 +543,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="email"></a>
-                    <span class="name">
-                        <span ><b>email</b></span>
-                        <a href="#email"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="21" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:21</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="favoritos"></a>
                     <span class="name">
                         <span ><b>favoritos</b></span>
@@ -541,10 +563,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:25</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="44" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:44</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Array de objetos de tipo Favorito</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -567,10 +595,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:23</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Para guardar el Id del Favorito</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -593,10 +627,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:22</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="29" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Id del usuario logado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -620,10 +660,15 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="30" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:30</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="61" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:61</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio para personalizar el menu</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -651,10 +696,49 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="27" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:27</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="49" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Array de objetos de tipo Reto</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userEmail</b></span>
+                        <a href="#userEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable para almacenar el mail del usuario logado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -677,10 +761,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:24</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="39" class="link-to-prism">src/app/pages/favoritos/favoritos.page.ts:39</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto tipo Usuario para cargar sus datos</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -710,15 +800,46 @@ import { UserService } from &#x27;src/app/services/user.service&#x27;;
 })
 export class FavoritosPage implements OnInit {
 
-  email: string;
-  idUser: string;
-  idFavorito: string;
-  usuario: Usuario;
-  favoritos: Favorito[] &#x3D; [];
-  
-  retos: Reto[] &#x3D; [];
-  
+  /**
+   * Variable para almacenar el mail del usuario logado
+   */
+  public userEmail: string;
 
+  /**
+   * Id del usuario logado
+   */
+  idUser: string;
+
+  /**
+   * Para guardar el Id del Favorito
+   */
+  idFavorito: string;
+
+  /**
+   * Objeto tipo Usuario para cargar sus datos
+   */
+  usuario: Usuario;
+
+  /**
+   * Array de objetos de tipo Favorito
+   */
+  favoritos: Favorito[] &#x3D; [];
+
+  /**
+   * Array de objetos de tipo Reto
+   */
+  retos: Reto[] &#x3D; [];
+
+  /**
+   * Constructor de clase
+   * Aqui cargamos el menu personalizado
+   * @param menuSvc Servicio para personalizar el menu
+   * @param retoSvc Servicio para el manejo de los retos
+   * @param authSvc Servicio para gestionar la Autenticacion
+   * @param userSvc Servicio para operaciones con el usuario
+   * @param avisosSvc Servicio de avisos a traves de toast
+   * @param modalCtrl Servicio que controla la carga de modales
+   */
   constructor(public menuSvc: MenuService,
     private retoSvc: RetoService,
     private authSvc: AuthService,
@@ -726,39 +847,51 @@ export class FavoritosPage implements OnInit {
     private avisosSvc: AvisosService,
     private modalCtrl: ModalController) {
 
-    this.menuSvc.setMenu();  
+    this.menuSvc.setMenu();
   }
 
+  /**
+   * Metodo de inicio
+   * Comprobamos el mail del usuario logado
+   * Cargamos los favoritos de ese usuario
+   * Almacenamos los retos por los ID de los favoritos
+   */
   ngOnInit() {
 
     this.favoritos &#x3D; [];
 
     this.authSvc.getUserEmail().then(email &#x3D;&gt; {
-      this.email &#x3D; email;
+      this.userEmail &#x3D; email;
       this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
         this.usuario &#x3D; usuario;
         this.idUser &#x3D; this.usuario.ID;
         console.log(this.usuario.NOMBRE);
-              
+
       });
 
-      this.retoSvc.getFavoritosByUser(this.email).subscribe(favoritos &#x3D;&gt; {
+      this.retoSvc.getFavoritosByUser(this.userEmail).subscribe(favoritos &#x3D;&gt; {
         this.favoritos &#x3D; favoritos;
+        console.log(this.favoritos.length);
 
-         for (let index &#x3D; 0; index &lt; this.favoritos.length; index++) {
+      for (let index &#x3D; 0; index &lt; this.favoritos.length; index++) {
           this.retoSvc.getRetosById(this.favoritos[index].ID_RETO).subscribe(reto &#x3D;&gt; {
             this.retos &#x3D; [...this.retos, ...reto];
             console.log(&#x27;reto&#x27;, index, this.retos[index], this.favoritos[index]);
-          });          
-        } 
-        
-    
+          });
+        }
+
+
       });
     });
-  
-  } 
 
+  }
+
+  /**
+   * Muestra el Modal con los detalles del reto
+   * @param id Id del reto
+   */
   async verDetalle(id: string) {
+
     const modal &#x3D; await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
@@ -768,16 +901,23 @@ export class FavoritosPage implements OnInit {
     });
 
     modal.present();
+
   }
-  
+
+  /**
+   * Quita el favorito de la lista
+   * @param id Id del favorito
+   */
   quitarFavorito(id: string) {
+
     try {
       this.retoSvc.deleteFavorito(id);
       console.log(&#x27;eliminando reto&#x27;, this.idFavorito, id);
-   this.avisosSvc.presentToast(&#x27;Favorito eliminado correctamente&#x27;, &#x27;success&#x27;);
- } catch (error) {
-   this.avisosSvc.presentToast(&#x27;Error al eliminar el Favorito&#x27;, &#x27;danger&#x27;);
- }
+      this.avisosSvc.presentToast(&#x27;Favorito eliminado correctamente&#x27;, &#x27;success&#x27;);
+    } catch (error) {
+      this.avisosSvc.presentToast(&#x27;Error al eliminar el Favorito&#x27;, &#x27;danger&#x27;);
+    }
+
   }
 
 }
