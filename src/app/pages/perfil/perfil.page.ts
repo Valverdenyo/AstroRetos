@@ -74,32 +74,8 @@ export class PerfilPage implements OnInit {
 
   ) {
 
-    /*   this.angularFireAuth.onAuthStateChanged(user => {
-
-      if (user) {
-        // El usuario está logueado
-        this.userSvc.getUserEmail().subscribe(email => {
-          this.userEmail = email;
-   
-
-          this.userSvc.getUserByEmail(email).subscribe(usuario => {
-
-            this.usuarioLogado = usuario;
-          });
-
-        });
-
-      } else {
-        // El usuario no está logueado
-        console.log('no deberias estar aqui');
-
-      }
-
-    });        */
-
     this.authSvc.initAuthStateListener();
     this.userEmail = this.authSvc.userEmail;
-
 
   }
 
@@ -178,7 +154,7 @@ export class PerfilPage implements OnInit {
    * Al eliminarlo de devuelve al Home
    * @param documentId ID del usuario a eliminar (el mismo que ha iniciado sesión)
    */
-  async alertDelete(documentId: string) {
+  async alertDelete() {
 
     const alert = await this.alertCtrl.create({
       header: 'Eliminar usuario',
@@ -191,7 +167,7 @@ export class PerfilPage implements OnInit {
         }, {
           text: 'Eliminar',
           handler: () => {
-            //  this.userSvc.deleteUser(this.usuarioLogado.ID);
+          this.authSvc.deleteAccount();
             this.router.navigateByUrl('/home');
           }
         }

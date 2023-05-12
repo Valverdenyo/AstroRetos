@@ -145,7 +145,7 @@ export class AdminPage implements OnInit {
   deleteUser(id: string) {
 
     try {
-      //   this.userSvc.deleteUser(id);
+      this.authSvc.deleteUser(id);
       this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');

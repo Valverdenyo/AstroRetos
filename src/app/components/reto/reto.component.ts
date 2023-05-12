@@ -22,14 +22,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RetoComponent implements OnInit {
 
-/**
- * Recibe el objeto reto a cargar
- */
+  /**
+   * Recibe el objeto reto a cargar
+   */
   @Input() reto!: Reto;
 
-/**
- *recibe un numero de indice para la carga 
- */
+  /**
+   *recibe un numero de indice para la carga 
+   */
   @Input() index!: number;
 
   /**
@@ -77,16 +77,16 @@ export class RetoComponent implements OnInit {
    */
   puntos: number;
 
-/**
- * constructor de clase
- * @param retoSvc Servicio para el manejo de los retos
- * @param modalCtrl Controlador de uso de modales
- * @param socialSharing Componente usado para compartir retos en aplicaciones
- * @param platform Componente para comprobar la plataforma de ejecucion
- * @param userSvc Servicio de manejo del usuario
- * @param authSvc Servicio para controlar la autenticacion
- * @param avisosSvc Servicio de avisos a traves dded toast
- */
+  /**
+   * constructor de clase
+   * @param retoSvc Servicio para el manejo de los retos
+   * @param modalCtrl Controlador de uso de modales
+   * @param socialSharing Componente usado para compartir retos en aplicaciones
+   * @param platform Componente para comprobar la plataforma de ejecucion
+   * @param userSvc Servicio de manejo del usuario
+   * @param authSvc Servicio para controlar la autenticacion
+   * @param avisosSvc Servicio de avisos a traves dded toast
+   */
   constructor(private retoSvc: RetoService,
     private modalCtrl: ModalController,
     private socialSharing: SocialSharing,
@@ -95,10 +95,10 @@ export class RetoComponent implements OnInit {
     private authSvc: AuthService,
     private avisosSvc: AvisosService) {
 
-   /*  this.userSvc.getUserEmail().subscribe(email => {
-      this.userEmail = email;
-      console.log('email', this.userEmail);
-    }); */
+    /*  this.userSvc.getUserEmail().subscribe(email => {
+       this.userEmail = email;
+       console.log('email', this.userEmail);
+     }); */
 
     this.authSvc.initAuthStateListener();
     this.userEmail = this.authSvc.userEmail;
@@ -201,16 +201,16 @@ export class RetoComponent implements OnInit {
 
   }
 
-/**
- * Metodo para marcar un reto como favorito
- * @param retoId Id del reto a marcar
- * @param user Email del usuario logado
- */
+  /**
+   * Metodo para marcar un reto como favorito
+   * @param retoId Id del reto a marcar
+   * @param user Email del usuario logado
+   */
   setFavorito(retoId: string, user: string) {
 
     try {
 
-      if (user !== '') {
+      if (user) {
         this.retoSvc.addFavorito(retoId, user);
         this.avisosSvc.presentToast('Favorito añadido', 'success');
 
@@ -268,12 +268,18 @@ export class RetoComponent implements OnInit {
 
     try {
 
-      await this.retoSvc.addRetoConseguido(retoId, user);
-      this.avisosSvc.presentToast('Reto conseguido', 'success');
-      this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos => {
+      if (user) {
+        await this.retoSvc.addRetoConseguido(retoId, user);
+        this.avisosSvc.presentToast('Reto conseguido', 'success');
+        this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos => {
 
-        this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
-      });
+          this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
+        });
+      } else {
+        this.avisosSvc.presentToast('Debes estar logado para hacer esto', 'warning');
+      }
+
+
 
     } catch (error) {
       this.avisosSvc.presentToast('Error al conseguir Reto', 'danger');
@@ -286,7 +292,7 @@ export class RetoComponent implements OnInit {
  * @param retoId Id del reto a marcar
  * @param user Email del usuario logado
  */
-  removeRetoConseguido(retoId: string, email:string) {
+  removeRetoConseguido(retoId: string, email: string) {
 
     try {
 

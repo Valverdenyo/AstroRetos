@@ -48,11 +48,13 @@ export class AuthService {
    */
   signUp(usuario: Usuario) {
 
+    const noAvatar: string = 'https://firebasestorage.googleapis.com/v0/b/astroretos-db.appspot.com/o/avatar%2Fno-avatar.png?alt=media&token=e6384116-00b8-4a34-a0f1-ee14e4ae8983';
+
     this.firestore.collection('usuarios').add({
       EMAIL: usuario.EMAIL,
       NOMBRE: usuario.NOMBRE,
       ROL: "Retador",
-      AVATAR: "",
+      AVATAR: noAvatar,
       ID: "",
       PUNTOS: 0
 
@@ -147,15 +149,15 @@ export class AuthService {
    * Obtiene el mail del usuario en caso de estar logado
    * @returns 
    */
-  public async getUserEmail(): Promise<string | null> {
+  public async getUserEmail(): Promise<string> {
     if (this.checkLogin()) {
       const user = await this.angularFireAuth.currentUser;
       if (user) {
         this.userEmail = user.email;
-        return this.userEmail || null;
+        return this.userEmail || '';
       }
     }
-    return null;
+    return '';
   }
 
   public initAuthStateListener(): void {
@@ -163,7 +165,7 @@ export class AuthService {
       if (user) {
         this.userEmail = user.email;
       } else {
-        this.userEmail = null;
+        this.userEmail = '';
       }
     });
   }
@@ -190,6 +192,17 @@ export class AuthService {
       .catch((error) => {
         this.avisosSvc.presentToast('Error eliminando el Usuario', 'danger');
       });
+  }
+
+  async deleteAccount() {
+    try {
+      const user = this.angularFireAuth.currentUser;
+      await (await user).delete();
+      this.deleteUser(this.usuarioLogado.ID);
+      this.router.navigateByUrl('home');
+    } catch (error) {
+      console.log('Error deleting account', error);
+    }
   }
 
 }
