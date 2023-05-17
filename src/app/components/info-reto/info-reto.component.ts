@@ -24,7 +24,7 @@ export class InfoRetoComponent implements OnInit {
   /**
    * Recibe el id del Reto a través de un Input que se envia desde el Card  * 
    */
-  @Input() id: string;
+  @Input() retoId: string;
   /**
    * Declaramos un objeto Reto para guardar la información a mostrar.
    */
@@ -76,7 +76,7 @@ export class InfoRetoComponent implements OnInit {
 
     });
 
-    this.retoSvc.getRetosById(this.id).subscribe(retos => {
+    this.retoSvc.getRetosById(this.retoId).subscribe(retos => {
       this.reto = retos[0];
       this.checkRetoFavorito(this.reto.ID, this.email);
       this.checkRetoConseguido(this.reto.ID, this.email);
@@ -101,6 +101,7 @@ export class InfoRetoComponent implements OnInit {
       default:
         return 'help';
     }
+
   }
 
   /**
@@ -120,13 +121,14 @@ export class InfoRetoComponent implements OnInit {
       default:
         return 'help';
     }
+
   }
 
   /**
    * Método para compartir el reto en las aplicaciones disponibles en el terminal (Mail o RRSS)
    */
   compartirReto() {
-    if (this.platform.is('cordova')) {
+    if (this.platform.is('android')) {
       this.socialSharing.share(this.mensaje);
     } else {
       if (navigator.share) {

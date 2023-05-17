@@ -96,17 +96,17 @@ export class RetoService {
 
   /**
    * Obtiene un Observable tipo Reto de un reto pasado por parámetro
-   * @param id Id del reto
+   * @param retoId Id del reto
    * @returns 
    */
-  getRetosById(id: string): Observable<Reto[]> {
+  getRetosById(retoId: string): Observable<Reto[]> {
 
-    this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ID', '==', id));
+    this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('ID', '==', retoId));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Reto;
-        const id = a.payload.doc.id;
-        return { id, ...data };
+        const $id = a.payload.doc.id;
+        return { $id, ...data };
       }))
     );
     return this.retos;
@@ -115,17 +115,17 @@ export class RetoService {
 
   /**
    * Obtiene un array de Retos creados por un usuario pasado por parámetro
-   * @param id Id del usuario
+   * @param userId Id del usuario
    * @returns 
    */
-  getRetosByUser(id: string) {
+  getRetosByUser(userId: string) {
 
-    this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('RETADOR', '==', id));
+    this.retosCollection = this.firestore.collection<Reto>('retos', ref => ref.where('RETADOR', '==', userId));
     this.retos = this.retosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Reto;
-        const id = a.payload.doc.id;
-        return { id, ...data };
+        const $id = a.payload.doc.id;
+        return { $id, ...data };
       }))
     );
     return this.retos;
@@ -134,12 +134,12 @@ export class RetoService {
 
   /**
    * Actualiza el estado del reto: Activo <=> Inactivo
-   * @param id Id del reto a Actualizar
+   * @param retoId Id del reto a Actualizar
    * @returns 
    */
-  updateEstadoReto(id: string) {
+  updateEstadoReto(retoId: string) {
 
-    this.getRetosById(id).subscribe(reto => {
+    this.getRetosById(retoId).subscribe(reto => {
       this.reto = reto[0];
     });
 
@@ -151,7 +151,7 @@ export class RetoService {
 
     }
 
-    return this.firestore.collection('retos').doc(id).update({
+    return this.firestore.collection('retos').doc(retoId).update({
       ACTIVO: this.reto.ACTIVO
     });
 
@@ -159,13 +159,13 @@ export class RetoService {
 
   /**
    * Método que comprueba si un reto está Activo o no
-   * @param id Id del reto a revisar el estado
+   * @param retoId Id del reto a revisar el estado
    * @returns 
    */
-  async checkRetoActivo(id: string): Promise<boolean> {
+  async checkRetoActivo(retoId: string): Promise<boolean> {
 
-    console.log('check', id);
-    const doc = await this.firestore.collection('retos').doc(id).get().toPromise();
+    console.log('check', retoId);
+    const doc = await this.firestore.collection('retos').doc(retoId).get().toPromise();
     return doc.exists && (doc.data() as Reto).ACTIVO;
 
   }
@@ -202,11 +202,11 @@ export class RetoService {
 
   /**
    * Método para eliminar un reto concreto
-   * @param id Id del reto a eliminar
+   * @param retoId Id del reto a eliminar
    */
-  async deleteReto(id: string) {
+  async deleteReto(retoId: string) {
 
-    this.firestore.collection('retos').doc(id).delete()
+    this.firestore.collection('retos').doc(retoId).delete()
       .then(() => {
         this.avisosSvc.presentToast('Reto eliminado correctamente', 'success');
       })
@@ -229,17 +229,17 @@ export class RetoService {
 
   /**
    * Obtiene una lista de favoritos de un usuario concreto
-   * @param id Id del usuario para filtrar los favoritos
+   * @param userId Id del usuario para filtrar los favoritos
    * @returns 
    */
-  getFavoritosByUser(id: string) {
+  getFavoritosByUser(userId: string) {
 
-    this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('USER', '==', id));
+    this.favCollection = this.firestore.collection<Favorito>('favoritos', ref => ref.where('USER', '==', userId));
     this.retosFavoritos = this.favCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Favorito;
-        const id = a.payload.doc.id;
-        return { id, ...data };
+        const $id = a.payload.doc.id;
+        return { $id, ...data };
       }))
     );
     return this.retosFavoritos;
@@ -282,14 +282,14 @@ export class RetoService {
 
   /**
    * Añade un favorito al usaurio actual
-   * @param id Id del reto
+   * @param retoId Id del reto
    * @param user email del usuario
    */
-  addFavorito(id: string, user: string) {
+  addFavorito(retoId: string, user: string) {
 
     this.firestore.collection('favoritos').add({
       USER: user,
-      ID_RETO: id,
+      ID_RETO: retoId,
       ID_FAV: ""
     })
       .then((docRef: any) => {
@@ -305,11 +305,11 @@ export class RetoService {
 
   /**
    * Elimina un favorito de la lista
-   * @param id id del favorito
+   * @param favId id del favorito
    */
-  async deleteFavorito(id: string) {
+  async deleteFavorito(favId: string) {
 
-    this.firestore.collection('favoritos').doc(id).delete()
+    this.firestore.collection('favoritos').doc(favId).delete()
       .then(() => {
         console.log('Favorito eliminado correctamente');
       })
@@ -321,12 +321,12 @@ export class RetoService {
 
   /**
    * Obtiene el nivel de dificultad de un reto concreto
-   * @param id Id del reto
+   * @param retoId Id del reto
    * @returns 
    */
-  getNivel(id): Observable<string> {
+  getNivel(retoId): Observable<string> {
 
-    return this.getRetosById(id).pipe(
+    return this.getRetosById(retoId).pipe(
       map(reto => reto[0].NIVEL)
     );
 
@@ -359,17 +359,17 @@ export class RetoService {
 
   /**
    * Obtiene una lista de retos conseguidos por un usuario concreto
-   * @param id Id del Usuario
+   * @param userId Id del Usuario
    * @returns 
    */
-  getRetosConseguidosByUser(id: string) {
+  getRetosConseguidosByUser(userId: string) {
 
-    this.retosConseguidosCollection = this.firestore.collection<RetoConseguido>('retosconseguidos', ref => ref.where('USER', '==', id));
+    this.retosConseguidosCollection = this.firestore.collection<RetoConseguido>('retosconseguidos', ref => ref.where('USER', '==', userId));
     this.retosConseguidos = this.retosConseguidosCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as RetoConseguido;
-        const id = a.payload.doc.id;
-        return { id, ...data };
+        const $id = a.payload.doc.id;
+        return { $id, ...data };
       }))
     );
     return this.retosConseguidos;
@@ -399,12 +399,12 @@ export class RetoService {
   /**
    * Crea una nueva entrada de reto conseguido. 
    * Dependiendo del nivel, obtiene los puntos para añadirlos a la tabla
-   * @param id id del reto conseguido
+   * @param retoId id del reto conseguido
    * @param user usuario que consigue el reto
    */
-  addRetoConseguido(id: string, user: string) {
+  addRetoConseguido(retoId: string, user: string) {
 
-    this.getNivel(id).subscribe(nivel => {
+    this.getNivel(retoId).subscribe(nivel => {
 
       this.nivel = nivel;
 
@@ -424,7 +424,7 @@ export class RetoService {
 
       this.firestore.collection('retosconseguidos').add({
         USER: user,
-        ID_RETO: id,
+        ID_RETO: retoId,
         ID_RETO_CONSEGUIDO: '',
         PUNTOS: this.puntos
     }).then(async (docRef: any) => {
@@ -440,11 +440,11 @@ export class RetoService {
 
   /**
    * Elimina un reto conseguido
-   * @param id id del reto conseguido
+   * @param retoId id del reto conseguido
    */
-  async deleteRetoConseguido(id: string) {
+  async deleteRetoConseguido(retoId: string) {
 
-    this.firestore.collection('retosconseguidos').doc(id).delete().then(() => {
+    this.firestore.collection('retosconseguidos').doc(retoId).delete().then(() => {
       console.log("Documento eliminado correctamente");
     }).catch((error) => {
       console.error("Error al eliminar el documento: ", error);

@@ -408,15 +408,15 @@ Revisa el estado de la sesión, recoge el mail y busca su perfil para cargar los
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>alertDelete(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>alertDelete()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="181"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:181</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="157"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:157</a></div>
                 </td>
             </tr>
 
@@ -428,45 +428,8 @@ Al eliminarlo de devuelve al Home</p>
 </div>
 
                     <div class="io-description">
-                        <b>Parámetros :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Nombre</td>
-                                    <td>Tipo</td>
-                                    <td>Opcional</td>
-                                    <td>Descripción</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>documentId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>ID del usuario a eliminar (el mismo que ha iniciado sesión)</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
                         <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -494,8 +457,8 @@ Al eliminarlo de devuelve al Home</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="209"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:209</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="185"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:185</a></div>
                 </td>
             </tr>
 
@@ -537,8 +500,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="132"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:132</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="108"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:108</a></div>
                 </td>
             </tr>
 
@@ -576,8 +539,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="122"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:122</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="98"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:98</a></div>
                 </td>
             </tr>
 
@@ -615,8 +578,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="109"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:109</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="85"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:85</a></div>
                 </td>
             </tr>
 
@@ -656,8 +619,8 @@ con la contraseña nueva</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="296"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:296</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="272"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:272</a></div>
                 </td>
             </tr>
 
@@ -699,8 +662,8 @@ a Firestorage y posteriormente el servicio de actualizacion del usuario pasando 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="273"
-                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:273</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="249"
+                            class="link-to-prism">src/app/pages/perfil/perfil.page.ts:249</a></div>
                 </td>
             </tr>
 
@@ -968,32 +931,8 @@ export class PerfilPage implements OnInit {
 
   ) {
 
-    /*   this.angularFireAuth.onAuthStateChanged(user &#x3D;&gt; {
-
-      if (user) {
-        // El usuario está logueado
-        this.userSvc.getUserEmail().subscribe(email &#x3D;&gt; {
-          this.userEmail &#x3D; email;
-   
-
-          this.userSvc.getUserByEmail(email).subscribe(usuario &#x3D;&gt; {
-
-            this.usuarioLogado &#x3D; usuario;
-          });
-
-        });
-
-      } else {
-        // El usuario no está logueado
-        console.log(&#x27;no deberias estar aqui&#x27;);
-
-      }
-
-    });        */
-
     this.authSvc.initAuthStateListener();
     this.userEmail &#x3D; this.authSvc.userEmail;
-
 
   }
 
@@ -1072,7 +1011,7 @@ export class PerfilPage implements OnInit {
    * Al eliminarlo de devuelve al Home
    * @param documentId ID del usuario a eliminar (el mismo que ha iniciado sesión)
    */
-  async alertDelete(documentId: string) {
+  async alertDelete() {
 
     const alert &#x3D; await this.alertCtrl.create({
       header: &#x27;Eliminar usuario&#x27;,
@@ -1085,7 +1024,7 @@ export class PerfilPage implements OnInit {
         }, {
           text: &#x27;Eliminar&#x27;,
           handler: () &#x3D;&gt; {
-            //  this.userSvc.deleteUser(this.usuarioLogado.ID);
+          this.authSvc.deleteAccount();
             this.router.navigateByUrl(&#x27;/home&#x27;);
           }
         }
@@ -1245,7 +1184,7 @@ export class PerfilPage implements OnInit {
     Cerrar sesión
   &lt;/ion-button&gt;
 
-  &lt;ion-button (click)&#x3D;&quot;alertDelete(usuarioLogado.ID)&quot; expand&#x3D;&quot;block&quot; fill&#x3D;&quot;clear&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;danger&quot;&gt;
+  &lt;ion-button (click)&#x3D;&quot;alertDelete()&quot; expand&#x3D;&quot;block&quot; fill&#x3D;&quot;clear&quot; shape&#x3D;&quot;round&quot; color&#x3D;&quot;danger&quot;&gt;
     Eliminar Cuenta
   &lt;/ion-button&gt;
 
@@ -1285,7 +1224,7 @@ export class PerfilPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header class="ion-no-border" translucent>  <ion-toolbar>    <ion-buttons slot="start">      <ion-back-button defaultHref="/" color="primary"></ion-back-button>    </ion-buttons>    <ion-title class="ion-text-capitalize" align="center" *ngIf="usuarioLogado?.ROL">Hola {{usuarioLogado.NOMBRE}} !!</ion-title>  </ion-toolbar></ion-header><ion-content>  <div>    <ion-avatar class="avatar">      <ion-img [src]="usuarioLogado?.AVATAR" class="imagenAvatar"></ion-img>    </ion-avatar>    <div class="image-text" align="center" color="primary" (click)="avatarActionSheet()">Cambiar Avatar</div>  </div>  <ion-button (click)="alertPassChange()" expand="block" fill="clear" shape="round">    Cambiar Contraseña  </ion-button>  <ion-item>    <ion-label>Puntos</ion-label>  </ion-item>  <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">    Cerrar sesión  </ion-button>  <ion-button (click)="alertDelete(usuarioLogado.ID)" expand="block" fill="clear" shape="round" color="danger">    Eliminar Cuenta  </ion-button></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header class="ion-no-border" translucent>  <ion-toolbar>    <ion-buttons slot="start">      <ion-back-button defaultHref="/" color="primary"></ion-back-button>    </ion-buttons>    <ion-title class="ion-text-capitalize" align="center" *ngIf="usuarioLogado?.ROL">Hola {{usuarioLogado.NOMBRE}} !!</ion-title>  </ion-toolbar></ion-header><ion-content>  <div>    <ion-avatar class="avatar">      <ion-img [src]="usuarioLogado?.AVATAR" class="imagenAvatar"></ion-img>    </ion-avatar>    <div class="image-text" align="center" color="primary" (click)="avatarActionSheet()">Cambiar Avatar</div>  </div>  <ion-button (click)="alertPassChange()" expand="block" fill="clear" shape="round">    Cambiar Contraseña  </ion-button>  <ion-item>    <ion-label>Puntos</ion-label>  </ion-item>  <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">    Cerrar sesión  </ion-button>  <ion-button (click)="alertDelete()" expand="block" fill="clear" shape="round" color="danger">    Eliminar Cuenta  </ion-button></ion-content></div>'
     var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FabLoginComponent', 'selector': 'app-fab-login'},{'name': 'FavoritosPage', 'selector': 'app-favoritos'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'InfoRetoComponent', 'selector': 'app-info-reto'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'MisRetosPage', 'selector': 'app-mis-retos'},{'name': 'NewRetoComponent', 'selector': 'app-new-reto'},{'name': 'NewsPagePage', 'selector': 'app-news-page'},{'name': 'NoticiaComponent', 'selector': 'app-noticia'},{'name': 'NoticiasComponent', 'selector': 'app-noticias'},{'name': 'PerfilPage', 'selector': 'app-perfil'},{'name': 'RankingPage', 'selector': 'app-ranking'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'RetoComponent', 'selector': 'app-reto'},{'name': 'RetosComponent', 'selector': 'app-retos'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PerfilPage'};

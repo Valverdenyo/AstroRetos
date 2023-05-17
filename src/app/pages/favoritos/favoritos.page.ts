@@ -106,14 +106,14 @@ export class FavoritosPage implements OnInit {
 
   /**
    * Muestra el Modal con los detalles del reto
-   * @param id Id del reto
+   * @param retoId Id del reto
    */
-  async verDetalle(id: string) {
+  async verDetalle(retoId: string) {
 
     const modal = await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
-        id
+        retoId
       },
       cssClass: 'modalInfo'
     });
@@ -124,13 +124,13 @@ export class FavoritosPage implements OnInit {
 
   /**
    * Quita el favorito de la lista
-   * @param id Id del favorito
+   * @param idFav Id del favorito
    */
-  quitarFavorito(id: string) {
+  quitarFavorito(idFav: string) {
 
     try {
-      this.retoSvc.deleteFavorito(id);
-      console.log('eliminando reto', this.idFavorito, id);
+      this.retoSvc.deleteFavorito(idFav);
+      console.log('eliminando reto', this.idFavorito, idFav);
       this.avisosSvc.presentToast('Favorito eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el Favorito', 'danger');

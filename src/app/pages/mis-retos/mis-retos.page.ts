@@ -73,14 +73,14 @@ export class MisRetosPage implements OnInit {
 
   /**
    * Carga el Modal con el formulario para crear un nuevo reto
-   * @param id Pasa como parámetro el id del usuario que creará el reto
+   * @param userId Pasa como parámetro el id del usuario que creará el reto
    */
-  async newReto(id: string) {
+  async newReto(userId: string) {
 
     const modal = await this.modalCtrl.create({
       component: NewRetoComponent,
       componentProps: {
-        id
+        userId
       },
       cssClass: 'modalInfo'
     });
@@ -91,12 +91,12 @@ export class MisRetosPage implements OnInit {
 
   /**
    * Cambia el reto a activo/inactivo y muestra el aviso con el resultado.
-   * @param id Id del reto a cambiar
+   * @param retoId Id del reto a cambiar
    */
-  cambiarEstado(id: string) {
-    console.log('cambio Estado', id);
+  cambiarEstado(retoId: string) {
+    console.log('cambio Estado', retoId);
     try {
-      this.retoSvc.updateEstadoReto(id);
+      this.retoSvc.updateEstadoReto(retoId);
 
       this.avisosSvc.presentToast('Cambio de Estado Correcto', 'success');
     } catch (error) {
@@ -106,11 +106,11 @@ export class MisRetosPage implements OnInit {
 
 /**
  * Elimina el reto seleccionado
- * @param id Id del reto a eliminar
+ * @param retoId Id del reto a eliminar
  */
-  deleteReto(id: string) {
+  deleteReto(retoId: string) {
     try {
-      this.retoSvc.deleteReto(id);
+      this.retoSvc.deleteReto(retoId);
       this.avisosSvc.presentToast('Reto eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
@@ -120,13 +120,13 @@ export class MisRetosPage implements OnInit {
 
   /**
    * Carga el modal con la info detallada del reto
-   * @param id Id del reto a mostrar
+   * @param retoId Id del reto a mostrar
    */
-  async verDetalle(id: string) {
+  async verDetalle(retoId: string) {
     const modal = await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
-        id
+        retoId
       },
       cssClass: 'modalInfo'
     });

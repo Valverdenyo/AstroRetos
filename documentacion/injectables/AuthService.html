@@ -104,6 +104,10 @@
                                 <a href="#checkLogin" >checkLogin</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteAccount" >deleteAccount</a>
+                            </li>
+                            <li>
                                 <a href="#deleteUser" >deleteUser</a>
                             </li>
                             <li>
@@ -289,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="122"
-                            class="link-to-prism">src/app/services/auth.service.ts:122</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="124"
+                            class="link-to-prism">src/app/services/auth.service.ts:124</a></div>
                 </td>
             </tr>
 
@@ -382,8 +386,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="140"
-                            class="link-to-prism">src/app/services/auth.service.ts:140</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="142"
+                            class="link-to-prism">src/app/services/auth.service.ts:142</a></div>
                 </td>
             </tr>
 
@@ -410,6 +414,45 @@ Si no estas logado, redireccionaria al Login</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteAccount</b></span>
+                        <a href="#deleteAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteAccount()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="197"
+                            class="link-to-prism">src/app/services/auth.service.ts:197</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deleteUser"></a>
                     <span class="name">
                         <span ><b>deleteUser</b></span>
@@ -419,15 +462,15 @@ Si no estas logado, redireccionaria al Login</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>deleteUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="184"
-                            class="link-to-prism">src/app/services/auth.service.ts:184</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="186"
+                            class="link-to-prism">src/app/services/auth.service.ts:186</a></div>
                 </td>
             </tr>
 
@@ -451,7 +494,7 @@ Si no estas logado, redireccionaria al Login</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>userId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -505,8 +548,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="150"
-                            class="link-to-prism">src/app/services/auth.service.ts:150</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="152"
+                            class="link-to-prism">src/app/services/auth.service.ts:152</a></div>
                 </td>
             </tr>
 
@@ -519,7 +562,7 @@ Si no estas logado, redireccionaria al Login</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Devuelve : </b>    <code>Promise&lt;string | null&gt;</code>
+                        <b>Devuelve : </b>    <code>Promise&lt;string&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -551,8 +594,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="161"
-                            class="link-to-prism">src/app/services/auth.service.ts:161</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="163"
+                            class="link-to-prism">src/app/services/auth.service.ts:163</a></div>
                 </td>
             </tr>
 
@@ -583,15 +626,15 @@ Si no estas logado, redireccionaria al Login</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>passChange(nuevaContraseña: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>passChange(newPass: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="175"
-                            class="link-to-prism">src/app/services/auth.service.ts:175</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="177"
+                            class="link-to-prism">src/app/services/auth.service.ts:177</a></div>
                 </td>
             </tr>
 
@@ -615,7 +658,7 @@ Si no estas logado, redireccionaria al Login</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>nuevaContraseña</td>
+                                    <td>newPass</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -668,8 +711,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="82"
-                            class="link-to-prism">src/app/services/auth.service.ts:82</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="84"
+                            class="link-to-prism">src/app/services/auth.service.ts:84</a></div>
                 </td>
             </tr>
 
@@ -744,8 +787,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="98"
-                            class="link-to-prism">src/app/services/auth.service.ts:98</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="100"
+                            class="link-to-prism">src/app/services/auth.service.ts:100</a></div>
                 </td>
             </tr>
 
@@ -864,8 +907,8 @@ Si no estas logado, redireccionaria al Login</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Definido en <a href="" data-line="110"
-                            class="link-to-prism">src/app/services/auth.service.ts:110</a></div>
+                    <div class="io-line">Definido en <a href="" data-line="112"
+                            class="link-to-prism">src/app/services/auth.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -1015,11 +1058,13 @@ export class AuthService {
    */
   signUp(usuario: Usuario) {
 
+    const noAvatar: string &#x3D; &#x27;https://firebasestorage.googleapis.com/v0/b/astroretos-db.appspot.com/o/avatar%2Fno-avatar.png?alt&#x3D;media&amp;token&#x3D;e6384116-00b8-4a34-a0f1-ee14e4ae8983&#x27;;
+
     this.firestore.collection(&#x27;usuarios&#x27;).add({
       EMAIL: usuario.EMAIL,
       NOMBRE: usuario.NOMBRE,
       ROL: &quot;Retador&quot;,
-      AVATAR: &quot;&quot;,
+      AVATAR: noAvatar,
       ID: &quot;&quot;,
       PUNTOS: 0
 
@@ -1114,15 +1159,15 @@ export class AuthService {
    * Obtiene el mail del usuario en caso de estar logado
    * @returns 
    */
-  public async getUserEmail(): Promise&lt;string | null&gt; {
+  public async getUserEmail(): Promise&lt;string&gt; {
     if (this.checkLogin()) {
       const user &#x3D; await this.angularFireAuth.currentUser;
       if (user) {
         this.userEmail &#x3D; user.email;
-        return this.userEmail || null;
+        return this.userEmail || &#x27;&#x27;;
       }
     }
-    return null;
+    return &#x27;&#x27;;
   }
 
   public initAuthStateListener(): void {
@@ -1130,33 +1175,44 @@ export class AuthService {
       if (user) {
         this.userEmail &#x3D; user.email;
       } else {
-        this.userEmail &#x3D; null;
+        this.userEmail &#x3D; &#x27;&#x27;;
       }
     });
   }
 
   /**
    * Método para cambiar la contraseña del usuario
-   * @param nuevaContraseña String recibido a través del formulario con la nueva contraseña
+   * @param newPass String recibido a través del formulario con la nueva contraseña
    */
-  async passChange(nuevaContraseña: string) {
+  async passChange(newPass: string) {
     const user &#x3D; await this.angularFireAuth.currentUser;
-    await user.updatePassword(nuevaContraseña);
+    await user.updatePassword(newPass);
   }
 
   /**
    * Metodo para eliminar un usuario concreto
-   * @param id id del usuario a eliminar pasado por parámetro
+   * @param userId id del usuario a eliminar pasado por parámetro
    */
-  deleteUser(id: string) {
+  deleteUser(userId: string) {
 
-    this.firestore.collection(&#x27;usuarios&#x27;).doc(id).delete()
+    this.firestore.collection(&#x27;usuarios&#x27;).doc(userId).delete()
       .then(() &#x3D;&gt; {
         this.avisosSvc.presentToast(&#x27;Usuario eliminado correctamente&#x27;, &#x27;success&#x27;);
       })
       .catch((error) &#x3D;&gt; {
         this.avisosSvc.presentToast(&#x27;Error eliminando el Usuario&#x27;, &#x27;danger&#x27;);
       });
+  }
+
+  async deleteAccount() {
+    try {
+      const user &#x3D; this.angularFireAuth.currentUser;
+      await (await user).delete();
+      this.deleteUser(this.usuarioLogado.ID);
+      this.router.navigateByUrl(&#x27;home&#x27;);
+    } catch (error) {
+      console.log(&#x27;Error deleting account&#x27;, error);
+    }
   }
 
 }

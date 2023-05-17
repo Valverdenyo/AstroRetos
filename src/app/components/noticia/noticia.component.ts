@@ -45,6 +45,7 @@ export class NoticiaComponent {
       buttons: [{
         text: 'Compartir',
         icon: 'share-outline',
+        cssClass: 'primary',
         handler: () => {
 
           this.onShareArticle();

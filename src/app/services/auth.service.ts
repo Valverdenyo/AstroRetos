@@ -172,20 +172,20 @@ export class AuthService {
 
   /**
    * Método para cambiar la contraseña del usuario
-   * @param nuevaContraseña String recibido a través del formulario con la nueva contraseña
+   * @param newPass String recibido a través del formulario con la nueva contraseña
    */
-  async passChange(nuevaContraseña: string) {
+  async passChange(newPass: string) {
     const user = await this.angularFireAuth.currentUser;
-    await user.updatePassword(nuevaContraseña);
+    await user.updatePassword(newPass);
   }
 
   /**
    * Metodo para eliminar un usuario concreto
-   * @param id id del usuario a eliminar pasado por parámetro
+   * @param userId id del usuario a eliminar pasado por parámetro
    */
-  deleteUser(id: string) {
+  deleteUser(userId: string) {
 
-    this.firestore.collection('usuarios').doc(id).delete()
+    this.firestore.collection('usuarios').doc(userId).delete()
       .then(() => {
         this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
       })

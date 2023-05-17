@@ -344,7 +344,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>cambiarEstado(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>cambiarEstado(idReto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -376,7 +376,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>idReto</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -420,7 +420,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>cambiarRol(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>cambiarRol(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -452,7 +452,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>userId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -496,7 +496,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteReto(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>deleteReto(idReto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -528,7 +528,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>idReto</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -572,7 +572,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>deleteUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -604,7 +604,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>userId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -1140,13 +1140,13 @@ export class AdminPage implements OnInit {
 
   /**
    * Método para cambiar el Rol de un usuario concreto Retador&lt;&#x3D;&gt;Administrador
-   * @param id Id del usuario
+   * @param userId Id del usuario
    */
-  cambiarRol(id: string) {
+  cambiarRol(userId: string) {
 
-    console.log(&#x27;cambio rol&#x27;, id);
+    console.log(&#x27;cambio rol&#x27;, userId);
     try {
-      this.userSvc.updateUserRol(id);
+      this.userSvc.updateUserRol(userId);
       this.avisosSvc.presentToast(&#x27;Cambio de Rol Correcto&#x27;, &#x27;success&#x27;);
     } catch (error) {
       this.avisosSvc.presentToast(&#x27;Error en el cambio de Rol&#x27;, &#x27;danger&#x27;);
@@ -1156,13 +1156,13 @@ export class AdminPage implements OnInit {
 
   /**
    * Metodo que cambia el estado del reto: activo&lt;&#x3D;&gt;inactivo
-   * @param id Id del Reto
+   * @param idReto Id del Reto
    */
-  cambiarEstado(id: string) {
+  cambiarEstado(idReto: string) {
 
-    console.log(&#x27;cambio Estado&#x27;, id);
+    console.log(&#x27;cambio Estado&#x27;, idReto);
     try {
-      this.retoSvc.updateEstadoReto(id);
+      this.retoSvc.updateEstadoReto(idReto);
 
       this.avisosSvc.presentToast(&#x27;Cambio de Estado Correcto&#x27;, &#x27;success&#x27;);
     } catch (error) {
@@ -1173,12 +1173,12 @@ export class AdminPage implements OnInit {
 
   /**
    * Metodo que elimina un usuaio
-   * @param id Ide del usuario a borrar
+   * @param userId Ide del usuario a borrar
    */
-  deleteUser(id: string) {
+  deleteUser(userId: string) {
 
     try {
-      //   this.userSvc.deleteUser(id);
+      this.authSvc.deleteUser(userId);
       this.avisosSvc.presentToast(&#x27;Usuario eliminado correctamente&#x27;, &#x27;success&#x27;);
     } catch (error) {
       this.avisosSvc.presentToast(&#x27;Error al eliminar el usuario&#x27;, &#x27;danger&#x27;);
@@ -1188,12 +1188,12 @@ export class AdminPage implements OnInit {
 
   /**
    * Metodo que elimina un reto
-   * @param id Id del Reto a eliminar
+   * @param idReto Id del Reto a eliminar
    */
-  deleteReto(id: string) {
+  deleteReto(idReto: string) {
 
     try {
-      this.retoSvc.deleteReto(id);
+      this.retoSvc.deleteReto(idReto);
       this.avisosSvc.presentToast(&#x27;Usuario eliminado correctamente&#x27;, &#x27;success&#x27;);
     } catch (error) {
       this.avisosSvc.presentToast(&#x27;Error al eliminar el usuario&#x27;, &#x27;danger&#x27;);

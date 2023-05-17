@@ -107,13 +107,13 @@ export class AdminPage implements OnInit {
 
   /**
    * Método para cambiar el Rol de un usuario concreto Retador<=>Administrador
-   * @param id Id del usuario
+   * @param userId Id del usuario
    */
-  cambiarRol(id: string) {
+  cambiarRol(userId: string) {
 
-    console.log('cambio rol', id);
+    console.log('cambio rol', userId);
     try {
-      this.userSvc.updateUserRol(id);
+      this.userSvc.updateUserRol(userId);
       this.avisosSvc.presentToast('Cambio de Rol Correcto', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error en el cambio de Rol', 'danger');
@@ -123,13 +123,13 @@ export class AdminPage implements OnInit {
 
   /**
    * Metodo que cambia el estado del reto: activo<=>inactivo
-   * @param id Id del Reto
+   * @param idReto Id del Reto
    */
-  cambiarEstado(id: string) {
+  cambiarEstado(idReto: string) {
 
-    console.log('cambio Estado', id);
+    console.log('cambio Estado', idReto);
     try {
-      this.retoSvc.updateEstadoReto(id);
+      this.retoSvc.updateEstadoReto(idReto);
 
       this.avisosSvc.presentToast('Cambio de Estado Correcto', 'success');
     } catch (error) {
@@ -140,12 +140,12 @@ export class AdminPage implements OnInit {
 
   /**
    * Metodo que elimina un usuaio
-   * @param id Ide del usuario a borrar
+   * @param userId Ide del usuario a borrar
    */
-  deleteUser(id: string) {
+  deleteUser(userId: string) {
 
     try {
-      this.authSvc.deleteUser(id);
+      this.authSvc.deleteUser(userId);
       this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');
@@ -155,12 +155,12 @@ export class AdminPage implements OnInit {
 
   /**
    * Metodo que elimina un reto
-   * @param id Id del Reto a eliminar
+   * @param idReto Id del Reto a eliminar
    */
-  deleteReto(id: string) {
+  deleteReto(idReto: string) {
 
     try {
-      this.retoSvc.deleteReto(id);
+      this.retoSvc.deleteReto(idReto);
       this.avisosSvc.presentToast('Usuario eliminado correctamente', 'success');
     } catch (error) {
       this.avisosSvc.presentToast('Error al eliminar el usuario', 'danger');

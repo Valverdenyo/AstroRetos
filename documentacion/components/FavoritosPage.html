@@ -392,7 +392,7 @@ Almacenamos los retos por los ID de los favoritos</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>quitarFavorito(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>quitarFavorito(idFav: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -424,7 +424,7 @@ Almacenamos los retos por los ID de los favoritos</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>idFav</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -470,7 +470,7 @@ Almacenamos los retos por los ID de los favoritos</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>verDetalle(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>verDetalle(retoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -502,7 +502,7 @@ Almacenamos los retos por los ID de los favoritos</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>retoId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -888,14 +888,14 @@ export class FavoritosPage implements OnInit {
 
   /**
    * Muestra el Modal con los detalles del reto
-   * @param id Id del reto
+   * @param retoId Id del reto
    */
-  async verDetalle(id: string) {
+  async verDetalle(retoId: string) {
 
     const modal &#x3D; await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
-        id
+        retoId
       },
       cssClass: &#x27;modalInfo&#x27;
     });
@@ -906,13 +906,13 @@ export class FavoritosPage implements OnInit {
 
   /**
    * Quita el favorito de la lista
-   * @param id Id del favorito
+   * @param idFav Id del favorito
    */
-  quitarFavorito(id: string) {
+  quitarFavorito(idFav: string) {
 
     try {
-      this.retoSvc.deleteFavorito(id);
-      console.log(&#x27;eliminando reto&#x27;, this.idFavorito, id);
+      this.retoSvc.deleteFavorito(idFav);
+      console.log(&#x27;eliminando reto&#x27;, this.idFavorito, idFav);
       this.avisosSvc.presentToast(&#x27;Favorito eliminado correctamente&#x27;, &#x27;success&#x27;);
     } catch (error) {
       this.avisosSvc.presentToast(&#x27;Error al eliminar el Favorito&#x27;, &#x27;danger&#x27;);

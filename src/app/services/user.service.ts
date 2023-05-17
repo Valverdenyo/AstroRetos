@@ -39,6 +39,11 @@ export class UserService {
   usuariosCollection: AngularFirestoreCollection<Usuario>;
 
   /**
+   * almacena el total de puntos
+   */
+  totalPuntos: number;
+
+  /**
    * Constructor de clase
    * @param firestore Servicio de Firestore
    * @param http Servicio de http usado para peticiones json a los datos del menu
@@ -82,28 +87,36 @@ export class UserService {
 
   /**
    * Devuelve un observable con el usuario buscado por Id
-   * @param id Id del usuario a buscar
+   * @param userId Id del usuario a buscar
    * @returns 
    */
-  public getUserById(id: string): Observable<Usuario> {
-    return this.firestore.collection<Usuario>('usuarios', ref => ref.where('ID', '==', id).limit(1))
+  public getUserById(userId: string): Observable<Usuario> {
+    return this.firestore.collection<Usuario>('usuarios', ref => ref.where('ID', '==', userId).limit(1))
       .valueChanges({ idField: 'id' })
       .pipe(
         map(usuarios => usuarios[0])
       );
   }
-
-  updateUserPuntos(user: string, puntos: number) {
-    
+/**
+ * Metodo que actualia el total de puntos del usuario
+ * @param email Email del usuario a actualizar
+ * @param puntos puntos totales del usuario
+ */
+  updateUserPuntos(email: string, puntos: number) {
+    this.getUserByEmail(email).subscribe(user => {
+      return this.firestore.collection('usuarios').doc(user.ID).update({
+        PUNTOS: puntos
+      });
+    });
   }
 
   /**
    * Metodo para cambiar de rol al usuario: Retador <=> Administrador
-   * @param id Id del usuario al que cambiar el Rol
+   * @param userId Id del usuario al que cambiar el Rol
    * @returns 
    */
-  updateUserRol(id: string) {
-    this.getUserById(id).subscribe(usuario => {
+  updateUserRol(userId: string) {
+    this.getUserById(userId).subscribe(usuario => {
       this.usuario = usuario;
     });
 
@@ -115,25 +128,25 @@ export class UserService {
       console.log('cambio a', this.newRol);
     }
 
-    return this.firestore.collection('usuarios').doc(id).update({
+    return this.firestore.collection('usuarios').doc(userId).update({
       ROL: this.newRol
     });
   }
 
   /**
    * Metodo para cambiar el Avatar de un usuario
-   * @param id Id del usuario al que cambiar el Avatar
+   * @param userId Id del usuario al que cambiar el Avatar
    * @param avatar Imagen nueva del avatar (string saneado)
    * @returns 
    */
-  updateUserAvatar(id: string, avatar: string) {
+  updateUserAvatar(userId: string, avatar: string) {
 
-    this.getUserById(id).subscribe(usuario => {
+    this.getUserById(userId).subscribe(usuario => {
       this.usuario = usuario;
       this.newAvatar = this.usuario.AVATAR;
       this.newAvatar = avatar;
     });
-    return this.firestore.collection('usuarios').doc(id).update({
+    return this.firestore.collection('usuarios').doc(userId).update({
       AVATAR: avatar
     });
 

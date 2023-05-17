@@ -119,13 +119,13 @@ export class RetoComponent implements OnInit {
 
   /**
    * Carga un modal para mostar la info detallada de un reto
-   * @param id Id del Reto a mostrar
+   * @param retoId Id del Reto a mostrar
    */
-  async verDetalle(id: string) {
+  async verDetalle(retoId: string) {
     const modal = await this.modalCtrl.create({
       component: InfoRetoComponent,
       componentProps: {
-        id
+        retoId
       },
       cssClass: 'modalInfo'
     });
@@ -271,10 +271,10 @@ export class RetoComponent implements OnInit {
       if (user) {
         await this.retoSvc.addRetoConseguido(retoId, user);
         this.avisosSvc.presentToast('Reto conseguido', 'success');
-        this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos => {
+       /*  this.userSvc.getTotalPuntosByUser(this.userEmail).subscribe(totalPuntos => {
 
-          this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
-        });
+         this.userSvc.updateUserPuntos(this.userEmail, totalPuntos);
+        }); */
       } else {
         this.avisosSvc.presentToast('Debes estar logado para hacer esto', 'warning');
       }
