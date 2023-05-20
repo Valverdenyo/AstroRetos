@@ -14,13 +14,13 @@
 <title>cluster_ComponentsModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 1570,-230.8 1570,-32.8 8,-32.8"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_ComponentsModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 1562,-92.8 1562,-40.8 16,-40.8"/>
-</g>
 <g id="clust15" class="cluster">
 <title>cluster_ComponentsModule_exports</title>
 <polygon fill="none" stroke="black" points="68,-170.8 68,-222.8 1511,-222.8 1511,-170.8 68,-170.8"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_ComponentsModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 1562,-92.8 1562,-40.8 16,-40.8"/>
 </g>
 <!-- FabLoginComponent -->
 <g id="node1" class="node">
